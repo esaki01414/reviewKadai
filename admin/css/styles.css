@@ -1,4 +1,13 @@
 /* 管理者側の基本スタイル */
+input[type=search]{
+    font: 400 16px/1 sans-serif;
+    padding: .75em .25em .75em 3em;
+    border-radius: .5rem;
+    border: 1px solid #fdfdfd;
+    color: #ccc;
+    background: no-repeat left .8em center /1.5em;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
