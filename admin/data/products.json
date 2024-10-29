@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "name": "商品A",
+        "price": 2000,
+        "image": "images/productA.jpg",
+        "description": "これは商品Aの説明です。"
+    },
+    {
+        "id": 2,
+        "name": "商品B",
+        "price": 3000,
+        "image": "images/productB.jpg",
+        "description": "これは商品Bの説明です。"
+    },
+    {
+        "id": 3,
+        "name": "商品C",
+        "price": 4000,
+        "image": "images/productC.jpg",
+        "description": "これは商品Cの説明です。"
+    }
+]
