@@ -1,0 +1,5 @@
+git init           # Gitリポジトリを初期化
+git add .          # すべてのファイルをステージング
+git commit -m "初回コミット"  # 最初のコミットを作成
+git remote add origin [リポジトリのURL]  # リモートリポジトリを追加
+git push -u origin master  # リモートにプッシュ
