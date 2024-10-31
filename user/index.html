@@ -5,20 +5,131 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ECサイト</title>
     <link rel="stylesheet" href="css/styles.css"> <!-- CSSファイルのリンク -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* 中央揃え */
+            margin-top: 50px; /* 上部の余白 */
+        }
+        .gender-selection {
+            display: flex; /* フレックスボックスを使用 */
+            justify-content: center; /* 中央に配置 */
+            margin-top: 20px; /* 上部の余白 */
+        }
+        .gender-button {
+            display: inline-block;
+            width: 100px; /* ボタンの幅 */
+            height: 100px; /* ボタンの高さ */
+            margin: 10px;
+            background-color: #f0f0f0; /* ボタンの背景色 */
+            border: 2px solid #ccc; /* ボタンの枠線 */
+            border-radius: 10px; /* 角を丸くする */
+            text-align: center; /* テキストを中央に配置 */
+            cursor: pointer; /* マウスカーソルをポインターに */
+            transition: background-color 0.3s; /* 背景色の変化をスムーズに */
+        }
+        .gender-button:hover {
+            background-color: #e0e0e0; /* ホバー時の背景色 */
+        }
+        .gender-icon {
+            width: 50px; /* アイコンの幅 */
+            height: 50px; /* アイコンの高さ */
+            margin-top: 10px; /* アイコンの上マージン */
+        }
+        .product-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px; /* 上部の余白 */
+        }
+        .product-item {
+            margin: 10px;
+            text-align: center; /* テキストを中央揃え */
+        }
+        .product-item img {
+            width: 100px; /* 商品画像の幅 */
+            height: 100px; /* 商品画像の高さ */
+            border: 1px solid #ccc; /* 枠線 */
+            border-radius: 5px; /* 角を丸くする */
+        }
+    </style>
 </head>
 <body>
     <header>
         <h1>ECサイトのタイトル</h1>
-        <!-- ナビゲーションバーなど -->
     </header>
     <main>
+        <section id="gender-selection">
+            <div class="gender-selection">
+                <label class="gender-button">
+                    <input type="radio" name="gender_age" value="男性" checked>
+                    <img src="./images/男.jpeg" alt="男性" class="gender-icon"> <!-- 男性アイコン -->
+                    <div>男性</div>
+                </label>
+                <label class="gender-button">
+                    <input type="radio" name="gender_age" value="女性">
+                    <img src="./images/女.jpg" alt="女性" class="gender-icon"> <!-- 女性アイコン -->
+                    <div>女性</div>
+                </label>
+                <label class="gender-button">
+                    <input type="radio" name="gender_age" value="子供">
+                    <img src="./images/子供.jpg" alt="子供" class="gender-icon"> <!-- 子供アイコン -->
+                    <div>子供</div>
+                </label>
+            </div>
+        </section>
+
         <section id="product-list">
-            <!-- 商品リストがここに表示される -->
+            <h2>商品一覧</h2>
+            <div class="product-list" id="product-list-container">
+                <!-- 商品リストがここに表示される -->
+            </div>
         </section>
     </main>
     <footer>
         <p>&copy; 2024 ECサイト</p>
     </footer>
-    <script src="js/script.js"></script> <!-- JavaScriptファイルのリンク -->
+    <script>
+        const products = [
+            {
+                "name": "商品1",
+                "image": "./images/画像1.jpg"
+            },
+            {
+                "name": "商品2",
+                "image": "./images/画像2.jpg"
+            },
+            {
+                "name": "商品3",
+                "image": "./images/画像3.jpg"
+            }
+        ];
+
+        const productListContainer = document.getElementById('product-list-container');
+
+        // 商品を表示する関数
+        function displayProducts() {
+            products.forEach(product => {
+                const productItem = document.createElement('div');
+                productItem.classList.add('product-item');
+
+                const productImage = document.createElement('img');
+                productImage.src = product.image;
+                productImage.alt = product.name;
+
+                const productName = document.createElement('div');
+                productName.textContent = product.name;
+
+                productItem.appendChild(productImage);
+                productItem.appendChild(productName);
+                productListContainer.appendChild(productItem);
+            });
+        }
+
+        // ページが読み込まれた時に商品を表示
+        window.onload = displayProducts;
+    </script>
 </body>
 </html>

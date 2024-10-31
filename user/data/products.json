@@ -1,12 +1,14 @@
 [
     {
         "name": "商品1",
-        "price": 1000,
-        "image": "product1.jpg"
+        "image": "./images/画像1.jpg"
     },
     {
         "name": "商品2",
-        "price": 1500,
-        "image": "product2.jpg"
+        "image": "./images/画像2.jpg"
+    },
+    {
+        "name": "商品3",
+        "image": "./images/画像3.jpg"
     }
 ]
