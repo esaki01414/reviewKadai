@@ -1,3 +1,25 @@
+.input_icon {
+    position: relative;
+    display: inline-block;
+}
+
+input[type="search"] {
+    font: 400 16px/1 sans-serif;
+    padding: .75em 3em .75em 3em; /* 左側にアイコンのスペースを確保 */
+    border-radius: .5rem;
+    border: 2px solid #000000;
+    color: #ccc;
+}
+
+.search_icon {
+    position: absolute;
+    left: 10px; /* アイコンの位置を調整 */
+    top: 50%;
+    transform: translateY(-50%); /* 縦中央揃え */
+    font-size: 24px;
+    pointer-events: none; /* アイコンをクリックできないように */
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;

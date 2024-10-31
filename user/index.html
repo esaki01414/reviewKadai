@@ -23,20 +23,16 @@
             width: 100px; /* ボタンの幅 */
             height: 100px; /* ボタンの高さ */
             margin: 10px;
-            background-color: #f0f0f0; /* ボタンの背景色 */
-            border: 2px solid #ccc; /* ボタンの枠線 */
-            border-radius: 10px; /* 角を丸くする */
-            text-align: center; /* テキストを中央に配置 */
             cursor: pointer; /* マウスカーソルをポインターに */
-            transition: background-color 0.3s; /* 背景色の変化をスムーズに */
-        }
-        .gender-button:hover {
-            background-color: #e0e0e0; /* ホバー時の背景色 */
         }
         .gender-icon {
-            width: 50px; /* アイコンの幅 */
-            height: 50px; /* アイコンの高さ */
-            margin-top: 10px; /* アイコンの上マージン */
+            width: 100%; /* アイコンの幅 */
+            height: 100%; /* アイコンの高さ */
+            border-radius: 10px; /* 角を丸くする */
+            transition: opacity 0.3s; /* オパシティの変化をスムーズに */
+        }
+        .inactive {
+            opacity: 0.5; /* 非アクティブ時の不透明度 */
         }
         .product-list {
             display: flex;
@@ -54,6 +50,21 @@
             border: 1px solid #ccc; /* 枠線 */
             border-radius: 5px; /* 角を丸くする */
         }
+        .slideshow {
+            position: relative;
+            width: 300px; /* スライドショーの幅 */
+            height: 200px; /* スライドショーの高さ */
+            overflow: hidden; /* はみ出した部分を隠す */
+            margin-top: 20px; /* 上部の余白 */
+        }
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        .slide {
+            min-width: 100%; /* 各スライドの幅 */
+            height: 100%; /* 各スライドの高さ */
+        }
     </style>
 </head>
 <body>
@@ -63,21 +74,29 @@
     <main>
         <section id="gender-selection">
             <div class="gender-selection">
-                <label class="gender-button">
-                    <input type="radio" name="gender_age" value="男性" checked>
-                    <img src="./images/男.jpeg" alt="男性" class="gender-icon"> <!-- 男性アイコン -->
-                    <div>男性</div>
-                </label>
-                <label class="gender-button">
-                    <input type="radio" name="gender_age" value="女性">
-                    <img src="./images/女.jpg" alt="女性" class="gender-icon"> <!-- 女性アイコン -->
-                    <div>女性</div>
-                </label>
-                <label class="gender-button">
-                    <input type="radio" name="gender_age" value="子供">
-                    <img src="./images/子供.jpg" alt="子供" class="gender-icon"> <!-- 子供アイコン -->
-                    <div>子供</div>
-                </label>
+                <div class="gender-button" onclick="selectGender('男性')">
+                    <img src="./images/男.jpeg" alt="男性" class="gender-icon" id="male-icon"> <!-- 男性アイコン -->
+                </div>
+                <div class="gender-button" onclick="selectGender('女性')">
+                    <img src="./images/女.jpg" alt="女性" class="gender-icon" id="female-icon"> <!-- 女性アイコン -->
+                </div>
+                <div class="gender-button" onclick="selectGender('子供')">
+                    <img src="./images/子供.jpg" alt="子供" class="gender-icon" id="child-icon"> <!-- 子供アイコン -->
+                </div>
+            </div>
+        </section>
+
+        <section id="slideshow">
+            <div class="slideshow">
+                <div class="slides" id="slides">
+                    <div class="slide"><img src="./images/画像1.jpg" alt="画像1"></div>
+                    <div class="slide"><img src="./images/画像2.jpg" alt="画像2"></div>
+                    <div class="slide"><img src="./images/画像3.jpg" alt="画像3"></div>
+                    <div class="slide"><img src="./images/画像4.jpg" alt="画像4"></div>
+                    <div class="slide"><img src="./images/画像5.jpg" alt="画像5"></div>
+                    <div class="slide"><img src="./images/画像6.jpg" alt="画像6"></div>
+                    <div class="slide"><img src="./images/画像7.jpg" alt="画像7"></div>
+                </div>
             </div>
         </section>
 
@@ -108,6 +127,8 @@
         ];
 
         const productListContainer = document.getElementById('product-list-container');
+        let currentSlideIndex = 0;
+        const totalSlides = 7;
 
         // 商品を表示する関数
         function displayProducts() {
@@ -128,8 +149,40 @@
             });
         }
 
+        // 性別を選択する関数
+        function selectGender(gender) {
+            const maleIcon = document.getElementById('male-icon');
+            const femaleIcon = document.getElementById('female-icon');
+            const childIcon = document.getElementById('child-icon');
+
+            maleIcon.classList.add('inactive');
+            femaleIcon.classList.add('inactive');
+            childIcon.classList.add('inactive');
+
+            if (gender === '男性') {
+                maleIcon.classList.remove('inactive');
+            } else if (gender === '女性') {
+                femaleIcon.classList.remove('inactive');
+            } else if (gender === '子供') {
+                childIcon.classList.remove('inactive');
+            }
+        }
+
+        // スライドショーの自動再生
+        function showSlides() {
+            const slides = document.getElementById('slides');
+            currentSlideIndex++;
+            if (currentSlideIndex >= totalSlides) {
+                currentSlideIndex = 0;
+            }
+            slides.style.transform = `translateX(-${currentSlideIndex * 100}%)`;
+        }
+
         // ページが読み込まれた時に商品を表示
-        window.onload = displayProducts;
+        window.onload = () => {
+            displayProducts();
+            setInterval(showSlides, 3000); // 3秒ごとにスライドを切り替え
+        };
     </script>
 </body>
 </html>
