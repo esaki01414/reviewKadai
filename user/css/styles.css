@@ -46,3 +46,11 @@ header {
     padding: 15px;
     text-align: center;
 }
+.slideshow {
+    position: relative;
+    width: 300px; /* スライドショーの幅 */
+    height: 200px; /* スライドショーの高さ */
+    overflow: hidden; /* はみ出した部分を隠す */
+    margin: 20px auto; /* 上下の余白を20px、左右を自動で中央揃え */
+}
+
