@@ -1,18 +1,23 @@
-input[type=search] {
+.input_icon {
+    position: relative;
+    display: inline-block;
+}
+
+input[type="search"] {
     font: 400 16px/1 sans-serif;
-    padding: .75em .25em .75em 3em;
+    padding: .75em 3em .75em 3em; /* 左側にアイコンのスペースを確保 */
     border-radius: .5rem;
     border: 2px solid #000000;
     color: #ccc;
-    position: relative; /* 追加 */
 }
 
-input[type=search]::before {
-    content: "🔍"; /* アイコンを設定 */
-    position: absolute; /* 絶対配置 */
-    top: 50%; /* 垂直方向の中央 */
-    transform: translateY(-50%); /* 中央揃え */
-    color: #000; /* アイコンの色 */
+.search_icon {
+    position: absolute;
+    left: 10px; /* アイコンの位置を調整 */
+    top: 50%;
+    transform: translateY(-50%); /* 縦中央揃え */
+    font-size: 24px;
+    pointer-events: none; /* アイコンをクリックできないように */
 }
 
 body {

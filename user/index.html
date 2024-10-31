@@ -11,10 +11,22 @@
         <h1>洋服ショッピングサイト</h1>
         <!-- ナビゲーションバーなど -->
          <!-- 検索ボックスの表示 -->
-        <div style="position: relative;">
-            <input type="search" placeholder="検索：キーワード" style="padding-left: 2.5em;"> <!-- 左側のパディングを調整 -->
-            <span style="position: absolute; left: 13.5em; top: 50%; transform: translateY(-50%); color: #ccc;">🔍</span>
+        <div class="input_icon">
+            <input type="search" placeholder="検索：キーワード"> <!-- 左側のパディングを調整 -->
+            <span class="search_icon">🔍</span>
         </div>
+        <!-- ハンバーガーメニュ― -->
+        <nav role="navigation">
+            <div id="menu">
+                <input type="checkbox">
+                <div class="spans">
+                    <span>/</span>
+                    <span>/</span>
+                    <span>/</span>
+                </div>
+                
+            </div>
+        </nav>
     </header>
     <main>
         <section id="product-list">
