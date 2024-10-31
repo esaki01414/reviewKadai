@@ -3,27 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ECサイト</title>
+    <title>管理者ログイン画面</title>
     <link rel="stylesheet" href="css/styles.css"> <!-- CSSファイルのリンク -->
 </head>
 <body>
-    <header>
-        <h1>ECサイトのタイトル</h1>
-        
-        
-        
-        <!-- ナビゲーションバーなど -->
-    </header>
-    <main>
-        <section id="product-list">
-            <!-- 商品リストがここに表示される -->
-        </section>
-
-
-    </main>
-    <footer>
-        <p>&copy; 2024 ECサイト</p>
-    </footer>
+    <div class="login-wrapper" id="login">
+        <div class="container">
+            <div class="login">
+                <div class="login-wrapper-title">
+                    <h3>ログイン</h3>
+                </div>
+                <form class="login-form">
+                    <div class="form-group">
+                        <p>社員ID</p>
+                        <input type="text" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <p>パスワード</p>
+                        <input type="password" name="password" required>
+                    </div>
+                    <button type="submit" class="btn btn-submit">ログイン</button>
+                </form>
+            </div>
+        </div>
+    </div>
     <script src="js/script.js"></script> <!-- JavaScriptファイルのリンク -->
 </body>
 </html>

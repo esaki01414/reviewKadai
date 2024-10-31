@@ -1,3 +1,4 @@
+"use strict";
 // 商品データを取得して表示する関数
 function loadProducts() {
     fetch('products.json')
