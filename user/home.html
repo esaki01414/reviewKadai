@@ -14,23 +14,29 @@
     </header>
     <!-- action先を参照する -->
      <!-- FORMタグの追加 -->
-    <form action="">
+    
     <div>
     <div class="container">
+
         <div class="input_group">
-            <b>Email</b><br>
-            <input name="user_mail" type="email" id="input" autocomplete="off" style="box-shadow: 5px 5px 5px #AAA;">
+            <!-- 新規登録かLoginかの表示をさせるデフォルトはLogin -->
+            <button class="old_login">Login</button>
+            <button class="new_login">新規登録</button>
+            <!-- action先を参照する -->
+            <!-- FORMタグの追加 -->
+            <form action="">
+            <!-- メール入力 -->
+            <label for="Email">Email</label><br>
+            <input name="user_mail" type="email" id="input" autocomplete="off" style="box-shadow: 5px 5px 5px #AAA;" placeholder="230000@s.asojuku.ac.jp"><br>
+            <!-- パスワード入力 -->
+             <label for="password">password</label><br>
+            <input name="user_pass" type="password" id="input" autocomplete="off" style="box-shadow: 5px 5px 5px #AAA;" placeholder="英数字を含む８字以上"><br>
             
-
-            <br><br>
-            <b>Password</b><br>
-            <input name="user_pass" type="password" id="input" autocomplete="off" style="box-shadow: 5px 5px 5px #AAA;">
-            
+            <a href="#" class="forgot-password">パスワードを忘れた方はこちら（再設定）</a>
             <br><br> 
-
-            <button type="submit" id="login" style="box-shadow: 5px 5px 5px #AAA;">Login</button>
+            <button type="submit" class="login" id="login" style="box-shadow: 5px 5px 5px #AAA;">Login</button>
         </div>
+            </form>
     </div>
-    </form>
 </body>
 </html>
