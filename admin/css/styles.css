@@ -1,11 +1,20 @@
 /* 管理者側の基本スタイル */
-input[type=search]{
+
+input[type=search] {
     font: 400 16px/1 sans-serif;
     padding: .75em .25em .75em 3em;
     border-radius: .5rem;
     border: 1px solid #fdfdfd;
     color: #ccc;
-    background: no-repeat left .8em center /1.5em;
+    position: relative; /* 追加 */
+}
+
+input[type=search]::before {
+    content: "🔍"; /* アイコンを設定 */
+    position: absolute; /* 絶対配置 */
+    top: 50%; /* 垂直方向の中央 */
+    transform: translateY(-50%); /* 中央揃え */
+    color: #ccc; /* アイコンの色 */
 }
 
 body {
@@ -23,7 +32,7 @@ header {
 }
 
 main {
-    padding: 20px;
+    padding: 20px
 }
 
 .product-list {
