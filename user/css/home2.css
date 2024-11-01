@@ -123,3 +123,110 @@ label {
     display: block; /* ラベルをブロック要素にして、下にスペースを確保 */
     margin-bottom: 5px; /* ラベルとボックスの間隔 */
 }
+.address-inputs {
+    display: flex; /* 横並びにするための設定 */
+    align-items: center; /* 縦方向の中央揃え */
+    margin-bottom: 15px; /* 下に余白 */
+}
+
+.address-inputs span {
+    margin: 0 5px; /* スパン（〒とー）の間に余白 */
+}
+
+.address-inputs input {
+    width: 50px; /* ボックスの幅を固定 */
+    margin: 0 5px; /* ボックス間の余白 */
+}
+
+#address {
+    margin-top: 10px; /* 住所ボックスとの間隔を調整 */
+    width: 100%; /* 住所ボックスは全幅を占める */
+}
+.new_login_tab {
+    flex: 1;
+    padding: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #007bff; /* 文字色を青に */
+    text-align: center; /* 中央揃え */
+    position: relative; /* 下線を絶対位置で表示するための設定 */
+}
+
+.new_login_tab::after {
+    content: ""; /* 擬似要素を作成 */
+    display: block; /* ブロック要素にする */
+    width: 100%; /* 幅を100%に設定 */
+    height: 3px; /* 下線の太さ */
+    background-color: #007bff; /* 下線の色 */
+    border-radius: 5px; /* 角を丸くする */
+    position: absolute; /* 絶対位置で配置 */
+    left: 0; /* 左端に配置 */
+    bottom: -5px; /* テキストの下に配置（必要に応じて調整） */
+}
+.login_tab {
+    flex: 1;
+    padding: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    color: black; /* 文字色を黒に */
+    text-align: center; /* 中央揃え */
+    text-decoration: none; /* 下線を消す */
+    position: relative; /* 下線を絶対位置で表示するための設定 */
+}
+
+.login_tab::after {
+    content: ""; /* 擬似要素を作成 */
+    display: block; /* ブロック要素にする */
+    width: 100%; /* 幅を100%に設定 */
+    height: 3px; /* 下線の太さ */
+    background-color: #ffffff; /* 下線の色 */
+    border-radius: 5px; /* 角を丸くする */
+    position: absolute; /* 絶対位置で配置 */
+    left: 0; /* 左端に配置 */
+    bottom: -5px; /* テキストの下に配置（必要に応じて調整） */
+}
+body {
+  display: flex;
+  flex-direction: column; /* 縦に並べる */
+  align-items: center; /* 横方向の中央揃え */
+  justify-content: center; /* 縦方向の中央揃え */
+  min-height: 100vh; /* 画面全体の高さを確保 */
+  margin: 0; /* デフォルトのマージンをリセット */
+  text-align: center; /* テキストを中央揃え */
+}
+
+header {
+  margin-bottom: 20px; /* 下のマージンを追加 */
+}
+
+.back {
+  margin-bottom: 20px; /* 下のマージンを追加 */
+}
+
+.container {
+  display: flex;
+  flex-direction: column; /* 縦に並べる */
+  align-items: center; /* 横方向の中央揃え */
+  padding: 20px; /* パディングを追加 */
+  border: 1px solid #ccc; /* ボーダーを追加 (任意) */
+  border-radius: 10px; /* 角を丸くする (任意) */
+  width: 100%; /* コンテナの幅を100%に */
+  max-width: 400px; /* 最大幅を設定 */
+}
+
+.profile-icon {
+  width: 100px; /* プロフィールアイコンの幅 */
+  height: 100px; /* プロフィールアイコンの高さ */
+  background-color: #ccc; /* アイコンの背景色 (任意) */
+  border-radius: 50%; /* 丸くする */
+  margin-bottom: 20px; /* 下のマージン */
+}
+.login_tab, .new_login_tab {
+  padding: 10px 30px; /* タブの内側にパディングを追加 */
+  cursor: pointer; /* カーソルをポインタに */
+  border: none; /* ボーダーを追加 (任意) */
+  border-radius: 5px; /* 角を丸くする (任意) */
+  margin: 0 10px; /* タブ同士の間にマージンを追加 */
+  min-width: 100px; /* 最小幅を指定 */
+  text-align: center; /* テキストを中央揃え */
+}
