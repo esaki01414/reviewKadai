@@ -106,10 +106,18 @@
 <body>
     <header>
         <h1>ECサイトのタイトル</h1>
+        <div class="header-info">
+        <img src="./images/ユーザーアイコン.jpg" alt="ユーザーアイコン" class="user-icon"> <!-- ユーザーアイコン -->
         <div class="guest-status">ゲストでログイン中</div> <!-- 追加 -->
+        </div>
         <div class="search-bar">
             <input type="text" placeholder="🔎洋服を検索" id="search-input">
             <button onclick="searchProducts()">検索</button>
+        </div>
+        <div class="category-selection" style="background-color: #aeaeae; padding: 10px; display: flex; justify-content: center;">
+            <div class="category-item" style="margin: 10px 60px; cursor: pointer;">すべて</div>
+            <div class="category-item" style="margin: 10px 60px; cursor: pointer;">コスメ</div>
+            <div class="category-item" style="margin: 10px 60px; cursor: pointer;">シューズ</div>
         </div>
         <div class="hamburger-menu" onclick="toggleMenu()">
             &#9776; <!-- ハンバーガーアイコン -->
@@ -152,7 +160,6 @@
         </section>
 
         <section id="product-list">
-            <h2>商品一覧</h2>
             <div class="product-list" id="product-list-container">
                 <!-- 商品リストがここに表示される -->
             </div>
