@@ -1,0 +1,82 @@
+/* dashboard.html */
+/* header */
+header {
+    width: 100%;
+    height: 60px;
+    background-color: #ebeced;
+    position: fixed;
+    z-index: 1;
+}
+
+.header-logo h1{
+    float:left;
+    padding-right: 15px;
+    font-size: 18px;
+}
+
+.header-logo a {
+    color: #4c586f;
+    line-height: 60px;
+}
+
+    .menu-icon {
+        display: none;
+    }
+
+    .menu-right {
+        float:right;
+        line-height: 60px;
+    }
+
+    .menu-right a {
+        color: #4c586f;
+    }
+
+    .menu-right a:hover {
+        color: #a2aab0;
+    }
+
+/* boxs */
+.boxs {
+        display: flex;
+    }
+
+    .box {
+        display: inline-block;
+        width: 20%;
+        height: 200px;
+        border:1px solid #ebeced;
+        margin: 0 5px;
+        text-align: center;
+        color: #3e3e3b;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+        }
+    .box:hover {
+        color: #4c586f;
+    }
+    .icon{
+        font-size: 80px;
+        height: 130px;
+        line-height: 130px;
+    }
+    .box p {
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+/* footer */
+footer {
+    height: 80px;
+    background-color: #4c586f;
+    text-align: right;
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+
+}
+
+    footer p {
+        line-height: 80px;
+        color: #fff;
+        font-size: 12px;
+    }
