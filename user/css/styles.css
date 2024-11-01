@@ -48,11 +48,16 @@ header {
 }
 .slideshow {
     position: relative;
-    width: 300px; /* スライドショーの幅 */
-    height: 200px; /* スライドショーの高さ */
+    width: 350px; /* スライドショーの幅 */
+    height: 300px; /* スライドショーの高さ */
     overflow: hidden; /* はみ出した部分を隠す */
-    margin: 20px auto; /* 上下の余白を20px、左右を自動で中央揃え */
+margin: 20px auto; /* 上下の余白を20px、左右を自動で中央揃え */
 }
+.slide img {
+        width: 350px; /* 画像の幅をスライドショーの幅と同じに設定 */
+        height: 300px; /* 画像の高さは自動調整 */
+        object-fit: cover;    
+    }
 /* CSS内に検索バーのスタイルを追加 */
 .search-bar {
     display: flex;
