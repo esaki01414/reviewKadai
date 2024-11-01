@@ -6,39 +6,38 @@
     <link rel="stylesheet" href="css/home.css">
     <title>Document</title>
 </head>
+<header>
+    <h1>自分好みのコーデを見つけよう！</h1>
+</header>
 <body>
-    <header>
-        <b>自分好みのコーデを見つけよう！</b><br>
-        <br><br>
-        <a href="aa">←戻る</a>
-    </header>
-    <!-- action先を参照する -->
-     <!-- FORMタグの追加 -->
-    
-    <div>
+    <div class="back"><a href="./index.html">←戻る</a></div>
+
     <div class="container">
-
-        <div class="input_group">
-            <!-- 新規登録かLoginかの表示をさせるデフォルトはLogin -->
-            <button class="old_login">Login</button>
-            <button class="new_login">新規登録</button>
-            <!-- action先を参照する -->
-            <!-- FORMタグの追加 -->
-            <form action="">
-
-            <!-- メール入力 -->
-            <label for="Email">Email</label><br>
-            <input name="user_mail" type="email" id="input" autocomplete="off" style="box-shadow: 5px 5px 5px #AAA;" placeholder="230000@s.asojuku.ac.jp"><br>
-
-            <!-- パスワード入力 -->
-             <label for="password">Password</label><br>
-            <input name="user_pass" type="password" id="input" autocomplete="off" style="box-shadow: 5px 5px 5px #AAA;" placeholder="英数字を含む８字以上"><br>
-            
-            <a href="#" class="forgot-password">パスワードを忘れた方はこちら（再設定）</a>
-            <br><br> 
-            <button type="submit" class="login" id="login" style="box-shadow: 5px 5px 5px #AAA;">Login</button>
+      <div class="profile-icon"></div>
+      
+      <div class="tabs">
+        <div class="login_tab"><link rel="stylesheet" href="#">Login</div>
+        <!-- リンク先の設定 -->
+        <div class="new_login_tab"><link rel="stylesheet" href="#">新規登録</div>
+      </div>
+  
+      <form>
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="23000@s.asojuku.ac.jp" required>
+  
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="英数字含む8文字以上" required>
+  
+        <div class="checkbox-container">
+          <input type="checkbox" id="remember">
+          <label for="remember">パスワードを自動保存する</label>
         </div>
-            </form>
+  
+        <a href="#" class="forgot-password">パスワードを忘れた方はこちら（再設定）</a>
+  
+        <button type="submit" class="login-btn">Login</button>
+      </form>
     </div>
-</body>
+  </body>
+  </html>
 </html>

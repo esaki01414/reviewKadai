@@ -1,78 +1,105 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+h1 
+body {
     font-family: Arial, sans-serif;
-}
-.input_group{
-    background-color: #eeeeee; /* 背景色を白に */
-    border-radius: 10px; /* 角を丸く */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* ボックスに影を追加 */
-    padding: 50px; /* 内側の余白 */
-}
-.old_login,.new_login{
-    width: 40%; /* タブの幅を等分 */
-    padding: 0px 0; /* 上下の余白 */
-    border: none; /* ボーダーを削除 */
-    font-size: 16px; /* フォントサイズ */
-    cursor: pointer; /* カーソルをポインタに */
-    border-radius: 10px 10px 0 0; /* 角を丸く */
-    background-color: rgb(226, 226, 226);
-    position: relative;
-    top: -90px;
-    margin: 10px;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    
-}
-header{
-    background-color: rgb(230, 230, 230);
-    color: rgba(119, 119, 119, 0.5);
-}
-header b{
-    font-size: larger;
-    color: #000;
-}
-header p{
-    font-size: 50px;
-}
-
-button{
-    width: 100%;
-    height: 40px;
-}
-.login{
-    font-size: larger;
-    border-color: rgb(196, 196, 197);
-    background-color: blue;
-    color:rgb(255, 255, 255);
-    border-radius: 10px; 
-}
-
-
-.container{
-    width: 100%;
-    /* テキストボックスの高さ変更 */
-    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    
-}
-#input{
-    width: 200px;
-    height: 30px;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f2f2f2;
+  }
+
+  .container {
+    width: 360px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+  }
+
+  .container h1 {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+
+  .profile-icon {
+    width: 60px;
+    height: 60px;
+    background-color: #cccccc;
+    border-radius: 50%;
+    margin: 0 auto 10px;
+  }
+
+  .tabs {
+    display: flex;
+    margin-bottom: 20px;
+  }
+
+  .login_tab,.new_login_tab {
+    flex: 1;
+    padding: 10px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  
+
+  form {
+    text-align: left;
+  }
+
+  label {
+    font-size: 14px;
+    color: #333;
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
     font-size: 16px;
-    outline: none;
-    padding: 6px 16px;
-    border: 1px solid rgb(107, 107, 107);
-    border-radius: 4px;
-}
+  }
 
-.input_group #input:focus{
-    border-color: aqua;
-}
+  .checkbox-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
 
+  .checkbox-container input {
+    margin-right: 5px;
+  }
+
+  .forgot-password {
+    color: #007bff;
+    font-size: 14px;
+    display: block;
+    margin-bottom: 20px;
+    text-decoration: none;
+  }
+
+  .forgot-password:hover {
+    text-decoration: underline;
+  }
+
+  .login-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .login-btn:hover {
+    background-color: #0056b3;
+  }

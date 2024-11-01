@@ -67,7 +67,7 @@ margin: 20px auto; /* 上下の余白を20px、左右を自動で中央揃え */
 }
 
 #search-input {
-    width: 300px; /* 検索バーの幅 */
+    width: 600px; /* 検索バーの幅 */
     padding: 8px; /* 内側の余白 */
     font-size: 16px; /* 文字サイズ */
     border: 1px solid #ccc; /* 枠線 */
@@ -85,16 +85,28 @@ margin: 20px auto; /* 上下の余白を20px、左右を自動で中央揃え */
 }
 
 .gender-button {
-    width: 60px; /* ボタンの幅を小さくする */
-    height: 60px; /* ボタンの高さを小さくする */
-    margin: 8px 50px; /* ボタン間の余白を小さくする */
+    width: 50px; /* ボタンの幅を小さくする */
+    height: 50px; /* ボタンの高さを小さくする */
+    padding: 10px;
+    margin: 100px 100px; /* ボタン間の余白を小さくする */
+    border: none;
     cursor: pointer;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+.gender-button:hover{
+    background-color: #9e9e9e; /* ホバー時の背景色を変更 */
 }
 
 .gender-icon {
     width: 100%; /* アイコンの幅をボタンに合わせる */
     height: 100%; /* アイコンの高さをボタンに合わせる */
     border-radius: 8px; /* 角の丸みを少し小さくする */
+}
+.gender-selection {
+    display: flex;
+    justify-content: center;
+    margin-top: -80px; /* 上に移動するためのマイナスのマージン */
 }
 .menu {
     position: relative; /* 相対位置を設定 */
@@ -135,4 +147,34 @@ margin: 20px auto; /* 上下の余白を20px、左右を自動で中央揃え */
     color: #666; /* テキストカラーを薄いグレーに */
     margin-bottom: 5px; /* 検索バーとの余白 */
     text-align: left;
+}
+header {
+    background-color: #aeaeae; /* 好きな背景色に変更 */
+    width: 100%; /* 幅を100%に設定 */
+    padding: 20px 0; /* 上下の余白を追加、左右は0 */
+    margin: 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 影を追加（任意） */
+    text-align: center; /* テキストを中央揃え */
+}
+.header-info {
+    display: flex; /* フレックスボックスで横並びにする */
+    align-items: center; /* 垂直方向に中央揃え */
+}
+
+.user-icon {
+    width: 30px; /* アイコンの幅 */
+    height: 30px; /* アイコンの高さ */
+    border-radius: 50%; /* アイコンを円形にする */
+    background-color: #aeaeae;
+    display: inline-block;
+    margin-right: 10px; /* アイコンとテキストの間に余白 */
+}
+.product-item {
+    display: inline-block; /* 画像を横に並べるためのスタイル */
+    margin: 10px; /* 画像間のマージン */
+}
+
+.product-item img {
+    width: 100px; /* 画像のサイズを調整 */
+    height: auto; /* 高さを自動にしてアスペクト比を維持 */
 }

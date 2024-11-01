@@ -1,25 +1,40 @@
-// 商品データを取得して表示する関数
-function loadProducts() {
-    fetch('data/products.json')
-        .then(response => response.json())
-        .then(products => {
-            const productList = document.getElementById('product-list');
-            products.forEach(product => {
-                const productCard = document.createElement('div');
-                productCard.className = 'product-card';
-                productCard.innerHTML = `
-                    <img src="images/${product.image}" alt="${product.name}" />
-                    <h2>${product.name}</h2>
-                    <p>${product.price}円</p>
-                    <button>カートに追加</button>
-                `;
-                productList.appendChild(productCard);
-            });
-        });
+const products = [
+    {
+        "name": "商品1",
+        "image": "./images/画像1.jpg"
+    },
+    {
+        "name": "商品2",
+        "image": "./images/画像2.jpg"
+    },
+    {
+        "name": "商品3",
+        "image": "./images/画像3.jpg"
+    }
+];
+
+const productListContainer = document.getElementById('product-list-container');
+
+function displayProducts() {
+    products.forEach(product => {
+        const productItem = document.createElement('div');
+        productItem.classList.add('product-item');
+
+        const productImage = document.createElement('img');
+        productImage.src = product.image;
+        productImage.alt = product.name; // アクセシビリティ向上のためにalt属性は残しておく
+
+        // 商品名は追加しない
+        // productItem.appendChild(document.createTextNode(product.name)); // この行を削除
+
+        productItem.appendChild(productImage);
+        productListContainer.appendChild(productItem);
+    });
 }
 
 // ページがロードされたときに商品を表示
 window.onload = loadProducts;
+window.onload = displayProducts;
 function toggleMenu() {
     const navMenu = document.getElementById('nav-menu');
     navMenu.classList.toggle('hidden'); // hiddenクラスをトグル
