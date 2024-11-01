@@ -48,9 +48,91 @@ header {
 }
 .slideshow {
     position: relative;
-    width: 300px; /* スライドショーの幅 */
-    height: 200px; /* スライドショーの高さ */
+    width: 350px; /* スライドショーの幅 */
+    height: 300px; /* スライドショーの高さ */
     overflow: hidden; /* はみ出した部分を隠す */
-    margin: 20px auto; /* 上下の余白を20px、左右を自動で中央揃え */
+margin: 20px auto; /* 上下の余白を20px、左右を自動で中央揃え */
+}
+.slide img {
+        width: 350px; /* 画像の幅をスライドショーの幅と同じに設定 */
+        height: 300px; /* 画像の高さは自動調整 */
+        object-fit: cover;    
+    }
+/* CSS内に検索バーのスタイルを追加 */
+.search-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px; /* タイトルとの間に余白を追加 */
 }
 
+#search-input {
+    width: 300px; /* 検索バーの幅 */
+    padding: 8px; /* 内側の余白 */
+    font-size: 16px; /* 文字サイズ */
+    border: 1px solid #ccc; /* 枠線 */
+    border-radius: 5px 0 0 5px; /* 角丸 */
+}
+
+.search-bar button {
+    padding: 8px 16px; /* ボタンの内側余白 */
+    font-size: 16px; /* 文字サイズ */
+    cursor: pointer;
+    border: none;
+    border-radius: 0 5px 5px 0; /* 角丸 */
+    background-color: #4CAF50; /* ボタンの背景色 */
+    color: white; /* ボタンの文字色 */
+}
+
+.gender-button {
+    width: 60px; /* ボタンの幅を小さくする */
+    height: 60px; /* ボタンの高さを小さくする */
+    margin: 8px 50px; /* ボタン間の余白を小さくする */
+    cursor: pointer;
+}
+
+.gender-icon {
+    width: 100%; /* アイコンの幅をボタンに合わせる */
+    height: 100%; /* アイコンの高さをボタンに合わせる */
+    border-radius: 8px; /* 角の丸みを少し小さくする */
+}
+.menu {
+    position: relative; /* 相対位置を設定 */
+    display: flex;
+    align-items: center; /* 中央揃え */
+}
+
+.hamburger {
+    font-size: 30px; /* ハンバーガーアイコンのサイズ */
+    cursor: pointer; /* ポインターカーソル */
+}
+
+.nav-menu {
+    display: none; /* 初期状態で非表示 */
+    position: absolute; /* 絶対位置 */
+    top: 50px; /* ヘッダーの下に配置 */
+    right: 0; /* 右側に配置 */
+    background-color: white; /* メニューの背景色 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* 影をつける */
+    z-index: 1000; /* 他の要素より上に表示 */
+}
+
+.nav-menu ul {
+    list-style-type: none; /* リストのスタイルを削除 */
+    padding: 0; /* パディングを削除 */
+}
+
+.nav-menu li {
+    padding: 10px 20px; /* リスト項目のパディング */
+}
+
+.nav-menu a {
+    text-decoration: none; /* リンクの下線を削除 */
+    color: black; /* リンクの色 */
+}
+.guest-status {
+    font-size: 12px; /* フォントサイズを小さく */
+    color: #666; /* テキストカラーを薄いグレーに */
+    margin-bottom: 5px; /* 検索バーとの余白 */
+    text-align: left;
+}
