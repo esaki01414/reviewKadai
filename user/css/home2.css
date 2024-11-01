@@ -1,0 +1,125 @@
+h1 
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f2f2f2;
+  }
+
+  .container {
+    width: 360px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+  }
+
+  .container h1 {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+
+  .profile-icon {
+    width: 60px;
+    height: 60px;
+    background-color: #cccccc;
+    border-radius: 50%;
+    margin: 0 auto 10px;
+  }
+
+  .tabs {
+    display: flex;
+    margin-bottom: 20px;
+  }
+
+  .login_tab,.new_login_tab {
+    flex: 1;
+    padding: 10px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  
+
+  form {
+    text-align: left;
+  }
+
+  label {
+    font-size: 14px;
+    color: #333;
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+  }
+
+  .checkbox-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+
+  .checkbox-container input {
+    margin-right: 5px;
+  }
+
+  .forgot-password {
+    color: #007bff;
+    font-size: 14px;
+    display: block;
+    margin-bottom: 20px;
+    text-decoration: none;
+  }
+
+  .forgot-password:hover {
+    text-decoration: underline;
+  }
+
+  .login-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .login-btn:hover {
+    background-color: #0056b3;
+  }
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* 行の間隔を調整 */
+}
+
+.name-inputs, .kana-inputs {
+    display: flex;
+    justify-content: space-between; /* 横並びにするための設定 */
+}
+
+.name-inputs div, .kana-inputs div {
+    flex: 1; /* 各ボックスが等しく幅を占める */
+    margin: 0 10px; /* ボックス間の余白 */
+}
+
+label {
+    display: block; /* ラベルをブロック要素にして、下にスペースを確保 */
+    margin-bottom: 5px; /* ラベルとボックスの間隔 */
+}
