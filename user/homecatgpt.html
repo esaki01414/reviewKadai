@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Screen</title>
+    <!-- 外部CSSファイルをリンク -->
+    <link rel="stylesheet" href="css/homechatgpt.css">
+</head>
+<body>
+    <!-- コンテナ全体を中央に配置するためのラッパー -->
+    <div class="container">
+        <!-- ログインボックス -->
+        <div class="login-box">
+            <!-- ログインと新規登録のタブボタン -->
+            <button class="login-tab active">Login</button>
+            <button class="register-tab">新規登録</button>
+            
+            <!-- ログインフォーム -->
+            <form>
+                <!-- メール入力フィールド -->
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="23000@s.asojuku.ac.jp">
+                
+                <!-- パスワード入力フィールド -->
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="英数字含む8字以上">
+                
+                <!-- パスワード自動保存のチェックボックスとラベル -->
+                <div class="options">
+                    <input type="checkbox" id="remember">
+                    <label for="remember">パスワードを自動保存する</label>
+                </div>
+
+                <!-- パスワードを忘れた場合のリンク -->
+                <a href="#" class="forgot-password">パスワードを忘れた方はこちら（再設定）</a>
+
+                <!-- ログインボタン -->
+                <button type="submit" class="login-button">Login</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
