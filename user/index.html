@@ -65,15 +65,61 @@
             min-width: 100%; /* 各スライドの幅 */
             height: 100%; /* 各スライドの高さ */
         }
+        .hamburger-menu {
+            cursor: pointer;
+            font-size: 30px; /* アイコンのサイズ */
+            position: absolute;
+            right: 20px; /* 右端からの距離 */
+            top: 20px; /* 上端からの距離 */
+        }
+
+        nav {
+            position: absolute;
+            top: 70px; /* ハンバーガーメニューの下に配置 */
+            right: 20px;
+            background-color: white; /* メニューの背景色 */
+            border: 1px solid #ccc; /* 枠線 */
+            border-radius: 5px; /* 角を丸くする */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* 影を追加 */
+        }
+
+        nav.hidden {
+            display: none; /* 非表示にするクラス */
+        }
+
+        nav ul {
+            list-style-type: none; /* リストマーカーを削除 */
+            padding: 0;
+            margin: 0;
+        }
+
+        nav li {
+            padding: 10px; /* リスト項目の余白 */
+        }
+
+        nav li a {
+            text-decoration: none; /* 下線を削除 */
+            color: black; /* テキストカラー */
+        }
     </style>
 </head>
 <body>
     <header>
         <h1>ECサイトのタイトル</h1>
+        <div class="guest-status">ゲストでログイン中</div> <!-- 追加 -->
         <div class="search-bar">
             <input type="text" placeholder="🔎洋服を検索" id="search-input">
             <button onclick="searchProducts()">検索</button>
         </div>
+        <div class="hamburger-menu" onclick="toggleMenu()">
+            &#9776; <!-- ハンバーガーアイコン -->
+        </div>
+        <nav id="nav-menu" class="hidden">
+            <ul>
+                <li><a href="home.html">ログイン画面</a></li>
+            <br><br><br><br><br></li>
+            </ul>
+        </nav>
     </header>
     
     <main>
@@ -187,6 +233,25 @@
         window.onload = () => {
             displayProducts();
             setInterval(showSlides, 3000); // 3秒ごとにスライドを切り替え
+        };
+        function toggleMenu() {
+            const navMenu = document.getElementById('nav-menu');
+            navMenu.classList.toggle('open'); // メニューの開閉をトグル
+        }
+
+        window.onload = () => {
+            displayProducts();
+            setInterval(showSlides, 3000);
+        };
+        // 省略
+        function toggleMenu() {
+            const navMenu = document.getElementById('nav-menu');
+            navMenu.classList.toggle('hidden'); // hiddenクラスをトグル
+        }
+
+        window.onload = () => {
+            displayProducts();
+            setInterval(showSlides, 3000);
         };
     </script>
 </body>

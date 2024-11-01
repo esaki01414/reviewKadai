@@ -20,3 +20,7 @@ function loadProducts() {
 
 // ページがロードされたときに商品を表示
 window.onload = loadProducts;
+function toggleMenu() {
+    const navMenu = document.getElementById('nav-menu');
+    navMenu.classList.toggle('hidden'); // hiddenクラスをトグル
+}

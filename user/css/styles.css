@@ -96,3 +96,43 @@ margin: 20px auto; /* 上下の余白を20px、左右を自動で中央揃え */
     height: 100%; /* アイコンの高さをボタンに合わせる */
     border-radius: 8px; /* 角の丸みを少し小さくする */
 }
+.menu {
+    position: relative; /* 相対位置を設定 */
+    display: flex;
+    align-items: center; /* 中央揃え */
+}
+
+.hamburger {
+    font-size: 30px; /* ハンバーガーアイコンのサイズ */
+    cursor: pointer; /* ポインターカーソル */
+}
+
+.nav-menu {
+    display: none; /* 初期状態で非表示 */
+    position: absolute; /* 絶対位置 */
+    top: 50px; /* ヘッダーの下に配置 */
+    right: 0; /* 右側に配置 */
+    background-color: white; /* メニューの背景色 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* 影をつける */
+    z-index: 1000; /* 他の要素より上に表示 */
+}
+
+.nav-menu ul {
+    list-style-type: none; /* リストのスタイルを削除 */
+    padding: 0; /* パディングを削除 */
+}
+
+.nav-menu li {
+    padding: 10px 20px; /* リスト項目のパディング */
+}
+
+.nav-menu a {
+    text-decoration: none; /* リンクの下線を削除 */
+    color: black; /* リンクの色 */
+}
+.guest-status {
+    font-size: 12px; /* フォントサイズを小さく */
+    color: #666; /* テキストカラーを薄いグレーに */
+    margin-bottom: 5px; /* 検索バーとの余白 */
+    text-align: left;
+}
