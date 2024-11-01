@@ -20,13 +20,15 @@
     'LAA1554917',
      'PassSD2D'
 );
-$sql='SELECT * FROM magazine';
+$sql='SELECT user_id, user_name FROM magazine';
    $stmt = $pdo->query($sql);
    foreach($stmt as $row){
-    
    }
    $pdo=null;
     ?>
     <script src="js/script.js"></script> <!-- JavaScriptファイルのリンク -->
 </body>
 </html>
+
+            
+                
