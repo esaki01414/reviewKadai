@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>ユーザー管理</h1>
-   <a href="dashboard.html">戻る</a>
+   <a href="dashboard.php">戻る</a>
    <form action="G6.php" method="get">   
     <button type="submit">ユーザー削除</button>
    </form>

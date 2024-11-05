@@ -12,11 +12,11 @@
     <header></header>
         <div class="container">
             <div class="header-logo">
-                <h1><a href="dashboard.html">管理画面</a></h1>
+                <h1><a href="dashboard.php">管理画面</a></h1>
             </div>
 
             <nav class="menu-right menu">
-                <a href="index.html">ログアウト</a>
+                <a href="index.php">ログアウト</a>
             </nav>
         </div>
     </header>
@@ -35,7 +35,7 @@
                         <i class="far fa-newspaper icon"></i><!-- fontawesome利用部分 -->
                         <p>ユーザー管理</p>
                     </a>
-                    <a href="G3.html" class="box">
+                    <a href="G3.php" class="box">
                         <i class="far fa-newspaper icon"></i><!-- fontawesome利用部分 -->
                         <p>新規登録</p>
                     </a>
