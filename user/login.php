@@ -17,15 +17,15 @@
       
       <div class="tabs">
         <div class="login_tab">Login</div>
-         <a href="home2.html" class="new_login_tab">新規登録</a>
+         <a href="new_logim.html" class="new_login_tab">新規登録</a>
      </div>
-  
-      <form>
+
+      <form action="home_login.html" method="post">
         <label for="email">Email</label>
-        <input type="email" id="email" placeholder="23000@s.asojuku.ac.jp" required>
+        <input type="email" id="email" name="user_email" placeholder="23000@s.asojuku.ac.jp" required>
   
         <label for="password">Password</label>
-        <input type="password" id="password" placeholder="英数字含む8文字以上" required>
+        <input type="password" id="password" name="user_pass" placeholder="英数字含む8文字以上" required>
   
         <div class="checkbox-container">
           <input type="checkbox" id="remember">

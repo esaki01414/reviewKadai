@@ -124,7 +124,7 @@
         </div>
         <nav id="nav-menu" class="hidden">
             <ul>
-                <li><a href="home.html">ログイン画面</a></li>
+                <li><a href="login.html">ログイン画面</a></li>
             <br><br><br><br><br></li>
             </ul>
         </nav>
