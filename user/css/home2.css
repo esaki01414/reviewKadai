@@ -16,6 +16,7 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
     text-align: center;
+    position: relative;
   }
 
   .container h1 {
@@ -35,16 +36,15 @@ body {
     display: flex;
     margin-bottom: 20px;
   }
-
-  .login_tab,.new_login_tab {
-    flex: 1;
-    padding: 10px;
-    cursor: pointer;
-    font-weight: bold;
+  .login_tab, .new_login_tab {
+    padding: 10px 30px; /* タブの内側にパディングを追加 */
+    cursor: pointer; /* カーソルをポインタに */
+    border: none; /* ボーダーを追加 (任意) */
+    border-radius: 5px; /* 角を丸くする (任意) */
+    margin: 0 10px; /* タブ同士の間にマージンを追加 */
+    min-width: 100px; /* 最小幅を指定 */
+    text-align: center; /* テキストを中央揃え */
   }
-
-  
-
   form {
     text-align: left;
   }
@@ -212,6 +212,8 @@ header {
   border-radius: 10px; /* 角を丸くする (任意) */
   width: 100%; /* コンテナの幅を100%に */
   max-width: 400px; /* 最大幅を設定 */
+  max-height: 500px;
+  overflow-y: auto;
 }
 
 .profile-icon {
@@ -229,4 +231,41 @@ header {
   margin: 0 10px; /* タブ同士の間にマージンを追加 */
   min-width: 100px; /* 最小幅を指定 */
   text-align: center; /* テキストを中央揃え */
+}
+.back-button {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 5px;
+  border: 1px solid #000; /* 枠線の色やデザインは任意で */
+}
+.back-button a {
+  color: #000;
+  text-decoration: none;
+}
+fieldset {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 15px;
+}
+
+legend {
+  font-size: 16px;
+  font-weight: bold;
+  padding: 0 5px;
+  color: #333;
+}
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input[type="tel"] {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
