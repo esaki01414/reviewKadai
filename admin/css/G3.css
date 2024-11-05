@@ -1,4 +1,20 @@
-label{
+.label{
     font-size: large;
     text-align: center;
+}
+.form1{
+    text-align: center;
+}
+.form2{
+    text-align: center;
+}
+.form3{
+    text-align: center;
+}
+.form4{
+    text-align: center;
+}
+.botton{
+    text-align: center;
+    color: #02982f;
 }
