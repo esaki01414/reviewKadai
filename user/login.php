@@ -10,7 +10,7 @@
     <h1>自分好みのコーデを見つけよう！</h1>
 </header>
 <body>
-    <div class="back"><a href="./index.html">←戻る</a></div>
+    <div class="back"><a href="home.php">←戻る</a></div>
 
     <div class="container">
       <div class="profile-icon"></div>

@@ -17,7 +17,7 @@
         <div class="profile-icon"></div>
 
         <div class="tabs">
-           <a href="home.html" class="login_tab">Login</a>
+           <a href="login.php" class="login_tab">Login</a>
             <div class="new_login_tab">新規登録</div>
         </div>
 
