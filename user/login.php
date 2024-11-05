@@ -17,7 +17,7 @@
       
       <div class="tabs">
         <div class="login_tab">Login</div>
-         <a href="home2.html" class="new_login_tab">新規登録</a>
+         <a href="new_logim.html" class="new_login_tab">新規登録</a>
      </div>
 
       <form action="home_login.html" method="post">
