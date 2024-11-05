@@ -10,22 +10,23 @@
     <h1>自分好みのコーデを見つけよう！</h1>
 </header>
 <body>
-    <div class="back"><a href="./index.html">←戻る</a></div>
-
+    
     <div class="container">
+        <div class="back"><a href="./home.php">←戻る</a></div>
+
         <div class="profile-icon"></div>
 
         <div class="tabs">
-            <div class="login_tab">Login</div>
+           <a href="login.php" class="login_tab">Login</a>
             <div class="new_login_tab">新規登録</div>
         </div>
 
-        <form class="login-form">
+        <form class="login-form" action="home_login.php" method="post">
             <label for="email">Email</label>
-            <input type="email" id="email" placeholder="23000@s.asojuku.ac.jp" required>
+            <input type="email" id="email" name="user_email" placeholder="23000@s.asojuku.ac.jp" required>
 
             <label for="password">Password</label>
-            <input type="password" id="password" placeholder="英数字含む8文字以上" required>
+            <input type="password" id="password" name="user_pass" placeholder="英数字含む8文字以上" required>
 
             <div class="name-inputs">
                 <div>
@@ -47,7 +48,14 @@
                     <input type="text" id="first-name-kana" placeholder="メイを入力" required>
                 </div>
             </div>
-
+            <label for="address">お届け先住所</label>
+            <div class="address-inputs">
+                <span>〒</span>
+                <input type="text" id="postal-code-1" placeholder="123" maxlength="3" required>
+                <span>ー</span>
+                <input type="text" id="postal-code-2" placeholder="4567" maxlength="4" required>
+            </div>
+            <input type="text" id="address" placeholder="住所を入力" required>
             <button type="submit" class="login-btn">Login</button>
         </form>
     </div>

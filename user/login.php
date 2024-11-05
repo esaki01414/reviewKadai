@@ -10,23 +10,22 @@
     <h1>自分好みのコーデを見つけよう！</h1>
 </header>
 <body>
-    <div class="back"><a href="./index.html">←戻る</a></div>
+    <div class="back"><a href="home.php">←戻る</a></div>
 
     <div class="container">
       <div class="profile-icon"></div>
       
       <div class="tabs">
-        <div class="login_tab"><link rel="stylesheet" href="#">Login</div>
-        <!-- リンク先の設定 -->
-        <div class="new_login_tab"><link rel="stylesheet" href="#">新規登録</div>
-      </div>
-  
-      <form>
+        <div class="login_tab">Login</div>
+         <a href="new_logim.php" class="new_login_tab">新規登録</a>
+     </div>
+
+      <form action="home_login.php" method="post">
         <label for="email">Email</label>
-        <input type="email" id="email" placeholder="23000@s.asojuku.ac.jp" required>
+        <input type="email" id="email" name="user_email" placeholder="23000@s.asojuku.ac.jp" required>
   
         <label for="password">Password</label>
-        <input type="password" id="password" placeholder="英数字含む8文字以上" required>
+        <input type="password" id="password" name="user_pass" placeholder="英数字含む8文字以上" required>
   
         <div class="checkbox-container">
           <input type="checkbox" id="remember">
