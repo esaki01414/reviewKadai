@@ -17,10 +17,10 @@
       
       <div class="tabs">
         <div class="login_tab">Login</div>
-         <a href="new_logim.html" class="new_login_tab">新規登録</a>
+         <a href="new_logim.php" class="new_login_tab">新規登録</a>
      </div>
 
-      <form action="home_login.html" method="post">
+      <form action="home_login.php" method="post">
         <label for="email">Email</label>
         <input type="email" id="email" name="user_email" placeholder="23000@s.asojuku.ac.jp" required>
   

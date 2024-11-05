@@ -12,7 +12,7 @@
 <body>
     
     <div class="container">
-        <div class="back"><a href="./index.html">←戻る</a></div>
+        <div class="back"><a href="./home.php">←戻る</a></div>
 
         <div class="profile-icon"></div>
 
@@ -21,7 +21,7 @@
             <div class="new_login_tab">新規登録</div>
         </div>
 
-        <form class="login-form" action="home_login.html" method="post">
+        <form class="login-form" action="home_login.php" method="post">
             <label for="email">Email</label>
             <input type="email" id="email" name="user_email" placeholder="23000@s.asojuku.ac.jp" required>
 
