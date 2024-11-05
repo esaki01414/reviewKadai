@@ -21,12 +21,12 @@
             <div class="new_login_tab">新規登録</div>
         </div>
 
-        <form class="login-form">
+        <form class="login-form" action="home_login.html" method="post">
             <label for="email">Email</label>
-            <input type="email" id="email" placeholder="23000@s.asojuku.ac.jp" required>
+            <input type="email" id="email" name="user_email" placeholder="23000@s.asojuku.ac.jp" required>
 
             <label for="password">Password</label>
-            <input type="password" id="password" placeholder="英数字含む8文字以上" required>
+            <input type="password" id="password" name="user_pass" placeholder="英数字含む8文字以上" required>
 
             <div class="name-inputs">
                 <div>
