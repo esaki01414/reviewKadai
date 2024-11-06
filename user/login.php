@@ -18,7 +18,7 @@
       
       <div class="tabs">
         <div class="login_tab">Login</div>
-         <a href="new_logim.php" class="new_login_tab">新規登録</a>
+         <a href="new_login.php" class="new_login_tab">新規登録</a>
      </div>
 
       <form action="home_login.php" method="post">
