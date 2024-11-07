@@ -9,13 +9,12 @@
 <header>
     <h1>自分好みのコーデを見つけよう！</h1>
 </header>
-<body>
+<body class="special-page">
     
     <div class="container">
     <div class="back-button"><a href="./home.php">←戻る</a></div>
     <div class="profile-icon"></div>
 
-        <div class="profile-icon"></div>
 
         <div class="tabs">
            <a href="login.php" class="login_tab">Login</a>
@@ -60,13 +59,18 @@
             <label for="todohuken">都道府県</label>
                 <select id="prefecture" required>
                     <option value="" disabled selected>都道府県を選択</option>
+                    <optgroup label="北海道地方"></optgroup>
                     <option value="北海道">北海道</option>
+                    <hr>
+                    <optgroup label="東北地方"></optgroup>
                     <option value="青森県">青森県</option>
                     <option value="岩手県">岩手県</option>
                     <option value="宮城県">宮城県</option>
                     <option value="秋田県">秋田県</option>
                     <option value="山形県">山形県</option>
                     <option value="福島県">福島県</option>
+                    <hr>
+                    <optgroup label="関東地方"></optgroup>
                     <option value="茨城県">茨城県</option>
                     <option value="栃木県">栃木県</option>
                     <option value="群馬県">群馬県</option>
@@ -74,6 +78,8 @@
                     <option value="千葉県">千葉県</option>
                     <option value="東京都">東京都</option>
                     <option value="神奈川県">神奈川県</option>
+                    <hr>
+                    <optgroup label="中部地方"></optgroup>
                     <option value="新潟県">新潟県</option>
                     <option value="富山県">富山県</option>
                     <option value="石川県">石川県</option>
@@ -83,6 +89,8 @@
                     <option value="岐阜県">岐阜県</option>
                     <option value="静岡県">静岡県</option>
                     <option value="愛知県">愛知県</option>
+                    <hr>
+                    <optgroup label="近畿地方"></optgroup>
                     <option value="三重県">三重県</option>
                     <option value="滋賀県">滋賀県</option>
                     <option value="京都府">京都府</option>
@@ -90,15 +98,21 @@
                     <option value="兵庫県">兵庫県</option>
                     <option value="奈良県">奈良県</option>
                     <option value="和歌山県">和歌山県</option>
+                    <hr>
+                    <optgroup label="中国地方"></optgroup>
                     <option value="鳥取県">鳥取県</option>
                     <option value="島根県">島根県</option>
                     <option value="岡山県">岡山県</option>
                     <option value="広島県">広島県</option>
                     <option value="山口県">山口県</option>
+                    <hr>
+                    <optgroup label="四国地方"></optgroup>
                     <option value="徳島県">徳島県</option>
                     <option value="香川県">香川県</option>
                     <option value="愛媛県">愛媛県</option>
                     <option value="高知県">高知県</option>
+                    <hr>
+                    <optgroup label="九州地方"></optgroup>
                     <option value="福岡県">福岡県</option>
                     <option value="佐賀県">佐賀県</option>
                     <option value="長崎県">長崎県</option>
