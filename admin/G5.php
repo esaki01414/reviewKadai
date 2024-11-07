@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ユーザー一覧管理画面</title>
     <link rel="stylesheet" href="css/styles.css"> <!-- CSSファイルのリンク -->
+    <link rel="stylesheet" href="css/G5.css"> <!-- CSSファイルのリンク -->
+
 </head>
 <body>
     <h1>ユーザー管理</h1>
@@ -20,12 +22,12 @@
     'LAA1554917',
      'PassSD2D'
 );
-$sql='SELECT user_id, user_name FROM magazine';
+$sql='SELECT user_id, user_name FROM user';
    $stmt = $pdo->query($sql);
    echo '<ul class="bl_flexContainer">';
    foreach($stmt as $row){
     echo '<li class="el_flexItem">';
-   echo 'ユーザーID：','<br>',$row['user_id'],'ユーザー氏名：','<br>',$row['user_name'],'<br>';
+   echo 'ユーザーID：','<br>',$row['user_id'],'<br>','ユーザー氏名：','<br>',$row['user_name'],'<br>';
    echo '</li>';
    }
 echo '</ul>';
