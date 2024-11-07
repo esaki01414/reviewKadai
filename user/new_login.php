@@ -15,7 +15,6 @@
     <div class="back-button"><a href="./home.php">←戻る</a></div>
     <div class="profile-icon"></div>
 
-        <div class="profile-icon"></div>
 
         <div class="tabs">
            <a href="login.php" class="login_tab">Login</a>
