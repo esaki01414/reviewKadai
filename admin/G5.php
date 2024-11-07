@@ -20,7 +20,7 @@
     'LAA1554917',
      'PassSD2D'
 );
-$sql='SELECT user_id, user_name FROM magazine';
+$sql='SELECT user_id, user_name FROM user';
    $stmt = $pdo->query($sql);
    echo '<ul class="bl_flexContainer">';
    foreach($stmt as $row){
