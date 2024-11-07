@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ユーザー一覧管理画面</title>
     <link rel="stylesheet" href="css/styles.css"> <!-- CSSファイルのリンク -->
+    <link rel="stylesheet" href="css/G5.css"> <!-- CSSファイルのリンク -->
+
 </head>
 <body>
     <h1>ユーザー管理</h1>
