@@ -1,3 +1,8 @@
+<?php
+session_start();
+
+
+?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -10,10 +15,9 @@
     <h1>自分好みのコーデを見つけよう！</h1>
 </header>
 <body>
-    <div class="back"><a href="./index.html">←戻る</a></div>
+    <div class="back"><a href="./home.php">←戻る</a></div>
 
     <div class="container">
-      <div class="back-button"><a href="./home.php">←戻る</a></div>
       <div class="profile-icon"></div>
       
       <div class="tabs">
@@ -21,7 +25,7 @@
          <a href="new_login.php" class="new_login_tab">新規登録</a>
      </div>
 
-      <form action="home_login.php" method="post">
+      <form action="home.php" method="post">
         <label for="email">Email</label>
         <input type="email" id="email" name="user_email" placeholder="23000@s.asojuku.ac.jp" required>
   

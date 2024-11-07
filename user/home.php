@@ -1,3 +1,25 @@
+<?php
+session_start();
+$pdo=new PDO('mysql:host=mysql310.phy.lolipop.lan;
+     dbname=LAA1554917-system;charset=utf8',
+     'LAA1554917',
+     'PassSD2D');
+
+     $sql='select * from customer where user_email = ? AND user_pass = ?';
+     $sql_login=$pdo->prepare($sql);
+     $sql_login->execute([$_POST['user_email'],$_POST['user_pass']]);
+ 
+    foreach($sql_login as $row){
+        $_SESSION['user_email'] = $row['user_email'];
+        $_SESSION['user_pass'] = $row['user_pass'];
+        $_SESSION['login_name'] = $row['user_name']; 
+    }
+    if(isset($_SESSION['login_name'])){
+        echo 'いらっしゃいませ、',$_SESSION['login_name'],'さん！';
+    }else{
+        echo 'ログインに失敗しました。';
+    }
+?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -108,6 +130,13 @@
         <h1>ECサイトのタイトル</h1>
         <div class="header-info">
         <img src="./images/ユーザーアイコン.jpg" alt="ユーザーアイコン" class="user-icon"> <!-- ユーザーアイコン -->
+        <?php
+        if(isset($_SESSION['login_name'])){
+            echo '<div class="guest-status">',$_SESSION['login_name'],'さんようこそ</div>';
+        }else{
+            echo '<div class="guest-status">ゲストさんようこそ</div>';
+        }
+        ?>
         <div class="guest-status">ゲストでログイン中</div> <!-- 追加 -->
         </div>
         <div class="search-bar">
@@ -125,6 +154,17 @@
         <nav id="nav-menu" class="hidden">
             <ul>
                 <li><a href="login.php">ログイン画面</a></li>
+                <?php
+
+                if(isset($_SESSION['login_name'])){
+                    echo '<li><a href="login.php">ログイン画面</a></li>';
+                    echo '<li><a href="login.php">ログイン画面</a></li>';
+                    echo '<li><a href="login.php">ログイン画面</a></li>';
+                    echo '<li><a href="login.php">ログイン画面</a></li>';
+                    echo '<li><a href="login.php">ログイン画面</a></li>';
+                }
+
+                ?>
             <br><br><br><br><br></li>
             </ul>
         </nav>
