@@ -9,7 +9,7 @@
 <header>
     <h1>自分好みのコーデを見つけよう！</h1>
 </header>
-<body>
+<body class="special-page">
     
     <div class="container">
     <div class="back-button"><a href="./home.php">←戻る</a></div>
