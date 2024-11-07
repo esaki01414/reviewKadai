@@ -5,6 +5,104 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/home2.css">
     <title>新規登録画面</title>
+    <style>
+        /* CSSスタイル */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 500px;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .back-button {
+            margin-bottom: 20px;
+        }
+
+        .back-button a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        .profile-icon {
+            width: 100px;
+            height: 100px;
+            background-color: #ddd;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+
+        .tabs a, .tabs div {
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            color: #007bff;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .new_login_tab {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .login-form label {
+            font-weight: bold;
+            margin-top: 10px;
+            display: block;
+        }
+
+        .login-form input, .login-form select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+
+        .name-inputs, .kana-inputs, .address-inputs {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .name-inputs div, .kana-inputs div, .address-inputs span {
+            width: 48%;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .login-btn:hover {
+            background-color: #0056b3;
+        }
+        </style>
 </head>
 <header>
     <h1>自分好みのコーデを見つけよう！</h1>

@@ -269,28 +269,3 @@ input[type="tel"] {
   border: 1px solid #ccc;
   border-radius: 4px;
 }
-/* リストボックスの背景色と文字色を変更 */
-select {
-  background-color: #333; /* 背景を黒っぽく */
-  color: white; /* 文字を白色に */
-  border: none; /* 境界線を消す */
-  padding: 10px; /* 内側の余白を追加 */
-  border-radius: 4px; /* 角を丸める */
-  width: 200px; /* 必要に応じて幅を調整 */
-}
-
-/* マウスホバー時の背景色を変更 */
-select:hover {
-  background-color: #444; /* ホバー時に少し明るくする */
-}
-
-/* フォーカス時のアウトラインを消す */
-select:focus {
-  outline: none;
-}
-
-/* 各オプションのスタイル */
-option {
-  background-color: #333; /* オプションの背景も黒に */
-  color: white;
-}
