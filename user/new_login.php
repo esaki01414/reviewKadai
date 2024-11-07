@@ -60,6 +60,7 @@
             <label for="todohuken">都道府県</label>
                 <select id="prefecture" required>
                     <option value="" disabled selected>都道府県を選択</option>
+                    <optgroup lavel="北海道地方"></optgroup>
                     <option value="北海道">北海道</option>
                     <hr>
                     <option value="青森県">青森県</option>
