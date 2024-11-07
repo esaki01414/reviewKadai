@@ -61,6 +61,7 @@
                 <select id="prefecture" required>
                     <option value="" disabled selected>都道府県を選択</option>
                     <option value="北海道">北海道</option>
+                    <hr>
                     <option value="青森県">青森県</option>
                     <option value="岩手県">岩手県</option>
                     <option value="宮城県">宮城県</option>
