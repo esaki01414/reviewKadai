@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/dashboard.css"> <!-- CSSファイルのリンク -->
 </head>
 <body>
-    <header></header>
+    <header>
         <div class="container">
             <div class="header-logo">
                 <h1><a href="dashboard.php">管理画面</a></h1>
