@@ -22,8 +22,13 @@
 );
 $sql='SELECT user_id, user_name FROM magazine';
    $stmt = $pdo->query($sql);
+   echo '<ul class="bl_flexContainer">';
    foreach($stmt as $row){
+    echo '<li class="el_flexItem">';
+   echo 'ユーザーID：','<br>',$row['user_id'],'ユーザー氏名：','<br>',$row['user_name'],'<br>';
+   echo '</li>';
    }
+echo '</ul>';
    $pdo=null;
     ?>
     <script src="js/script.js"></script> <!-- JavaScriptファイルのリンク -->
