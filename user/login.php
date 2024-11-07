@@ -1,7 +1,3 @@
-<?php
-session_start();
-
-?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -26,7 +22,7 @@ session_start();
 
       <form action="home.php" method="post">
         <label for="email">Email</label>
-        <input type="email" id="email" name="user_email" placeholder="23000@s.asojuku.ac.jp" required>
+        <input  type="email" id="email" name="user_email" placeholder="23000@s.asojuku.ac.jp" required>
   
         <label for="password">Password</label>
         <input type="password" id="password" name="user_pass" placeholder="英数字含む8文字以上" required>
@@ -38,7 +34,7 @@ session_start();
   
         <a href="#" class="forgot-password">パスワードを忘れた方はこちら（再設定）</a>
   
-        <button type="submit" class="login-btn">Login</button>
+        <button type="submit" class="login-btn" value="send">Login</button>
       </form>
     </div>
   </body>

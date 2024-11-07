@@ -1,27 +1,27 @@
 <?php
 session_start();
+
 $pdo = new PDO(
     'mysql:host=mysql310.phy.lolipop.lan;dbname=LAA1554917-system;charset=utf8',
     'LAA1554917',
     'PassSD2D'
 );
 
-$sql = 'SELECT * FROM user WHERE user_email = ? AND user_pass = ?';
-$sql_login = $pdo->prepare($sql);
-$sql_login->execute([$_POST['user_email'], $_POST['user_pass']]);
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['user_email'], $_POST['user_pass'])) {
+    $sql = 'SELECT * FROM user WHERE user_mail = ? AND user_pass = ?';
+    $sql_login = $pdo->prepare($sql);
+    $sql_login->execute([$_POST['user_email'], $_POST['user_pass']]);
 
-// fetchで1行だけ取得
-$row = $sql_login->fetch(PDO::FETCH_ASSOC);
+    $row = $sql_login->fetch(PDO::FETCH_ASSOC);
 
-if ($row) { // ログイン成功の場合
-    $_SESSION['user_email'] = $row['user_email'];
-    $_SESSION['user_pass'] = $row['user_pass'];
-    $_SESSION['login_name'] = $row['user_name'];
-    echo 'いらっしゃいませ、', $_SESSION['login_name'], 'さん！';
-} else { // ログイン失敗の場合
-    echo 'ログインに失敗しました。';
+    if ($row) {
+        $_SESSION['user_email'] = $row['user_email'] ?? null;
+        $_SESSION['user_pass'] = $row['user_pass']  ?? null;
+        $_SESSION['login_name'] = $row['user_name']  ?? null;
+    } else {
+        echo 'ログインに失敗しました。';
+    }
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -131,28 +131,6 @@ if ($row) { // ログイン成功の場合
 </head>
 <body>
     <header>
-        <?php
-        if (isset($_POST['user_email']) && isset($_POST['user_pass'])) {
-            $sql = 'SELECT * FROM user WHERE user_email = ? AND user_pass = ?';
-            $sql_login = $pdo->prepare($sql);
-            $sql_login->execute([$_POST['user_email'], $_POST['user_pass']]);
-        
-            // fetchで1行だけ取得
-            $row = $sql_login->fetch(PDO::FETCH_ASSOC);
-            
-            if ($row) { 
-                $_SESSION['user_email'] = $row['user_email'];
-                $_SESSION['user_pass'] = $row['user_pass'];
-                $_SESSION['login_name'] = $row['user_name'];
-                echo 'いらっしゃいませ、', $_SESSION['login_name'], 'さん！';
-            } else {
-                echo 'ログインに失敗しました。';
-            }
-        } else {
-            echo 'フォームが未入力です。';
-        }
-        
-        ?>
         <h1>ECサイトのタイトル</h1>
         <div class="header-info">
         <img src="./images/ユーザーアイコン.jpg" alt="ユーザーアイコン" class="user-icon"> <!-- ユーザーアイコン -->
@@ -163,7 +141,6 @@ if ($row) { // ログイン成功の場合
             echo '<div class="guest-status">ゲストさんようこそ</div>';
         }
         ?>
-        <div class="guest-status">ゲストでログイン中</div> <!-- 追加 -->
         </div>
         <div class="search-bar">
             <input type="text" placeholder="🔎洋服を検索" id="search-input">
@@ -183,11 +160,14 @@ if ($row) { // ログイン成功の場合
                 <?php
 
                 if(isset($_SESSION['login_name'])){
-                    echo '<li><a href="login.php">ログイン画面</a></li>';
+                    echo '<hr>';
                     echo '<li><a href="login.php">カート</a></li>';
+                    echo '<hr>';
                     echo '<li><a href="login.php">プロフィール</a></li>';
+                    echo '<hr>';
                     echo '<li><a href="login.php">購入履歴</a></li>';
-                    echo '<li><a href="login.php">ログアウト画面</a></li>';
+                    echo '<hr>';
+                    echo '<li><a href="logout.php">ログアウト画面</a></li>';
                 }
 
                 ?>
