@@ -13,11 +13,12 @@
             exit;
         }
 
-        if ($sid=='222'&&$password=='Pass0708') {
+        if ($sid=='222' && $password=='Pass0708') {
             //ログイン許可
-            header("https://aso2301180.pinoko.jp/system/admin/dashboard.php");
+            header("Location:./https://aso2301180.pinoko.jp/system/admin/dashboard.php");
         } else {
             //間違っているのでログイン不可
             header("Location:./index.php");
             exit;
         }
+?>
