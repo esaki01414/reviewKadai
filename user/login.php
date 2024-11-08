@@ -10,11 +10,13 @@
     <h1>自分好みのコーデを見つけよう！</h1>
 </header>
 <body class="special-page">
-<body>
-    <div class="back"><a href="./home.php">←戻る</a></div>
 
-    <div class="container">
-      <div class="profile-icon"></div>
+<div class="container">
+    <div class="back-button"><a href="./home.php">←戻る</a></div>
+    <div class="profile-container">
+      <div class="profile-icon">
+        <img src="./images/ユーザーアイコン.jpg" alt="Profile Icon">
+    </div></div>
       
       <div class="tabs">
         <div class="login_tab">Login</div>
@@ -38,6 +40,5 @@
         <button type="submit" class="login-btn" value="send">Login</button>
       </form>
     </div>
-  </body>
 </body>
   </html>

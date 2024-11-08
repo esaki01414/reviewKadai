@@ -17,6 +17,7 @@ body {
     padding: 20px;
     text-align: center;
     position: relative;
+    border: 2px solid #ffffff;
   }
 
   .container h1 {
@@ -25,13 +26,24 @@ body {
   }
 
   .profile-icon {
-    width: 60px;
-    height: 60px;
-    background-color: #cccccc;
-    border-radius: 50%;
-    margin: 0 auto 10px;
+    width: 100px;  /* アイコンの幅 */
+    height: 100px; /* アイコンの高さ */
+    border-radius: 50%; /* 丸くする */
+    background-color: #f0f0f0; /* 背景色 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;  /* アイコン内の文字サイズ */
+    color: #888; /* 文字色 */
+    font-weight: bold; /* 太字 */
+    border: 2px solid #ccc; /* 枠線 */
   }
-
+  .profile-icon img {
+    width: 100%;  /* 画像を親要素に合わせてサイズ調整 */
+    height: 100%;  /* 高さも調整 */
+    border-radius: 50%;  /* 画像を丸くする */
+    object-fit: cover;  /* 画像が丸枠に合わせて切り抜かれる */
+  }
   .tabs {
     display: flex;
     margin-bottom: 20px;
@@ -212,15 +224,10 @@ header {
   border-radius: 10px; /* 角を丸くする (任意) */
   width: 100%; /* コンテナの幅を100%に */
   max-width: 400px; /* 最大幅を設定 */
+  max-height: 500px;
+  overflow-y: auto;
 }
 
-.profile-icon {
-  width: 100px; /* プロフィールアイコンの幅 */
-  height: 100px; /* プロフィールアイコンの高さ */
-  background-color: #ccc; /* アイコンの背景色 (任意) */
-  border-radius: 50%; /* 丸くする */
-  margin-bottom: 20px; /* 下のマージン */
-}
 .back-button {
   position: absolute;
   top: 10px;
