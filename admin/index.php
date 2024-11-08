@@ -13,7 +13,7 @@
                 <div class="login-wrapper-title">
                     <h3>ログイン</h3>
                 </div>
-                <form class="login-form">
+                <form class="login-form" action="check.php" method="POST">
                     <div class="form-group">
                         <p>社員ID</p>
                         <input type="text" name="sid" required>
