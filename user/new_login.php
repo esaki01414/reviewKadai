@@ -13,8 +13,10 @@
     
     <div class="container">
     <div class="back-button"><a href="./home.php">←戻る</a></div>
-    <div class="profile-icon"></div>
-
+    <div class="profile-container">
+    <div class="profile-icon">
+        <img src="./images/ユーザーアイコン.jpg" alt="Profile Icon"></div>
+    </div>
 
         <div class="tabs">
            <a href="login.php" class="login_tab">Login</a>
@@ -55,7 +57,6 @@
                 <span>ー</span>
                 <input type="text" id="postal-code-2" name="user_postal_code2" placeholder="4567" maxlength="4" required>
             </div>
-            <!-- いらない↓ -->
             <input type="text" id="address" placeholder="住所を入力" required>
             <label for="todohuken">都道府県</label>
                 <select id="prefecture" name="user_prefecture" required>
@@ -122,15 +123,16 @@
                     <option value="宮崎県">宮崎県</option>
                     <option value="鹿児島県">鹿児島県</option>
                     <option value="沖縄県">沖縄県</option>
+<br>
                     <label for="city">市区町村名</label>
                     <label for="sikutyoson">市区町村</label>
-                <input type="text" id="sikutyoson" name="user_address" placeholder="市区町村名を入力" required>
+                <input type="text" id="sikutyoson" placeholder="市区町村名を入力" required>
 
                 <label for="street-address">番地・ビル名</label>
-                <input type="text" id="street-address" name='user_home_number' placeholder="番地・ビル名を入力" required>
+                <input type="text" id="street-address" placeholder="番地・ビル名を入力" required>
                 <label for="phone-number">電話番号</label>
-                <input type="tel" id="phone-number" name="user_tell" placeholder="000-0000-0000" pattern="\d{3}-\d{4}-\d{4}" required><br>
-            <button type="submit" class="login-btn" value="send">新規登録</button>
+                <input type="tel" id="phone-number" placeholder="000-0000-0000" pattern="\d{3}-\d{4}-\d{4}" required><br>
+            <button type="submit" class="login-btn">新規登録</button>
         </form>
     </div>
 </body>

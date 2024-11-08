@@ -22,12 +22,12 @@
     'LAA1554917',
      'PassSD2D'
 );
-$sql='SELECT user_id, user_name FROM user';
+$sql='SELECT user_id, user_first_name, user_last_name FROM user';
    $stmt = $pdo->query($sql);
    echo '<ul class="bl_flexContainer">';
    foreach($stmt as $row){
     echo '<li class="el_flexItem">';
-   echo 'ユーザーID：','<br>',$row['user_id'],'<br>','ユーザー氏名：','<br>',$row['user_name'],'<br>';
+   echo 'ユーザーID：','<br>',$row['user_id'],'<br>','ユーザー氏名：','<br>',$row['user_first_name'].$row['user_last_name'],'<br>';
    echo '</li>';
    }
 echo '</ul>';

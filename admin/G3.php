@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="css/G3.css"> <!-- CSSファイルのリンク -->
 </head>
 <body>
-    <div class="back"><a href="./dashboard.html">←戻る</a></div>
+    <div class="back"><a href="./dashboard.php">←戻る</a></div>
+    <div class="background">
     <div class="label">
         <h1>新規登録画面</h1>
     </div>
@@ -39,7 +40,7 @@
         </div>
     </form>
     <div id="message"></div>
- 
+    </div>
     <script src="js/script.js"></script>
     
 </body>

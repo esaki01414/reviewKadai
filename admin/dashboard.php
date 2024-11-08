@@ -1,3 +1,10 @@
+<?php
+       session_start();
+       if($_SESSION['admin_login'] == false){
+           header("Location:./index.php");
+           exit;
+      }
+   ?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -16,7 +23,7 @@
             </div>
 
             <nav class="menu-right menu">
-                <a href="index.php">ログアウト</a>
+                <a href="logout.php">ログアウト</a>
             </nav>
         </div>
     </header>
