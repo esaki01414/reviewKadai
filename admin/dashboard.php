@@ -1,3 +1,10 @@
+<?php
+       session_start();
+       if($_SESSION['admin_login'] == false){
+           header("Location:./index.php");
+           exit;
+      }
+   ?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>

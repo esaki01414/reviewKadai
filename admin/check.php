@@ -15,7 +15,9 @@
 
         if ($sid=='222' && $password=='Pass0708') {
             //ログイン許可
-            header("Location:./https://aso2301180.pinoko.jp/system/admin/dashboard.php");
+            session_start();
+            $_SESSION['admin_login'] = true;
+            header("Location:./dashboard.php");
         } else {
             //間違っているのでログイン不可
             header("Location:./index.php");
