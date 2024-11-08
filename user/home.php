@@ -17,7 +17,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['user_email'], $_POST[
     if ($row) {
         $_SESSION['user_email'] = $row['user_email'] ?? null;
         $_SESSION['user_pass'] = $row['user_pass']  ?? null;
-        $_SESSION['login_name'] = $row['user_name']  ?? null;
+        $_SESSION['user_first_name'] = $row['user_first_name']  ?? null;
+        $_SESSION['user_last_name'] = $row['user_last_name']  ?? null;
     } else {
         echo 'ログインに失敗しました。';
     }
@@ -135,8 +136,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['user_email'], $_POST[
         <div class="header-info">
         <img src="./images/ユーザーアイコン.jpg" alt="ユーザーアイコン" class="user-icon"> <!-- ユーザーアイコン -->
         <?php
-        if(isset($_SESSION['login_name'])){
-            echo '<div class="guest-status">',$_SESSION['login_name'],'さんようこそ</div>';
+        if(isset($_SESSION['user_first_name'],$_SESSION['user_last_name'])){
+            echo '<div class="guest-status">',$_SESSION['user_first_name'].$_SESSION['user_last_name'],'さんようこそ</div>';
         }else{
             echo '<div class="guest-status">ゲストさんようこそ</div>';
         }
@@ -159,7 +160,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['user_email'], $_POST[
                 <li><a href="login.php">ログイン画面</a></li>
                 <?php
 
-                if(isset($_SESSION['login_name'])){
+                if(isset($_SESSION['user_first_name'],$_SESSION['user_last_name'])){
                     echo '<hr>';
                     echo '<li><a href="login.php">カート</a></li>';
                     echo '<hr>';
