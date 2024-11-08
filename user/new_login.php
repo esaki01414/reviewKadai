@@ -13,15 +13,17 @@
     
     <div class="container">
     <div class="back-button"><a href="./home.php">←戻る</a></div>
-    <div class="profile-icon"></div>
-
+    <div class="profile-container">
+    <div class="profile-icon">
+        <img src="./images/ユーザーアイコン.jpg" alt="Profile Icon"></div>
+    </div>
 
         <div class="tabs">
            <a href="login.php" class="login_tab">Login</a>
             <div class="new_login_tab">新規登録</div>
         </div>
 
-        <form class="login-form" action="home_login.php" method="post">
+        <form class="login-form" action="./login_finishing.php" method="post">
             <label for="email">Email</label>
             <input type="email" id="email" name="user_email" placeholder="23000@s.asojuku.ac.jp" required>
 
@@ -31,33 +33,33 @@
             <div class="name-inputs">
                 <div>
                     <label for="last-name">姓</label>
-                    <input type="text" id="last-name" placeholder="姓を入力" required>
+                    <input type="text" id="last-name" name="user_first_name" placeholder="姓を入力" required>
                 </div>
                 <div>
                     <label for="first-name">名</label>
-                    <input type="text" id="first-name" placeholder="名を入力" required>
+                    <input type="text" id="first-name" name="user_last_name" placeholder="名を入力" required>
                 </div>
             </div>
             <div class="kana-inputs">
                 <div>
                     <label for="last-name-kana">姓(カタカナ)</label>
-                    <input type="text" id="last-name-kana" placeholder="セイを入力" required>
+                    <input type="text" id="last-name-kana" name="user_first" placeholder="セイを入力" required>
                 </div>
                 <div>
                     <label for="first-name-kana">名(カタカナ)</label>
-                    <input type="text" id="first-name-kana" placeholder="メイを入力" required>
+                    <input type="text" id="first-name-kana" name="user_last" placeholder="メイを入力" required>
                 </div>
             </div>
             <label for="address">お届け先住所</label>
             <div class="address-inputs">
                 <span>〒</span>
-                <input type="text" id="postal-code-1" placeholder="123" maxlength="3" required>
+                <input type="text" id="postal-code-1" name="user_postal_code1" placeholder="123" maxlength="3" required>
                 <span>ー</span>
-                <input type="text" id="postal-code-2" placeholder="4567" maxlength="4" required>
+                <input type="text" id="postal-code-2" name="user_postal_code2" placeholder="4567" maxlength="4" required>
             </div>
             <input type="text" id="address" placeholder="住所を入力" required>
             <label for="todohuken">都道府県</label>
-                <select id="prefecture" required>
+                <select id="prefecture" name="user_prefecture" required>
                     <option value="" disabled selected>都道府県を選択</option>
                     <optgroup label="北海道地方"></optgroup>
                     <option value="北海道">北海道</option>
@@ -121,6 +123,7 @@
                     <option value="宮崎県">宮崎県</option>
                     <option value="鹿児島県">鹿児島県</option>
                     <option value="沖縄県">沖縄県</option>
+<br>
                     <label for="city">市区町村名</label>
                     <label for="sikutyoson">市区町村</label>
                 <input type="text" id="sikutyoson" placeholder="市区町村名を入力" required>
