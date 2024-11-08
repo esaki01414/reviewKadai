@@ -1,6 +1,9 @@
+.background{
+    background-color: grey;
+}
 .label{
-    font-size: large;
     text-align: center;
+    font-size: large;
 }
 .form1{
     text-align: center;
@@ -15,6 +18,9 @@
     text-align: center;
 }
 .botton{
+    background-color: green;
+    color: black;
+    font-size: medium;
     text-align: center;
     
 }
