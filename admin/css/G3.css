@@ -1,26 +1,24 @@
 .background{
-    background-color: grey;
+    background-color: gray;
 }
 .label{
-    text-align: center;
+    margin:0 auto;
     font-size: large;
 }
 .form1{
-    text-align: center;
+    margin:0 auto;
 }
 .form2{
-    text-align: center;
+    margin:0 auto;
 }
 .form3{
-    text-align: center;
+    margin:0 auto;
 }
 .form4{
-    text-align: center;
+    margin:0 auto;
 }
 .botton{
     background-color: green;
     color: black;
-    font-size: medium;
-    text-align: center;
-    
+    margin:0 auto;
 }
