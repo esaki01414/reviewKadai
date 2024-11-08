@@ -23,7 +23,7 @@
             </div>
 
             <nav class="menu-right menu">
-                <a href="index.php">ログアウト</a>
+                <a href="logout.php">ログアウト</a>
             </nav>
         </div>
     </header>
