@@ -3,23 +3,32 @@
 }
 
 .label{
-    text-align: center;
+    margin:0 auto;
     font-size: large;
+    text-align: center;
 }
 .form1{
-    text-align: center;
+    margin:0 auto;
+    display: block;
 }
 .form2{
-    text-align: center;
+    margin:0 auto;
+    display: block;
 }
 .form3{
-    text-align: center;
+    margin:0 auto;
+    display: block;
 }
 .form4{
-    text-align: center;
+    margin:0 auto;
+    display: block;
 }
 .botton{
     background-color: green;
     color: black;
-    
+    margin:0 auto;
+    display: block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
 }
