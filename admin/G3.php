@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>管理者登録画面</title>
-    <link rel="stylesheet" href="./css/G3.css"> <!-- CSSファイルのリンク -->
+    <link rel="stylesheet" href="css/G3.css"> <!-- パスの確認 --><!-- CSSファイルのリンク -->
 </head>
 <body>
     <div class="back"><a href="./dashboard.php">←戻る</a></div>
