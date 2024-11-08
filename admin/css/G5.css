@@ -1,11 +1,12 @@
 .bl_flexContainer{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
     padding: 10px;
 }
 .el_flexItem{
-width: 10%;
+width: calc(100%/3 - 40px/3);
 height: 100px;
+margin-right: 20px;
+margin-bottom: 30px;
 background-color: darkgray;
 }
