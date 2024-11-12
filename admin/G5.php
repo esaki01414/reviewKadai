@@ -24,15 +24,13 @@
 );
 $sql='SELECT user_id, user_first_name, user_last_name FROM user';
    $stmt = $pdo->query($sql);
-   echo '<div class="bl_media_container">';
-   echo '<div class="bl_media_itemWrapper">';
+   echo '<ul class="bl_flexContainer">';
    foreach($stmt as $row){
-    echo '<div class="bl_media_item">';
+    echo '<li class="el_flexItem">';
     echo 'ユーザーID：','<br>',$row['user_id'],'<br>','ユーザー氏名：','<br>',$row['user_first_name'].$row['user_last_name'],'<br>';
-   echo '</div>';
+   echo '</li>';
    }
-   echo '</div>';
-   echo '</div>';
+   echo '</ul>';
    $pdo=null;
     ?>
     <script src="js/script.js"></script> <!-- JavaScriptファイルのリンク -->
