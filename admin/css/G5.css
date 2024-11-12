@@ -4,6 +4,6 @@
 	padding: 10px;
 }
 .bl_media_itemWrapper {
-	width: calc(100% / 3 - 30px);
-	margin: calc(30px / 2);
+	width: calc(100% / 3 - 10px);
+	margin: calc(10px / 2);
 }
