@@ -1,5 +1,5 @@
 .background{
-    background-color: gray;
+    background-color: #808080;
 }
 
 .label{
@@ -24,8 +24,8 @@
     display: block;
 }
 .botton{
-    background-color: green;
-    color: black;
+    background-color: #008000;
+    color: #000000;
     margin:0 auto;
     display: block;
     padding: 10px 20px;
