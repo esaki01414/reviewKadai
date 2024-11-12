@@ -12,7 +12,7 @@
     ユーザーID<br>
     <input type="text" name="D_id"><br><br><br>
     <a href="G5.php">戻る</a>
-    <button type="submit">ユーザー削除</button>
+    <button type="submit">削除</button>
    </form>
    <script src="js/script.js"></script> <!-- JavaScriptファイルのリンク -->
     </body>
