@@ -162,15 +162,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['user_email'], $_POST[
 
                 if(isset($_SESSION['user_first_name'],$_SESSION['user_last_name'])){
                     echo '<hr>';
-                    echo '<li><a href="login.php">お知らせ</a></li>';
+                    echo '<li><a href="osirase.php">お知らせ</a></li>';
                     echo '<hr>';
-                    echo '<li><a href="login.php">カート</a></li>';
+                    echo '<li><a href="#">カート</a></li>';
                     echo '<hr>';
-                    echo '<li><a href="login.php">お気に入り</a></li>';
+                    echo '<li><a href="#">お気に入り</a></li>';
                     echo '<hr>';
-                    echo '<li><a href="logout.php">プロフィール</a></li>';
+                    echo '<li><a href="#">プロフィール</a></li>';
                     echo '<hr>';
-                    echo '<li><a href="logout.php">購入履歴</a></li>';
+                    echo '<li><a href="#">購入履歴</a></li>';
                     echo '<hr>';
                     echo '<li><a href="logout.php">ログアウト画面</a></li>';
                 }
