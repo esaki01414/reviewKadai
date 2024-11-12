@@ -1,26 +1,44 @@
-.boxs {
+.bl_media_container {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+    gap: 20px;
 }
 
-.box {
-    display: inline-block;
-    width: 20%;
-    height: 200px;
-    border:1px solid #ebeced;
-    margin: 0 5px;
-    text-align: center;
-    color: #3e3e3b;
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+/* ユーザーカードのスタイル */
+.user-card {
+    width: 280px;  /* カードの幅 */
+    padding: 20px;  /* 内側の余白 */
+    margin: 10px;   /* カード同士の間隔 */
+    border: 1px solid #ddd;  /* 薄い枠線 */
+    border-radius: 10px;  /* 角丸 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* 影 */
+    background-color: #fff;  /* 背景色 */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;  /* アニメーション */
+}
+
+/* カードがホバーされたときのスタイル */
+.user-card:hover {
+    transform: translateY(-5px);  /* 上にスライド */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);  /* 影を強調 */
+}
+
+/* ユーザー情報のスタイル */
+.user-info {
+    font-size: 16px;  /* フォントサイズ */
+    color: #333;  /* 文字色 */
+}
+
+/* ユーザーIDや氏名の強調 */
+.user-info strong {
+    font-weight: bold;  /* 強調 */
+    color: #000;  /* 強調部分の文字色 */
+}
+
+/* レスポンシブ対応（画面が小さいときのレイアウト変更） */
+@media (max-width: 768px) {
+    .user-card {
+        width: 100%;  /* スマホなどではカード幅を100%に */
     }
-.box:hover {
-    color: #4c586f;
-}
-.icon{
-    font-size: 80px;
-    height: 130px;
-    line-height: 130px;
-}
-.box p {
-    font-size: 20px;
-    font-weight: bold;
 }
