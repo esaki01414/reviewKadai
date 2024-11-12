@@ -24,6 +24,8 @@
 );
 $sql='SELECT user_id, user_first_name, user_last_name FROM user';
    $stmt = $pdo->query($sql);
+   echo '<div class="bl_media_container">';
+echo   '<div class="bl_media_itemWrapper">';
 foreach($stmt as $row){
     echo '<div class="user-card">'; 
     echo '<div class="user-info">';
@@ -32,6 +34,8 @@ foreach($stmt as $row){
     echo '</div>';
     echo '</div>';
 }
+echo '</div>';
+echo '</div>';
    $pdo=null;
     ?>
     <script src="js/script.js"></script> <!-- JavaScriptファイルのリンク -->
