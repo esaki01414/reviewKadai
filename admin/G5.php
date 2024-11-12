@@ -27,7 +27,7 @@ $sql='SELECT user_id, user_first_name, user_last_name FROM user';
    echo '<div class="bl_media_container">';
 echo   '<div class="bl_media_itemWrapper">';
 foreach($stmt as $row){
-    echo '<div class="user-card">';  <!-- カード形式のラッパー -->
+    echo '<div class="user-card">'; 
     echo '<div class="user-info">';
     echo '<strong>ユーザーID：</strong>', $row['user_id'], '<br>';
     echo '<strong>ユーザー氏名：</strong>', $row['user_first_name'] . ' ' . $row['user_last_name'], '<br>';
