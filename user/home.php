@@ -31,6 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['user_email'], $_POST[
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ECサイト</title>
+    <link rel="stylesheet" href="./css/home.css">
     <link rel="stylesheet" href="css/guest.css"> <!-- CSSファイルのリンク -->
     <style>
         body {
@@ -180,6 +181,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['user_email'], $_POST[
             </ul>
         </nav>
     </header>
+    <marquee>洋服ショッピングサイト開発途中</marquee>
     
     <main>
         <section id="gender-selection">
@@ -198,6 +200,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['user_email'], $_POST[
 
         <section id="slideshow">
             <div class="slideshow">
+
                 <div class="slides" id="slides">
                     <div class="slide"><img src="./images/冬コーデ1.jpg" alt="画像1"></div>
                     <div class="slide"><img src="./images/冬コーデ2.jpg" alt="画像2"></div>
@@ -209,12 +212,32 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['user_email'], $_POST[
                 </div>
             </div>
         </section>
+        <br><br>
+        <marquee>洋服ショッピングサイト開発途中</marquee>
+        <br><br>
+        <div>
+            <p style="text-decoration: underline;">商品</p>
+        </div>
+        <br><br>
 
-        <section id="product-list">
-            <div class="product-list" id="product-list-container">
-                <!-- 商品リストがここに表示される -->
-            </div>
-        </section>
+        <div>
+        <?php
+       $pdo = new PDO(
+        'mysql:host=mysql310.phy.lolipop.lan;dbname=LAA1554917-system;charset=utf8',
+        'LAA1554917',
+        'PassSD2D'
+        );
+
+    echo '<p>';
+    foreach($pdo->query('select * from product') as $row){
+        echo '<p>';
+        echo '<b>',$row['product_name'],"</b><br>";
+        echo '<p><img src="',$row['product_photo'],'"></p>';
+        echo '</p>';
+        echo '</p>';
+    }
+        ?>
+        </div>
     </main>
     <footer>
         <p>&copy; 2024 ECサイト</p>
