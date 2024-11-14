@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ユーザー削除完了画面</title>
+    <link rel="stylesheet" href="css/styles.css"> <!-- CSSファイルのリンク -->
 </head>
 <body>
     <?php
@@ -18,5 +19,6 @@
     }
     ?>
     <a href="G2.php">ホームへ戻る</a>
+    <script src="js/script.js"></script> <!-- JavaScriptファイルのリンク -->
     </body>
 </html>
