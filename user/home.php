@@ -198,27 +198,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['user_email'], $_POST[
             </div>
         </section>
                 <br><br>
+        <p style="text-decoration:underline;" ><b>商品</b></p>                <br><br>
         <p style="text-decoration:underline;" ><b>商品</b></p>
         <section id="product-list">
             <div class="product-list" id="product-list-container">
                 <!-- 商品リストがここに表示される -->
-                 <?php
-                    $pdo = new PDO(
-                        'mysql:host=mysql310.phy.lolipop.lan;dbname=LAA1554917-system;charset=utf8',
-                        'LAA1554917',
-                        'PassSD2D'
-                    );
-
-                    echo '<p>';
-            foreach($pdo->query('select * from product') as $row){
-                echo '<p>';
-                echo '<b>',$row['product_name'],"</b><br>";
-                echo '<p><img src="',$row['product_photo'],'"></p>';
-                echo '</p>';
-            }
-            echo '</p>';
-
-                ?>
             </div>
         </section>
     </main>

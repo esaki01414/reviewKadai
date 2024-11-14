@@ -106,7 +106,7 @@
 <br>
                 <label for="street-address">番地・ビル名</label>
                 <input type="text" id="street-address" name="user_home_number"  placeholder="番地・ビル名を入力" required>
-<br>              
+               
                 <label for="phone-number">電話番号</label>
                 <input type="tel" id="phone-number" name="user_tell" placeholder="000-0000-0000" pattern="\d{3}-\d{4}-\d{4}" required><br>
             <button type="submit" class="login-btn">新規登録</button>
