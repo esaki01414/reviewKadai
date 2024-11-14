@@ -25,7 +25,7 @@
     }
     $pdo=null;
     ?>
-    <a href="G2.php">ホームへ戻る</a>
+    <p><a href="G2.php">ホームへ戻る</a></p>
     <script src="js/script.js"></script> <!-- JavaScriptファイルのリンク -->
     </body>
 </html>
