@@ -8,6 +8,12 @@
 </head>
 <body>
     <?php
+     $pdo = new PDO(
+        'mysql:host=mysql310.phy.lolipop.lan;
+        dbname=LAA1554917-system;charset=utf8',
+        'LAA1554917',
+         'PassSD2D'
+    );
     $id=$_POST['D_id'];
     $stmt= $pdo->prepare('DELETE FROM user WHERE user_id = ?');
     $stmt->execute([$id]);
@@ -17,6 +23,7 @@
     }else{
         echo '<h1>削除完了</h1>';
     }
+    $pdo=null;
     ?>
     <a href="G2.php">ホームへ戻る</a>
     <script src="js/script.js"></script> <!-- JavaScriptファイルのリンク -->
