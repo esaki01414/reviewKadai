@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    
+<a href="./home.php">←戻る</a>
 <div class="name-inputs">
                 <div>
                     <label for="last-name">姓</label>
@@ -102,10 +102,11 @@
 <br>
                     <label for="city">市区町村名</label>
                     <label for="sikutyoson">市区町村</label>
-                <input type="text" id="sikutyoson" name="user_address" placeholder="市区町村名を入力" required>
-
+                <input type="text" id="sikutyoson" name="user_address" placeholder="市区町村名を入力">
+<br>
                 <label for="street-address">番地・ビル名</label>
                 <input type="text" id="street-address" name="user_home_number"  placeholder="番地・ビル名を入力" required>
+<br>              
                 <label for="phone-number">電話番号</label>
                 <input type="tel" id="phone-number" name="user_tell" placeholder="000-0000-0000" pattern="\d{3}-\d{4}-\d{4}" required><br>
             <button type="submit" class="login-btn">新規登録</button>
