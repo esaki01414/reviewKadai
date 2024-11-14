@@ -31,6 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['user_email'], $_POST[
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ECサイト</title>
+    <link rel="stylesheet" href="./css/home.css">
     <link rel="stylesheet" href="css/guest.css"> <!-- CSSファイルのリンク -->
     <style>
         body {
@@ -143,9 +144,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['user_email'], $_POST[
         }
         ?>
         </div>
+        <div class="search-container">
         <div class="search-bar">
             <input type="text" placeholder="🔎洋服を検索" id="search-input">
-            <button onclick="searchProducts()">検索</button>
+        </div>
+            <button class="search-button" onclick="searchProducts()">検索</button>
         </div>
         <div class="category-selection" style="background-color: #aeaeae; padding: 10px; display: flex; justify-content: center;">
             <div class="category-item" style="margin: 10px 60px; cursor: pointer;">すべて</div>
@@ -162,22 +165,28 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['user_email'], $_POST[
 
                 if(isset($_SESSION['user_first_name'],$_SESSION['user_last_name'])){
                     echo '<hr>';
-                    echo '<li><a href="login.php">カート</a></li>';
+                    echo '<li><a href="osirase.php">お知らせ</a></li>';
                     echo '<hr>';
-                    echo '<li><a href="login.php">プロフィール</a></li>';
+                    echo '<li><a href="#">カート</a></li>';
                     echo '<hr>';
-                    echo '<li><a href="login.php">購入履歴</a></li>';
+                    echo '<li><a href="#">お気に入り</a></li>';
+                    echo '<hr>';
+                    echo '<li><a href="#">プロフィール</a></li>';
+                    echo '<hr>';
+                    echo '<li><a href="#">購入履歴</a></li>';
                     echo '<hr>';
                     echo '<li><a href="logout.php">ログアウト画面</a></li>';
                 }
 
                 ?>
-            <br><br><br><br><br></li>
+            </li>
             </ul>
         </nav>
     </header>
+    <marquee>洋服ショッピングサイト開発途中</marquee>
     
     <main>
+    <div id="main-content">
         <section id="gender-selection">
             <div class="gender-selection">
                 <div class="gender-button" onclick="selectGender('男性')">
@@ -194,6 +203,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['user_email'], $_POST[
 
         <section id="slideshow">
             <div class="slideshow">
+
                 <div class="slides" id="slides">
                     <div class="slide"><img src="./images/冬コーデ1.jpg" alt="画像1"></div>
                     <div class="slide"><img src="./images/冬コーデ2.jpg" alt="画像2"></div>
@@ -205,12 +215,33 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['user_email'], $_POST[
                 </div>
             </div>
         </section>
+        <br><br>
+        <marquee>洋服ショッピングサイト開発途中</marquee>
+        <br><br>
+        <div>
+            <p style="text-decoration: underline;">商品</p>
+        </div>
+        <br><br>
 
-        <section id="product-list">
-            <div class="product-list" id="product-list-container">
-                <!-- 商品リストがここに表示される -->
-            </div>
-        </section>
+        <div>
+        <?php
+       $pdo = new PDO(
+        'mysql:host=mysql310.phy.lolipop.lan;dbname=LAA1554917-system;charset=utf8',
+        'LAA1554917',
+        'PassSD2D'
+        );
+
+    echo '<p>';
+    foreach($pdo->query('select * from product') as $row){
+        echo '<p>';
+        echo '<b>',$row['product_name'],"</b><br>";
+        echo '<p><img src="',$row['product_photo'],'"></p>';
+        echo '</p>';
+        echo '</p>';
+    }
+        ?>
+        </div>
+    </div>
     </main>
     <footer>
         <p>&copy; 2024 ECサイト</p>

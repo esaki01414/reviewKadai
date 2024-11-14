@@ -249,3 +249,6 @@ body.special-page {
   align-items: center;
   min-height: 100vh;
 }
+.product{
+ text-decoration: underline;
+}
