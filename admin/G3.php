@@ -8,12 +8,13 @@
     <link rel="stylesheet" href="css/G3.css"> <!-- パスの確認 --><!-- CSSファイルのリンク -->
 </head>
 <body>
+
     <div class="back"><a href="./dashboard.php">←戻る</a></div>
     <div class="background">
     <div class="label">
         <h1>新規登録画面</h1>
     </div>
-    <form id="registrationForm">
+    <form id="registrationForm" action="G4.php" method="post">
         <div class="form1">
             <label for="userid">社員ID</label>
             <input type="text" id="userid" name="userid" required>
@@ -27,17 +28,17 @@
         <div class="form3">
             <label for="password">パスワード</label>
             <input type="password" id="password" name="password" required>
+            <p password=null class="error">パスワードが入力されていません</p>
         </div>
         <br>
         <div class="form4">
             <label for="confirmpassword">パスワード確認</label>
             <input type="password" id="confirmpassword" name="confirmpassword" required>
+            <p confirmpassword=password class="error">パスワードが一致しません</p>
         </div>
         <br>
         <br>
-        <div class="botton">
-            <button type="submit">登録</button>
-        </div>
+            <button type="submit" class="botton">登録</button>
     </form>
     <div id="message"></div>
     </div>

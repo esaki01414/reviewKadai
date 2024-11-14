@@ -215,33 +215,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['user_email'], $_POST[
                 </div>
             </div>
         </section>
-        <br><br>
-        <marquee>洋服ショッピングサイト開発途中</marquee>
-        <br><br>
-        <div>
-            <p style="text-decoration: underline;">商品</p>
-        </div>
-        <br><br>
 
-        <div>
-        <?php
-       $pdo = new PDO(
-        'mysql:host=mysql310.phy.lolipop.lan;dbname=LAA1554917-system;charset=utf8',
-        'LAA1554917',
-        'PassSD2D'
-        );
-
-    echo '<p>';
-    foreach($pdo->query('select * from product') as $row){
-        echo '<p>';
-        echo '<b>',$row['product_name'],"</b><br>";
-        echo '<p><img src="',$row['product_photo'],'"></p>';
-        echo '</p>';
-        echo '</p>';
-    }
-        ?>
-        </div>
-    </div>
+        <section id="product-list">
+            <div class="product-list" id="product-list-container">
+                <!-- 商品リストがここに表示される -->
+            </div>
+        </section>
     </main>
     <footer>
         <p>&copy; 2024 ECサイト</p>
