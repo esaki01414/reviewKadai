@@ -39,3 +39,13 @@ function toggleMenu() {
     const navMenu = document.getElementById('nav-menu');
     navMenu.classList.toggle('hidden'); // hiddenクラスをトグル
 }
+function searchProducts() {
+    // 検索ボックスのテキストを取得
+    const searchText = document.getElementById("search-input").value;
+    if (searchText) {
+        alert("検索内容: " + searchText);
+        // ここに実際の検索機能や処理を追加できます
+    } else {
+        alert("検索内容を入力してください。");
+    }
+}

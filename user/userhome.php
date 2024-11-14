@@ -1,37 +1,9 @@
-<?php
-session_start();
-
-$pdo = new PDO(
-    'mysql:host=mysql310.phy.lolipop.lan;dbname=LAA1554917-system;charset=utf8',
-    'LAA1554917',
-    'PassSD2D'
-);
-
-if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['user_email'], $_POST['user_pass'])) {
-    $sql = 'SELECT * FROM user WHERE user_mail = ? AND user_pass = ?';
-    $sql_login = $pdo->prepare($sql);
-    $sql_login->execute([$_POST['user_email'], $_POST['user_pass']]);
-
-    $row = $sql_login->fetch(PDO::FETCH_ASSOC);
-
-    if ($row) {
-        $_SESSION['user_email'] = $row['user_email'] ?? null;
-        $_SESSION['user_pass'] = $row['user_pass']  ?? null;
-        $_SESSION['user_first_name'] = $row['user_first_name']  ?? null;
-        $_SESSION['user_last_name'] = $row['user_last_name']  ?? null;
-    } else {
-        echo 'ログインに失敗しました。';
-    }
-}
-?>
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ECサイト</title>
-    <link rel="stylesheet" href="./css/home.css">
     <link rel="stylesheet" href="css/guest.css"> <!-- CSSファイルのリンク -->
     <style>
         body {
@@ -136,56 +108,51 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['user_email'], $_POST[
         <h1>ECサイトのタイトル</h1>
         <div class="header-info">
         <img src="./images/ユーザーアイコン.jpg" alt="ユーザーアイコン" class="user-icon"> <!-- ユーザーアイコン -->
-        <?php
-        if(isset($_SESSION['user_first_name'],$_SESSION['user_last_name'])){
-            echo '<div class="guest-status">',$_SESSION['user_first_name'].$_SESSION['user_last_name'],'さんようこそ</div>';
-        }else{
-            echo '<div class="guest-status">ゲストさんようこそ</div>';
-        }
-        ?>
+        <div class="guest-status">ゲストでログイン中</div> <!-- 追加 -->
         </div>
-        <div class="search-container">
         <div class="search-bar">
             <input type="text" placeholder="🔎洋服を検索" id="search-input">
+            <button onclick="searchProducts()">検索</button>
         </div>
-            <button class="search-button" onclick="searchProducts()">検索</button>
+        <div class="category-selection" style="background-color: #aeaeae; padding: 10px; display: flex; justify-content: center;">
+            <div class="category-item" style="margin: 10px 60px; cursor: pointer;">すべて</div>
+            <div class="category-item" style="margin: 10px 60px; cursor: pointer;">コスメ</div>
+            <div class="category-item" style="margin: 10px 60px; cursor: pointer;">シューズ</div>
         </div>
-
         <div class="hamburger-menu" onclick="toggleMenu()">
             &#9776; <!-- ハンバーガーアイコン -->
         </div>
         <nav id="nav-menu" class="hidden">
             <ul>
                 <li><a href="login.php">ログイン画面</a></li>
-                <?php
-
-                if(isset($_SESSION['user_first_name'],$_SESSION['user_last_name'])){
-                    echo '<hr>';
-                    echo '<li><a href="osirase.php">お知らせ</a></li>';
-                    echo '<hr>';
-                    echo '<li><a href="#">カート</a></li>';
-                    echo '<hr>';
-                    echo '<li><a href="#">お気に入り</a></li>';
-                    echo '<hr>';
-                    echo '<li><a href="#">プロフィール</a></li>';
-                    echo '<hr>';
-                    echo '<li><a href="#">購入履歴</a></li>';
-                    echo '<hr>';
-                    echo '<li><a href="logout.php">ログアウト画面</a></li>';
-                }
-
-                ?>
-            </li>
+                <li><a href=".php">お知らせ</a></li>
+                <li><a href=".php">カートへ</a></li>
+                <li><a href=".php">お気に入り</a></li>
+                <li><a href=".php">プロフィール変更</a></li>
+                <li><a href=".php">購入履歴</a></li>
+                <li><a href=".php">ログアウト</a></li>
+            <br><br><br><br><br></li>
             </ul>
         </nav>
     </header>
-    <marquee>洋服ショッピングサイト開発途中</marquee>
     
     <main>
-    <div id="main-content">
+        <section id="gender-selection">
+            <div class="gender-selection">
+                <div class="gender-button" onclick="selectGender('男性')">
+                    <img src="./images/男.jpeg" alt="男性" class="gender-icon" id="male-icon"> <!-- 男性アイコン -->
+                </div>
+                <div class="gender-button" onclick="selectGender('女性')">
+                    <img src="./images/女.jpg" alt="女性" class="gender-icon" id="female-icon"> <!-- 女性アイコン -->
+                </div>
+                <div class="gender-button" onclick="selectGender('子供')">
+                    <img src="./images/子供.jpg" alt="子供" class="gender-icon" id="child-icon"> <!-- 子供アイコン -->
+                </div>
+            </div>
+        </section>
+
         <section id="slideshow">
             <div class="slideshow">
-
                 <div class="slides" id="slides">
                     <div class="slide"><img src="./images/冬コーデ1.jpg" alt="画像1"></div>
                     <div class="slide"><img src="./images/冬コーデ2.jpg" alt="画像2"></div>
