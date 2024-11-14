@@ -120,30 +120,6 @@ margin: 20px auto; /* 上下の余白を20px、左右を自動で中央揃え */
     white-space: nowrap; /* 文字を横に並べる */
 }
 
-.gender-button {
-    width: 50px; /* ボタンの幅を小さくする */
-    height: 50px; /* ボタンの高さを小さくする */
-    padding: 10px;
-    margin: 100px 100px; /* ボタン間の余白を小さくする */
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    cursor: pointer;
-}
-.gender-button:hover{
-    background-color: #9e9e9e; /* ホバー時の背景色を変更 */
-}
-
-.gender-icon {
-    width: 100%; /* アイコンの幅をボタンに合わせる */
-    height: 100%; /* アイコンの高さをボタンに合わせる */
-    border-radius: 8px; /* 角の丸みを少し小さくする */
-}
-.gender-selection {
-    display: flex;
-    justify-content: center;
-    margin-top: -80px; /* 上に移動するためのマイナスのマージン */
-}
 .menu {
     position: relative; /* 相対位置を設定 */
     display: flex;
