@@ -167,7 +167,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['user_email'], $_POST[
                     echo '<hr>';
                     echo '<li><a href="#">お気に入り</a></li>';
                     echo '<hr>';
-                    echo '<li><a href="#">プロフィール</a></li>';
+                    echo '<li><a href="profile.php">プロフィール</a></li>';
                     echo '<hr>';
                     echo '<li><a href="#">購入履歴</a></li>';
                     echo '<hr>';
@@ -197,10 +197,28 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['user_email'], $_POST[
                 </div>
             </div>
         </section>
-
+                <br><br>
+        <p style="text-decoration:underline;" ><b>商品</b></p>
         <section id="product-list">
             <div class="product-list" id="product-list-container">
                 <!-- 商品リストがここに表示される -->
+                 <?php
+                    $pdo = new PDO(
+                        'mysql:host=mysql310.phy.lolipop.lan;dbname=LAA1554917-system;charset=utf8',
+                        'LAA1554917',
+                        'PassSD2D'
+                    );
+
+                    echo '<p>';
+            foreach($pdo->query('select * from product') as $row){
+                echo '<p>';
+                echo '<b>',$row['product_name'],"</b><br>";
+                echo '<p><img src="',$row['product_photo'],'"></p>';
+                echo '</p>';
+            }
+            echo '</p>';
+
+                ?>
             </div>
         </section>
     </main>
@@ -208,21 +226,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['user_email'], $_POST[
         <p>&copy; 2024 ECサイト</p>
     </footer>
     <script>
-        const products = [
-            {
-                "name": "商品1",
-                "image": "./images/画像1.jpg"
-            },
-            {
-                "name": "商品2",
-                "image": "./images/画像2.jpg"
-            },
-            {
-                "name": "商品3",
-                "image": "./images/画像3.jpg"
-            }
-        ];
-
         const productListContainer = document.getElementById('product-list-container');
         let currentSlideIndex = 0;
         const totalSlides = 7;
