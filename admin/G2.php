@@ -1,7 +1,7 @@
 <?php
        session_start();
        if($_SESSION['admin_login'] == false){
-           header("Location:./index.php");
+           header("Location:./G1.php");
            exit;
       }
    ?>
@@ -21,7 +21,7 @@
     <header>
         <div class="container">
             <div class="header-logo">
-                <h1><a href="dashboard.php">管理画面</a></h1>
+                <h1><a href="G2.php">管理画面</a></h1>
             </div>
 
             <nav class="menu-right menu">
