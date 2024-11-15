@@ -5,11 +5,11 @@
 
 
         if ($sid == '') {
-            header("Location:./index.php");
+            header("Location:./G1.php");
             exit;
         }
         if ($password == '') {
-            header("Location:./index.php");
+            header("Location:./G1.php");
             exit;
         }
 
@@ -17,10 +17,10 @@
             //ログイン許可
             session_start();
             $_SESSION['admin_login'] = true;
-            header("Location:./dashboard.php");
+            header("Location:./G2.php");
         } else {
             //間違っているのでログイン不可
-            header("Location:./index.php");
+            header("Location:./G1.php");
             exit;
         }
 ?>

@@ -2,5 +2,5 @@
     session_start();
     $_SESSION['admin_login'] = false;
 
-    header('location:./index.php');
+    header('location:./G1.php');
 ?>
