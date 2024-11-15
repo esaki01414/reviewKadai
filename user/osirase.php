@@ -4,45 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>お知らせ</title>
-    <link rel="stylesheet" href="osirase.css">
+    <link rel="stylesheet" href="css/osirase.css">
 </head>
 <body>
 
 <div class="header">
-    <h1>お知らせ</h1>
-    <p>直近10日間のお知らせを新着順に掲載しています。</p>
+    <a href="./home.php" class="back-button">← 戻る</a>
+    <div class="header-title"><h1>お知らせ</h1></div>
 </div>
 
-<div class="promo-banner">
-    <span>ZOZOCARD申込＆利用でプレゼント！最大8,000pt</span>
+<div class="no-notification">
+<img src="./images/osiraseIcon.jpg" alt="お知らせアイコン" class="notification-icon">
+    <h2>現在お知らせはありません</h2>
+    <p>気になるアイテムや好きなブランドをお気に入りに登録すると、<br>クーポン、値下げ、再入荷時にいち早くお知らせします。</p>
 </div>
 
-<div class="notifications">
+<div class="sample-notifications">
     <div class="notification-item">
-        <div class="new-badge">NEW</div>
-        <div class="notification-content">
-            <p class="date">1日前</p>
-            <p class="title">再入荷したお気に入りアイテムがあります</p>
-            <p class="shop-name">CLEL | ¥8,800</p>
-        </div>
+        <div class="item-label restock">再入荷</div>
+        <p>再入荷したお気に入りアイテムのお知らせ</p>
     </div>
-
     <div class="notification-item">
-        <div class="new-badge">NEW</div>
-        <div class="notification-content">
-            <p class="date">3日前</p>
-            <p class="title">在庫残り1点のお気に入りアイテムがあります</p>
-            <p class="shop-name">CLEL | ¥8,800</p>
-        </div>
+        <div class="item-label coupon">クーポン</div>
+        <p>お気に入りブランドで使えるクーポンが発行されました</p>
     </div>
-
     <div class="notification-item">
-        <div class="new-badge">NEW</div>
-        <div class="notification-content">
-            <p class="date">6日前</p>
-            <p class="title">値下げしたお気に入りアイテムがあります</p>
-            <p class="shop-name">BANANA REPUBLIC FACTORY STORE | ¥20,000</p>
-        </div>
+        <div class="item-label sale">値下げ</div>
+        <p>値下げしたお気に入りアイテムのお知らせ</p>
     </div>
 </div>
 
