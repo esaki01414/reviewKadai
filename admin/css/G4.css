@@ -1,8 +1,10 @@
 .label{
     margin:0 auto;
+    color: #dc143c; 
     font-size: large;
     text-align: center;
 }
 .back{
+    margin:0 auto;
     text-align: center;
 }
