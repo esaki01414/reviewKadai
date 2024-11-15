@@ -208,17 +208,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['user_email'], $_POST[
                         'LAA1554917',
                         'PassSD2D'
                     );
-
+                    echo '<form action="./product.php" method="post">';
                     echo '<p>';
-            foreach($pdo->query('select * from product') as $row){
-                echo '<p>';
-                echo '<b>',$row['product_name'],"</b><br>";
-                echo '<p><img src="',$row['product_photo'],'"></p>';
-                echo '</p>';
-            }
-            echo '</p>';
-
-                ?>
+                    foreach ($pdo->query('SELECT * FROM product') as $row) {
+                        echo '<div class="product_all">';
+                        echo '<button style="outline: none;" type="submit" name="product_id" value="', $row['product_id'], '">', htmlspecialchars($row['product_name']), '</button>';
+                        echo '<p><img src="', htmlspecialchars($row['product_photo']), '" alt="Product Image"></p>';
+                        echo '</div>';
+                    }
+                    echo '</p>';
+                    echo '</form>';
+                    ?>                
             </div>
         </section>
     </main>
