@@ -36,7 +36,7 @@
                     <h3>管理者ホーム</h3>
                 </div>
                 <div class="boxs">
-                    <a href="product.php" class="box">
+                    <a href="G13.php" class="box">
                     <i class="fa-solid fa-cube icon"></i><!-- fontawesome利用部分 -->
                         <p>商品管理</p>
                     </a>

@@ -110,4 +110,6 @@ html {
     .form-group {
         margin-bottom: 10px;
     }
-    
+    .edit-form .imgform {
+        border: none;
+    }
