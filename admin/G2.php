@@ -1,7 +1,7 @@
 <?php
        session_start();
        if($_SESSION['admin_login'] == false){
-           header("Location:./index.php");
+           header("Location:./G1.php");
            exit;
       }
    ?>
@@ -21,7 +21,7 @@
     <header>
         <div class="container">
             <div class="header-logo">
-                <h1><a href="dashboard.php">管理画面</a></h1>
+                <h1><a href="G2.php">管理画面</a></h1>
             </div>
 
             <nav class="menu-right menu">
@@ -36,7 +36,7 @@
                     <h3>管理者ホーム</h3>
                 </div>
                 <div class="boxs">
-                    <a href="product.php" class="box">
+                    <a href="G13.php" class="box">
                     <i class="fa-solid fa-cube icon"></i><!-- fontawesome利用部分 -->
                         <p>商品管理</p>
                     </a>
