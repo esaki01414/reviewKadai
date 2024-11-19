@@ -14,7 +14,7 @@
 <header>
         <div class="container">
             <div class="header-logo">
-                <h1><a href="dashboard.php">管理画面</a></h1>
+                <h1><a href="G2.php">管理画面</a></h1>
             </div>
 
             <nav class="menu-right menu">
@@ -30,8 +30,20 @@
                 </div>
                 <form class="edit-form">
                     <div class="form-group">
+                        <p>管理者ID</p>
+                        <select >
+                    </div>
+                    <div class="form-group">
                         <p>商品名</p>
                         <input type="text" name="product_name" required>
+                    </div>
+                    <div class="form-group">
+                        <p>サイズ</p>
+                        <select id="product_size" name="product_size" required>
+                            <option value="S">S</option>
+                            <option value="M">M</option>
+                            <option value="L">L</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <p>商品説明</p>
@@ -41,10 +53,7 @@
                         <p>価格</p>
                         <input type="text" name="product_price" required>
                     </div>
-                    <div class="form-group">
-                        <p>サイズ</p>
-                        <select id="product_id">
-                    </div>
+                    
                     <div class="form-group">
                         <p>商品画像</p>
                         <input type="file" name="img" class="imgform">

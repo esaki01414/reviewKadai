@@ -1,29 +1,40 @@
 <?php
 session_start();
 
+$user_mail = $_POST['user_email'] ?? null;
+$user_pass = $_POST['user_pass'] ?? null;
+
+if($user_mail){
+    if($user_pass){
+        
+    }else{
+        $user_mail= $_SESSION['user_mail'];
+        $user_pass = $_SESSION['user_pass'];
+    }
+}
+
+
 $pdo = new PDO(
     'mysql:host=mysql310.phy.lolipop.lan;dbname=LAA1554917-system;charset=utf8',
     'LAA1554917',
     'PassSD2D'
 );
 
-if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['user_email'], $_POST['user_pass'])) {
-    $sql = 'SELECT * FROM user WHERE user_mail = ? AND user_pass = ?';
-    $sql_login = $pdo->prepare($sql);
-    $sql_login->execute([$_POST['user_email'], $_POST['user_pass']]);
-
-    $row = $sql_login->fetch(PDO::FETCH_ASSOC);
-
-    if ($row) {
-        $_SESSION['user_email'] = $row['user_email'] ?? null;
-        $_SESSION['user_pass'] = $row['user_pass']  ?? null;
-        $_SESSION['user_first_name'] = $row['user_first_name']  ?? null;
-        $_SESSION['user_last_name'] = $row['user_last_name']  ?? null;
-    } else {
-        echo 'ログインに失敗しました。';
-    }
+$sql='select * from user where user_mail = ? AND user_pass = ?';
+$sql_login=$pdo->prepare($sql);
+$sql_login->execute([$user_mail,$user_pass]);
+ 
+foreach($sql_login as $row){
+    $_SESSION['user_id'] = $row['user_id'];
+    $_SESSION['user_first_name'] = $row['user_first_name'];
+    $_SESSION['user_last_name'] = $row['user_last_name'];
+    $_SESSION['user_mail'] = $row['user_mail'];
+    $_SESSION['user_pass'] = $row['user_pass'];
+    
 }
+
 ?>
+
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -137,12 +148,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['user_email'], $_POST[
         <div class="header-info">
         <img src="./images/ユーザーアイコン.jpg" alt="ユーザーアイコン" class="user-icon"> <!-- ユーザーアイコン -->
         <?php
-        if(isset($_SESSION['user_first_name'],$_SESSION['user_last_name'])){
-            echo '<div class="guest-status">',$_SESSION['user_first_name'].$_SESSION['user_last_name'],'さんようこそ</div>';
-        }else{
+        if (isset($_SESSION['user_first_name'], $_SESSION['user_last_name'])) {
+            echo '<div class="guest-status">', htmlspecialchars($_SESSION['user_first_name']), ' ', htmlspecialchars($_SESSION['user_last_name']), 'さんようこそ</div>';
+        } else {
             echo '<div class="guest-status">ゲストさんようこそ</div>';
         }
         ?>
+
         </div>
         <div class="search-container">
         <div class="search-bar">
@@ -179,9 +191,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['user_email'], $_POST[
             </ul>
         </nav>
     </header>
-    <marquee>洋服ショッピングサイト開発途中</marquee>
+    
     
     <main>
+        <marquee>洋服ショッピングサイト開発途中</marquee>
+
     <div id="main-content">
         <section id="slideshow">
             <div class="slideshow">
@@ -202,23 +216,20 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['user_email'], $_POST[
         <section id="product-list">
             <div class="product-list" id="product-list-container">
                 <!-- 商品リストがここに表示される -->
-                <?php
-                    $pdo = new PDO(
-                        'mysql:host=mysql310.phy.lolipop.lan;dbname=LAA1554917-system;charset=utf8',
-                        'LAA1554917',
-                        'PassSD2D'
-                    );
-
-                    echo '<p>';
-            foreach($pdo->query('select * from product') as $row){
-                echo '<p>';
-                echo '<b>',$row['product_name'],"</b><br>";
-                echo '<p><img src="',$row['product_photo'],'"></p>';
-                echo '</p>';
-            }
-            echo '</p>';
-
-                ?>
+                <form action="./product.php" method="post">
+                <div class="product-list">
+                    <?php
+                    foreach ($pdo->query('SELECT * FROM product') as $row) {
+                        echo '<div class="product_all">';
+                        echo '<button type="submit" name="product_id" value="', htmlspecialchars($row['product_id']), '">';
+                        echo htmlspecialchars($row['product_name']);
+                        echo '</button>';
+                        echo '<p><img src="', htmlspecialchars($row['product_photo']), '" alt="Product Image"></p>';
+                        echo '</div>';
+                    }
+                    ?>
+                </div>
+                </form>              
             </div>
         </section>
     </main>

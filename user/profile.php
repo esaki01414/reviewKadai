@@ -3,10 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="css/profile.css">
+    <title>プロフィール変更画面</title>
 </head>
-<body>
-<a href="./home.php">←戻る</a>
+<body class="special-page">
+<div class="container">
+<div class="back-button"><a href="./home.php">←戻る</a></div>
+<div class="profile-container">
+<div class="profile-icon">
+        <img src="./images/ユーザーアイコン.jpg" alt="Profile Icon">
+    </div></div>
 <div class="name-inputs">
                 <div>
                     <label for="last-name">姓</label>
@@ -110,8 +116,8 @@
                <br>
                 <label for="phone-number">電話番号</label><br>
                 <input type="tel" id="phone-number" name="user_tell" placeholder="000-0000-0000" pattern="\d{3}-\d{4}-\d{4}" required><br>
-            <button type="submit" class="login-btn">新規登録</button>
+            <button type="submit" class="login-btn">プロフィール更新</button>
             
-    
+</div>
 </body>
 </html>
