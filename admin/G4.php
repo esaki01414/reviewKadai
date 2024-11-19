@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>管理者登録完了画面</title>
+    <link rel="stylesheet" href="css/G4.css"> <!-- パスの確認 --><!-- CSSファイルのリンク -->
 </head>
 <body>
 <?php
@@ -16,18 +17,19 @@
 
    $maneger_id = $_POST['maneger_id'];
    $maneger_name = $_POST['maneger_name'];
+   $maneger_mail = $_POST['maneger_mail'];
    $maneger_pass = $_POST['maneger_pass'];
    
    $sql = $pdo->prepare(
     'INSERT INTO  maneger(
-        maneger_id , maneger_name , maneger_pass
-    )VALUES (?,?,?)'
+        maneger_id , maneger_name , maneger_mail , maneger_pass
+    )VALUES (?,?,?,?)'
     );    
-    $sql->execute([$maneger_id, $maneger_name, password_hash($maneger_pass, PASSWORD_DEFAULT)]); 
+    $sql->execute([$maneger_id, $maneger_name, $maneger_mail, $maneger_pass]); 
    ?>
     <div class="label">
     <h1>登録完了</h1>
     </div>
-    <div class="back"><a href="./dashboard.php">ホームに戻る</a></div>
+    <div class="back"><a href="./G1.php">ホームに戻る</a></div>
 </body>
 </html>
