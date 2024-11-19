@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>商品管理画面</title>
     <link rel="stylesheet" href="css/styles.css"> <!-- CSSファイルのリンク -->
-    <link rel="stylesheet" href="css/G8.css"> <!-- CSSファイルのリンク -->
+    <link rel="stylesheet" href="css/dashboard.css"> <!-- CSSファイルのリンク -->
 </head>
 <body>
     <h1>商品管理</h1>
@@ -22,19 +22,27 @@
 );
 $sql='SELECT product_id, product_name FROM product';
    $stmt = $pdo->query($sql);
-   echo '<div class="c-link-group">';
-   echo '<div class="c-link">';
-   foreach($stmt as $row){
-    echo  '<div>';
-    echo '<a href="G9.php">';
-      echo   '<p>おすすめ書籍</p>';
+   ?>
+   <div class="wrapper">
+   <div class="container">
+   <div class="boxs">
+<?php foreach($stmt as $row){
+    echo '<a href="G9.php?id=',$row['product_id'],'" class="box">';
+    echo '<i class="fa-solid fa-cube icon"></i>';
+    echo '<p>商品ID:</p>';
+    echo '<p>',$row['product_id'],'</p>';
+    echo '<p>商品名:</p>';
+    echo '<p>',$row['product_name'],'</p>';
     echo '</a>';
-    echo '</div>';
-   }
-    echo '</div>';
-   echo '</div>';
+     }
+     ?>
+    </div>
+    </div>
+    </div>
+    <?php
    $pdo=null;
     ?>
     <script src="js/script.js"></script> <!-- JavaScriptファイルのリンク -->
 </body>
 </html>
+
