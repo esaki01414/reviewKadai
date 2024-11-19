@@ -7,7 +7,7 @@
     );
         $sid = isset($_POST['sid'])? htmlspecialchars($_POST['sid'], ENT_QUOTES, 'utf-8') : '';
         $password = isset($_POST['password'])? htmlspecialchars($_POST['password'], ENT_QUOTES, 'utf-8'): '';
-        $stmt = $pdo->prepare("SELECT  FROM maneger WHERE maneger_id = ? and maneger_pass= ?");
+        $stmt = $pdo->prepare("SELECT * FROM maneger WHERE maneger_id = ? and maneger_pass= ?");
         $stmt->execute([$sid, $password]);
 
         if ($sid == '') {
