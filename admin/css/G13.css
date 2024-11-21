@@ -1,5 +1,3 @@
-/* 管理者側の基本スタイル */
-
 /* css reset */
 @charset "utf-8";
 html, body, div, span, iframe,
@@ -16,7 +14,6 @@ article,footer, header, menu, nav, section {
   text-decoration: none;
   vertical-align: baseline;
 }
-
 /* 共通CSS */
 .container {
     max-width: 1100px;
@@ -66,7 +63,6 @@ html {
     background-color: #4c586f;
     color: #fff;
 }
-
 /* login */
 .login-wrapper {
     text-align: center;
@@ -113,7 +109,7 @@ html {
     .edit-form .imgform {
         border: none;
     }
-    /* dashboard.html */
+/* dashboard.html */
     /* header */
     header {
         width: 100%;
@@ -195,7 +191,7 @@ html {
             color: #fff;
             font-size: 12px;
         }
-    /* products */
+        /* products */
     .edit-form .imgform {
         border: none;
     }
