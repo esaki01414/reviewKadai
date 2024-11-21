@@ -63,7 +63,7 @@ if (!$product) {
     <script src="./js/product.js"></script>
     <title>商品詳細</title>
 </head>
-<body>
+<body class="special-page">
     <header></header>
     <a href="./home.php">戻る</a>
     <div class="container">
@@ -73,7 +73,7 @@ if (!$product) {
     <h2>サイズ: <?= htmlspecialchars($product['product_size'], ENT_QUOTES, 'UTF-8') ?></h2>
     <h2>カラー: <?= htmlspecialchars($product['product_color'], ENT_QUOTES, 'UTF-8') ?></h2>
     <h2>商品価格: ￥<?= number_format((float)$product['product_price']) ?></h2>
-    <h2>在庫数: <?= htmlspecialchars($product['imventory_stock'], ENT_QUOTES, 'UTF-8') ?></h2>
+    <h2>在庫数: <?= htmlspecialchars($product['inventory_stock'], ENT_QUOTES, 'UTF-8') ?></h2>
     <h2>商品詳細:<?= nl2br(htmlspecialchars($product['product_body'], ENT_QUOTES, 'UTF-8')) ?>
     </h2>
     <form action="./product_finishing.php" method="post">
