@@ -1,0 +1,76 @@
+/* 基本スタイル */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+/* レイアウト全体を管理するコンテナ */
+.container {
+    display: flex; /* 横並びに配置 */
+    align-items: flex-start; /* 上に揃える */
+    gap: 20px; /* 画像と詳細の間に余白 */
+    padding: 20px; /* ページ全体に余白を追加 */
+    width: 100%; /* または適切な幅 */
+    max-width: 1200px; /* レスポンシブに対応する場合 */
+}
+
+/* 商品画像のスタイル */
+img {
+    max-width: none; /* 親要素の幅制限を無効化 */
+    width: 300px; /* 任意の幅を指定 */
+    height: auto; /* アスペクト比を維持 */
+    border-radius: 5px; /* 角を丸くする */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 画像に影を付ける */
+}
+
+/* 商品詳細のスタイル */
+.product-details {
+    flex: 1; /* 画像の横で幅を可変に */
+    background-color: #fff; /* 背景を白にする */
+    padding: 20px; /* 内側に余白 */
+    border-radius: 8px; /* 角を丸くする */
+    border: 1px solid #ddd; /* 枠線を薄いグレーで表示 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 全体に影を付ける */
+}
+
+.product-details h2 {
+    font-size: 18px; /* 見出しのフォントサイズ */
+    color: #333; /* 文字色 */
+    margin: 10px 0; /* 各見出しの余白 */
+    line-height: 1.5; /* 行間を広げる */
+}
+
+/* 戻るリンクのスタイル */
+a {
+    color: #007BFF; /* 青色 */
+    text-decoration: none; /* 下線を消す */
+    display: inline-block; /* インラインで表示 */
+    margin-bottom: 15px; /* 下に余白 */
+}
+
+a:hover {
+    text-decoration: underline; /* ホバー時に下線を表示 */
+}
+
+/* ボタンのスタイル */
+button {
+    padding: 10px 20px; /* ボタン内の余白 */
+    margin: 10px 5px; /* ボタン間の余白 */
+    background-color: #007BFF; /* ボタンの青色 */
+    color: #fff; /* 文字色を白に */
+    border: none; /* 枠線を消す */
+    border-radius: 4px; /* 角を丸くする */
+    cursor: pointer; /* ポインターに変更 */
+    font-size: 16px; /* フォントサイズ */
+}
+
+button:hover {
+    background-color: #0056b3; /* ホバー時の色を変更 */
+}
+
+/* ボタンをまとめるフォームのスタイル */
+form {
+    margin-top: 20px; /* 上に余白 */
+}

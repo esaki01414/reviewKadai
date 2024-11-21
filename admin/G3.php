@@ -9,7 +9,7 @@
 </head>
 <body>
 
-    <div class="back"><a href="./dashboard.php">←戻る</a></div>
+    <div class="back"><a href="./G1.php">←戻る</a></div>
     <div class="background">
     <div class="label">
         <h1>新規登録画面</h1>
@@ -26,15 +26,13 @@
         </div>
         <br>
         <div class="form3">
-            <label for="maneger_pass">パスワード</label>
-            <input type="password" id="maneger_pass" name="maneger_pass" required>
-            <p class="error">パスワードが入力されていません</p>
+            <label for="maneger_mail">メールアドレス</label>
+            <input type="mail" id="maneger_mail" name="maneger_mail" required>
         </div>
         <br>
         <div class="form4">
-            <label for="confirmpassword">パスワード確認</label>
-            <input type="password" id="confirmpassword" name="confirmpassword" required>
-            <p class="error">パスワードが一致しません</p>
+            <label for="maneger_pass">パスワード</label>
+            <input type="password" id="maneger_pass" name="maneger_pass" required>
         </div>
         <br>
         <br>
