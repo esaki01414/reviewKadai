@@ -6,6 +6,29 @@ body {
     background-color: #f9f9f9;
     position: relative; /* 戻るボタンの固定に必要 */
 }
+body.special-page {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    position: relative; /* 戻るボタンの固定に必要 */
+    animation: backgroundChange 10s infinite; /* 背景色が変わるアニメーション */
+}
+/* アニメーションの定義 */
+@keyframes backgroundChange {
+    0% {
+        background-color: #f5e1a4; /* 最初の色（ベージュ） */
+    }
+    33% {
+        background-color: #f8d7da; /* 3分の1の時間でライトピンクに変更 */
+    }
+    66% {
+        background-color: #ffeb99; /* 2分の1の時間でライトオレンジに変更 */
+    }
+    100% {
+        background-color: #f5e1a4; /* 最後にベージュに戻す */
+    }
+}
+
 /* 戻るリンクのスタイル */
 a {
     position: absolute; /* 左上に固定配置 */
@@ -73,6 +96,35 @@ button {
 
 button:hover {
     background-color: #0056b3; /* ホバー時の色を変更 */
+}
+#favorite-button {
+    background-color: pink; /* お気に入り登録ボタンの背景色 */
+    color: black; /* 文字色を白に */
+    border: none; /* ボタンの枠線をなしに */
+    padding: 10px 20px; /* ボタンの内側の余白 */
+    border-radius: 5px; /* 角を丸く */
+    font-size: 16px; /* フォントサイズ */
+    cursor: pointer; /* カーソルをポインターに */
+    transition: background-color 0.3s ease; /* ホバー時の色変更 */
+}
+
+#favorite-button:hover {
+    background-color: #ff66b2; /* ホバー時の色 */
+}
+
+#cart-button {
+    background-color: yellow; /* カート登録ボタンの背景色 */
+    color: black; /* 文字色を黒に */
+    border: none; /* ボタンの枠線をなしに */
+    padding: 10px 20px; /* ボタンの内側の余白 */
+    border-radius: 5px; /* 角を丸く */
+    font-size: 16px; /* フォントサイズ */
+    cursor: pointer; /* カーソルをポインターに */
+    transition: background-color 0.3s ease; /* ホバー時の色変更 */
+}
+
+#cart-button:hover {
+    background-color: #ffd700; /* ホバー時の色 */
 }
 
 /* ボタンをまとめるフォームのスタイル */
