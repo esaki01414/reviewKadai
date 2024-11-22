@@ -15,7 +15,7 @@
                 </div>
                 <form class="login-form" action="check.php" method="POST">
                     <div class="form-group">
-                        <p>社員ID</p>
+                        <p>管理者ID</p>
                         <input type="text" name="sid" required>
                     </div>
                     <div class="form-group">
