@@ -48,10 +48,9 @@ $carts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </head>
 <body class="special-page">
     <a href="./home.php">ホームに遷移</a>
-    <h1>カート商品</h1>
-    <!-- ここ -->
-    
+    <h1>カート商品</h1>   
     <div class="products-container">
+
     <form action="./product.php" method="post">
     <?php if (!empty($carts)): ?>
         <?php foreach ($carts as $row): ?>
@@ -96,5 +95,6 @@ $carts = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <button type="submit" name="order">購入</button>
         </form>
     <?php endif; ?>
+
 </body>
 </html>
