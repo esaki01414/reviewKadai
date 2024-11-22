@@ -28,8 +28,8 @@
     $sql='SELECT * FROM product WHERE product_id = ?';
        $stmt = $pdo->prepare($sql);
        $stmt->execute([$id]);
+       $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
        foreach($stmt as $row){
-        echo '<hr>';
         echo '<img src="'.$row['product_photo'].'"height="200" alt="Product Image">','<br>';
         echo '<p>商品ID:</p>';
         echo '<p>',$row['product_id'],'</p>';
