@@ -29,7 +29,7 @@
        $stmt = $pdo->prepare($sql);
        $stmt->execute([$id]);
        foreach($stmt as $row){
-        echo '<img src="'.$row['product_photo'].'"height="200">','<br>';
+        echo '<img src="'.$row['product_photo'].'"height="200"/>','<br>';
         echo '<p>商品ID:</p>';
         echo '<p>',$row['product_id'],'</p>';
         echo '<p>商品名:</p>';
