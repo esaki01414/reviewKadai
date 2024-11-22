@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
         <!-- CSSファイルのリンク -->
-        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="css/G13.css">
 </head>
 <body>
 <header>
@@ -28,10 +28,25 @@
                 <div class="wrapper-title">
                     <h3>新規作成</h3>
                 </div>
-                <form class="edit-form">
+                <form class="edit-form" method="POST" action="store_product.php" enctype="multipart/form-data">
                     <div class="form-group">
                         <p>管理者ID</p>
-                        <select >
+                        <?php
+                        echo '<select id="maneger_id" name="maneger_id" required>';
+                        $pdo = new PDO(
+                            'mysql:host=mysql310.phy.lolipop.lan;
+                            dbname=LAA1554917-system;charset=utf8',
+                            'LAA1554917',
+                             'PassSD2D'
+                        );
+                        $sql='SELECT maneger_id FROM maneger';
+                        $stmt = $pdo->query($sql);
+                        $rows = $stmt->fetchAll();
+                        foreach($rows as $row){
+                            echo '<option value="maneger_id">',$row["maneger_id"],'</option>';
+                        }
+                        echo '</select>';
+                        ?>
                     </div>
                     <div class="form-group">
                         <p>商品名</p>
@@ -46,12 +61,20 @@
                         </select>
                     </div>
                     <div class="form-group">
+                        <p>カラー</p>
+                        <input type="text" name="product_color" required>
+                    </div>
+                    <div class="form-group">
+                        <p>在庫数</p>
+                        <input type="number" name="inventory_stock" required>
+                    </div>
+                    <div class="form-group">
                         <p>商品説明</p>
                         <input type="text" name="product_body" maxlength="255">
                     </div>
                     <div class="form-group">
                         <p>価格</p>
-                        <input type="text" name="product_price" required>
+                        <input type="number" name="product_price" required>
                     </div>
                     
                     <div class="form-group">

@@ -63,21 +63,25 @@ if (!$product) {
     <script src="./js/product.js"></script>
     <title>商品詳細</title>
 </head>
-<body>
+<body class="special-page">
     <header></header>
     <a href="./home.php">戻る</a>
+    <div class="container">
     <img src="<?= htmlspecialchars($product['product_photo'], ENT_QUOTES, 'UTF-8') ?>" alt="商品画像">
+    <div class="product-details">
     <h2>商品名: <?= htmlspecialchars($product['product_name'], ENT_QUOTES, 'UTF-8') ?></h2>
     <h2>サイズ: <?= htmlspecialchars($product['product_size'], ENT_QUOTES, 'UTF-8') ?></h2>
     <h2>カラー: <?= htmlspecialchars($product['product_color'], ENT_QUOTES, 'UTF-8') ?></h2>
     <h2>商品価格: ￥<?= number_format((float)$product['product_price']) ?></h2>
-    <h2>在庫数: <?= htmlspecialchars($product['imventory_stock'], ENT_QUOTES, 'UTF-8') ?></h2>
+    <h2>在庫数: <?= htmlspecialchars($product['inventory_stock'], ENT_QUOTES, 'UTF-8') ?></h2>
     <h2>商品詳細:<?= nl2br(htmlspecialchars($product['product_body'], ENT_QUOTES, 'UTF-8')) ?>
     </h2>
     <form action="./product_finishing.php" method="post">
         <input type="hidden" name="product_id" value="<?= htmlspecialchars($product_id, ENT_QUOTES, 'UTF-8') ?>">
         <button type="submit" name="favorite" id="favorite-button">お気に入りに登録</button>
         <button type="submit" name="cart" id="cart-button">カートに登録</button>
+        </div>
+        </div>
     </form>
 </body>
 </html>
