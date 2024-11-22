@@ -28,18 +28,15 @@
     $sql='SELECT * FROM product WHERE product_id = ?';
        $stmt = $pdo->prepare($sql);
        $stmt->execute([$id]);
-       $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-       if(!empty($result)){
-        foreach($stmt as $row){
-        echo '<img src="' . htmlspecialchars($row['product_photo']) . '" height="200" alt="Product Image"><br>';
+        foreach($stmt as $row){     
+        echo '<img src="' .$row['product_photo']. '" height="200" alt="Product Image"><br>';
         echo '<p>商品ID:</p>';
-        echo '<p>',htmlspecialchars($row['product_id']),'</p>';
+        echo '<p>',$row['product_id'],'</p>';
         echo '<p>商品名:</p>';
-        echo '<p>',htmlspecialchars($row['product_name']),'</p>';
+        echo '<p>',$row['product_name'],'</p>';
         echo '<p>在庫数</p>';
-        echo '<p>',htmlspecialchars($row['inventory_stock']),'</p>';
+        echo '<p>',$row['inventory_stock'],'</p>';
        }
-    }
        $pdo=null;
     ?>
         <script src="js/script.js"></script> <!-- JavaScriptファイルのリンク -->
