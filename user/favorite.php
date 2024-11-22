@@ -44,23 +44,25 @@ $favorites = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <link rel="stylesheet" href="./css/favorite.css">
     <title>お気に入り商品</title>
 </head>
-<body>
+<body class="special-page">
     <a href="./home.php">ホームに遷移</a>
     <h1>お気に入り商品</h1>
     <?php if (!empty($favorites)): ?>
         <?php foreach ($favorites as $row): ?>
             <div class="product_all">
             <form action="./product.php" method="post">
-                <button type="submit" name="product_id" value="<?= htmlspecialchars($row['product_id']) ?>">
+                <h2>商品名：<button type="submit" name="product_id" value="<?= htmlspecialchars($row['product_id']) ?>" class="link-button">
                     <?= htmlspecialchars($row['product_name']) ?>
-                </button>
+                </button></h2>
             </form>
+            <div class="image-container">
                 <p>
-                    <img src="<?= htmlspecialchars($row['product_photo']) ?>" alt="Product Image">
+                    <img src="<?= htmlspecialchars($row['product_photo']) ?>" alt="Product Image" class="product-image">
                 </p>
                 <form action="./product_delete.php" method="post">
-                    <button type="submit" name="favorite_delete" value="<?= htmlspecialchars($row['product_id']) ?>">削除</button>
+                    <button type="submit" name="favorite_delete" value="<?= htmlspecialchars($row['product_id']) ?>" class="favorite-button">商品をお気に入りから外す</button>
                 </form>
+            </div>
                 <hr>
                 <style>
                     hr{
