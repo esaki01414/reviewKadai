@@ -1,23 +1,53 @@
-h1 
 body {
     font-family: Arial, sans-serif;
+    display: flex;
+    background-color: #f2f2f2;
+    flex-direction: column; /* 縦に並べる */
+    align-items: center; /* 横方向の中央揃え */
+    justify-content: center; /* 縦方向の中央揃え */
+    min-height: 100vh; /* 画面全体の高さを確保 */
+    margin: 0; /* デフォルトのマージンをリセット */
+    text-align: center; /* テキストを中央揃え */
+  }
+  body.special-page {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+    margin: 0;
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    margin: 0;
-    background-color: #f2f2f2;
   }
 
   .container {
-    width: 360px;
     background-color: #ffffff;
-    border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
     text-align: center;
     position: relative;
+    display: flex;
+    flex-direction: column; /* 縦に並べる */
+    align-items: center; /* 横方向の中央揃え */
+    border: 1px solid #ccc; /* ボーダーを追加 (任意) */
+    border-radius: 10px; /* 角を丸くする (任意) */
+    width: 100%; /* コンテナの幅を100%に */
+    max-width: 400px; /* 最大幅を設定 */
+    height: auto;
+    overflow-y: auto;
+    margin-bottom: 40px; /* コンテナの下に外側の余白を追加 */
   }
+
+  @media (max-width: 768px) {
+    .container {
+        max-width: 90%; /* 小さい画面では幅を少し広げる */
+        padding: 15px;  /* 余白を少し小さく */
+    }
+
+    .container h1 {
+        font-size: 16px;  /* 見出しを少し小さく */
+    }
+}
 
   .container h1 {
     font-size: 18px;
@@ -193,15 +223,7 @@ body {
     left: 0; /* 左端に配置 */
     bottom: -5px; /* テキストの下に配置（必要に応じて調整） */
 }
-body {
-  display: flex;
-  flex-direction: column; /* 縦に並べる */
-  align-items: center; /* 横方向の中央揃え */
-  justify-content: center; /* 縦方向の中央揃え */
-  min-height: 100vh; /* 画面全体の高さを確保 */
-  margin: 0; /* デフォルトのマージンをリセット */
-  text-align: center; /* テキストを中央揃え */
-}
+
 
 header {
   margin-bottom: 20px; /* 下のマージンを追加 */
@@ -211,18 +233,6 @@ header {
   margin-bottom: 20px; /* 下のマージンを追加 */
 }
 
-.container {
-  display: flex;
-  flex-direction: column; /* 縦に並べる */
-  align-items: center; /* 横方向の中央揃え */
-  padding: 20px; /* パディングを追加 */
-  border: 1px solid #ccc; /* ボーダーを追加 (任意) */
-  border-radius: 10px; /* 角を丸くする (任意) */
-  width: 100%; /* コンテナの幅を100%に */
-  max-width: 400px; /* 最大幅を設定 */
-  max-height: 500px;
-  overflow-y: auto;
-}
 
 .login_tab, .new_login_tab {
   padding: 10px 30px; /* タブの内側にパディングを追加 */
@@ -270,16 +280,7 @@ input[type="tel"] {
   border: 1px solid #ccc;
   border-radius: 4px;
 }
-body.special-page {
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
+
 /* すべての入力ボックスとセレクトボックスの幅を同じにする */
 input[type="text"],
 input[type="email"],
