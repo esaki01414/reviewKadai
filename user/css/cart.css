@@ -1,0 +1,93 @@
+body.special-page {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px 0 0 20px;
+    position: relative; /* 戻るボタンの固定に必要 */
+    animation: backgroundChange 10s infinite; /* 背景色が変わるアニメーション */
+}
+/* アニメーションの定義 */
+@keyframes backgroundChange {
+    0% {
+        background-color: #f5e1a4; /* 最初の色（ベージュ） */
+    }
+    33% {
+        background-color: #f8d7da; /* 3分の1の時間でライトピンクに変更 */
+    }
+    66% {
+        background-color: #ffeb99; /* 2分の1の時間でライトオレンジに変更 */
+    }
+    100% {
+        background-color: #f5e1a4; /* 最後にベージュに戻す */
+    }
+}
+
+.product-all {
+    flex: 1 1 calc(33.333% - 20px); /* 1行に3つまで表示 */
+    box-sizing: border-box;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.link-button {
+    background: none;
+    color: black;
+    border: none;
+    cursor: pointer;
+    font: inherit;
+    text-decoration: underline wavy;
+}
+
+.product-image {
+    width: 200px;       /* 固定サイズ */
+    height: auto;       /* アスペクト比を保つ */
+    border: 2px solid #ccc; /* 枠線 */
+    border-radius: 10px; /* 角を丸くする */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 影をつける */
+    margin-bottom: 10px;
+}
+.image-container {
+    position: relative; /* ボタンの位置を調整するための基準 */
+    display: inline-block; /* 必要に応じて調整 */
+}
+
+.image-container img {
+    display: block; /* 不要な隙間を防ぐ */
+    max-width: 100%; /* 必要ならレスポンシブ対応 */
+    height: auto; /* アスペクト比を維持 */
+}
+
+.image-container .favorite-button {
+    position: absolute; /* 親要素（.image-container）を基準に配置 */
+    bottom: -5px; /* 下からの距離 */
+    right: -100px; /* 右からの距離 */
+    background-color: #f00; /* ボタンの背景色 */
+    color: #fff; /* ボタンの文字色 */
+    border: none; /* ボーダーを消す */
+    padding: 10px 15px; /* ボタン内余白 */
+    border-radius: 5px; /* ボタンの角を丸くする */
+    cursor: pointer; /* カーソルをポインターに */
+}
+
+.image-container .favorite-button:hover {
+    background-color: #d00; /* ホバー時の背景色 */
+}
+
+.product-all h2 {
+    margin-bottom: 10px;
+}
+
+/* レスポンシブ対応（画面が狭くなったときの調整） */
+@media (max-width: 768px) {
+    .product-all {
+        flex: 1 1 calc(50% - 20px); /* 1行に2つ表示 */
+    }
+}
+
+@media (max-width: 480px) {
+    .product-all {
+        flex: 1 1 100%; /* 1行に1つ表示 */
+    }
+}
