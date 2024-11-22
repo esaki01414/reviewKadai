@@ -48,8 +48,6 @@ $carts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <body>
     <a href="./home.php">ホームに遷移</a>
     <h1>カート商品</h1>
-    <!-- ここ -->
-    
     <form action="./product.php" method="post">
     <?php if (!empty($carts)): ?>
         <?php foreach ($carts as $row): ?>
@@ -85,6 +83,10 @@ $carts = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <?php else: ?>
         <p>保存しているカート商品がありません。</p>
     <?php endif; ?>
+    <form action="./order.php" method="post">
+        <p>購入手続きに遷移します</p>
+        <button type="submit" name="order">購入</button>
+    </form>
     
     
 </body>
