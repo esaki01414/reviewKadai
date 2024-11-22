@@ -175,9 +175,9 @@ foreach($sql_login as $row){
                     echo '<hr>';
                     echo '<li><a href="osirase.php">お知らせ</a></li>';
                     echo '<hr>';
-                    echo '<li><a href="#">カート</a></li>';
+                    echo '<li><a href="cart.php">カート</a></li>';
                     echo '<hr>';
-                    echo '<li><a href="#">お気に入り</a></li>';
+                    echo '<li><a href="favorite.php">お気に入り</a></li>';
                     echo '<hr>';
                     echo '<li><a href="profile.php">プロフィール</a></li>';
                     echo '<hr>';
