@@ -181,7 +181,7 @@ foreach($sql_login as $row){
                     echo '<hr>';
                     echo '<li><a href="profile.php">プロフィール</a></li>';
                     echo '<hr>';
-                    echo '<li><a href="#">購入履歴</a></li>';
+                    echo '<li><a href="order_history">購入履歴</a></li>';
                     echo '<hr>';
                     echo '<li><a href="logout.php">ログアウト画面</a></li>';
                 }
