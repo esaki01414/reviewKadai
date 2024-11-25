@@ -233,7 +233,7 @@ header {
   top: 10px;
   left: 10px;
   padding: 5px;
-  border: 1px solid #000; /* 枠線の色やデザインは任意で */
+  border: 1px solid #ffffff; /* 枠線の色やデザインは任意で */
 }
 .back-button a {
   color: #000;
