@@ -126,7 +126,7 @@
                     <label for="city">市区町村名</label>
                     <label for="sikutyoson">市区町村</label>
                 <input type="text" id="sikutyoson" name="user_address" placeholder="市区町村名を入力" required>
-
+<br>
                 <label for="street-address">番地・ビル名</label>
                 <input type="text" id="street-address" name="user_home_number"  placeholder="番地・ビル名を入力" required>
                 <label for="phone-number">電話番号</label>

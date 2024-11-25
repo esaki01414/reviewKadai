@@ -9,11 +9,18 @@ session_destroy();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="./css/logout.css">
+    <title>ログアウト完了画面</title>
 </head>
 <body>
-    <h3>ログアウト完了画面</h3>
-    <p>ログアウトしました。</p>
-    <a href="./home.php">ホーム画面に遷移</a>
+    <div class="container">
+        <div class="content">
+            <h3>ログアウト完了画面</h3>
+            <p>ログアウトしました。</p>
+        </div>
+        <div class="footer">
+            <a href="./home.php">ホーム画面に遷移</a>
+        </div>
+    </div>
 </body>
 </html>
