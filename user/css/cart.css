@@ -21,6 +21,16 @@ body.special-page {
     }
 }
 
+.product-all {
+    flex: 1 1 calc(33.333% - 20px); /* 1行に3つまで表示 */
+    box-sizing: border-box;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
 .link-button {
     background: none;
     color: black;
@@ -36,6 +46,7 @@ body.special-page {
     border: 2px solid #ccc; /* 枠線 */
     border-radius: 10px; /* 角を丸くする */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 影をつける */
+    margin-bottom: 10px;
 }
 .image-container {
     position: relative; /* ボタンの位置を調整するための基準 */
@@ -62,4 +73,21 @@ body.special-page {
 
 .image-container .favorite-button:hover {
     background-color: #d00; /* ホバー時の背景色 */
+}
+
+.product-all h2 {
+    margin-bottom: 10px;
+}
+
+/* レスポンシブ対応（画面が狭くなったときの調整） */
+@media (max-width: 768px) {
+    .product-all {
+        flex: 1 1 calc(50% - 20px); /* 1行に2つ表示 */
+    }
+}
+
+@media (max-width: 480px) {
+    .product-all {
+        flex: 1 1 100%; /* 1行に1つ表示 */
+    }
 }

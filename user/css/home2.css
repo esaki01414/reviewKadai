@@ -1,4 +1,3 @@
-h1 
 body {
     font-family: Arial, sans-serif;
     display: flex;
@@ -7,21 +6,67 @@ body {
     min-height: 100vh;
     margin: 0;
     background-color: #f2f2f2;
+    flex-direction: column; /* 縦に並べる */
+    text-align: center; /* テキストを中央揃え */
   }
+  
 
   .container {
-    width: 360px;
+    width: 450px;
     background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
     text-align: center;
     position: relative;
+    display: flex;
+    flex-direction: column; /* 縦に並べる */
+    align-items: center; /* 横方向の中央揃え */
+    border: 1px solid #ccc; /* ボーダーを追加 (任意) */
+    max-width: 400px; /* 最大幅を設定 */
+    max-height: 500px;
+    overflow-y: auto;
   }
 
   .container h1 {
     font-size: 18px;
     margin-bottom: 20px;
+  }
+
+  body.special-page {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  .back-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 5px;
+    border: 1px solid #ffffff; /* 枠線の色やデザインは任意で */
+  }
+  .back-button a {
+    color: #000;
+    text-decoration: none;
+  }
+  fieldset {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 15px;
+  }
+   
+  legend {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 0 5px;
+    color: #333;
   }
 
   .profile-icon {
@@ -37,6 +82,7 @@ body {
     font-weight: bold; /* 太字 */
     border: 2px solid #ccc; /* 枠線 */
   }
+
   .profile-icon img {
     width: 100%;  /* 画像を親要素に合わせてサイズ調整 */
     height: 100%;  /* 高さも調整 */
@@ -48,6 +94,14 @@ body {
     display: flex;
     margin-bottom: 20px;
   }
+
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; /* ボタン上の余白 */
+  }
+
   .login_tab, .new_login_tab {
     padding: 10px 30px; /* タブの内側にパディングを追加 */
     cursor: pointer; /* カーソルをポインタに */
@@ -57,11 +111,79 @@ body {
     min-width: 100px; /* 最小幅を指定 */
     text-align: center; /* テキストを中央揃え */
   }
-  form {
-    text-align: left;
+
+  .new_login_tab {
+    flex: 1;
+    padding: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #007bff; /* 文字色を青に */
+    text-align: center; /* 中央揃え */
+    position: relative; /* 下線を絶対位置で表示するための設定 */
+}
+ 
+.new_login_tab::after {
+    content: ""; /* 擬似要素を作成 */
+    display: block; /* ブロック要素にする */
+    width: 100%; /* 幅を100%に設定 */
+    height: 3px; /* 下線の太さ */
+    background-color: #007bff; /* 下線の色 */
+    border-radius: 5px; /* 角を丸くする */
+    position: absolute; /* 絶対位置で配置 */
+    left: 0; /* 左端に配置 */
+    bottom: -5px; /* テキストの下に配置（必要に応じて調整） */
+}
+
+.login_tab {
+    flex: 1;
+    padding: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    color: black; /* 文字色を黒に */
+    text-align: center; /* 中央揃え */
+    text-decoration: none; /* 下線を消す */
+    position: relative; /* 下線を絶対位置で表示するための設定 */
+}
+ 
+.login_tab::after {
+    content: ""; /* 擬似要素を作成 */
+    display: block; /* ブロック要素にする */
+    width: 100%; /* 幅を100%に設定 */
+    height: 3px; /* 下線の太さ */
+    background-color: #ffffff; /* 下線の色 */
+    border-radius: 5px; /* 角を丸くする */
+    position: absolute; /* 絶対位置で配置 */
+    left: 0; /* 左端に配置 */
+    bottom: -5px; /* テキストの下に配置（必要に応じて調整） */
+}
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+ 
+header {
+    margin-bottom: 20px; /* 下のマージンを追加 */
+  }
+   
+  .back {
+    margin-bottom: 20px; /* 下のマージンを追加 */
   }
 
-  label {
+  form {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  form input, form select, form button {
+    width: 100%;
+    margin-bottom: 15px; /* 余白調整 */
+    box-sizing: border-box; /* パディングやボーダーを含めた幅設定 */
+}
+
+label {
     font-size: 14px;
     color: #333;
     display: block;
@@ -69,24 +191,15 @@ body {
   }
 
   input[type="email"],
-  input[type="password"] {
+  input[type="password"],
+  input[type="tel"],
+  input[type="text"] {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
     border-radius: 5px;
     border: 1px solid #ddd;
     font-size: 16px;
-  }
-
-  .checkbox-container {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-    font-size: 14px;
-  }
-
-  .checkbox-container input {
-    margin-right: 5px;
   }
 
   .forgot-password {
@@ -140,173 +253,44 @@ body {
 .address-inputs span {
     margin: 0 5px; /* スパン（〒とー）の間に余白 */
 }
-
+ 
 .address-inputs input {
-    width: 50px; /* ボックスの幅を固定 */
+    width: 70px; /* 必要に応じて幅を調整 */
     margin: 0 5px; /* ボックス間の余白 */
+    padding: 5px; /* 内側の余白を追加 */
+    font-size: 16px; /* テキストのサイズ */
+    box-sizing: border-box; /* パディングを含めて幅を計算 */
 }
-
+ 
 #address {
     margin-top: 10px; /* 住所ボックスとの間隔を調整 */
     width: 100%; /* 住所ボックスは全幅を占める */
 }
-.new_login_tab {
-    flex: 1;
-    padding: 10px;
-    cursor: pointer;
-    font-weight: bold;
-    color: #007bff; /* 文字色を青に */
-    text-align: center; /* 中央揃え */
-    position: relative; /* 下線を絶対位置で表示するための設定 */
-}
 
-.new_login_tab::after {
-    content: ""; /* 擬似要素を作成 */
-    display: block; /* ブロック要素にする */
-    width: 100%; /* 幅を100%に設定 */
-    height: 3px; /* 下線の太さ */
-    background-color: #007bff; /* 下線の色 */
+.todohu-ken select {
+    width: 100%; /* 親要素に合わせて幅を調整 */
+    padding: 10px; /* 内側の余白を指定 */
+    font-size: 16px; /* フォントサイズを揃える */
+    border: 1px solid #ddd; /* 枠線のスタイルを統一 */
     border-radius: 5px; /* 角を丸くする */
-    position: absolute; /* 絶対位置で配置 */
-    left: 0; /* 左端に配置 */
-    bottom: -5px; /* テキストの下に配置（必要に応じて調整） */
-}
-.login_tab {
-    flex: 1;
-    padding: 10px;
-    cursor: pointer;
-    font-weight: bold;
-    color: black; /* 文字色を黒に */
-    text-align: center; /* 中央揃え */
-    text-decoration: none; /* 下線を消す */
-    position: relative; /* 下線を絶対位置で表示するための設定 */
-}
+    box-sizing: border-box; /* パディングを含めて幅を計算 */
+    background-color: white; /* 背景色を指定 */
+  }
 
-.login_tab::after {
-    content: ""; /* 擬似要素を作成 */
-    display: block; /* ブロック要素にする */
-    width: 100%; /* 幅を100%に設定 */
-    height: 3px; /* 下線の太さ */
-    background-color: #ffffff; /* 下線の色 */
-    border-radius: 5px; /* 角を丸くする */
-    position: absolute; /* 絶対位置で配置 */
-    left: 0; /* 左端に配置 */
-    bottom: -5px; /* テキストの下に配置（必要に応じて調整） */
-}
-body {
-  display: flex;
-  flex-direction: column; /* 縦に並べる */
-  align-items: center; /* 横方向の中央揃え */
-  justify-content: center; /* 縦方向の中央揃え */
-  min-height: 100vh; /* 画面全体の高さを確保 */
-  margin: 0; /* デフォルトのマージンをリセット */
-  text-align: center; /* テキストを中央揃え */
-}
+  .todohu-ken {
+    margin-bottom: 15px; /* 他の入力フィールドとの間隔を調整 */
+  }
 
-header {
-  margin-bottom: 20px; /* 下のマージンを追加 */
-}
+  .todohu-ken select {
+    background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0IDQiIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+PHBhdGggZD0iTTAgMEw0IDRMMCA0WiIgZmlsbD0iI0NDQyIvPjwvc3ZnPg==') no-repeat right 10px center;
+    background-size: 10px; /* カスタム矢印のサイズ */
+  }
 
-.back {
-  margin-bottom: 20px; /* 下のマージンを追加 */
-}
-
-.container {
-  display: flex;
-  flex-direction: column; /* 縦に並べる */
-  align-items: center; /* 横方向の中央揃え */
-  padding: 20px; /* パディングを追加 */
-  border: 1px solid #ccc; /* ボーダーを追加 (任意) */
-  border-radius: 10px; /* 角を丸くする (任意) */
-  width: 100%; /* コンテナの幅を100%に */
-  max-width: 400px; /* 最大幅を設定 */
-  max-height: 500px;
-  overflow-y: auto;
-}
-
-.login_tab, .new_login_tab {
-  padding: 10px 30px; /* タブの内側にパディングを追加 */
-  cursor: pointer; /* カーソルをポインタに */
-  border: none; /* ボーダーを追加 (任意) */
-  border-radius: 5px; /* 角を丸くする (任意) */
-  margin: 0 10px; /* タブ同士の間にマージンを追加 */
-  min-width: 100px; /* 最小幅を指定 */
-  text-align: center; /* テキストを中央揃え */
-}
-.back-button {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  padding: 5px;
-  border: 1px solid #000; /* 枠線の色やデザインは任意で */
-}
-.back-button a {
-  color: #000;
-  text-decoration: none;
-}
-fieldset {
-  border: 1px solid #ccc;
-  padding: 10px;
-  border-radius: 5px;
-  margin-top: 15px;
-}
-
-legend {
-  font-size: 16px;
-  font-weight: bold;
-  padding: 0 5px;
-  color: #333;
-}
-.login-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-input[type="tel"] {
-  width: 100%;
-  padding: 8px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-body.special-page {
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
-/* すべての入力ボックスとセレクトボックスの幅を同じにする */
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="tel"],
-select {
-    width: 100%; /* 横幅を100%に設定 */
-    max-width: 300px; /* 必要であれば、最大幅を設定（例: 300px） */
-    padding: 10px; /* 内側の余白を設定 */
-    box-sizing: border-box; /* パディングとボーダーを含めたサイズ調整 */
-}
-
-/* 番地入力などの入力ボックスの追加調整が必要なら */
-.address-inputs input[type="text"] {
-    width: 80px; /* 郵便番号のように小さい入力ボックスが必要な場合 */
-}
-
-/* ボタンのスタイル */
-button.login-btn {
-    width: 100%; /* ボタンの横幅も入力ボックスと揃える */
-    max-width: 300px; /* 必要に応じて最大幅を設定 */
+  button.login-btn {
+    width: 70%; /* ボタンの横幅も入力ボックスと揃える */
     padding: 10px;
     font-size: 16px;
     cursor: pointer;
-}
-.button-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px; /* ボタン上の余白 */
+    display: block; /* ブロック要素として扱う */
+    margin: 0 auto; /* 左右のマージンを自動設定して中央揃え */
 }
