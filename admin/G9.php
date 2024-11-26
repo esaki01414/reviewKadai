@@ -19,23 +19,28 @@
         <button type="submit" name="<?= $id ?>">商品削除</button>
     </form>
     <?php
-       $pdo = new PDO(
-        'mysql:host=mysql310.phy.lolipop.lan;
-        dbname=LAA1554917-system;charset=utf8',
-        'LAA1554917',
-         'PassSD2D'
-    );
+       try {
+        $pdo = new PDO(
+            'mysql:host=mysql310.phy.lolipop.lan;dbname=LAA1554917-system;charset=utf8',
+            'LAA1554917',
+            'PassSD2D'
+        );
+    } catch (PDOException $e) {
+        echo 'データベース接続に失敗しました: ' . htmlspecialchars($e->getMessage());
+        exit;
+    }    
     $sql='SELECT * FROM product WHERE product_id = ?';
        $stmt = $pdo->prepare($sql);
        $stmt->execute([$id]);
-        foreach($stmt as $row){     
-        echo '<img src="' .$row['product_photo']. '" height="200" alt="Product Image"><br>';
+       $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        foreach($result as $row){     
+        echo '<img src="' .htmlspecialchars($row['product_photo']). '" height="200" alt="Product Image"><br>';
         echo '<p>商品ID:</p>';
-        echo '<p>',$row['product_id'],'</p>';
+        echo '<p>',htmlspecialchars($row['product_id']),'</p>';
         echo '<p>商品名:</p>';
-        echo '<p>',$row['product_name'],'</p>';
+        echo '<p>',htmlspecialchars($row['product_name']),'</p>';
         echo '<p>在庫数</p>';
-        echo '<p>',$row['inventory_stock'],'</p>';
+        echo '<p>',htmlspecialchars($row['inventory_stock']),'</p>';
        }
        $pdo=null;
     ?>
