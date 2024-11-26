@@ -66,3 +66,84 @@ button {
 button:hover {
     background-color: #0056b3; /* ホバー時の色 */
 }
+
+ul {
+    list-style: none; /* リストマーカーを非表示にする */
+    margin: 0; /* 不要な余白を削除 */
+    padding: 0; /* 不要なパディングを削除 */
+  }
+  
+  .product li {
+    margin-bottom: 20px; /* 各アイテムの間にスペースを追加 */
+  }
+
+  select {
+  appearance: none; /* ブラウザデフォルトのスタイルを削除 */
+  background-color: #f0f0f0; /* 背景色 */
+  border: 1px solid #ccc; /* 枠線 */
+  border-radius: 5px; /* 角を丸く */
+  padding: 10px; /* 内側の余白 */
+  font-size: 16px; /* フォントサイズ */
+  color: #333; /* 文字色 */
+  cursor: pointer; /* マウスホバー時にポインター表示 */
+  transition: all 0.3s ease; /* スムーズなアニメーション効果 */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 軽い影を追加 */
+  width: 80px; /* ドロップダウンの幅 */
+  padding-right: 30px; /* アイコンのために右側に余白を追加 */
+  position: relative; /* アイコンを配置するため */
+}
+
+select:hover {
+  background-color: #e9e9e9; /* ホバー時の背景色変更 */
+  border-color: #007bff; /* ホバー時の枠線色 */
+}
+
+select:focus {
+  outline: none; /* フォーカス時のデフォルト枠を削除 */
+  border-color: #0056b3; /* フォーカス時の枠線色 */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* フォーカス時に光るような効果 */
+}
+select::-ms-expand {
+    display: none; /* Internet Explorerのデフォルトアイコンを隠す */
+  }
+  
+  select::after {
+    content: "\f107"; /* FontAwesomeの下向き矢印アイコンのUnicode */
+    font-family: "Font Awesome 5 Free"; /* Font Awesomeを指定 */
+    font-weight: 900; /* アイコンの太さ */
+    position: absolute; /* アイコンを絶対位置に */
+    right: 10px; /* 右端に配置 */
+    top: 50%; /* 垂直方向中央に */
+    transform: translateY(-50%); /* アイコンの縦位置を正確に調整 */
+    pointer-events: none; /* アイコンがクリックされないようにする */
+  }
+  
+  option {
+    background-color: #ffffff; /* ドロップダウン内の背景 */
+    color: #333; /* 文字色 */
+    padding: 10px; /* オプションの内側余白 */
+  }
+
+  .custom-select {
+    position: relative; /* アイコンを選択ボックスの右側に配置するため */
+    display: inline-block; /* 横並びにするため */
+  }
+  .select-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px; /* アイコンを右端に配置 */
+    transform: translateY(-50%); /* アイコンを縦方向に中央揃え */
+    pointer-events: none; /* アイコンがクリックされないようにする */
+  }
+  .select-icon i {
+    font-size: 20px; /* アイコンのサイズ調整 */
+    color: #252525; /* アイコンの色 */
+}
+
+#totalPrice {
+    font-size: 1.5em; /* フォントサイズを大きく */
+    font-weight: bold; /* 太字にする */
+    color: #ff0000; /* 必要に応じて色を赤に変更 */
+    border-bottom: 2px solid #ff0000; /* 下線としてボーダーを設定 */
+    padding-bottom: 1px; /* 下線と文字の間にスペースを追加 */
+  }

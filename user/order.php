@@ -51,6 +51,7 @@ foreach ($carts as $row) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/order.css">
     <title>注文内容確認</title>
 </head>
@@ -63,8 +64,8 @@ foreach ($carts as $row) {
         <form action="./order_finishing.php" method="post">
             <ul>
                 <?php foreach ($carts as $row): ?>
-                    <div class="product">
-                    <li>
+                    <ul>
+                    <li class="product">
                         <p>商品名: <?= htmlspecialchars($row['product_name']) ?></p>
                         <p>価格: <?= htmlspecialchars(number_format($row['product_price'])) ?>円</p>
                         <p>在庫: <?= htmlspecialchars($row['inventory_stock']) ?> 個</p>
@@ -72,13 +73,18 @@ foreach ($carts as $row) {
                         <img src="data:<?= htmlspecialchars($row['image_type']); ?>;base64,<?= base64_encode($row['image_content']); ?>" width="200" height="auto">
                         </p>
                         <p>購入数量:</p>
+                        <div class="custom-select">
                         <select name="quantity[<?= htmlspecialchars($row['product_id']) ?>]" onchange="updateTotal()">
                             <?php for ($i = 1; $i <= $row['inventory_stock']; $i++): ?>
                                 <option value="<?= $i ?>"><?= $i ?></option>
                             <?php endfor; ?>
                         </select>
+                        <div class="select-icon">
+                        <i class="fas fa-chevron-down"></i> <!-- 下向き矢印アイコン -->
+                         </div>
+                        </div>
                     </li>
-                    </div>
+                    </ul>
                     <hr>
                 <?php endforeach; ?>
             </ul>
