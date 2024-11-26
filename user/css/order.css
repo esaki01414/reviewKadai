@@ -1,0 +1,68 @@
+body {
+    margin-top: 50px;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center; /* 全体のテキストを中央揃え */
+    background-color: #f9f9f9; /* 背景色を薄いグレー */
+}
+
+/* コンテンツの中央揃え */
+.container {
+    max-width: 800px; /* コンテンツの幅を制限 */
+    margin: 20px auto; /* 上下20px、自動中央揃え */
+    padding: 20px;
+    background-color: #ffffff; /* 背景を白に */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 影をつけて立体感を追加 */
+    border-radius: 10px; /* 角を丸くする */
+}
+
+a {
+    position: absolute; /* 左上に固定配置 */
+    top: 20px;
+    left: 20px;
+    color: #007BFF; /* 青色 */
+    text-decoration: none; /* 下線を消す */
+    font-size: 16px; /* フォントサイズ */
+    z-index: 10; /* 他要素の前に表示 */
+}
+
+a:hover {
+    text-decoration: underline; /* ホバー時に下線を表示 */
+}
+.warning {
+    color: red; /* 文字色を赤に */
+    font-weight: bold; /* 太字にして目立たせる（任意） */
+    font-size: 20px; /* フォントサイズ（必要に応じて調整） */
+    margin: 10px 0;
+}
+
+/* 商品の情報 */
+.product {
+    margin-bottom: 30px;
+}
+
+/* 商品画像 */
+.product img {
+    max-width: 100%; /* 幅を自動調整 */
+    height: auto;
+    border-radius: 10px; /* 画像の角を丸く */
+}
+
+/* ボタン */
+button {
+    position: relative;
+    top: -50px;
+    float: right;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #0056b3; /* ホバー時の色 */
+}

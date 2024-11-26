@@ -51,16 +51,19 @@ foreach ($carts as $row) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/order.css">
     <title>注文内容確認</title>
 </head>
 <body>
     <a href="./cart.php">カートに戻る</a>
+    <div class="container">
     <h1>注文内容の確認</h1>
-    <p>※まだ購入はできていません</p>
+    <p class="warning">※まだ購入はできていません</p>
     <?php if (!empty($carts)): ?>
         <form action="./order_finishing.php" method="post">
             <ul>
                 <?php foreach ($carts as $row): ?>
+                    <div class="product">
                     <li>
                         <p>商品名: <?= htmlspecialchars($row['product_name']) ?></p>
                         <p>価格: <?= htmlspecialchars(number_format($row['product_price'])) ?>円</p>
@@ -75,6 +78,7 @@ foreach ($carts as $row) {
                             <?php endfor; ?>
                         </select>
                     </li>
+                    </div>
                     <hr>
                 <?php endforeach; ?>
             </ul>
@@ -98,6 +102,7 @@ foreach ($carts as $row) {
 
             <br><br>
             <button type="submit" name="pay_order" value="1">注文を確定する</button>
+            
         </form>
     <?php else: ?>
         <p>カートには商品がありません。</p>
@@ -118,5 +123,6 @@ foreach ($carts as $row) {
             document.getElementById('totalPrice').textContent = new Intl.NumberFormat('ja-JP').format(total) + '円';
         }
     </script>
+    </div>
 </body>
 </html>
