@@ -93,7 +93,9 @@ $carts = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <?php if (!empty($carts)): ?>
         <form action="./order.php" method="post">
             <p>購入手続きに遷移します</p>
+            <div class="konyu-button">
             <button type="submit" name="order">購入</button>
+            </div>
         </form>
     <?php endif; ?>
 

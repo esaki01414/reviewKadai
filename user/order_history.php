@@ -57,9 +57,11 @@ $purchase_history = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/order_history.css">
     <title>購入履歴</title>
 </head>
 <body>
+<a href="./home.php">戻る</a>
     <h1>購入履歴</h1>
 
     <?php if (!empty($purchase_history)): ?>
@@ -80,6 +82,5 @@ $purchase_history = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <button type="submit" name="clear_history" onclick="return confirm('本当に購入履歴を削除しますか？')">購入履歴をクリア</button>
     </form>
     <br>
-    <a href="./home.php">ホームに戻る</a>
 </body>
 </html>
