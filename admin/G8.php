@@ -14,12 +14,16 @@
         <button type="submit">商品登録</button>
 </form>
 <?php
-   $pdo = new PDO(
-    'mysql:host=mysql310.phy.lolipop.lan;
-    dbname=LAA1554917-system;charset=utf8',
-    'LAA1554917',
-     'PassSD2D'
-);
+         try {
+            $pdo = new PDO(
+                'mysql:host=mysql310.phy.lolipop.lan;dbname=LAA1554917-system;charset=utf8',
+                'LAA1554917',
+                'PassSD2D'
+            );
+        } catch (PDOException $e) {
+            echo 'データベース接続に失敗しました: ' . htmlspecialchars($e->getMessage());
+            exit;
+        }  
 $sql='SELECT product_id, product_name FROM product';
    $stmt = $pdo->query($sql);
    ?>
