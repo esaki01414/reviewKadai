@@ -44,6 +44,7 @@ foreach($sql_login as $row){
     <title>ECサイト</title>
     <link rel="stylesheet" href="./css/home.css">
     <link rel="stylesheet" href="css/guest.css"> <!-- CSSファイルのリンク -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -168,22 +169,22 @@ foreach($sql_login as $row){
         </div>
         <nav id="nav-menu" class="hidden">
             <ul>
-                <li><a href="login.php">ログイン画面</a></li>
+                <li><i class="fas fa-sign-in-alt"></i><a href="login.php">：ログイン画面</a></li>
                 <?php
 
                 if(isset($_SESSION['user_first_name'],$_SESSION['user_last_name'])){
                     echo '<hr>';
-                    echo '<li><a href="osirase.php">お知らせ</a></li>';
+                    echo '<li><i class="far fa-file-alt"></i><a href="osirase.php">：お知らせ</a></li>';
                     echo '<hr>';
-                    echo '<li><a href="cart.php">カート</a></li>';
+                    echo '<li><i class="fas fa-shopping-cart"></i><a href="cart.php">：カート</a></li>';
                     echo '<hr>';
-                    echo '<li><a href="favorite.php">お気に入り</a></li>';
+                    echo '<li><i class="fas fa-heart"></i><a href="favorite.php">：お気に入り　</a></li>';
                     echo '<hr>';
-                    echo '<li><a href="profile.php">プロフィール</a></li>';
+                    echo '<li><i class="fas fa-user-cog"></i><a href="profile.php">：プロフィール</a></li>';
                     echo '<hr>';
-                    echo '<li><a href="order_history">購入履歴</a></li>';
+                    echo '<li><i class="fas fa-yen-sign"></i><a href="order_history">：購入履歴　　</a></li>';
                     echo '<hr>';
-                    echo '<li><a href="logout.php">ログアウト画面</a></li>';
+                    echo '<li><i class="fas fa-sign-out-alt"></i><a href="logout.php">：ログアウト　</a></li>';
                 }
 
                 ?>
