@@ -5,20 +5,20 @@ body {
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    background-color: #f2f2f2;
+    background-color: #f4f4f9;
     flex-direction: column; /* 縦に並べる */
     text-align: center; /* テキストを中央揃え */
   }
 
   .container {
     width: 360px;
-    background-color: #f4f4f9;
+    background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     padding: 20px;
     text-align: center;
     position: relative;
-    border: 2px solid #ffffff;
+    border: 2px solid #f4f4f9;
     display: flex;
     flex-direction: column; /* 縦に並べる */
     align-items: center; /* 横方向の中央揃え */
