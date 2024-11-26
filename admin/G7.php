@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ユーザー削除完了画面</title>
-    <link rel="stylesheet" href="css/styles.css"> <!-- CSSファイルのリンク -->
+    <link rel="stylesheet" href="css/G7.css"> <!-- CSSファイルのリンク -->
 </head>
 <body>
+    <div class="label">
     <?php
           try {
             $pdo = new PDO(
@@ -29,7 +30,10 @@
     }
     $pdo=null;
     ?>
+    </div>
+    <div class="back">
     <p><a href="G2.php">ホームへ戻る</a></p>
+    </div>
     <script src="js/script.js"></script> <!-- JavaScriptファイルのリンク -->
     </body>
 </html>
