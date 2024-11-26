@@ -7,12 +7,15 @@
     <title>プロフィール変更画面</title>
 </head>
 <body class="special-page">
+
 <div class="container">
-<div class="back-button"><a href="./home.php">←戻る</a></div>
-<div class="profile-container">
-<div class="profile-icon">
+    <div class="back-button"><a href="./home.php">←戻る</a></div>
+    <div class="profile-container">
+    <div class="profile-icon">
         <img src="./images/ユーザーアイコン.jpg" alt="Profile Icon">
-    </div></div>
+    </div>
+</div>
+
 <div class="name-inputs">
                 <div>
                     <label for="last-name">姓</label>
