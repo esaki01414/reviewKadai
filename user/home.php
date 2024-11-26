@@ -32,6 +32,11 @@ foreach($sql_login as $row){
     $_SESSION['user_pass'] = $row['user_pass'];
     
 }
+// 画像情報を取得
+$sql = 'SELECT image_name,image_type,image_content,image_size FROM product'; 
+$stmt = $pdo->prepare($sql); // クエリを準備
+$stmt->execute(); // クエリを実行
+$images = $stmt->fetchAll();
 
 ?>
 
@@ -219,16 +224,22 @@ foreach($sql_login as $row){
                 <!-- 商品リストがここに表示される -->
                 <form action="./product.php" method="post">
                 <div class="product-list">
-                    <?php
-                    foreach ($pdo->query('SELECT * FROM product') as $row) {
-                        echo '<div class="product_all">';
-                        echo '<button type="submit" name="product_id" value="', htmlspecialchars($row['product_id']), '">';
-                        echo htmlspecialchars($row['product_name']);
-                        echo '</button>';
-                        echo '<p><img src="', htmlspecialchars($row['product_photo']), '" alt="Product Image"></p>';
-                        echo '</div>';
-                    }
-                    ?>
+                <?php
+                foreach ($pdo->query('SELECT * FROM product') as $row) {
+                    echo '<div class="product_all" style="margin-right: 20px; margin-bottom: 20px; display: inline-block;">';
+                    echo '<button type="submit" name="product_id" value="', htmlspecialchars($row['product_id']), '">';
+                    echo htmlspecialchars($row['product_name']);
+                    echo '</button>';
+                    
+                    // 画像データを表示
+                    echo '<p><img src="data:', htmlspecialchars($row['image_type']), 
+                            ';base64,', base64_encode($row['image_content']), 
+                            '" width="200" height="auto" class="mr-3"></p>';
+
+                    echo '</div>';
+                }
+                ?>
+
                 </div>
                 </form>              
             </div>
