@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="css/dashboard.css"> <!-- CSSファイルのリンク -->
 </head>
 <body>
+<a href="G2.php">戻る</a><br><br>
     <h1>商品管理</h1>
-    <a href="G2.php">戻る</a>
     <form action="G13.php" method="get">
         <button type="submit">商品登録</button>
 </form>

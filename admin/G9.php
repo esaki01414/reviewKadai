@@ -34,7 +34,7 @@
        $stmt->execute([$id]);
        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         foreach($result as $row){     
-        echo '<img src="' .htmlspecialchars($row['product_photo']). '" height="200" alt="Product Image"><br>';
+        echo '<img src="data:' .htmlspecialchars($row['image_type']).';base64,'.base64_encode($row['image_content']).'"height="200" alt="Product Image"><br>';
         echo '<p>商品ID:</p>';
         echo '<p>',htmlspecialchars($row['product_id']),'</p>';
         echo '<p>商品名:</p>';
@@ -47,3 +47,4 @@
         <script src="js/script.js"></script> <!-- JavaScriptファイルのリンク -->
 </body>
 </html>
+
