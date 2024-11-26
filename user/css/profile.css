@@ -5,7 +5,7 @@ body {
   align-items: center;
   min-height: 100vh;
   margin: 0;
-  background-color: #f2f2f2;
+  background-color: #f4f4f9;
   flex-direction: column; /* 縦に並べる */
   text-align: center; /* テキストを中央揃え */
 }
@@ -33,16 +33,6 @@ body {
   margin-bottom: 20px;
 }
 
-body.special-page {
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
 
 .back-button {
   position: absolute;

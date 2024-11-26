@@ -20,7 +20,8 @@ $sql = '
     SELECT 
         product.product_id, 
         product.product_name, 
-        product.product_photo 
+        product.image_type,
+        product.image_content
     FROM 
         cart 
     INNER JOIN 
@@ -46,7 +47,7 @@ $carts = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <link rel="stylesheet" href="./css/cart.css">
     <title>カート商品</title>
 </head>
-<body class="special-page">
+<body>
     <a href="./home.php">ホームに遷移</a>
     <h1>カート商品</h1>   
     <div class="products-container">
@@ -62,7 +63,7 @@ $carts = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </form>
             <div class="image-container">
                 <p>
-                    <img src="<?= htmlspecialchars($row['product_photo']) ?>" alt="Product Image" class="product-image">
+                <img src="data:<?= htmlspecialchars($row['image_type']); ?>;base64,<?= base64_encode($row['image_content']); ?>" width="200" height="auto">
                 </p>
             <form action="./product_delete.php" method="post">
                 <button type="submit" name="cart_delete" value="<?= htmlspecialchars($row['product_id']) ?>" class="favorite-button">商品をカートから外す</button>
@@ -92,7 +93,9 @@ $carts = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <?php if (!empty($carts)): ?>
         <form action="./order.php" method="post">
             <p>購入手続きに遷移します</p>
+            <div class="konyu-button">
             <button type="submit" name="order">購入</button>
+            </div>
         </form>
     <?php endif; ?>
 

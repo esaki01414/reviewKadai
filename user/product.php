@@ -63,7 +63,7 @@ if (!$product) {
     <script src="./js/product.js"></script>
     <title>商品詳細</title>
 </head>
-<body class="special-page">
+<body>
     <header></header>
     <a href="./home.php">戻る</a>
     <div class="container">

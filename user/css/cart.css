@@ -1,24 +1,9 @@
-body.special-page {
+body{
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 20px 0 0 20px;
     position: relative; /* 戻るボタンの固定に必要 */
-    animation: backgroundChange 10s infinite; /* 背景色が変わるアニメーション */
-}
-/* アニメーションの定義 */
-@keyframes backgroundChange {
-    0% {
-        background-color: #f5e1a4; /* 最初の色（ベージュ） */
-    }
-    33% {
-        background-color: #f8d7da; /* 3分の1の時間でライトピンクに変更 */
-    }
-    66% {
-        background-color: #ffeb99; /* 2分の1の時間でライトオレンジに変更 */
-    }
-    100% {
-        background-color: #f5e1a4; /* 最後にベージュに戻す */
-    }
+    background-color: #f4f4f9;
 }
 
 .product-all {
@@ -37,7 +22,7 @@ body.special-page {
     border: none;
     cursor: pointer;
     font: inherit;
-    text-decoration: underline wavy;
+    text-decoration: underline ;
 }
 
 .product-image {
@@ -91,3 +76,29 @@ body.special-page {
         flex: 1 1 100%; /* 1行に1つ表示 */
     }
 }
+
+.konyu-button button {
+    background-color: #4CAF50; /* 柔らかい緑色 */
+    color: white; /* 文字を白に */
+    border-radius: 8px; /* 角を丸くする */
+    padding: 12px 24px; /* 内側の余白を調整 */
+    font-size: 18px; /* フォントサイズ */
+    font-weight: bold; /* 太字 */
+    text-align: center; /* テキストを中央揃え */
+    cursor: pointer; /* カーソルを指アイコンに */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 影を追加 */
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s; /* ホバーアニメーション */
+    display: inline-block; /* サイズを調整可能に */
+  }
+  
+  .konyu-button button:hover {
+    background-color: #45a049; /* ホバー時の色 */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* 影を強調 */
+    transform: translateY(-2px); /* 少し浮かせる */
+  }
+  
+  .konyu-button button:active {
+    background-color: #388e3c; /* クリック時の色 */
+    transform: translateY(0); /* 押し込む動き */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 影を戻す */
+  }

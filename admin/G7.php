@@ -9,12 +9,16 @@
 <body>
     <div class="label">
     <?php
-     $pdo = new PDO(
-        'mysql:host=mysql310.phy.lolipop.lan;
-        dbname=LAA1554917-system;charset=utf8',
-        'LAA1554917',
-         'PassSD2D'
-    );
+          try {
+            $pdo = new PDO(
+                'mysql:host=mysql310.phy.lolipop.lan;dbname=LAA1554917-system;charset=utf8',
+                'LAA1554917',
+                'PassSD2D'
+            );
+        } catch (PDOException $e) {
+            echo 'データベース接続に失敗しました: ' . htmlspecialchars($e->getMessage());
+            exit;
+        }  
     $id=$_POST['D_id'];
     $stmt= $pdo->prepare('DELETE FROM user WHERE user_id = ?');
     $stmt->execute([$id]);
