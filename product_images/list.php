@@ -96,6 +96,7 @@ if ($_SERVER['REQUEST_METHOD'] != 'POST') {
         <div class="carousel-inner">
         <?php for ($i = 0; $i < count($images); $i++): ?>
                 <div class="carousel-item <?php if ($i == 0) echo 'active'; ?>">
+                    <!-- 画像一覧表示エリア -->
                 <img src="image.php?id=<?= $images[$i]['image_id']; ?>" class="d-block w-100">
                 </div>
             <?php endfor; ?>

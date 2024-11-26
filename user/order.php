@@ -21,7 +21,8 @@ $sql = '
     SELECT 
         product.product_id, 
         product.product_name, 
-        product.product_photo, 
+        product.image_type,
+        product.image_content,
         product.product_price, 
         product.inventory_stock
     FROM 
@@ -65,7 +66,7 @@ foreach ($carts as $row) {
                         <p>価格: <?= htmlspecialchars(number_format($row['product_price'])) ?>円</p>
                         <p>在庫: <?= htmlspecialchars($row['inventory_stock']) ?> 個</p>
                         <p>
-                            <img src="<?= htmlspecialchars($row['product_photo']) ?>" alt="Product Image">
+                        <img src="data:<?= htmlspecialchars($row['image_type']); ?>;base64,<?= base64_encode($row['image_content']); ?>" width="200" height="auto">
                         </p>
                         <p>購入数量:</p>
                         <select name="quantity[<?= htmlspecialchars($row['product_id']) ?>]" onchange="updateTotal()">
