@@ -44,7 +44,7 @@ $favorites = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <link rel="stylesheet" href="./css/favorite.css">
     <title>お気に入り商品</title>
 </head>
-<body class="special-page">
+<body>
     <a href="./home.php">ホームに遷移</a>
     <h1>お気に入り商品</h1>
     <?php if (!empty($favorites)): ?>

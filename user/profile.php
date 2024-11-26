@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="css/profile.css">
     <title>プロフィール変更画面</title>
 </head>
-<body class="special-page">
+<body>
 
 <div class="container">
     <div class="back-button"><a href="./home.php">←戻る</a></div>

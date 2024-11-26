@@ -46,7 +46,7 @@ $carts = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <link rel="stylesheet" href="./css/cart.css">
     <title>カート商品</title>
 </head>
-<body class="special-page">
+<body>
     <a href="./home.php">ホームに遷移</a>
     <h1>カート商品</h1>   
     <div class="products-container">
