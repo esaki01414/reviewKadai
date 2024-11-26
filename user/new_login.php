@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,15 +9,16 @@
 <header>
     <h1>自分好みのコーデを見つけよう！</h1>
 </header>
-<body class="special-page">
-    
-    <div class="container">
-    <div class="back-button"><a href="./home.php">←戻る</a></div>
-    <div class="profile-container">
-    <div class="profile-icon">
-        <img src="./images/ユーザーアイコン.jpg" alt="Profile Icon"></div>
-    </div>
+<body>
 
+    <div class="container">
+        <div class="back-button"><a href="./home.php">←戻る</a></div> 
+        <div class="profile-container">
+            <div class="profile-icon">
+                <img src="./images/ユーザーアイコン.jpg" alt="Profile Icon">
+            </div>
+        </div> 
+    
         <div class="tabs">
            <a href="login.php" class="login_tab">Login</a>
             <div class="new_login_tab">新規登録</div>
@@ -30,7 +31,7 @@
             <label for="password">Password</label>
             <input type="password" id="password" name="user_pass" placeholder="英数字含む8文字以上" required>
 
-            <div class="name-inputs">
+        <div class="name-inputs">
                 <div>
                     <label for="last-name">姓</label>
                     <input type="text" id="last-name" name="user_first_name" placeholder="姓を入力" required>
@@ -39,8 +40,9 @@
                     <label for="first-name">名</label>
                     <input type="text" id="first-name" name="user_last_name" placeholder="名を入力" required>
                 </div>
-            </div>
-            <div class="kana-inputs">
+        </div>
+
+        <div class="kana-inputs">
                 <div>
                     <label for="last-name-kana">姓(カタカナ)</label>
                     <input type="text" id="last-name-kana" name="user_first" placeholder="セイを入力" required>
@@ -49,18 +51,22 @@
                     <label for="first-name-kana">名(カタカナ)</label>
                     <input type="text" id="first-name-kana" name="user_last" placeholder="メイを入力" required>
                 </div>
-            </div>
-            <label for="address">お届け先住所</label>
-            <div class="address-inputs">
+        </div>
+
+        <div class="address-inputs">
+                <div><label for="address">お届け先住所</label>
                 <span>〒</span>
                 <input type="text" id="postal-code-1" name="user_postal_code1" placeholder="123" maxlength="3" required>
                 <span>ー</span>
                 <input type="text" id="postal-code-2" name="user_postal_code2" placeholder="4567" maxlength="4" required>
-            </div>
-            <label for="todohuken">都道府県</label>
+                </div>
+        </div>
+
+        <div class="todohu-ken">
+                <div><label for="todohuken">都道府県</label>
                 <select id="prefecture" name="user_prefecture" required>
-                    <option value="" disabled selected>都道府県を選択</option>
-                    <optgroup label="北海道地方"></optgroup>
+                <option value="" disabled selected>都道府県を選択</option>
+                <optgroup label="北海道地方"></optgroup>
                     <option value="北海道">北海道</option>
                     <hr>
                     <optgroup label="東北地方"></optgroup>
@@ -122,16 +128,26 @@
                     <option value="宮崎県">宮崎県</option>
                     <option value="鹿児島県">鹿児島県</option>
                     <option value="沖縄県">沖縄県</option>
-<br>
-                    <label for="city">市区町村名</label>
-                    <label for="sikutyoson">市区町村</label>
-                <input type="text" id="sikutyoson" name="user_address" placeholder="市区町村名を入力" required>
+                </select>
+                </div>
+        </div>
 
-                <label for="street-address">番地・ビル名</label>
-                <input type="text" id="street-address" name="user_home_number"  placeholder="番地・ビル名を入力" required>
-                <label for="phone-number">電話番号</label>
-                <input type="tel" id="phone-number" name="user_tell" placeholder="000-0000-0000" pattern="\d{3}-\d{4}-\d{4}" required><br>
-            <button type="submit" class="login-btn">新規登録</button>
+        <div class="sikutyoson">
+            <label for="sikutyoson">市区町村</label>
+            <input type="text" id="sikutyoson" name="user_address" placeholder="市区町村名を入力" required>
+        </div>
+
+        <div class="street-address">
+            <label for="street-address">番地・ビル名</label>
+            <input type="text" id="street-address" name="user_home_number"  placeholder="番地・ビル名を入力" >
+        </div>
+
+        <div class="phon-number">
+            <label for="phone-number">電話番号</label>
+            <input type="tel" id="phone-number" name="user_tell" placeholder="000-0000-0000" pattern="\d{3}-\d{4}-\d{4}" required>
+        </div>
+
+        <button type="submit" class="login-btn">新規登録</button>
         </form>
     </div>
 </body>

@@ -1,24 +1,9 @@
-body.special-page {
+body{
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 20px 0 0 20px;
     position: relative; /* 戻るボタンの固定に必要 */
-    animation: backgroundChange 10s infinite; /* 背景色が変わるアニメーション */
-}
-/* アニメーションの定義 */
-@keyframes backgroundChange {
-    0% {
-        background-color: #f5e1a4; /* 最初の色（ベージュ） */
-    }
-    33% {
-        background-color: #f8d7da; /* 3分の1の時間でライトピンクに変更 */
-    }
-    66% {
-        background-color: #ffeb99; /* 2分の1の時間でライトオレンジに変更 */
-    }
-    100% {
-        background-color: #f5e1a4; /* 最後にベージュに戻す */
-    }
+    background-color: #f4f4f9;
 }
 
 .product-all {

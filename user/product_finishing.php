@@ -48,7 +48,7 @@ try {
 
         if ($count > 0) {
             // すでにお気に入りに登録されている場合
-            echo 'この商品はすでにお気に入りに登録されています。';
+            $message = 'この商品はすでにお気に入りに登録されています。';
         } else {
             // お気に入りに追加
             $sql = "INSERT INTO favorite (user_id, product_id) VALUES (:user_id, :product_id)";
@@ -57,7 +57,7 @@ try {
                 ':user_id' => $user_id,
                 ':product_id' => $product_id,
             ]);
-            echo '商品がお気に入りに登録されました！';
+            $message = '商品が登録されました！引き続きよろしくお願いいたします。';
         }
     } elseif ($is_cart) {
         // カートに同じ商品が登録されているか確認
@@ -71,7 +71,7 @@ try {
 
         if ($count > 0) {
             // すでにカートに登録されている場合
-            echo 'カートに既に登録してあります。';
+            $message = 'カートに既に登録してあります。';
         } else {
             // カートに追加
             $sql = "INSERT INTO cart (user_id, product_id) VALUES (:user_id, :product_id)";
@@ -80,27 +80,33 @@ try {
                 ':user_id' => $user_id,
                 ':product_id' => $product_id,
             ]);
-            echo '商品がカートに登録されました！';
+            $message = '商品がカートに登録されました！';
         }
     } else {
-        echo '登録種別が指定されていません。';
+        $message = '登録種別が指定されていません。';
     }
 } catch (PDOException $e) {
     // エラーハンドリング
-    echo 'エラーが発生しました: ' . $e->getMessage();
+    $message = 'エラーが発生しました: ' . $e->getMessage();
 }
 ?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1..0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/logout.css">
     <title>商品登録完了</title>
 </head>
 <body>
-    <br>
-    <a href="./product.php">商品詳細画面に遷移</a>
+    <div class="container">
+        <div class="content">
+            <h3>商品登録完了画面</h3>
+            <p><?php echo htmlspecialchars($message, ENT_QUOTES, 'UTF-8'); ?></p>
+        </div>
+        <div class="footer">
+            <a href="./product.php">商品詳細画面に遷移</a>
+        </div>
+    </div>
 </body>
 </html>
-
-    
