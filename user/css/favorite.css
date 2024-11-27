@@ -1,0 +1,50 @@
+body.special-page {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px 0 0 20px;
+    position: relative; /* 戻るボタンの固定に必要 */
+    background-color: #f4f4f9;
+}
+
+.link-button {
+    background: none;
+    color: black;
+    border: none;
+    cursor: pointer;
+    font: inherit;
+    text-decoration: underline wavy;
+}
+
+.product-image {
+    width: 200px;       /* 固定サイズ */
+    height: auto;       /* アスペクト比を保つ */
+    border: 2px solid #ccc; /* 枠線 */
+    border-radius: 10px; /* 角を丸くする */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 影をつける */
+}
+.image-container {
+    position: relative; /* ボタンの位置を調整するための基準 */
+    display: inline-block; /* 必要に応じて調整 */
+}
+
+.image-container img {
+    display: block; /* 不要な隙間を防ぐ */
+    max-width: 100%; /* 必要ならレスポンシブ対応 */
+    height: auto; /* アスペクト比を維持 */
+}
+
+.image-container .favorite-button {
+    position: absolute; /* 親要素（.image-container）を基準に配置 */
+    bottom: -5px; /* 下からの距離 */
+    right: -100px; /* 右からの距離 */
+    background-color: #f00; /* ボタンの背景色 */
+    color: #fff; /* ボタンの文字色 */
+    border: none; /* ボーダーを消す */
+    padding: 10px 15px; /* ボタン内余白 */
+    border-radius: 5px; /* ボタンの角を丸くする */
+    cursor: pointer; /* カーソルをポインターに */
+}
+
+.image-container .favorite-button:hover {
+    background-color: #d00; /* ホバー時の背景色 */
+}

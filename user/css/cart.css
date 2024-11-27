@@ -1,0 +1,104 @@
+body{
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px 0 0 20px;
+    position: relative; /* 戻るボタンの固定に必要 */
+    background-color: #f4f4f9;
+}
+
+.product-all {
+    flex: 1 1 calc(33.333% - 20px); /* 1行に3つまで表示 */
+    box-sizing: border-box;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.link-button {
+    background: none;
+    color: black;
+    border: none;
+    cursor: pointer;
+    font: inherit;
+    text-decoration: underline ;
+}
+
+.product-image {
+    width: 200px;       /* 固定サイズ */
+    height: auto;       /* アスペクト比を保つ */
+    border: 2px solid #ccc; /* 枠線 */
+    border-radius: 10px; /* 角を丸くする */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 影をつける */
+    margin-bottom: 10px;
+}
+.image-container {
+    position: relative; /* ボタンの位置を調整するための基準 */
+    display: inline-block; /* 必要に応じて調整 */
+}
+
+.image-container img {
+    display: block; /* 不要な隙間を防ぐ */
+    max-width: 100%; /* 必要ならレスポンシブ対応 */
+    height: auto; /* アスペクト比を維持 */
+}
+
+.image-container .favorite-button {
+    position: absolute; /* 親要素（.image-container）を基準に配置 */
+    bottom: -5px; /* 下からの距離 */
+    right: -100px; /* 右からの距離 */
+    background-color: #f00; /* ボタンの背景色 */
+    color: #fff; /* ボタンの文字色 */
+    border: none; /* ボーダーを消す */
+    padding: 10px 15px; /* ボタン内余白 */
+    border-radius: 5px; /* ボタンの角を丸くする */
+    cursor: pointer; /* カーソルをポインターに */
+}
+
+.image-container .favorite-button:hover {
+    background-color: #d00; /* ホバー時の背景色 */
+}
+
+.product-all h2 {
+    margin-bottom: 10px;
+}
+
+/* レスポンシブ対応（画面が狭くなったときの調整） */
+@media (max-width: 768px) {
+    .product-all {
+        flex: 1 1 calc(50% - 20px); /* 1行に2つ表示 */
+    }
+}
+
+@media (max-width: 480px) {
+    .product-all {
+        flex: 1 1 100%; /* 1行に1つ表示 */
+    }
+}
+
+.konyu-button button {
+    background-color: #4CAF50; /* 柔らかい緑色 */
+    color: white; /* 文字を白に */
+    border-radius: 8px; /* 角を丸くする */
+    padding: 12px 24px; /* 内側の余白を調整 */
+    font-size: 18px; /* フォントサイズ */
+    font-weight: bold; /* 太字 */
+    text-align: center; /* テキストを中央揃え */
+    cursor: pointer; /* カーソルを指アイコンに */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 影を追加 */
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s; /* ホバーアニメーション */
+    display: inline-block; /* サイズを調整可能に */
+  }
+  
+  .konyu-button button:hover {
+    background-color: #45a049; /* ホバー時の色 */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* 影を強調 */
+    transform: translateY(-2px); /* 少し浮かせる */
+  }
+  
+  .konyu-button button:active {
+    background-color: #388e3c; /* クリック時の色 */
+    transform: translateY(0); /* 押し込む動き */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 影を戻す */
+  }

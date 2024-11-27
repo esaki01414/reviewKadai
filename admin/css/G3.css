@@ -1,5 +1,6 @@
 .background{
     background-color: #d3d3d3d3;
+    background-clip: border-box;
 }
 .label{
     margin:0 auto;
@@ -27,12 +28,15 @@
     text-align: center;
 }
 button {
-    margin: 0 auto;             
-    font-weight: bold;          
-    width: 300px;              
+    
+    margin: 0 auto;
+    display: block;             
+    font-weight: bold;         
+    width: 100px;              
     padding: 10px 20px;         
-    color: #dc143c;            
-    border: none;                
-    background-color: #00ff00;  
-    text-align: center;         
+    color: #ffffff;                          
+    background-color: #4c586f;
+    border-radius: 20px;
+    border: none;
+    text-align: center;        
 }

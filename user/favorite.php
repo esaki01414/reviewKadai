@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 // セッションからユーザーIDを取得
 $user_id = $_SESSION['user_id'];
@@ -20,7 +19,8 @@ $sql = '
     SELECT 
         product.product_id, 
         product.product_name, 
-        product.product_photo 
+        product.image_type,
+        product.image_content
     FROM 
         favorite 
     INNER JOIN 
@@ -51,16 +51,18 @@ $favorites = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <?php foreach ($favorites as $row): ?>
             <div class="product_all">
             <form action="./product.php" method="post">
-                <button type="submit" name="product_id" value="<?= htmlspecialchars($row['product_id']) ?>">
+                <h2>商品名：<button type="submit" name="product_id" value="<?= htmlspecialchars($row['product_id']) ?>" class="link-button">
                     <?= htmlspecialchars($row['product_name']) ?>
-                </button>
+                </button></h2>
             </form>
+            <div class="image-container">
                 <p>
-                    <img src="<?= htmlspecialchars($row['product_photo']) ?>" alt="Product Image">
+                    <img src="data:<?= htmlspecialchars($row['image_type']); ?>;base64,<?= base64_encode($row['image_content']); ?>" width="200" height="auto">
                 </p>
                 <form action="./product_delete.php" method="post">
-                    <button type="submit" name="favorite_delete" value="<?= htmlspecialchars($row['product_id']) ?>">削除</button>
+                    <button type="submit" name="favorite_delete" value="<?= htmlspecialchars($row['product_id']) ?>" class="favorite-button">商品をお気に入りから外す</button>
                 </form>
+            </div>
                 <hr>
                 <style>
                     hr{
@@ -81,7 +83,5 @@ $favorites = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <?php else: ?>
         <p>保存しているお気に入り商品がありません。</p>
     <?php endif; ?>
-    
-    
 </body>
 </html>
