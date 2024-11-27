@@ -57,7 +57,7 @@ try {
                 ':user_id' => $user_id,
                 ':product_id' => $product_id,
             ]);
-            $message = '商品が登録されました！引き続きよろしくお願いいたします。';
+            $message = '商品が登録されました！';
         }
     } elseif ($is_cart) {
         // カートに同じ商品が登録されているか確認
