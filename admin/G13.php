@@ -56,9 +56,21 @@
                     <div class="form-group">
                         <p>サイズ</p>
                         <select id="product_size" name="product_size" required>
+                        <optgroup label="メンズ"></optgroup>
                             <option value="S">S</option>
                             <option value="M">M</option>
                             <option value="L">L</option>
+                            <option value="XL">XL</option>
+                        <optgroup label="レディース"></optgroup>
+                            <option value="S(7号)">S(7号)</option>
+                            <option value="M(9号)">M(9号)</option>
+                            <option value="L(11号)">L(11号)</option>
+                            <option value="LL(13号)">LL(13号)</option>
+                        <optgroup label="キッズ"></optgroup>
+                            <option value="100">100</option>
+                            <option value="110">110</option>
+                            <option value="110">120</option>
+                            <option value="130">130</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -80,7 +92,7 @@
                     
                     <div class="form-group">
                         <p>商品画像</p>
-                        <input type="file" name="img" class="imgform">
+                        <input type="file" name="imag" class="imgform">
                     </div>
                     <button type="submit" class="btn btn-blue">登録</button>
                 </form>
