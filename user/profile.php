@@ -1,5 +1,89 @@
+<?php
+session_start();
+$user_id = $_SESSION['user_id'];
+
+$pdo = new PDO(
+    'mysql:host=mysql310.phy.lolipop.lan;dbname=LAA1554917-system;charset=utf8',
+    'LAA1554917',
+    'PassSD2D'
+);
+
+// 更新処理
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $user_email = $_POST['user_email'];
+    $user_pass = $_POST['user_pass'];
+    $user_first_name = $_POST['user_first_name'];
+    $user_last_name = $_POST['user_last_name'];
+    $user_first = $_POST['user_first'];
+    $user_last = $_POST['user_last'];
+    $user_postal_code1 = $_POST['user_postal_code1'];
+    $user_postal_code2 = $_POST['user_postal_code2'];
+    $user_prefecture = $_POST['user_prefecture'];
+    $user_address = $_POST['user_address'];
+    $user_home_number = $_POST['user_home_number'];
+    $user_tell = $_POST['user_tell'];
+
+    $sql = "UPDATE user 
+            SET user_mail = ?, 
+                user_pass = ?, 
+                user_first_name = ?, 
+                user_last_name = ?, 
+                user_first = ?, 
+                user_last = ?, 
+                user_postal_code1 = ?, 
+                user_postal_code2 = ?, 
+                user_prefecture = ?, 
+                user_address = ?, 
+                user_home_number = ?, 
+                user_tell = ? 
+            WHERE user_id = ?";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([
+        $user_email,
+        $user_pass,
+        $user_first_name,
+        $user_last_name,
+        $user_first,
+        $user_last,
+        $user_postal_code1,
+        $user_postal_code2,
+        $user_prefecture,
+        $user_address,
+        $user_home_number,
+        $user_tell,
+        $user_id,
+    ]);
+
+    echo "<p>プロフィールが更新されました！</p>";
+}
+
+// ユーザー情報取得
+$sql = 'SELECT * FROM user WHERE user_id = ?';
+$stmt = $pdo->prepare($sql);
+$stmt->execute([$user_id]);
+
+$row = $stmt->fetch(PDO::FETCH_ASSOC);
+if ($row) {
+    $user_email = $row['user_mail'];
+    $user_pass = $row['user_pass'];
+    $user_first_name = $row['user_first_name'];
+    $user_last_name = $row['user_last_name'];
+    $user_first = $row['user_first'];
+    $user_last = $row['user_last'];
+    $user_postal_code1 = $row['user_postal_code1'];
+    $user_postal_code2 = $row['user_postal_code2'];
+    $user_prefecture = $row['user_prefecture'];
+    $user_address = $row['user_address'];
+    $user_home_number = $row['user_home_number'];
+    $user_tell = $row['user_tell'];
+
+    
+}
+
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,44 +99,51 @@
         <img src="./images/ユーザーアイコン.jpg" alt="Profile Icon">
     </div>
 </div>
+<form action="" method="post">
+            <div class="login-form">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="user_email" value="<?php echo htmlspecialchars($user_email)?>" required>
+                <label for="password">Password</label>
+                <input type="text" id="password" name="user_pass" value="<?php echo htmlspecialchars($user_pass)?>" required>
 
-<form>
-<div class="name-inputs">
+            </div>
+
+            <div class="name-inputs">
                 <div>
                     <label for="last-name">姓</label>
-                    <input type="text" id="last-name" name="user_first_name" placeholder="姓を入力" required>
+                    <input type="text" id="last-name" value="<?php echo htmlspecialchars($user_first_name)?>" name="user_first_name" required>
                 </div>
                 <div>
                     <label for="first-name">名</label>
-                    <input type="text" id="first-name" name="user_last_name" placeholder="名を入力" required>
+                    <input type="text" id="first-name" name="user_last_name" value="<?php echo htmlspecialchars($user_last_name)?>"  required>
                 </div>
             </div>
 
             <div class="kana-inputs">
                 <div>
                     <label for="last-name-kana">姓(カタカナ)</label>
-                    <input type="text" id="last-name-kana" name="user_first" placeholder="セイを入力" required>
+                    <input type="text" id="last-name-kana" name="user_first" value="<?php echo htmlspecialchars($user_first)?>"  required>
                 </div>
                 <div>
                     <label for="first-name-kana">名(カタカナ)</label>
-                    <input type="text" id="first-name-kana" name="user_last" placeholder="メイを入力" required>
+                    <input type="text" id="first-name-kana" name="user_last" value="<?php echo htmlspecialchars($user_last)?>" required>
                 </div>
             </div>
 
             <div class="address-inputs">
                 <div><label for="address">お届け先住所</label>
                     <span>〒</span>
-                    <input type="text" id="postal-code-1" name="user_postal_code1" placeholder="123" maxlength="3" required>
+                    <input type="text" id="postal-code-1" name="user_postal_code1" value="<?php echo htmlspecialchars($user_postal_code1)?>" maxlength="3" required>
                     <span>ー</span>
-                    <input type="text" id="postal-code-2" name="user_postal_code2" placeholder="4567" maxlength="4" required>
+                    <input type="text" id="postal-code-2" name="user_postal_code2" value="<?php echo htmlspecialchars($user_postal_code2)?>" maxlength="4" required>
                 </div>
             </div>
 
             <div class="todohu-ken">
                 <div><label for="todohuken">都道府県</label>
                     <select id="prefecture" name="user_prefecture" required>
-                    <option value="" disabled selected>都道府県を選択</option>
-                    <optgroup label="北海道地方"></optgroup>
+                    <option value="" disabled selected>選択してください</option>
+                        <optgroup label="北海道地方"></optgroup>
                         <option value="北海道">北海道</option>
                         <hr>
                         <optgroup label="東北地方"></optgroup>
@@ -120,22 +211,70 @@
                     
         <div class="sikutyoson">
                     <label for="sikutyoson">市区町村</label>
-                    <input type="text" id="sikutyoson" name="user_address" placeholder="市区町村名を入力">
+                    <input type="text" id="sikutyoson" name="user_address" value="<?php echo htmlspecialchars($user_address)?>">
         </div>
 
         <div class="street-address">
                 <label for="street-address">番地・ビル名</label>
-                <input type="text" id="street-address" name="user_home_number"  placeholder="番地・ビル名を入力" required>
+                <input type="text" id="street-address" name="user_home_number"  value="<?php echo htmlspecialchars($user_home_number)?>" required>
         </div>
 
         <div class="phon-number">
                 <label for="phone-number">電話番号</label>
-                <input type="tel" id="phone-number" name="user_tell" placeholder="000-0000-0000" pattern="\d{3}-\d{4}-\d{4}" required><br>
+                <input type="tel" id="phone-number" name="user_tell" value="<?php echo htmlspecialchars($user_tell)?>" pattern="\d{3}-\d{4}-\d{4}" required><br>
         </div> 
 
-</form>
-        <button type="submit" class="login-btn">新規登録</button>
-            
+        <button type="submit" class="login-btn">更新</button>
+        <div id="update-modal" class="modal">
+    <div class="modal-content">
+        <p>プロフィールが更新されました！</p>
+        <b><a href="home.php">ホーム</a></b>
+        
+    </div>
+    </div>
+
+    <style>
+        .modal {
+            display: none; /* 初期状態では非表示 */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .modal-content button {
+            margin-top: 10px;
+            padding: 5px 10px;
+        }
+    </style>
+    <script>
+    // PHPで設定したフラグを受け取る
+    const isUpdated = <?php echo isset($_POST) && !empty($_POST) ? 'true' : 'false'; ?>;
+
+    // DOMが読み込まれた後に実行
+    document.addEventListener('DOMContentLoaded', () => {
+        if (isUpdated) {
+            const modal = document.getElementById('update-modal');
+            modal.style.display = 'flex';
+
+            // 閉じるボタンのイベント
+            document.getElementById('close-modal').addEventListener('click', () => {
+                modal.style.display = 'none';
+            });
+        }
+    });
+    </script>
+        
+</form>            
 </div>
 </body>
 </html>

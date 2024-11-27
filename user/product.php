@@ -67,7 +67,7 @@ if (!$product) {
     <header></header>
     <a href="./home.php">戻る</a>
     <div class="container">
-    <img src="<?= htmlspecialchars($product['product_photo'], ENT_QUOTES, 'UTF-8') ?>" alt="商品画像">
+    <img src="data:<?= htmlspecialchars($product['image_type']); ?>;base64,<?= base64_encode($product['image_content']); ?>">
     <div class="product-details">
     <h2>商品名: <?= htmlspecialchars($product['product_name'], ENT_QUOTES, 'UTF-8') ?></h2>
     <h2>サイズ: <?= htmlspecialchars($product['product_size'], ENT_QUOTES, 'UTF-8') ?></h2>
