@@ -28,11 +28,11 @@
                 <div class="wrapper-title">
                     <h3>新規作成</h3>
                 </div>
-                <form class="edit-form" method="POST" action="store_product.php" enctype="multipart/form-data">
+                <form class="edit-form" method="POST" action="G15.php" enctype="multipart/form-data">
                     <div class="form-group">
                         <p>管理者ID</p>
                         <?php
-                        echo '<select id="maneger_id" name="maneger_id" required>';
+                        
                         $pdo = new PDO(
                             'mysql:host=mysql310.phy.lolipop.lan;
                             dbname=LAA1554917-system;charset=utf8',
@@ -42,6 +42,7 @@
                         $sql='SELECT maneger_id FROM maneger';
                         $stmt = $pdo->query($sql);
                         $rows = $stmt->fetchAll();
+                        echo '<select id="maneger_id" name="maneger_id" required>';
                         foreach($rows as $row){
                             echo '<option value="maneger_id">',$row["maneger_id"],'</option>';
                         }
