@@ -16,12 +16,12 @@
 
     if (is_uploaded_file($_FILES["img"]["tmp_name"])) {
                //HTTP POST OK;
-            $file_name = date('YmdHis')."_".$_FILES["img"]["name"];
+            $file_name = "system.imags/".$_FILES["img"]["name"];
         if (pathinfo($file_name, PATHINFO_EXTENSION) == 'jpg' || pathinfo($file_name, PATHINFO_EXTENSION) == 'png') {
            //拡張子OK
            //元のアップロード先
            $file_tmp_name = $_FILES["img"]["tmp_name"];
-           if (move_uploaded_file($file_tmp_name, "./products/" . $file_name)) {
+           if (move_uploaded_file($file_tmp_name, "system.imags/". $file_name)) {
                //アップロード完了
                //DB接続
             try{

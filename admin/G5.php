@@ -9,19 +9,23 @@
 
 </head>
 <body>
+<a href="G2.php">戻る</a><br><br>
     <h1>ユーザー管理</h1>
-   <a href="G2.php">戻る</a>
    <form action="G6.php" method="get">   
     <button type="submit">ユーザー削除</button>
    </form>
    <br>
    <?php
-   $pdo = new PDO(
-    'mysql:host=mysql310.phy.lolipop.lan;
-    dbname=LAA1554917-system;charset=utf8',
-    'LAA1554917',
-     'PassSD2D'
-);
+       try {
+        $pdo = new PDO(
+            'mysql:host=mysql310.phy.lolipop.lan;dbname=LAA1554917-system;charset=utf8',
+            'LAA1554917',
+            'PassSD2D'
+        );
+    } catch (PDOException $e) {
+        echo 'データベース接続に失敗しました: ' . htmlspecialchars($e->getMessage());
+        exit;
+    }  
 $sql='SELECT user_id, user_first_name, user_last_name FROM user';
    $stmt = $pdo->query($sql);
    echo '<div class="bl_media_container">';
