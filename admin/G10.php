@@ -12,7 +12,7 @@ $id=$_POST['U'];
 <a href="G9.php?id=<?= $id ?>">
 <i class="fa-solid fa-cube icon"></i>    
 戻る
-</a><br><br>
+</a><br>
     <h1>商品更新</h1>
     <?php
     try {
