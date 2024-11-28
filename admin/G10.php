@@ -9,7 +9,7 @@
 <a href="G9.php">戻る</a><br><br>
     <h1>商品更新</h1>
     <?php
-    $id=$_POST['D'];
+    $id=$_POST['U'];
     echo $id;
     ?>
 </body>
