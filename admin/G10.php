@@ -6,13 +6,15 @@
     <title>商品更新画面</title>
 </head>
 <body>
+    <?php
+$id=$_POST['U'];
+?>
 <a href="G9.php?id=<?= $id ?>">
 <i class="fa-solid fa-cube icon"></i>    
 戻る
 </a><br><br>
     <h1>商品更新</h1>
     <?php
-    $id=$_POST['U'];
     try {
         $pdo = new PDO(
             'mysql:host=mysql310.phy.lolipop.lan;dbname=LAA1554917-system;charset=utf8',
