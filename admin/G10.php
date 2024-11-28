@@ -6,7 +6,10 @@
     <title>商品更新画面</title>
 </head>
 <body>
-<a href="G9.php">戻る</a><br><br>
+<a href="G9.php?id=<?= $id ?>">
+<i class="fa-solid fa-cube icon"></i>    
+戻る
+</a><br><br>
     <h1>商品更新</h1>
     <?php
     $id=$_POST['U'];
