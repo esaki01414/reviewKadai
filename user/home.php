@@ -200,8 +200,6 @@ $images = $stmt->fetchAll();
     
     
     <main>
-        
-
     <div id="main-content">
         <section id="slideshow">
             <div class="slideshow">
@@ -218,9 +216,8 @@ $images = $stmt->fetchAll();
             </div>
         </section>
                 <br><br>               <br><br>
-                <marquee>洋服ショッピングサイト開発途中</marquee>
-        <p style="text-decoration:underline;" >
-            <b>商品</b></p>
+                <marquee>季節限定商品のキャンペーン開催中</marquee>
+    <p style="text-decoration:underline;" ><b>商品</b></p>
         <section id="product-list">
             <div class="product-list" id="product-list-container">
                 <!-- 商品リストがここに表示される -->

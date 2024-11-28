@@ -3,6 +3,8 @@ session_start();
 
 // セッションが開始されているか確認
 if (!isset($_SESSION['user_id'])) {
+    echo '<a href="./login.php">ログイン画面に遷移</a><br>';
+    echo '<a href="./home.php">ホーム画面に遷移</a><br>';
     echo 'ログインしてください。';
     exit;
 }
