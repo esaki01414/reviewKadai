@@ -11,7 +11,7 @@
     $id=$_GET['id'];
     ?>
     <a href="G8.php?id=<?= $id ?>">戻る</a>
-    <i class="fa-solid fa-cube icon"></i><br><br>
+    <i class="fa-solid fa-cube icon"></i><br>
     <h1>商品詳細</h1>
     <br>
     <form action="G10.php" method="post">
