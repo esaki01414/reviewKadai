@@ -29,11 +29,11 @@
     }
     ?>
     <form action="G11.php" method="post">
-        <label>商品名：</label>
-        <input type="text" name="name">
-        <label>在庫数：</label>
-        <input type="text" name="stock">
-        <button type="submit" name="C" value="<?= $id ?>">確認</button>
+        <label for="s">商品名：</label>
+        <input type="text" name="name" id="s">
+        <label for="z">在庫数：</label>
+        <input type="text" name="stock" id="z">
+        <p><button type="submit" name="C" value="<?= $id ?>">確認</button></p>
     </form>
 
 </body>
