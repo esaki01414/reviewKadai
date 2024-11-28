@@ -29,8 +29,8 @@
     }
     ?>
     <form action="G11.php" method="post">
-        <label for="s">商品名：</label>
-        <input type="text" name="name" id="s"><br>
+        <p>商品名：</p>
+        <input type="text" name="name" id="s">
         <p>サイズ</p>
             <select name="size">
                 <optgroup label="メンズ"></optgroup>
@@ -51,8 +51,8 @@
                 <optgroup label="その他"></optgroup>
                     <option value="サイズ表記なし">サイズ表記なし</option>
             </select>
-        <label for="z">在庫数：</label>
-        <input type="text" name="stock" id="z">
+        <p>在庫数：</p>
+        <input type="text" name="stock">
         <p>カラー</p>
         <input type="text" name="color">     
         <p>商品説明</p>
