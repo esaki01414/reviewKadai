@@ -216,8 +216,9 @@ $images = $stmt->fetchAll();
             </div>
         </section>
                 <br><br>               <br><br>
-                <marquee>季節限定商品のキャンペーン開催中</marquee>
-    <p style="text-decoration:underline;" ><b>商品</b></p>
+                <b><marquee>季節限定商品のキャンペーン開催中</marquee></b>
+                
+    <b><p style="text-decoration:underline;" >商品</p></b>
         <section id="product-list">
             <div class="product-list" id="product-list-container">
                 <!-- 商品リストがここに表示される -->

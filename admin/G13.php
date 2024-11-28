@@ -71,6 +71,8 @@
                             <option value="110">110</option>
                             <option value="110">120</option>
                             <option value="130">130</option>
+                        <optgroup label="その他"></optgroup>
+                            <option value="サイズ表記なし">サイズ表記なし</option>
                         </select>
                     </div>
                     <div class="form-group">
