@@ -30,7 +30,7 @@
     ?>
     <form action="G11.php" method="post">
         <label for="s">商品名：</label>
-        <input type="text" name="name" id="s">
+        <input type="text" name="name" id="s"><br>
         <label for="z">在庫数：</label>
         <input type="text" name="stock" id="z">
         <p><button type="submit" name="C" value="<?= $id ?>">確認</button></p>
