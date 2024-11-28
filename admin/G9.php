@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<?php
+    $id=$_GET['id'];
+    ?><!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
@@ -7,9 +9,6 @@
     <link rel="stylesheet" href="css/styles.css"> <!-- CSSファイルのリンク -->
 </head>
 <body>
-    <?php
-    $id=$_GET['id'];
-    ?>
     <a href="G8.php?id=<?= $id ?>">戻る</a>
     <i class="fa-solid fa-cube icon"></i><br>
     <h1>商品詳細</h1>
