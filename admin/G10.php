@@ -28,6 +28,13 @@
     echo '<img src="data:'.htmlspecialchars($row['image_type']),';base64,',base64_encode($row['image_content']),'"width="200" height="auto""><br>';
     }
     ?>
+    <form action="G11.php" method="post">
+        <label>商品名：</label>
+        <input type="text" name="name">
+        <label>在庫数：</label>
+        <input type="text" name="stock">
+        <button type="submit" name="C" value="<?= $id ?>">確認</button>
+    </form>
 
 </body>
 </html>
