@@ -31,8 +31,36 @@
     <form action="G11.php" method="post">
         <label for="s">商品名：</label>
         <input type="text" name="name" id="s"><br>
+        <p>サイズ</p>
+            <select name="size">
+                <optgroup label="メンズ"></optgroup>
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                <optgroup label="レディース"></optgroup>
+                    <option value="S(7号)">S(7号)</option>
+                    <option value="M(9号)">M(9号)</option>
+                    <option value="L(11号)">L(11号)</option>
+                    <option value="LL(13号)">LL(13号)</option>
+                <optgroup label="キッズ"></optgroup>
+                    <option value="100">100</option>
+                    <option value="110">110</option>
+                    <option value="110">120</option>
+                    <option value="130">130</option>
+                <optgroup label="その他"></optgroup>
+                    <option value="サイズ表記なし">サイズ表記なし</option>
+            </select>
         <label for="z">在庫数：</label>
         <input type="text" name="stock" id="z">
+        <p>カラー</p>
+        <input type="text" name="color">     
+        <p>商品説明</p>
+        <input type="text" name="body" maxlength="255">
+        <p>価格</p>
+        <input type="number" name="price">
+        <p>商品画像</p>
+        <input type="file" name="imag">
         <p><button type="submit" name="C" value="<?= $id ?>">確認</button></p>
     </form>
 
