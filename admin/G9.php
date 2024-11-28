@@ -12,12 +12,15 @@
     <?php
     $id=$_GET['id'];
     ?>
+    <br>
     <form action="G10.php" method="post">
         <button type="submit" name="<?= $id ?>">商品更新</button>
     </form>
+    <br><br>
     <form action="G16.php" method="post">
         <button type="submit" name="<?= $id ?>">商品削除</button>
     </form>
+    <br>
     <?php
        try {
         $pdo = new PDO(
