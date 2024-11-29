@@ -1,98 +1,111 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-.input_icon {
-    position: relative;
-    display: inline-block;
-}
-
-input[type="search"] {
-    font: 400 16px/1 sans-serif;
-    padding: .75em 3em .75em 3em; /* 左側にアイコンのスペースを確保 */
-    border-radius: .5rem;
-    border: 2px solid #000000;
-    color: #ccc;
-}
-
-.search_icon {
-    position: absolute;
-    left: 10px; /* アイコンの位置を調整 */
-    top: 50%;
-    transform: translateY(-50%); /* 縦中央揃え */
-    font-size: 24px;
-    pointer-events: none; /* アイコンをクリックできないように */
-}
-
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 中央揃え */
 }
 
 header {
-    position: sticky; 
-    top: 0; /* 画面上部に配置 */
+    position: sticky;
+    top: 0;
     width: 100%;
-    z-index: 1000; /* 他の要素よりも上に表示 */
+    z-index: 1000;
     background-color: #aeaeae;
-    padding: 20px 0;
+    padding: 5px 0; /* 高さを調整 */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     text-align: center;
-    margin: 0;
-}
-#main-content{
-    margin-top: 100px;
-}
-html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
+    margin: 0; /* 不要な余白を削除 */
 }
 
-#product-list {
+.header-info {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    padding: 20px;
+    justify-content: flex-start; /* ユーザー部分を右寄せ */
+    align-items: center;
+    width: 100%; /* 全体幅を使用 */
+    margin-top: -20px; /* 必要に応じて微調整 */
 }
 
-/* 商品カードのスタイル */
-.product-card {
-    border: 1px solid #ccc;
-    margin: 10px;
-    padding: 15px;
-    text-align: center;
+.hamburger-menu {
+    cursor: pointer;
+    font-size: 30px; /* アイコンのサイズ */
+    position: absolute;
+    right: 20px; /* 右端からの距離 */
+    top: 20px; /* 上端からの距離 */
 }
-.slideshow {
-    position: relative;
-    width: 350px; /* スライドショーの幅 */
-    height: 300px; /* スライドショーの高さ */
-    overflow: hidden; /* はみ出した部分を隠す */
-margin: 20px auto; /* 上下の余白を20px、左右を自動で中央揃え */
+
+nav {
+    position: absolute;
+    top: 70px; /* ハンバーガーメニューの下に配置 */
+    right: 20px;
+    background-color: white; /* メニューの背景色 */
+    border: 1px solid #ccc; /* 枠線 */
+    border-radius: 5px; /* 角を丸くする */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* 影を追加 */
 }
-.slide img {
-        width: 350px; /* 画像の幅をスライドショーの幅と同じに設定 */
-        height: 300px; /* 画像の高さは自動調整 */
-        object-fit: cover;    
-    }
+
+nav.hidden {
+    display: none; /* 非表示にするクラス */
+}
+
+nav ul {
+    list-style-type: none; /* リストマーカーを削除 */
+    padding: 0;
+    margin: 0;
+}
+
+nav li {
+    padding: 10px; /* リスト項目の余白 */
+}
+
+nav li a {
+    text-decoration: none; /* 下線を削除 */
+    color: black; /* テキストカラー */
+}
+
+.user-section {
+    display: flex;
+    align-items: center; /* アイコンとテキストを垂直方向に中央揃え */
+    gap: 10px; /* アイコンとテキストの間隔を調整 */
+    margin-right: 20px; /* タイトルからの余白を調整 */
+}
+
+.user-icon {
+    width: 30px; /* アイコンの幅 */
+    height: 30px; /* アイコンの高さ */
+    border-radius: 50%; /* アイコンを円形にする */
+    background-color: #aeaeae;
+    display: inline-block;
+    margin-right: 10px; /* アイコンとテキストの間に余白 */
+}
+
+.guest-status {
+    font-size: 14px;
+    color: #333;
+}
+
 .search-container {
-        display: flex;
-        align-items: center; /* 垂直方向の中央揃え */
-        justify-content: center;
-        margin: 0 auto; /* 中央に配置 */
-        padding: 10px 0; /* 上下に少し余白を追加 */
-        max-width: 80%; /* ページの80%幅に制限 */
-    }
+    display: flex;
+    align-items: center; /* 垂直方向の中央揃え */
+    justify-content: center;
+    margin: 20px auto; /* 中央に配置 */
+    padding: 10px 0; /* 上下に少し余白を追加 */
+    max-width: 100%; /* ページの80%幅に制限 */
+}
+
 /* CSS内に検索バーのスタイルを追加 */
 .search-bar {
-    width: 100%; /* 親要素（search-container）の幅に合わせる */
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    outline: none;
+width: 500px; /* 親要素（search-container）の幅に合わせる */
+max-width: 100%; /* ページ幅に応じて調整 */
+padding: 10px;
+border-radius: 5px;
+border: 1px solid #ccc;
+outline: none;
+align-items: center;
+position: relative;
+display: flex;
 }
 
 #search-input {
@@ -104,7 +117,7 @@ margin: 20px auto; /* 上下の余白を20px、左右を自動で中央揃え */
     border-radius: 5px 0 0 5px; /* 角丸 */
     outline: none;
 }
-
+ 
 .search-button {
     padding: 10px 20px;
     background-color: #4CAF50; /* 緑色の背景 */
@@ -120,66 +133,78 @@ margin: 20px auto; /* 上下の余白を20px、左右を自動で中央揃え */
     white-space: nowrap; /* 文字を横に並べる */
 }
 
-.menu {
-    position: relative; /* 相対位置を設定 */
+.product-list {
     display: flex;
-    align-items: center; /* 中央揃え */
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px; /* 上部の余白 */
+}
+input[type="search"] {
+    font: 400 16px/1 sans-serif;
+    padding: .75em 3em .75em 3em; /* 左側にアイコンのスペースを確保 */
+    border-radius: .5rem;
+    border: 2px solid #000000;
+    color: #ccc;
+}
+ 
+.search_icon {
+    position: absolute;
+    left: 10px; /* アイコンの位置を調整 */
+    top: 50%;
+    transform: translateY(-50%); /* 縦中央揃え */
+    font-size: 24px;
+    pointer-events: none; /* アイコンをクリックできないように */
 }
 
-.hamburger {
-    font-size: 30px; /* ハンバーガーアイコンのサイズ */
-    cursor: pointer; /* ポインターカーソル */
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px; /* 上部の余白 */
 }
 
-.nav-menu {
-    display: none; /* 初期状態で非表示 */
-    position: absolute; /* 絶対位置 */
-    top: 50px; /* ヘッダーの下に配置 */
-    right: 0; /* 右側に配置 */
-    background-color: white; /* メニューの背景色 */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* 影をつける */
-    z-index: 1000; /* 他の要素より上に表示 */
+/* 商品カードのスタイル */
+.product-card {
+    border: 1px solid #ccc;
+    margin: 10px;
+    padding: 15px;
+    text-align: center;
 }
-
-.nav-menu ul {
-    list-style-type: none; /* リストのスタイルを削除 */
-    padding: 0; /* パディングを削除 */
-}
-
-.nav-menu li {
-    padding: 10px 20px; /* リスト項目のパディング */
-}
-
-.nav-menu a {
-    text-decoration: none; /* リンクの下線を削除 */
-    color: black; /* リンクの色 */
-}
-.guest-status {
-    font-size: 12px; /* フォントサイズを小さく */
-    color: #666; /* テキストカラーを薄いグレーに */
-    margin-bottom: 5px; /* 検索バーとの余白 */
-    text-align: left;
-}
-
-.header-info {
-    display: flex; /* フレックスボックスで横並びにする */
-    align-items: center; /* 垂直方向に中央揃え */
-}
-
-.user-icon {
-    width: 30px; /* アイコンの幅 */
-    height: 30px; /* アイコンの高さ */
-    border-radius: 50%; /* アイコンを円形にする */
-    background-color: #aeaeae;
-    display: inline-block;
-    margin-right: 10px; /* アイコンとテキストの間に余白 */
-}
+ 
 .product-item {
-    display: inline-block; /* 画像を横に並べるためのスタイル */
-    margin: 10px; /* 画像間のマージン */
+    margin: 10px;
+    text-align: center; /* テキストを中央揃え */
+}
+.product-item img {
+    width: 100px; /* 商品画像の幅 */
+    height: 100px; /* 商品画像の高さ */
+    border: 1px solid #ccc; /* 枠線 */
+    border-radius: 5px; /* 角を丸くする */
 }
 
-.product-item img {
-    width: 100px; /* 画像のサイズを調整 */
-    height: auto; /* 高さを自動にしてアスペクト比を維持 */
+.slideshow {
+    position: relative;
+    display: flex;
+    justify-content: center; /* スライドを中央揃え */
+    align-items: center;
+    margin-top: 15px; /* 上部の余白 */
+    margin-bottom: 10px; /* 下部の余白を小さく */
+}
+
+.slides {
+    display: flex;
+    justify-content: center; /* 画像を中央揃え */
+    align-items: center;
+    transition: transform 0.5s ease-in-out;
+}
+.slide {
+    min-width: 100%; /* 各スライドの幅 */
+    height: 100%; /* 各スライドの高さ */
+}
+
+
+.slide img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
 }
