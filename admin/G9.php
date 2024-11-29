@@ -7,17 +7,20 @@
     <link rel="stylesheet" href="css/styles.css"> <!-- CSSファイルのリンク -->
 </head>
 <body>
-<a href="G8.php">戻る</a><br><br>
-    <h1>商品詳細</h1>
     <?php
     $id=$_GET['id'];
     ?>
+    <a href="G8.php">戻る</a><br>
+    <h1>商品詳細</h1>
+    <br>
     <form action="G10.php" method="post">
-        <button type="submit" name="<?= $id ?>">商品更新</button>
+        <button type="submit" name="U" value="<?= $id ?>">商品更新</button>
     </form>
+    <br><br>
     <form action="G16.php" method="post">
-        <button type="submit" name="<?= $id ?>">商品削除</button>
+        <button type="submit" name="D" value="<?= $id ?>">商品削除</button>
     </form>
+    <br>
     <?php
        try {
         $pdo = new PDO(

@@ -104,8 +104,7 @@ $images = $stmt->fetchAll();
     
     
     <main>
-        
-
+    <div id="main-content">
         <section id="slideshow">
             <div class="slideshow">
                 <div class="slides" id="slides">
@@ -121,9 +120,9 @@ $images = $stmt->fetchAll();
         </section>
         <script src="js/home.js"></script>
                 <br><br>               <br><br>
-                <marquee>洋服ショッピングサイト開発途中</marquee>
-        <p style="text-decoration:underline; text-align:center;" >
-            <b>商品</b></p>
+                <b><marquee>季節限定商品のキャンペーン開催中</marquee></b>
+                
+    <b><p style="text-decoration:underline;" >商品</p></b>
         <section id="product-list">
             <div class="product-list" id="product-list-container">
                 <!-- 商品リストがここに表示される -->
