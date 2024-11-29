@@ -7,11 +7,11 @@
     <link rel="stylesheet" href="css/styles.css"> <!-- CSSファイルのリンク -->
 </head>
 <body>
-<a href="G8.php">戻る</a><br><br>
-    <h1>商品詳細</h1>
     <?php
     $id=$_GET['id'];
     ?>
+    <a href="G8.php">戻る</a><br>
+    <h1>商品詳細</h1>
     <br>
     <form action="G10.php" method="post">
         <button type="submit" name="U" value="<?= $id ?>">商品更新</button>
