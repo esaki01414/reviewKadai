@@ -97,6 +97,7 @@ $images = $stmt->fetchAll();
                 }
 
                 ?>
+                        <script src="js/toggleMenu.js"></script>
             </li>
             </ul>
         </nav>
@@ -122,7 +123,7 @@ $images = $stmt->fetchAll();
                 <br><br>               <br><br>
                 <b><marquee>季節限定商品のキャンペーン開催中</marquee></b>
                 
-    <b><p style="text-decoration:underline;" >商品</p></b>
+    <b><p style="text-decoration:underline; text-align: center;" >商品</p></b>
         <section id="product-list">
             <div class="product-list" id="product-list-container">
                 <!-- 商品リストがここに表示される -->
@@ -183,10 +184,6 @@ $images = $stmt->fetchAll();
             displayProducts();
             setInterval(showSlides, 3000); // 3秒ごとにスライドを切り替え
         };
-        function toggleMenu() {
-            const navMenu = document.getElementById('nav-menu');
-            navMenu.classList.toggle('open'); // メニューの開閉をトグル
-        }
 
         window.onload = () => {
             displayProducts();
