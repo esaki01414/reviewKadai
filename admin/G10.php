@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>商品更新画面</title>
+    <link rel="stylesheet" href="css/styles.css"> <!-- CSSファイルのリンク -->
 </head>
 <body>
     <?php
@@ -35,7 +36,7 @@ $id=$_POST['U'];
     ?>
     <form action="G11.php" method="post">
         <p>商品名：</p>
-        <input type="text" name="name" id="s">
+        <input type="text" name="name">
         <p>サイズ</p>
             <select name="size">
             <?php foreach($result as $row): ?>
@@ -69,8 +70,8 @@ $id=$_POST['U'];
         <input type="number" name="price">
         <p>商品画像</p>
         <input type="file" name="imag">
-        <p><button type="submit" name="C" value="<?= $id ?>">確認</button></p>
+        <p><button type="submit" name="U" value="<?= $id ?>">確認</button></p>
     </form>
-
+    <script src="js/script.js"></script> <!-- JavaScriptファイルのリンク -->
 </body>
 </html>
