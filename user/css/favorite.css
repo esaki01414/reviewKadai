@@ -12,7 +12,7 @@ body.special-page {
     border: none;
     cursor: pointer;
     font: inherit;
-    text-decoration: underline wavy;
+    text-decoration: underline;
 }
 
 .product-image {
