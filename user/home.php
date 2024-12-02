@@ -52,7 +52,7 @@ $images = $stmt->fetchAll();
 </head>
 <body>
     <header>
-        <h1>ECサイトのタイトル</h1>
+        <h1>ファッションサイト</h1>
         <div class="header-info">
             <div class="user-section">
         <img src="./images/ユーザーアイコン.jpg" alt="ユーザーアイコン" class="user-icon"> <!-- ユーザーアイコン -->
@@ -78,7 +78,7 @@ $images = $stmt->fetchAll();
         </div>
         <nav id="nav-menu" class="hidden">
             <ul>
-                <li><i class="fas fa-sign-in-alt"></i><a href="login.php">：ログイン画面</a></li>
+                <li><i class="fas fa-sign-in-alt"></i><a href="login.php">：ログイン</a></li>
                 <?php
 
                 if(isset($_SESSION['user_first_name'],$_SESSION['user_last_name'])){
