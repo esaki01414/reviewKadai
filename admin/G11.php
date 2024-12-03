@@ -107,7 +107,7 @@ if(!empty($_POST['body'])){
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$id]);
     $body=$stmt->fetchAll(PDO::FETCH_ASSOC);
-    foreach($size as $row){
+    foreach($body as $row){
         echo $row['product_body'];
         }
 }
