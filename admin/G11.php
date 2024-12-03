@@ -47,23 +47,28 @@ if(!empty($_POST['file'])){
         echo '<img src="data:'.htmlspecialchars($row['image_type']).';base64,'
         .base64_encode($row['image_content']).'"width="200" height="auto""><br>';
         }
-}
+    }
 
+    echo '<p>商品ID：</p>';
+    echo '<p>',$id,'</p>';
 if(!empty($_POST['name'])){
       $name =$_POST['name'];
-      echo $name;
+      echo '<p>商品名：</p>';
+      echo '<p>',$name,'</p>';
 }else{
     $sql='SELECT product_name FROM product WHERE product_id = ?';
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$id]);
     $name=$stmt->fetchAll(PDO::FETCH_ASSOC);
     foreach($name as $row){
-        echo $row['product_name'];
+        echo '<p>商品名：</p>';
+        echo '<p>',$row['product_name'],'</p>';
         }
 }
 
 if(!empty($_POST['size'])){
       $size=$_POST['size'];
+      echo '<p>サイズ：</p>';
       echo $size;
 }else{
     $sql='SELECT product_size FROM product WHERE product_id = ?';
@@ -71,12 +76,14 @@ if(!empty($_POST['size'])){
     $stmt->execute([$id]);
     $size=$stmt->fetchAll(PDO::FETCH_ASSOC);
     foreach($size as $row){
+        echo '<p>サイズ：</p>';
         echo $row['product_size'];
         }
 }
 
 if(!empty($_POST['stock'])){
       $stock=$_POST['stock'];
+      echo '<p>在庫数：</p>';
       echo $stock;
 }else{
     $sql='SELECT inventory_stock FROM product WHERE product_id = ?';
@@ -84,11 +91,13 @@ if(!empty($_POST['stock'])){
     $stmt->execute([$id]);
     $stock=$stmt->fetchAll(PDO::FETCH_ASSOC);
     foreach($stock as $row){
+        echo '<p>在庫数：</p>';
         echo $row['inventory_stock'];
         }
 }
 if(!empty($_POST['color'])){
       $color=$_POST['color'];
+      echo '<p>カラー：</p>';
       echo $color;
 }else{
     $sql='SELECT product_color FROM product WHERE product_id = ?';
@@ -96,11 +105,13 @@ if(!empty($_POST['color'])){
     $stmt->execute([$id]);
     $color=$stmt->fetchAll(PDO::FETCH_ASSOC);
     foreach($color as $row){
+        echo '<p>カラー：</p>';
         echo $row['product_color'];
         }
 }
 if(!empty($_POST['body'])){
       $body=nl2br($_POST['body']);
+      echo '<p>商品説明：</p>';
       echo $body;
 }else{
     $sql='SELECT product_body FROM product WHERE product_id = ?';
@@ -108,11 +119,13 @@ if(!empty($_POST['body'])){
     $stmt->execute([$id]);
     $body=$stmt->fetchAll(PDO::FETCH_ASSOC);
     foreach($body as $row){
+        echo '<p>商品説明：</p>';
         echo $row['product_body'];
         }
 }
 if(!empty($_POST['price'])){
       $price=$_POST['price'];
+      echo '<p>価格：</p>';
       echo $price;
 }else{
     $sql='SELECT product_price FROM product WHERE product_id = ?';
@@ -120,6 +133,7 @@ if(!empty($_POST['price'])){
     $stmt->execute([$id]);
     $price=$stmt->fetchAll(PDO::FETCH_ASSOC);
     foreach($price as $row){
+        echo '<p>価格：</p>';
         echo $row['product_price'];
         }
 }
