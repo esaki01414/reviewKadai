@@ -25,23 +25,23 @@ if (isset($_POST['U'])) {
     var_dump($data);  // これでデータが配列として取得できているか確認できます
 }
 if (!empty($data)) {
-    echo '<p>商品ID: ' . htmlspecialchars($data['data'][0]) . '</p>';
-    echo '<p>商品名: ' . htmlspecialchars($data['data'][1]) . '</p>';
-    echo '<p>サイズ: ' . htmlspecialchars($data['data'][2]) . '</p>';
-    echo '<p>在庫数: ' . htmlspecialchars($data['data'][3]) . '</p>';
-    echo '<p>カラー: ' . htmlspecialchars($data['data'][4]) . '</p>';
-    echo '<p>商品説明: ' . nl2br(htmlspecialchars($data['data'][5])) . '</p>';
-    echo '<p>価格: ' . htmlspecialchars($data['data'][6]) . '</p>';
+    echo '<p>商品ID: ' . htmlspecialchars($data[0]) . '</p>';
+    echo '<p>商品名: ' . htmlspecialchars($data[1]) . '</p>';
+    echo '<p>サイズ: ' . htmlspecialchars($data[2]) . '</p>';
+    echo '<p>在庫数: ' . htmlspecialchars($data[3]) . '</p>';
+    echo '<p>カラー: ' . htmlspecialchars($data[4]) . '</p>';
+    echo '<p>商品説明: ' . nl2br(htmlspecialchars($data[5])) . '</p>';
+    echo '<p>価格: ' . htmlspecialchars($data[6]) . '</p>';
     // 画像の表示（画像データがある場合）
-    if (isset($data['data'][7]) && !empty($data['data'][7])) {
-        echo '<img src="data:' . htmlspecialchars($data['data'][7]['image_type']) . ';base64,' . base64_encode($data['data'][7]['image_content']) . '" width="200" height="auto"><br>';
+    if (isset($data[7]) && !empty($data[7])) {
+        echo '<img src="data:' . htmlspecialchars($data[7]['image_type']) . ';base64,' . base64_encode($data[7]['image_content']) . '" width="200" height="auto"><br>';
     }
 } else {
     echo '<p>データが正しくありません。</p>';
 }
 
 ?>
-<a href="G9.php?id=<?= htmlspecialchars($data['data'][0]) ?>">
+<a href="G9.php?id=<?= htmlspecialchars($data[0]) ?>">
     <i class="fa-solid fa-cube icon"></i>    
     戻る
 </a>
