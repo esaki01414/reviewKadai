@@ -69,7 +69,7 @@ $id=$_POST['U'];
         <p>価格</p>
         <input type="number" name="price">
         <p>商品画像</p>
-        <input type="file" name="imag">
+        <input type="file" name="imag"><br><br>
         <p><button type="submit" name="U" value="<?= $id ?>">確認</button></p>
     </form>
     <script src="js/script.js"></script> <!-- JavaScriptファイルのリンク -->
