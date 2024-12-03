@@ -23,7 +23,7 @@ if (isset($_POST['U'])) {
     $data = json_decode($_POST['U'], true);
     // Now you can use the $result array
 }
-$id=$data[$id];
+$id=$data[0];
 ?>
 <a href="G9.php?id=<?= $id ?>">
 <i class="fa-solid fa-cube icon"></i>    
