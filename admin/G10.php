@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -8,7 +11,10 @@
 </head>
 <body>
     <?php
-$id=$_POST['U'];
+$id=$_POST['U'] ?? null;
+if(!($id)){
+    $id = $_SESSION['id'] ?? null;
+}
 ?>
 <a href="G9.php?id=<?= $id ?>">
 <i class="fa-solid fa-cube icon"></i>    
@@ -34,7 +40,7 @@ $id=$_POST['U'];
     echo '<img src="data:'.htmlspecialchars($row['image_type']).';base64,'.base64_encode($row['image_content']).'"width="200" height="auto""><br>';
     }
     ?>
-    <form action="G11.php" method="post">
+    <form action="G11.php" method="post" enctype="multipart/form-data">
         <p>商品名：</p>
         <input type="text" name="name">
         <p>サイズ</p>
@@ -69,7 +75,7 @@ $id=$_POST['U'];
         <p>価格</p>
         <input type="number" name="price">
         <p>商品画像</p>
-        <input type="file" name="imag">
+        <input type="file" name="imag"><br><br>
         <p><button type="submit" name="U" value="<?= $id ?>">確認</button></p>
     </form>
     <script src="js/script.js"></script> <!-- JavaScriptファイルのリンク -->
