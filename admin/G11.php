@@ -151,7 +151,8 @@ $data=[
 
     ?>
     <form action="G12.php" method="post" enctype="multipart/form-data">
-    <p><button type="submit" name="U[]" value="<?= htmlspecialchars(json_encode($data)) ?>">更新</button></p>
+    <input type="hidden" name="U" value="<?= htmlspecialchars(json_encode($data)) ?>">
+<p><button type="submit">更新</button></p>
 </form>
 </body>
 </html>
