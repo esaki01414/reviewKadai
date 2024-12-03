@@ -29,8 +29,7 @@ if(!($id)){
     exit;
 }  
 
-if(!empty($_FILES['file'])){
-    $flg='false';
+if (isset($_FILES['file']) && $_FILES['file']['error'] == 0) {    $flg='false';
     if(is_uploaded_file($_FILES['file']['tmp_name'])){
         if(!file_exists('upload_img')){
             mkdir('upload_img');
