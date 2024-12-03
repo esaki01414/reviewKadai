@@ -1,11 +1,4 @@
 <?php
-       session_start();
-       if($_SESSION['admin_login'] == false){
-           header("Location:./G1.php");
-           exit;
-      }
-?>
-<?php
 // データベース接続
 try {
     $pdo = new PDO(
