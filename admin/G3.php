@@ -1,3 +1,10 @@
+<?php
+       session_start();
+       if($_SESSION['admin_login'] == false){
+           header("Location:./G1.php");
+           exit;
+      }
+?>
 <!--管理者新規登録画面-->
 <!DOCTYPE html>
 <html lang="ja">
@@ -9,7 +16,7 @@
 </head>
 <body>
 
-    <div class="back"><a href="./G1.php">←戻る</a></div>
+    <div class="back"><a href="./G2.php">←戻る</a></div>
     <div class="background">
     <div class="label">
         <h1>新規登録画面</h1>
