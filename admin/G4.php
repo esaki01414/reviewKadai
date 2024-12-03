@@ -1,10 +1,3 @@
-<?php
-       session_start();
-       if($_SESSION['admin_login'] == false){
-           header("Location:./G1.php");
-           exit;
-      }
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,6 +30,6 @@
     <div class="label">
     <h1>登録完了</h1>
     </div>
-    <div class="back"><a href="./G2.php">ホームに戻る</a></div>
+    <div class="back"><a href="./G1.php">ホームに戻る</a></div>
 </body>
 </html>
