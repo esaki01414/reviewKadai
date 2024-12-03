@@ -8,7 +8,7 @@
 <body>
 <?php
 if (isset($_POST['U'])) {
-    $result = json_decode($_POST['U'], true);
+    $data = json_decode($_POST['U'], true);
     // Now you can use the $result array
 }
 ?>
