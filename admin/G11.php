@@ -11,9 +11,7 @@ session_start();
 <body>
 <?php
 $id=$_POST['U'] ?? null;
-if(!($id)){
-    $id = $_SESSION['id'] ?? null;
-}
+$id = $_SESSION['id'] ?? null;
 ?>
 <a href="G10.php">戻る</a><br><br>
 <h1>商品更新確認</h1>
