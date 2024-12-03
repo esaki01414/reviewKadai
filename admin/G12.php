@@ -7,7 +7,10 @@
 </head>
 <body>
 <?php
-$data=$_POST['U'];
+if (isset($_POST['U'])) {
+    $result = json_decode($_POST['U'], true);
+    // Now you can use the $result array
+}
 ?>
 <h1>更新完了</h1>
 <?php

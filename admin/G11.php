@@ -150,8 +150,7 @@ $result=[
 
     ?>
     <form action="G12.php" method="post">
-    <p><button type="submit" name="U" value="<?= $result ?>">更新</button></p>
+    <p><button type="submit" name="U" value="<?= json_encode($result) ?>">更新</button></p>
 </form>
-
 </body>
 </html>
