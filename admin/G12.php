@@ -20,10 +20,12 @@
 }  
 
 if (isset($_POST['U'])) {
-    $U = $_POST['U'];    // Now you can use the $result array
+    $data = json_decode($_POST['U'][0], true);
+    // $dataを使って、次のページでデータを処理します
+    var_dump($data);  // これでデータが配列として取得できているか確認できます
 }
-foreach($U as $u){
-echo $u;
+foreach($data as $d){
+echo $d;
 }
 ?>
 <a href="G9.php?id=<?= $id ?>">
