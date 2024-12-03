@@ -52,7 +52,7 @@ $images = $stmt->fetchAll();
 </head>
 <body>
     <header>
-        <h1>ECサイトのタイトル</h1>
+        <h1>ファッションサイト</h1>
         <div class="header-info">
             <div class="user-section">
         <img src="./images/ユーザーアイコン.jpg" alt="ユーザーアイコン" class="user-icon"> <!-- ユーザーアイコン -->
@@ -78,7 +78,7 @@ $images = $stmt->fetchAll();
         </div>
         <nav id="nav-menu" class="hidden">
             <ul>
-                <li><i class="fas fa-sign-in-alt"></i><a href="login.php">：ログイン画面</a></li>
+                <li><i class="fas fa-sign-in-alt"></i><a href="login.php">：ログイン</a></li>
                 <?php
 
                 if(isset($_SESSION['user_first_name'],$_SESSION['user_last_name'])){
@@ -98,6 +98,8 @@ $images = $stmt->fetchAll();
 
                 ?>
                         <script src="js/toggleMenu.js"></script>
+                        <script src="js/scroll.js"></script>
+
             </li>
             </ul>
         </nav>
@@ -118,6 +120,7 @@ $images = $stmt->fetchAll();
                     <div class="slide"><img src="./images/冬コーデ7.jpg" alt="画像1"></div>
                 </div>
             </div>
+            <script src="js/slideshow.js"></script>
         </section>
         <script src="js/home.js"></script>
                 <br><br>               <br><br>
@@ -129,18 +132,18 @@ $images = $stmt->fetchAll();
                 <!-- 商品リストがここに表示される -->
                 <form action="./product.php" method="post">
                 <div class="product-list">
-                <?php
+                    <?php
                 foreach ($pdo->query('SELECT * FROM product') as $row) {
                     echo '<div class="product_all" style="margin-right: 20px; margin-bottom: 20px; display: inline-block;">';
                     echo '<button type="submit" name="product_id" value="', htmlspecialchars($row['product_id']), '">';
                     echo htmlspecialchars($row['product_name']);
                     echo '</button>';
-                    
+                   
                     // 画像データを表示
-                    echo '<p><img src="data:', htmlspecialchars($row['image_type']), 
-                            ';base64,', base64_encode($row['image_content']), 
+                    echo '<p><img src="data:', htmlspecialchars($row['image_type']),
+                            ';base64,', base64_encode($row['image_content']),
                             '" width="200" height="auto" class="mr-3"></p>';
-
+ 
                     echo '</div>';
                 }
                 ?>

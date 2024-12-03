@@ -6,6 +6,7 @@
     <title>商品管理画面</title>
     <link rel="stylesheet" href="css/styles.css"> <!-- CSSファイルのリンク -->
     <link rel="stylesheet" href="css/dashboard.css"> <!-- CSSファイルのリンク -->
+    <link rel="stylesheet" href="css/G8.css">
 </head>
 <body>
 <a href="G2.php">戻る</a><br><br>
@@ -30,6 +31,7 @@ $sql='SELECT product_id, product_name FROM product';
    <div class="wrapper">
    <div class="container">
    <div class="boxs">
+<span>
 <?php foreach($stmt as $row){
     echo '<a href="G9.php?id=',$row['product_id'],'" class="box">';
     echo '<i class="fa-solid fa-cube icon"></i>';
@@ -40,6 +42,7 @@ $sql='SELECT product_id, product_name FROM product';
     echo '</a>';
      }
      ?>
+</span>
     </div>
     </div>
     </div>
