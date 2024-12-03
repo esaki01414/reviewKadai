@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -8,7 +11,10 @@
 </head>
 <body>
     <?php
-$id=$_POST['U'];
+    $id=$_POST['U'];
+    if(!empty($id)){
+        $id = $_SESSION['id'];
+    }
 ?>
 <a href="G9.php?id=<?= $id ?>">
 <i class="fa-solid fa-cube icon"></i>    
@@ -69,7 +75,7 @@ $id=$_POST['U'];
         <p>価格</p>
         <input type="number" name="price">
         <p>商品画像</p>
-        <input type="file" name="imag">
+        <input type="file" name="imag"><br>
         <p><button type="submit" name="U" value="<?= $id ?>">確認</button></p>
     </form>
     <script src="js/script.js"></script> <!-- JavaScriptファイルのリンク -->
