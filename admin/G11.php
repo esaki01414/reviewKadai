@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -7,7 +10,10 @@
 </head>
 <body>
 <?php
-$id=$_POST['U'];
+$id=$_POST['U'] ?? null;
+if(!($id)){
+    $id = $_SESSION['id'] ?? null;
+}
 ?>
 <a href="G10.php">戻る</a><br><br>
 <h1>商品更新確認</h1>
