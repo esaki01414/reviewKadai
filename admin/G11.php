@@ -139,7 +139,14 @@ if(!empty($_POST['price'])){
         }
 }
 $data=[
-    'data' => [$id,$name,$size,$stock,$color,$body,$price,$imag]
+    $id,
+    $name,
+    $size,
+    $stock,
+    $color,
+    $body,
+    $price,
+    $imag
 ];
 
     ?>
