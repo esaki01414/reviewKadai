@@ -11,9 +11,9 @@ session_start();
 </head>
 <body>
     <?php
-    $id=$_POST['U'];
-    if(empty($id)){
-        $id = $_SESSION['id'];
+    $id=$_POST['U'] ?? null;
+    if(!($id)){
+        $id = $_SESSION['id'] ?? null;
     }
 ?>
 <a href="G9.php?id=<?= $id ?>">
