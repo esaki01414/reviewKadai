@@ -20,7 +20,7 @@
 }  
 
 if (isset($_POST['U'])) {
-    $U = json_decode($_POST['U'], true);    // Now you can use the $result array
+    $U = $_POST['U'];    // Now you can use the $result array
 }
 for($i=0;$i<=7;$i++){
   echo $U['data'][$i];
