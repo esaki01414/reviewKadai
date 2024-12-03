@@ -117,7 +117,7 @@ if(!empty($_POST['body'])){
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$id]);
     $body=$stmt->fetchAll(PDO::FETCH_ASSOC);
-    foreacch($body as $row){
+    foreach($body as $row){
         echo '<p>商品説明：</p>';
         echo $row['product_body'];
         }
