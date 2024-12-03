@@ -138,20 +138,20 @@ if(!empty($_POST['price'])){
         echo $row['product_price'];
         }
 }
-$result=[
-    $id,
-    $name,
-    $size,
-    $stock,
-    $color,
-    $body,
-    $price,
-    $imag
+$data=[
+    0 => $id,
+    1 => $name,
+    2 => $size,
+    3 => $stock,
+    4 => $color,
+    5 => $body,
+    6 => $price,
+    7 => $imag
 ];
 
     ?>
     <form action="G12.php" method="post" enctype="multipart/form-data">
-    <p><button type="submit" name="U" value="<?= json_encode($result) ?>">更新</button></p>
+    <p><button type="submit" name="U" value="<?= json_encode($data) ?>">更新</button></p>
 </form>
 </body>
 </html>
