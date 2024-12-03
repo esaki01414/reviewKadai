@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -8,7 +11,10 @@
 </head>
 <body>
     <?php
-$id=$_POST['U'];
+$id=$_POST['U'] ?? null;
+if(!($id)){
+    $id = $_SESSION['id'] ?? null;
+}
 ?>
 <a href="G9.php?id=<?= $id ?>">
 <i class="fa-solid fa-cube icon"></i>    
