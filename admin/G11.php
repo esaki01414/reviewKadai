@@ -100,7 +100,7 @@ if(!empty($_POST['color'])){
         }
 }
 if(!empty($_POST['body'])){
-      $body=$_POST['body'];
+      $body=nl2br($_POST['body']);
       echo $body;
 }else{
     $sql='SELECT product_body FROM product WHERE product_id = ?';
