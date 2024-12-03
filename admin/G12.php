@@ -23,7 +23,9 @@ if (isset($_POST['U'])) {
     $data = json_decode($_POST['U'], true);
     // Now you can use the $result array
 }
-$id=$data['0'];
+for($i=0;$i<=7;$i++){
+  echo $data[$i];
+}
 ?>
 <a href="G9.php?id=<?= $id ?>">
 <i class="fa-solid fa-cube icon"></i>    
