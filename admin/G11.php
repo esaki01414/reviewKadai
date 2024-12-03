@@ -48,7 +48,7 @@ if(!empty($_POST['file'])){
 if(!empty($_POST['name'])){
       $name =$_POST['name'];
 }else{
-    $sql='SELECT name FROM product WHERE product_id = ?';
+    $sql='SELECT product_name FROM product WHERE product_id = ?';
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$id]);
     $name=$stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -57,7 +57,7 @@ if(!empty($_POST['name'])){
 if(!empty($_POST['size'])){
       $size=$_POST['size'];
 }else{
-    $sql='SELECT size FROM product WHERE product_id = ?';
+    $sql='SELECT product_size FROM product WHERE product_id = ?';
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$id]);
     $size=$stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -66,7 +66,7 @@ if(!empty($_POST['size'])){
 if(!empty($_POST['stock'])){
       $stock=$_POST['stock'];
 }else{
-    $sql='SELECT stock FROM product WHERE product_id = ?';
+    $sql='SELECT product_stock FROM product WHERE product_id = ?';
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$id]);
     $stock=$stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -74,7 +74,7 @@ if(!empty($_POST['stock'])){
 if(!empty($_POST['color'])){
       $color=$_POST['color'];
 }else{
-    $sql='SELECT color FROM product WHERE product_id = ?';
+    $sql='SELECT product_color FROM product WHERE product_id = ?';
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$id]);
     $color=$stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -82,7 +82,7 @@ if(!empty($_POST['color'])){
 if(!empty($_POST['body'])){
       $body=$_POST['body'];
 }else{
-    $sql='SELECT body FROM product WHERE product_id = ?';
+    $sql='SELECT product_body FROM product WHERE product_id = ?';
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$id]);
     $name=$stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -90,7 +90,7 @@ if(!empty($_POST['body'])){
 if(!empty($_POST['price'])){
       $price=$_POST['price'];
 }else{
-    $sql='SELECT name FROM product WHERE product_id = ?';
+    $sql='SELECT product_price FROM product WHERE product_id = ?';
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$id]);
     $name=$stmt->fetchAll(PDO::FETCH_ASSOC);
