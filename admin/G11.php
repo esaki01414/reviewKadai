@@ -61,7 +61,7 @@ if(!empty($_POST['name'])){
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$id]);
     $result=$stmt->fetchAll(PDO::FETCH_ASSOC);
-    foreach($name as $row){
+    foreach($result as $row){
         echo '<p>商品名：</p>';
         echo $row['product_name'];
         $name=$row['product_name'];
