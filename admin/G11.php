@@ -148,10 +148,9 @@ $data=[
     $price,
     $imag
 ];
-
     ?>
-    <form action="G12.php" method="post" enctype="multipart/form-data">
-<p><button type="submit" name="U[]" value="<?= htmlspecialchars(json_encode($data)) ?>">更新</button></p>
+   <form action="G12.php" method="post" enctype="multipart/form-data">
+    <p><button type="submit" name="U[]" value="<?= htmlspecialchars(json_encode($data)) ?>">更新</button></p>
 </form>
 </body>
 </html>
