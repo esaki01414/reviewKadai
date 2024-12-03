@@ -12,7 +12,7 @@ session_start();
 <body>
     <?php
     $id=$_POST['U'];
-    if(!empty($id)){
+    if(empty($id)){
         $id = $_SESSION['id'];
     }
 ?>
