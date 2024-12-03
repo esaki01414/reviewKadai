@@ -123,6 +123,21 @@ if(!empty($_POST['price'])){
         echo $row['product_price'];
         }
 }
+$result=[
+    $id,
+    $name,
+    $size,
+    $stock,
+    $color,
+    $body,
+    $price,
+    $imag
+];
+
     ?>
+    <form action="G12.php" method="post">
+    <p><button type="submit" name="U" value="<?= $result ?>">更新</button></p>
+</form>
+
 </body>
 </html>
