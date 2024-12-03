@@ -29,7 +29,7 @@ if(!($id)){
     exit;
 }  
 
-if(!empty($_POST['file'])){
+if(!empty($_FILES['file'])){
     $flg='false';
     if(is_uploaded_file($_FILES['file']['tmp_name'])){
         if(!file_exists('upload_img')){
