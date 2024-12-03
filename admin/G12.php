@@ -20,7 +20,7 @@
 }  
 
 if (isset($_POST['U'])) {
-    $data = json_decode($_POST['U'][0], true);
+    $data = json_decode($_POST['U'], true);
     // $dataを使って、次のページでデータを処理します
     var_dump($data);  // これでデータが配列として取得できているか確認できます
 }
