@@ -66,7 +66,7 @@ if(!empty($_POST['size'])){
 if(!empty($_POST['stock'])){
       $stock=$_POST['stock'];
 }else{
-    $sql='SELECT product_stock FROM product WHERE product_id = ?';
+    $sql='SELECT inventory_stock FROM product WHERE product_id = ?';
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$id]);
     $stock=$stmt->fetchAll(PDO::FETCH_ASSOC);
