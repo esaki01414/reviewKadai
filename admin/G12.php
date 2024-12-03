@@ -43,7 +43,6 @@ if (isset($_POST['U']) && !empty($_POST['U'][0])) {
 ?>
 
 
-?>
 <a href="G9.php?id=<?= htmlspecialchars($data[0]) ?>">
     <i class="fa-solid fa-cube icon"></i>    
     戻る
