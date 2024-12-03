@@ -28,6 +28,7 @@ if(!($id)){
     echo 'データベース接続に失敗しました: ' . htmlspecialchars($e->getMessage());
     exit;
 }  
+
 if(!empty($_POST['file'])){
     $flg='false';
     if(is_uploaded_file($_FILES['file']['tmp_name'])){
@@ -149,7 +150,7 @@ $result=[
 ];
 
     ?>
-    <form action="G12.php" method="post">
+    <form action="G12.php" method="post" enctype="multipart/form-data">
     <p><button type="submit" name="U" value="<?= json_encode($result) ?>">更新</button></p>
 </form>
 </body>
