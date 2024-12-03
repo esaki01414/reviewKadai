@@ -22,8 +22,8 @@
 if (isset($_POST['U'])) {
     $U = $_POST['U'];    // Now you can use the $result array
 }
-for($i=0;$i<=7;$i++){
-  echo $U['data'][$i];
+foreach($U as $u){
+echo $u;
 }
 ?>
 <a href="G9.php?id=<?= $id ?>">

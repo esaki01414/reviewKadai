@@ -139,19 +139,12 @@ if(!empty($_POST['price'])){
         }
 }
 $data=[
-    '0' => $id,
-    '1' => $name,
-    '2' => $size,
-    '3' => $stock,
-    '4' => $color,
-    '5' => $body,
-    '6' => $price,
-    '7' => $imag
+    'data' => [$id,$name,$size,$stock,$color,$body,$price,$imag]
 ];
 
     ?>
     <form action="G12.php" method="post" enctype="multipart/form-data">
-    <p><button type="submit" name="U[data][]" value="<?= $data ?>">更新</button></p>
+    <p><button type="submit" name="U[]" value="<?= $data ?>">更新</button></p>
 </form>
 </body>
 </html>
