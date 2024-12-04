@@ -151,14 +151,14 @@ if(!empty($_POST['price'])){
 
     ?>
    <form action="G12.php" method="post" enctype="multipart/form-data">
-    <input type="hidden" name="name" value="<?= $name ?>">
-    <input type="hidden" name="size" value="<?= $size ?>">
-    <input type="hidden" name="stock" value="<?= $stock ?>">
-    <input type="hidden" name="color" value="<?= $color ?>">
-    <input type="hidden" name="body" value="<?= $body ?>">
-    <input type="hidden" name="price" value="<?= $price ?>">
-    <input type="hidden" name="image_type" value="<?= $imag['image_type'] ?>">
-    <input type="hidden" name="image_content" value="<?= $imag['image_content'] ?>">
+    <input type="hidden" name="name" value="<?= htmlspecialchars($name) ?>">
+    <input type="hidden" name="size" value="<?= htmlspecialchars($size) ?>">
+    <input type="hidden" name="stock" value="<?= htmlspecialchars($stock) ?>">
+    <input type="hidden" name="color" value="<?= htmlspecialchars($color) ?>">
+    <input type="hidden" name="body" value="<?= htmlspecialchars($body) ?>">
+    <input type="hidden" name="price" value="<?= htmlspecialchars($price) ?>">
+    <input type="hidden" name="image_type" value="<?= htmlspecialchars($imag['image_type']) ?>">
+    <input type="hidden" name="image_content" value="<?= htmlspecialchars($imag['image_content']) ?>">
     <p><button type="submit" name="U" value="<?= $id ?>">更新</button></p>
 </form>
 </body>
