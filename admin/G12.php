@@ -36,8 +36,7 @@ if (isset($_POST['U']) && !empty($_POST['U'])) {
         $_POST['body'],
         $_POST['price'],
     ];
-    if(isset($_POST['imag1']) && !empty($_POST['imag1']) && isset($_POST['imag2']) && !empty($_POST['imag2']) &&
-    isset($_POST['imag3']) && !empty($_POST['imag3']) && isset($_POST['imag4']) && !empty($_POST['imag4'])){
+    if(isset($_POST['imag']) && !empty($_POST['imag'])){
         echo 'ok';
     }elseif(isset($_POST['image_type']) && !empty($_POST['image_type']) && isset($_POST['image_content']) && !empty($_POST['image_content'])){
         $image_type= $_POST['image_type'];

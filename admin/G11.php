@@ -38,7 +38,6 @@ if (isset($_FILES['file']) && $_FILES['file']['error'] == 0) {
         $image_size = $_FILES['file']['size']; // ファイルサイズ
         echo '<img src="data:'.htmlspecialchars($image_type).';base64,'
         .base64_encode($image_content).'"width="200" height="auto""><br>';
-        $image=[$image_name,$image_type,$image_content,$image_size];
     } else {
         echo '<a href="./G8.php">商品管理に遷移</a><br>';
         echo "画像がアップロードされていないか、エラーが発生しました。";
@@ -165,10 +164,7 @@ if(!empty($_POST['price'])){
     <input type="hidden" name="price" value="<?= htmlspecialchars($price) ?>">
     <input type="hidden" name="image_type" value="<?= htmlspecialchars($imag['image_type']) ?? null ?>">
     <input type="hidden" name="image_content" value="<?= htmlspecialchars($imag['image_content']) ?? null ?>">
-    <input type="hidden" name="imag1" value="<?= $image[0] ?? null ?>">
-    <input type="hidden" name="imag2" value="<?= $image[1] ?? null ?>">
-    <input type="hidden" name="imag3" value="<?= $image[2] ?? null ?>">
-    <input type="hidden" name="imag4" value="<?= $image[3] ?? null ?>">
+    <input type="hidden" name="imag" value="<?= $image_name ?? null ?>">
     <p><button type="submit" name="U" value="<?= $id ?>">更新</button></p>
 </form>
 <script src="js/script.js"></script> <!-- JavaScriptファイルのリンク -->
