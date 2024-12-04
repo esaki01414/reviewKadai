@@ -40,8 +40,8 @@ if (isset($_POST['U']) && !empty($_POST['U'])) {
     isset($_POST['imag3']) && !empty($_POST['imag3']) && isset($_POST['imag4']) && !empty($_POST['imag4'])){
         echo 'ok';
     }elseif(isset($_POST['image_type']) && !empty($_POST['image_type']) && isset($_POST['image_content']) && !empty($_POST['image_content'])){
-        $image_type= $_POST['imag_type'];
-        $image_content= $_POST['image_content'];
+        $image_type= htmlspecialchars($_POST['imag_type']);
+        $image_content= htmlspecialchars($_POST['image_content']);
         echo 'ok';
     }else{
         echo '<p>データが正常ではありません。</p>';
