@@ -47,7 +47,9 @@ if (isset($_FILES['file']) && $_FILES['file']['error'] == 0) {    $flg='false';
     foreach($result as $row){
         echo '<img src="data:'.htmlspecialchars($row['image_type']).';base64,'
         .base64_encode($row['image_content']).'"width="200" height="auto""><br>';
-        $imag=[$row['image_type'],$row['image_content']];
+        $imag=[
+            'image_type' => $row['image_type'],
+            'image_content' => $row['image_content']];
         }
     }
 
