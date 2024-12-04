@@ -148,15 +148,6 @@ if(!empty($_POST['price'])){
         $price=$row['product_price'];
         }
 }
-$data=[
-    $name,
-    $size,
-    $stock,
-    $color,
-    $body,
-    $price,
-    $imag
-];
 
     ?>
    <form action="G12.php" method="post" enctype="multipart/form-data">
