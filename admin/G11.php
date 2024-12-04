@@ -32,28 +32,12 @@ if(!($id)){
 
 if (isset($_FILES['file']) && $_FILES['file']['error'] == 0) {    
     if (!empty($_FILES['file']['name'])) {
-        $image_name = $_FILES['file']['name']; // アップロードされたファイル名
-        $image_extension = strtolower(pathinfo($image_name, PATHINFO_EXTENSION));
-
-        switch ($image_extension) {
-            case 'jpg':
-            case 'jpeg':
-                $image_type = 'image/jpeg';
-                break;
-            case 'png':
-                $image_type = 'image/png';
-                break;
-            case 'gif':
-                $image_type = 'image/gif';
-                break;
-            default:
-                $image_type = 'application/octet-stream'; // その他のファイルタイプ
-        }
-        
-        header("Content-Type: $image_type");
-        echo file_get_contents($_FILES['file']['tmp_name']);       
-         $image_content = file_get_contents($_FILES['file']['tmp_name']); // ファイルの内容を取得
+        $image_name = $_FILES['file']['name']; // アップロードされたファイル名  
+        $image_type = htmlspecialchars($_FILES['file']['type'], ENT_QUOTES, 'UTF-8');
+        $image_content = file_get_contents($_FILES['file']['tmp_name']); // ファイルの内容を取得
         $image_size = $_FILES['file']['size']; // ファイルサイズ
+        echo '<img src="data:'.htmlspecialchars($image_type).';base64,'
+        .base64_encode($image_content).'"width="200" height="auto""><br>';
         $image=[$image_name,$image_type,$image_content,$image_size];
     } else {
         echo '<a href="./G8.php">商品管理に遷移</a><br>';
