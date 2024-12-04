@@ -64,6 +64,7 @@ if(!empty($_POST['name'])){
     foreach($name as $row){
         echo '<p>商品名：</p>';
         echo $row['product_name'];
+        $n=$row['product_name'];
         }
 }
 
@@ -138,19 +139,10 @@ if(!empty($_POST['price'])){
         echo $row['product_price'];
         }
 }
-$data=[
-    $id,
-    $name,
-    $size,
-    $stock,
-    $color,
-    $body,
-    $price,
-    $imag
-];
+echo $n;
     ?>
    <form action="G12.php" method="post" enctype="multipart/form-data">
-    <p><button type="submit" name="U[]" value="<?= htmlspecialchars(json_encode($data)) ?>">更新</button></p>
+    <p><button type="submit" name="id">更新</button></p>
 </form>
 </body>
 </html>
