@@ -19,8 +19,8 @@
     exit;
 }  
 
-if (isset($_POST['U']) && !empty($_POST['U'][0])) {
-    $data = json_decode($_POST['U'][0], true);
+if (isset($_POST['U']) && !empty($_POST['U'])) {
+    $data = $_POST['data'];
     var_dump($data);  
     if (is_array($data)) {
         echo '<p>商品ID: ' . htmlspecialchars($data[0]) . '</p>';
