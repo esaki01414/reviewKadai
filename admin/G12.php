@@ -7,6 +7,7 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>商品更新完了画面</title>
+    <link rel="stylesheet" href="css/styles.css"> <!-- CSSファイルのリンク -->
 </head>
 <body>
 <h1>更新完了</h1>
@@ -30,19 +31,30 @@ if (isset($_POST['U']) && !empty($_POST['U'])) {
     $data = [
         $_POST['name'],
         $_POST['size'],
-        $_POST['stock'],
         $_POST['color'],
+        $_POST['stock'],
         $_POST['body'],
         $_POST['price'],
     ];
-    echo 'ok';
     if(isset($_POST['imag1']) && !empty($_POST['imag1']) && isset($_POST['imag2']) && !empty($_POST['imag2']) &&
     isset($_POST['imag3']) && !empty($_POST['imag3']) && isset($_POST['imag4']) && !empty($_POST['imag4'])){
         echo 'ok';
     }elseif(isset($_POST['image_type']) && !empty($_POST['image_type']) && isset($_POST['image_content']) && !empty($_POST['image_content'])){
         $image_type= $_POST['image_type'];
         $image_content= $_POST['image_content'];
-        echo 'ok';
+        $sql='UPDATE product SET product_name = ?, product_size = ?, product_color = ?, inventory_stock = ?,
+              product_body = ?, product_price = ? WHERE product_id = ?';
+    $stmt = $pdo->prepare($sql);
+    $result=$stmt->execute([$data[0],$data[1],$data[2],$data[3],$data[4],$data[5],$id]);
+    $row_count=$stmt->rowCount();
+        if($row_count==1){
+            echo '<h1>更新完了</h1>';
+            echo 'データが正常に更新されました。';
+        }else{
+            echo '<h1>更新失敗</h1>';
+            echo 'データの更新に失敗しました。';
+        }
+
     }else{
         echo '<p>データが正常ではありません。</p>';
 
@@ -54,9 +66,11 @@ if (isset($_POST['U']) && !empty($_POST['U'])) {
 ?>
 
 
-<a href="G9.php?id=<?= $id ?>">
+<p><a href="G9.php?id=<?= $id ?>">
     <i class="fa-solid fa-cube icon"></i>    
-    戻る
-</a>
+    商品詳細ページへ戻る
+</a></p>
+<script src="js/script.js"></script> <!-- JavaScriptファイルのリンク -->
+
 </body>
 </html>
