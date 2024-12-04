@@ -43,10 +43,11 @@ if (isset($_FILES['file']) && $_FILES['file']['error'] == 0) {    $flg='false';
     $sql='SELECT image_type,image_content FROM product WHERE product_id = ?';
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$id]);
-    $imag = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    foreach($imag as $row){
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    foreach($result as $row){
         echo '<img src="data:'.htmlspecialchars($row['image_type']).';base64,'
         .base64_encode($row['image_content']).'"width="200" height="auto""><br>';
+        $imag=[$row['image_type'],$row['image_content']];
         }
     }
 
@@ -60,11 +61,11 @@ if(!empty($_POST['name'])){
     $sql='SELECT product_name FROM product WHERE product_id = ?';
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$id]);
-    $name=$stmt->fetchAll(PDO::FETCH_ASSOC);
-    foreach($name as $row){
+    $result=$stmt->fetchAll(PDO::FETCH_ASSOC);
+    foreach($result as $row){
         echo '<p>商品名：</p>';
         echo $row['product_name'];
-        $n=$row['product_name'];
+        $name=$row['product_name'];
         }
 }
 
@@ -76,10 +77,11 @@ if(!empty($_POST['size'])){
     $sql='SELECT product_size FROM product WHERE product_id = ?';
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$id]);
-    $size=$stmt->fetchAll(PDO::FETCH_ASSOC);
-    foreach($size as $row){
+    $result=$stmt->fetchAll(PDO::FETCH_ASSOC);
+    foreach($result as $row){
         echo '<p>サイズ：</p>';
         echo $row['product_size'];
+        $size=$row['product_size'];
         }
 }
 
@@ -91,10 +93,11 @@ if(!empty($_POST['stock'])){
     $sql='SELECT inventory_stock FROM product WHERE product_id = ?';
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$id]);
-    $stock=$stmt->fetchAll(PDO::FETCH_ASSOC);
-    foreach($stock as $row){
+    $result=$stmt->fetchAll(PDO::FETCH_ASSOC);
+    foreach($result as $row){
         echo '<p>在庫数：</p>';
         echo $row['inventory_stock'];
+        $stock=$row['inventory_stock'];
         }
 }
 if(!empty($_POST['color'])){
@@ -105,10 +108,11 @@ if(!empty($_POST['color'])){
     $sql='SELECT product_color FROM product WHERE product_id = ?';
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$id]);
-    $color=$stmt->fetchAll(PDO::FETCH_ASSOC);
-    foreach($color as $row){
+    $result=$stmt->fetchAll(PDO::FETCH_ASSOC);
+    foreach($result as $row){
         echo '<p>カラー：</p>';
         echo $row['product_color'];
+        $color=$row['product_color'];
         }
 }
 if(!empty($_POST['body'])){
@@ -119,10 +123,11 @@ if(!empty($_POST['body'])){
     $sql='SELECT product_body FROM product WHERE product_id = ?';
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$id]);
-    $body=$stmt->fetchAll(PDO::FETCH_ASSOC);
-    foreach($body as $row){
+    $result=$stmt->fetchAll(PDO::FETCH_ASSOC);
+    foreach($result as $row){
         echo '<p>商品説明：</p>';
         echo $row['product_body'];
+        $body=$row['product_body'];
         }
 }
 if(!empty($_POST['price'])){
@@ -133,16 +138,27 @@ if(!empty($_POST['price'])){
     $sql='SELECT product_price FROM product WHERE product_id = ?';
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$id]);
-    $price=$stmt->fetchAll(PDO::FETCH_ASSOC);
-    foreach($price as $row){
+    $result=$stmt->fetchAll(PDO::FETCH_ASSOC);
+    foreach($result as $row){
         echo '<p>価格：</p>';
         echo $row['product_price'];
+        $price=$row['product_price'];
         }
 }
-echo $n;
+$data=[
+    $name,
+    $size,
+    $stock,
+    $color,
+    $body,
+    $price,
+    $imag
+];
+
     ?>
    <form action="G12.php" method="post" enctype="multipart/form-data">
-    <p><button type="submit" name="id">更新</button></p>
+    <input type="hidden" name="data" value="<?= $data ?>">
+    <p><button type="submit" name="id" value=""<?= $id ?>>更新</button></p>
 </form>
 </body>
 </html>
