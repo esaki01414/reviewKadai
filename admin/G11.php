@@ -36,9 +36,16 @@ if (isset($_FILES['file']) && $_FILES['file']['error'] == 0) {
         $image_type = $_FILES['file']['type']; // アップロードされたファイルタイプ
         $image_content = file_get_contents($_FILES['file']['tmp_name']); // ファイルの内容を取得
         $image_size = $_FILES['file']['size']; // ファイルサイズ
-        header("Content-Type: $image_type"); // 正しい画像タイプを設定
-        echo $image_content; // 画像データを出力
-        exit;
+        if(is_uploaded_file($_FILES['file']['tmp_name'])){
+            if(!file_exists('upload_img')){
+                mkdir('upload_img');
+            }
+            $newfile ='upload_img/'.basename($_FILES['file']['name']);
+            $imag=$newfile;
+            $flg=move_uploaded_file($_FILES['file']['tmp_name'],$newfile);
+            echo '<img src="' . $imag.'"height="200">','<br>';
+            
+        }  
         $image=[$image_name,$image_type,$image_content,$image_size];
     } else {
         echo '<a href="./G8.php">商品管理に遷移</a><br>';
