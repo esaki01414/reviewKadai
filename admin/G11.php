@@ -147,7 +147,7 @@ if(!empty($_POST['price'])){
         $price=$row['product_price'];
         }
 }
-$data=json_encode([
+$data=[
     $name,
     $size,
     $stock,
@@ -155,7 +155,7 @@ $data=json_encode([
     $body,
     $price,
     $imag
-]);
+];
 
     ?>
    <form action="G12.php" method="post" enctype="multipart/form-data">

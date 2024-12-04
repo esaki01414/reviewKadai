@@ -27,7 +27,7 @@ if(!($id)){
 }  
 
 if (isset($_POST['U']) && !empty($_POST['U'])) {
-    $data = json_decode($_POST['data'], true);
+    $data = $_POST['data'];
         var_dump($data);  
     if (is_array($data)) {
         echo '<p>商品ID: ' . $id . '</p>';
