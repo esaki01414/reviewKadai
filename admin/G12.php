@@ -27,19 +27,19 @@ if(!($id)){
 }  
 
 if (isset($_POST['U']) && !empty($_POST['U'])) {
-    $data = $_POST['data'];
-    var_dump($data);  
+    $data = json_decode($_POST['data'], true);
+        var_dump($data);  
     if (is_array($data)) {
-        echo '<p>商品ID: ' . $data[0] . '</p>';
-        echo '<p>商品名: ' . $data[1] . '</p>';
-        echo '<p>サイズ: ' . $data[2] . '</p>';
-        echo '<p>在庫数: ' . $data[3] . '</p>';
-        echo '<p>カラー: ' . $data[4] . '</p>';
-        echo '<p>商品説明: ' . nl2br($data[5]) . '</p>';
-        echo '<p>価格: ' . $data[6] . '</p>';
+        echo '<p>商品ID: ' . $id . '</p>';
+        echo '<p>商品名: ' . htmlspecialchars($data[0]) . '</p>';
+        echo '<p>サイズ: ' . htmlspecialchars($data[1]) . '</p>';
+        echo '<p>在庫数: ' . htmlspecialchars($data[2]) . '</p>';
+        echo '<p>カラー: ' . htmlspecialchars($data[3]) . '</p>';
+        echo '<p>商品説明: ' . htmlspecialchars(nl2br($data[4])) . '</p>';
+        echo '<p>価格: ' . htmlspecialchars($data[5]) . '</p>';
 
-        if (isset($data[7]) && !empty($data[7])) {
-            echo '<img src="data:' .$data[7]['image_type'] . ';base64,' . base64_encode($data[7]['image_content']) . '" width="200" height="auto"><br>';
+        if (isset($data[6]) && !empty($data[6])) {
+            echo '<img src="data:' .$data[6]['image_type'] . ';base64,' . base64_encode($data[6]['image_content']) . '" width="200" height="auto"><br>';
         }
     } else {
         echo '<p>データが正しくありません。</p>';

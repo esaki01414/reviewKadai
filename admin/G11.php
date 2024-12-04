@@ -147,7 +147,7 @@ if(!empty($_POST['price'])){
         $price=$row['product_price'];
         }
 }
-$data=[
+$data=json_encode([
     $name,
     $size,
     $stock,
@@ -155,11 +155,11 @@ $data=[
     $body,
     $price,
     $imag
-];
+]);
 
     ?>
    <form action="G12.php" method="post" enctype="multipart/form-data">
-    <input type="hidden" name="data" value="<?= $data ?>">
+    <input type="hidden" name="data" value="<?= htmlspecialchars($data) ?>">
     <p><button type="submit" name="U" value="<?= $id ?>">更新</button></p>
 </form>
 </body>
