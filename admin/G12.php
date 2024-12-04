@@ -36,6 +36,9 @@ if (isset($_POST['U']) && !empty($_POST['U'])) {
         $_POST['price'],
     ];
     echo 'ok';
+    foreach($data as $d){
+        echo $d;
+    }
     if(isset($_POST['imag1']) && !empty($_POST['imag1']) && isset($_POST['imag2']) && !empty($_POST['imag2']) &&
     isset($_POST['imag3']) && !empty($_POST['imag3']) && isset($_POST['imag4']) && !empty($_POST['imag4'])){
         echo 'ok';
