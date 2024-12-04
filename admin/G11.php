@@ -31,7 +31,6 @@ if(!($id)){
 }  
 
 if (isset($_FILES['file']) && $_FILES['file']['error'] == 0) {    
-    $flg='false';
     if (!empty($_FILES['file']['name'])) {
         $image_name = $_FILES['file']['name']; // アップロードされたファイル名
         $image_type = $_FILES['file']['type']; // アップロードされたファイルタイプ
@@ -39,6 +38,7 @@ if (isset($_FILES['file']) && $_FILES['file']['error'] == 0) {
         $image_size = $_FILES['file']['size']; // ファイルサイズ
         header("Content-Type: $image_type"); // 正しい画像タイプを設定
         echo $image_content; // 画像データを出力
+        exit;
         $image=[$image_name,$image_type,$image_content,$image_size];
     } else {
         echo '<a href="./G8.php">商品管理に遷移</a><br>';
