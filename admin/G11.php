@@ -33,7 +33,7 @@ if(!($id)){
 if (isset($_FILES['file']) && $_FILES['file']['error'] == 0) {    
     if (!empty($_FILES['file']['name'])) {
         $image_name = $_FILES['file']['name']; // アップロードされたファイル名  
-        $image_type = htmlspecialchars($_FILES['file']['type']);
+        $image_type = $_FILES['file']['type'];
         $image_content = file_get_contents($_FILES['file']['tmp_name']); // ファイルの内容を取得
         $image_size = $_FILES['file']['size']; // ファイルサイズ
         echo '<img src="data:'.htmlspecialchars($image_type).';base64,'
