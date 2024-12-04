@@ -171,9 +171,12 @@ if(!empty($_POST['price'])){
     <input type="hidden" name="color" value="<?= htmlspecialchars($color) ?>">
     <input type="hidden" name="body" value="<?= htmlspecialchars($body) ?>">
     <input type="hidden" name="price" value="<?= htmlspecialchars($price) ?>">
-    <input type="hidden" name="image_type0" value="<?= htmlspecialchars($imag['image_type']) ?? null ?>">
-    <input type="hidden" name="image_content0" value="<?= htmlspecialchars($imag['image_content']) ?? null ?>">
-    <input type="hidden" name="imag" value="<?= $image ?? null ?>">
+    <input type="hidden" name="image_type" value="<?= htmlspecialchars($imag['image_type']) ?? null ?>">
+    <input type="hidden" name="image_content" value="<?= htmlspecialchars($imag['image_content']) ?? null ?>">
+    <input type="hidden" name="imag1" value="<?= $image[0] ?? null ?>">
+    <input type="hidden" name="imag2" value="<?= $image[1] ?? null ?>">
+    <input type="hidden" name="imag3" value="<?= $image[2] ?? null ?>">
+    <input type="hidden" name="imag4" value="<?= $image[3] ?? null ?>">
     <p><button type="submit" name="U" value="<?= $id ?>">更新</button></p>
 </form>
 </body>
