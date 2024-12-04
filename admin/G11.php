@@ -159,7 +159,7 @@ $data=json_encode([
 
     ?>
    <form action="G12.php" method="post" enctype="multipart/form-data">
-    <input type="hidden" name="data" value="<?= htmlspecialchars($data) ?>">
+    <input type="hidden" name="data" value="<?= $data ?>">
     <p><button type="submit" name="U" value="<?= $id ?>">更新</button></p>
 </form>
 </body>
