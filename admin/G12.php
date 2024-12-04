@@ -37,9 +37,9 @@ if (isset($_POST['U']) && !empty($_POST['U'])) {
         $_POST['price'],
     ];
     if(isset($_POST['imag']) && !empty($_POST['imag'])){
-        $image_type = $_POST['imag']['type'];
+        $image_type = $_FILES['imag']['type'];
         $image_content = file_get_contents($_FILES['imag']['tmp_name']); // ファイルの内容を取得
-        $image_size = $_POST['imag']['size']; // ファイルサイズ
+        $image_size = $_FILES['imag']['size']; // ファイルサイズ
         echo 'ok';
     }elseif(isset($_POST['image_type']) && !empty($_POST['image_type']) && isset($_POST['image_content']) && !empty($_POST['image_content'])){
         $image_type= $_POST['image_type'];
