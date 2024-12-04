@@ -35,6 +35,7 @@ if (isset($_POST['U']) && !empty($_POST['U'])) {
         $_POST['body'],
         $_POST['price'],
     ];
+    echo 'ok';
     if(isset($_POST['imag']) && !empty($_POST['imag'])){
         $imag= $_POST['imag'];
         $image_name = $_FILES['imag']['name']; // アップロードされたファイル名
