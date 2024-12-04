@@ -158,7 +158,7 @@ $data=[
     ?>
    <form action="G12.php" method="post" enctype="multipart/form-data">
     <input type="hidden" name="data" value="<?= $data ?>">
-    <p><button type="submit" name="U" value=""<?= $id ?>>更新</button></p>
+    <p><button type="submit" name="U" value="<?= $id ?>">更新</button></p>
 </form>
 </body>
 </html>
