@@ -49,7 +49,8 @@ if (isset($_FILES['file']) && $_FILES['file']['error'] == 0) {    $flg='false';
         .base64_encode($row['image_content']).'"width="200" height="auto""><br>';
         $imag=[
             'image_type' => $row['image_type'],
-            'image_content' => $row['image_content']];
+            'image_content' => $row['image_content']
+        ];
         }
     }
 
@@ -159,7 +160,14 @@ $data=[
 
     ?>
    <form action="G12.php" method="post" enctype="multipart/form-data">
-    <input type="hidden" name="data" value="<?= $data ?>">
+    <input type="hidden" name="name" value="<?= $name ?>">
+    <input type="hidden" name="size" value="<?= $size ?>">
+    <input type="hidden" name="stock" value="<?= $stock ?>">
+    <input type="hidden" name="color" value="<?= $color ?>">
+    <input type="hidden" name="body" value="<?= $body ?>">
+    <input type="hidden" name="price" value="<?= $price ?>">
+    <input type="hidden" name="image_type" value="<?= $imag['image_type'] ?>">
+    <input type="hidden" name="image_content" value="<?= $imag['image_content'] ?>">
     <p><button type="submit" name="U" value="<?= $id ?>">更新</button></p>
 </form>
 </body>
