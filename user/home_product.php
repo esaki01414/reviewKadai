@@ -35,7 +35,7 @@ $images = $stmt->fetchAll();
     <title>Document</title>
 </head>
 <body>
-    <p><a href="./home.php">ホームへ遷移する</a></p>
+    <p><a href="./home.php">ホームへ</a></p>
     <form action="./product.php" method="post">
     <div class="product-list">
     <?php
