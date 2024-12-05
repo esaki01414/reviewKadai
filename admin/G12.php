@@ -41,10 +41,10 @@ if (isset($_POST['U']) && !empty($_POST['U'])) {
         $imag3 = $_POST['imag3'];
         $imag4 = $_POST['imag4'];
         $sql='UPDATE product SET product_name = ?, product_size = ?, product_color = ?, inventory_stock = ?,
-              product_body = ?, product_price = ?,update_at = ?,image_name = ?,image_type = ?,image_content = ?,
+              product_body = ?, product_price = ?,image_name = ?,image_type = ?,image_content = ?,
               image_size = ? WHERE product_id = ?';
         $stmt = $pdo->prepare($sql);
-        $result=$stmt->execute([$data[0],$data[1],$data[2],$data[3],$data[4],$data[5],now(),$imag1,$imag2,$imag3,$imag4,$id]);
+        $result=$stmt->execute([$data[0],$data[1],$data[2],$data[3],$data[4],$data[5],$imag1,$imag2,$imag3,$imag4,$id]);
         $row_count=$stmt->rowCount();
         if($row_count==1){
             echo '<h1>更新完了</h1>';
