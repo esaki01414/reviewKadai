@@ -31,12 +31,18 @@ if(!($id)){
 }  
 
 if (isset($_FILES['file']) && $_FILES['file']['error'] == 0) {    
-    $image_name = $_FILES['file']['name']; // アップロードされたファイル名
-    $image_type = $_FILES['file']['type']; // アップロードされたファイルタイプ
-    $image_content = file_get_contents($_FILES['file']['tmp_name']); // ファイルの内容を取得
-    $image_size = $_FILES['file']['size']; // ファイルサイズ
-    echo '<img src="data:'.htmlspecialchars($image_type).';base64,'
-    .base64_encode($image_content).'"width="200" height="auto""><br>';
+    $imag = [
+        'name' => $_FILES['file']['name'],
+        'type' => $_FILES['file']['type'],
+        'size' => $_FILES['file']['size'],
+        'content' => $_FILES['file']['tmp_name'],
+    ];
+    
+    // $imagをJSON形式にエンコード
+    $jsonImag = json_encode($imag);
+
+    echo '<img src="data:'.htmlspecialchars($imag['type']).';base64,'
+    .base64_encode($imag['content']).'"width="200" height="auto""><br>';
 
 }else{
     $sql='SELECT image_type,image_content FROM product WHERE product_id = ?';
@@ -158,7 +164,7 @@ if(!empty($_POST['price'])){
     <input type="hidden" name="price" value="<?= htmlspecialchars($price) ?>">
     <input type="hidden" name="image_type" value="<?= htmlspecialchars($imag['image_type']) ?? null ?>">
     <input type="hidden" name="image_content" value="<?= htmlspecialchars($imag['image_content']) ?? null ?>">
-    <input type="hidden" name="imag" value="<?= htmlspecialchars($_FILES['file']) ?? null ?>">
+    <input type="hidden" name="imag" value="<?= htmlspecialchars($jsonImag) ?? null ?>">
     <p><button type="submit" name="U" value="<?= $id ?>">更新</button></p>
 </form>
 <script src="js/script.js"></script> <!-- JavaScriptファイルのリンク -->

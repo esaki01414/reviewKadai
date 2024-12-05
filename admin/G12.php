@@ -36,11 +36,17 @@ if (isset($_POST['U']) && !empty($_POST['U'])) {
         $_POST['price'],
     ];
     if(isset($_POST['imag']) && !empty($_POST['imag'])){
-        $image_name = $_POST['imag']['name']; // アップロードされたファイル名
-        $image_type = $_POST['imag']['type']; // アップロードされたファイルタイプ
-        $image_content = file_get_contents($_POST['imag']['tmp_name']); // ファイルの内容を取得
-        $image_size = $_POST['imag']['size']; // ファイルサイズ
-        echo 'ok';
+        $jsonImag = $_POST['imag'];
+    
+        // json_decode()でJSONをPHPの連想配列に変換
+        $imag = json_decode($jsonImag, true); // trueを指定して連想配列にする
+    
+        // デコードしたデータを表示
+        echo "ファイル名: " . htmlspecialchars($imag['name']) . "<br>";
+        echo "ファイルタイプ: " . htmlspecialchars($imag['type']) . "<br>";
+        echo "ファイルサイズ: " . $imag['size'] . " bytes<br>";
+        echo "一時ファイルパス: " . htmlspecialchars($imag['tmp_name']) . "<br>";
+    }
     }elseif(isset($_POST['image_type']) && !empty($_POST['image_type']) && isset($_POST['image_content']) && !empty($_POST['image_content'])){
         $image_type= $_POST['image_type'];
         $image_content= $_POST['image_content'];
