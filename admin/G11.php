@@ -35,7 +35,7 @@ if (isset($_FILES['file']) && $_FILES['file']['error'] == 0) {
         'name' => $_FILES['file']['name'],
         'type' => $_FILES['file']['type'],
         'size' => $_FILES['file']['size'],
-        'content' => $_FILES['file']['tmp_name'],
+        'content' => file_get_contents($_FILES['file']['tmp_name'])
     ];
 
     echo '<img src="data:'.htmlspecialchars($imag['type']).';base64,'
