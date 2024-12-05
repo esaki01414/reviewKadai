@@ -31,15 +31,15 @@ if(!($id)){
 }  
 
 if (isset($_FILES['file']) && $_FILES['file']['error'] == 0) {    
-    $imag = [
+    $image = [
         'name' => $_FILES['file']['name'],
         'type' => $_FILES['file']['type'],
         'size' => $_FILES['file']['size'],
         'content' => file_get_contents($_FILES['file']['tmp_name'])
     ];
 
-    echo '<img src="data:'.htmlspecialchars($imag['type']).';base64,'
-    .base64_encode($imag['content']).'"width="200" height="auto""><br>';
+    echo '<img src="data:'.htmlspecialchars($image['type']).';base64,'
+    .base64_encode($image['content']).'"width="200" height="auto""><br>';
 
 }else{
     $sql='SELECT image_type,image_content FROM product WHERE product_id = ?';
@@ -161,10 +161,10 @@ if(!empty($_POST['price'])){
     <input type="hidden" name="price" value="<?= htmlspecialchars($price) ?>">
     <input type="hidden" name="image_type" value="<?= htmlspecialchars($imag['image_type']) ?? null ?>">
     <input type="hidden" name="image_content" value="<?= htmlspecialchars($imag['image_content']) ?? null ?>">
-    <input type="hidden" name="imag1" value="<?= htmlspecialchars($imag['name']) ?? null ?>">
-    <input type="hidden" name="imag2" value="<?= htmlspecialchars($imag['type']) ?? null ?>">
-    <input type="hidden" name="imag3" value="<?= htmlspecialchars($imag['size']) ?? null ?>">
-    <input type="hidden" name="imag4" value="<?= htmlspecialchars($imag['content']) ?? null ?>">
+    <input type="hidden" name="imag1" value="<?= htmlspecialchars($image['name']) ?? null ?>">
+    <input type="hidden" name="imag2" value="<?= htmlspecialchars($image['type']) ?? null ?>">
+    <input type="hidden" name="imag3" value="<?= htmlspecialchars($image['size']) ?? null ?>">
+    <input type="hidden" name="imag4" value="<?= htmlspecialchars($image['content']) ?? null ?>">
     <p><button type="submit" name="U" value="<?= $id ?>">更新</button></p>
 </form>
 <script src="js/script.js"></script> <!-- JavaScriptファイルのリンク -->
