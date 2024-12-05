@@ -1,3 +1,10 @@
+<?php
+       session_start();
+       if($_SESSION['admin_login'] == false){
+           header("Location:./G1.php");
+           exit;
+      }
+?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -85,7 +92,7 @@
                     </div>
                     <div class="form-group">
                         <p>商品説明</p>
-                        <input type="text" name="product_body" maxlength="255">
+                        <textarea name="product_body" maxlength="255"></textarea>
                     </div>
                     <div class="form-group">
                         <p>価格</p>
