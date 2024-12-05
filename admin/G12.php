@@ -48,10 +48,10 @@ if (isset($_POST['U']) && !empty($_POST['U'])) {
 
     
         // デコードしたデータを表示
-        echo "ファイル名: " . htmlspecialchars($imag_name) . "<br>";
-        echo "ファイルタイプ: " . htmlspecialchars($imag_type) . "<br>";
-        echo "ファイルサイズ: " . htmlspecialchars($imag_size) . " bytes<br>";
-        echo "一時ファイルパス: " . htmlspecialchars($imag_content) . "<br>";
+        echo "ファイル名: " . $imag_name . "<br>";
+        echo "ファイルタイプ: " . $imag_type . "<br>";
+        echo "ファイルサイズ: " . $imag_size . " bytes<br>";
+        echo "一時ファイルパス: " . $imag_content . "<br>";
     
     }elseif(isset($_POST['image_type']) && !empty($_POST['image_type']) && isset($_POST['image_content']) && !empty($_POST['image_content'])){
         $image_type= $_POST['image_type'];
