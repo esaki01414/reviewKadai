@@ -8,6 +8,8 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>商品更新画面</title>
     <link rel="stylesheet" href="css/styles.css"> <!-- CSSファイルのリンク -->
+    <link rel="stylesheet" href="css/G13.css">
+
 </head>
 <body>
     <?php
@@ -75,7 +77,7 @@ if(!($id)){
         <p>価格</p>
         <input type="number" name="price">
         <p>商品画像</p>
-        <input type="file" name="file"><br><br>
+        <input type="file" name="file" class="imgform"><br><br>
         <p><button type="submit" name="U" value="<?= $id ?>">確認</button></p>
     </form>
     <script src="js/script.js"></script> <!-- JavaScriptファイルのリンク -->
