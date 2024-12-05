@@ -38,6 +38,19 @@ $stmt = $pdo->prepare($sql); // クエリを準備
 $stmt->execute(); // クエリを実行
 $images = $stmt->fetchAll();
 
+$search_keyword = $_GET['search'] ?? ''; // 検索キーワード
+
+if ($search_keyword) {
+    // 検索キーワードを使って商品を検索
+    $sql = 'SELECT * FROM product WHERE product_name LIKE ?';
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(['%' . $search_keyword . '%']);
+} else {
+    // 検索キーワードがない場合、すべての商品を表示
+    $sql = 'SELECT * FROM product';
+    $stmt = $pdo->query($sql);
+}
+$images = $stmt->fetchAll();
 ?>
 
 
@@ -66,12 +79,14 @@ $images = $stmt->fetchAll();
             </div>
         </div>
 
+        <form action="./home_product.php" method="get">
         <div class="search-container">
-        <div class="search-bar">
-            <input type="text" placeholder="🔎洋服を検索" id="search-input">
+            <div class="search-bar">
+                <input type="text" name="search" placeholder="🔎洋服を検索" id="search-input" value="<?php echo htmlspecialchars($search_keyword); ?>">
+            </div>
+                <button class="search-button" type="submit">検索</button>
         </div>
-            <button class="search-button" onclick="searchProducts()">検索</button>
-        </div>
+        </form>
 
         <div class="hamburger-menu" onclick="toggleMenu()">
             &#9776; <!-- ハンバーガーアイコン -->
@@ -125,30 +140,35 @@ $images = $stmt->fetchAll();
         <script src="js/home.js"></script>
                 <br><br>               <br><br>
                 <b><marquee>季節限定商品のキャンペーン開催中</marquee></b>
+                <p><?=$search_keyword?></p>
                 
     <b><p style="text-decoration:underline; text-align: center;" >商品</p></b>
+    <p style="text-align: right; margin-top: 30px;"><a href="./home_product.php">もっと見る</a></p>
         <section id="product-list">
             <div class="product-list" id="product-list-container">
                 <!-- 商品リストがここに表示される -->
                 <form action="./product.php" method="post">
                 <div class="product-list">
-                    <?php
-                foreach ($pdo->query('SELECT * FROM product') as $row) {
-                    echo '<div class="product_all" style="margin-right: 20px; margin-bottom: 20px; display: inline-block;">';
-                    echo '<button type="submit" name="product_id" value="', htmlspecialchars($row['product_id']), '">';
-                    echo htmlspecialchars($row['product_name']);
-                    echo '</button>';
-                   
-                    // 画像データを表示
-                    echo '<p><img src="data:', htmlspecialchars($row['image_type']),
-                            ';base64,', base64_encode($row['image_content']),
-                            '" width="200" height="auto" class="mr-3"></p>';
- 
-                    echo '</div>';
-                }
-                ?>
+    <?php
+    // LIMIT句を使用して、データベースから最大8件の商品を取得
+    // すべて表示させる処理の追加
+    $stmt = $pdo->query('SELECT * FROM product LIMIT 8');
+    foreach ($stmt as $row) {
+        echo '<div class="product_all" style="margin-right: 20px; margin-bottom: 20px; display: inline-block;">';
+        echo '<button type="submit" name="product_id" value="', htmlspecialchars($row['product_id']), '">';
+        echo htmlspecialchars($row['product_name']);
+        echo '</button>';
 
-                </div>
+        // 画像データを表示
+        echo '<p><img src="data:', htmlspecialchars($row['image_type']),
+            ';base64,', base64_encode($row['image_content']),
+            '" width="200" height="auto" class="mr-3"></p>';
+
+        echo '</div>';
+    }
+    ?>
+</div>
+
                 </form>              
             </div>
         </section>
