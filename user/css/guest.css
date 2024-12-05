@@ -14,7 +14,7 @@ header {
     width: 100%;
     z-index: 1000;
     background-color: #aeaeae;
-    padding: 5px 0; /* 高さを調整 */
+    padding: 2px 0; /* 高さを調整 */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     text-align: center;
     margin: 0; /* 不要な余白を削除 */
