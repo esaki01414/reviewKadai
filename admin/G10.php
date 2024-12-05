@@ -76,8 +76,10 @@ if(!($id)){
         <input type="text" name="body" maxlength="255">
         <p>価格</p>
         <input type="number" name="price">
+        <div class="form-group">
         <p>商品画像</p>
         <input type="file" name="file" class="imgform"><br><br>
+        </div>
         <p><button type="submit" name="U" value="<?= $id ?>">確認</button></p>
     </form>
     <script src="js/script.js"></script> <!-- JavaScriptファイルのリンク -->
