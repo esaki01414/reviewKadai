@@ -24,7 +24,11 @@ if(!($id)){
 <i class="fa-solid fa-cube icon"></i>    
 戻る
 </a><br>
+        <div class="wrapper">
+            <div class="container">
+                <div class="wrapper-title">
     <h1>商品更新</h1>
+             </div>
     <?php
     try {
         $pdo = new PDO(
@@ -84,6 +88,8 @@ if(!($id)){
         </div>
         <p><button type="submit" name="U" value="<?= $id ?>" class="btn btn-blue">>確認</button></p>
     </form>
+    </div>
+    </div>
     <script src="js/script.js"></script> <!-- JavaScriptファイルのリンク -->
 </body>
 </html>
