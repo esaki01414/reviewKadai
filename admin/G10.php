@@ -49,7 +49,7 @@ if(!($id)){
     echo '<img src="data:'.htmlspecialchars($row['image_type']).';base64,'.base64_encode($row['image_content']).'"width="200" height="auto""><br>';
     }
     ?>
-    <form action="G11.php" method="post" enctype="multipart/form-data">
+    <form action="G11.php" class="edit-form" method="post" enctype="multipart/form-data">
         <p>商品名：</p>
         <input type="text" name="name">
         <p>サイズ</p>
