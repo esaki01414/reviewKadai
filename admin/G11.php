@@ -30,7 +30,7 @@ if(!($id)){
     exit;
 }  
 
-if (isset($_FILES['file']) && $_FILES['file']['error'] == 0) {    
+if (isset($_FILES['file']) && !empty($_FILES['file']['name']) && $_FILES['file']['error'] == 0) {    
     $image = [
         'name' => $_FILES['file']['name'],
         'type' => $_FILES['file']['type'],
