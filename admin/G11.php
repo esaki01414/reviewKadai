@@ -161,10 +161,10 @@ if(!empty($_POST['price'])){
     <input type="hidden" name="price" value="<?= htmlspecialchars($price) ?>">
     <input type="hidden" name="image_type" value="<?= htmlspecialchars($imag['image_type']) ?? null ?>">
     <input type="hidden" name="image_content" value="<?= htmlspecialchars($imag['image_content']) ?? null ?>">
-    <input type="hidden" name="imag1" value="<?= $imag['name'] ?? null ?>">
-    <input type="hidden" name="imag2" value="<?= $imag['type'] ?? null ?>">
-    <input type="hidden" name="imag3" value="<?= $imag['size'] ?? null ?>">
-    <input type="hidden" name="imag4" value="<?= $imag['content'] ?? null ?>">
+    <input type="hidden" name="imag1" value="<?= htmlspecialchars($imag['name']) ?? null ?>">
+    <input type="hidden" name="imag2" value="<?= htmlspecialchars($imag['type']) ?? null ?>">
+    <input type="hidden" name="imag3" value="<?= htmlspecialchars($imag['size']) ?? null ?>">
+    <input type="hidden" name="imag4" value="<?= htmlspecialchars($imag['content']) ?? null ?>">
     <p><button type="submit" name="U" value="<?= $id ?>">更新</button></p>
 </form>
 <script src="js/script.js"></script> <!-- JavaScriptファイルのリンク -->
