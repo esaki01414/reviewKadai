@@ -37,15 +37,34 @@ try {
     echo 'データベース接続に失敗しました: ' . htmlspecialchars($e->getMessage());
     exit;
 }
-$sql='SELECT image_type,image_content,product_size FROM product WHERE product_id = ?';
+$sql='SELECT * FROM product WHERE product_id = ?';
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$id]);
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
     foreach($result as $row){
-    echo '<img src="data:'.htmlspecialchars($row['image_type']).';base64,'.base64_encode($row['image_content']).'"width="400" height="auto""><br>';
-    }
+        echo '<form action="G17.php" method="post">';
+        echo '<img src="data:'.htmlspecialchars($row['image_type']).';base64,'.base64_encode($row['image_content']).'"width="400" height="auto"" name="img">';
+        echo '<div class="form1">';
+        echo '<p>商品ID:</p>';
+        echo '<p>',htmlspecialchars($row['product_id']),'</p>';
+        echo '<p>商品名:</p>';
+        echo '<p>',htmlspecialchars($row['product_name']),'</p>';
+        echo '<p>サイズ:</p>';
+        echo '<p>',htmlspecialchars($row['product_size']),'</p>';
+        echo '<p>カラー:</p>';
+        echo '<p>',htmlspecialchars($row['product_color']),'</p>';
+        echo '<p>在庫数:</p>';
+        echo '<p>',htmlspecialchars($row['inventory_stock']),'</p>';
+        echo '<p>価格:</p>';
+        echo '<p>',htmlspecialchars($row['product_price']),'</p>';
+        echo '<p>商品説明:</p>';
+        echo '<p>',htmlspecialchars($row['product_body']),'</p>';
+        echo '</div>';
+        echo '<p><button type="submit">削除</button></p>';
+        echo '</form>';
+       }
+       $pdo=null;
 ?>
-
-
+<script src="js/script.js"></script>
 </body>
 </html>
