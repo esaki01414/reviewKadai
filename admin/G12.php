@@ -35,17 +35,23 @@ if (isset($_POST['U']) && !empty($_POST['U'])) {
         $_POST['body'],
         $_POST['price'],
     ];
-    if(isset($_POST['imag']) && !empty($_POST['imag'])){
-        $jsonImag = $_POST['imag'];
-    
-        // json_decode()でJSONをPHPの連想配列に変換
-        $imag = json_decode($jsonImag, true); // trueを指定して連想配列にする
+    if(isset($_POST['imag1']) && !empty($_POST['imag1'])){
+        $imag1 = $_POST['imag1'];
+        $imag2 = $_POST['imag2'];
+        $imag3 = $_POST['imag3'];
+        $imag4 = $_POST['imag4'];
+
+        $imag_name = json_decode($imag1, true); 
+        $imag_type = json_decode($imag2, true); 
+        $imag_size = json_decode($imag3, true); 
+        $imag_content = json_decode($imag4, true); 
+
     
         // デコードしたデータを表示
-        echo "ファイル名: " . htmlspecialchars($imag['name']) . "<br>";
-        echo "ファイルタイプ: " . htmlspecialchars($imag['type']) . "<br>";
-        echo "ファイルサイズ: " . $imag['size'] . " bytes<br>";
-        echo "一時ファイルパス: " . htmlspecialchars($imag['tmp_name']) . "<br>";
+        echo "ファイル名: " . htmlspecialchars($imag_name) . "<br>";
+        echo "ファイルタイプ: " . htmlspecialchars($imag_type) . "<br>";
+        echo "ファイルサイズ: " . htmlspecialchars($imag_size) . " bytes<br>";
+        echo "一時ファイルパス: " . htmlspecialchars($imag_content) . "<br>";
     
     }elseif(isset($_POST['image_type']) && !empty($_POST['image_type']) && isset($_POST['image_content']) && !empty($_POST['image_content'])){
         $image_type= $_POST['image_type'];
