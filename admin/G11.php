@@ -37,12 +37,10 @@ if (isset($_FILES['file']) && $_FILES['file']['error'] == 0) {
         'size' => $_FILES['file']['size'],
         'content' => $_FILES['file']['tmp_name'],
     ];
-    
-    // $imagをJSON形式にエンコード
-    $jsonImag = json_encode($imag);
 
     echo '<img src="data:'.htmlspecialchars($imag['type']).';base64,'
     .base64_encode($imag['content']).'"width="200" height="auto""><br>';
+    $jsonImag = json_encode($imag);    // $imagをJSON形式にエンコード
 
 }else{
     $sql='SELECT image_type,image_content FROM product WHERE product_id = ?';

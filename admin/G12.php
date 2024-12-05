@@ -46,7 +46,7 @@ if (isset($_POST['U']) && !empty($_POST['U'])) {
         echo "ファイルタイプ: " . htmlspecialchars($imag['type']) . "<br>";
         echo "ファイルサイズ: " . $imag['size'] . " bytes<br>";
         echo "一時ファイルパス: " . htmlspecialchars($imag['tmp_name']) . "<br>";
-    }
+    
     }elseif(isset($_POST['image_type']) && !empty($_POST['image_type']) && isset($_POST['image_content']) && !empty($_POST['image_content'])){
         $image_type= $_POST['image_type'];
         $image_content= $_POST['image_content'];
