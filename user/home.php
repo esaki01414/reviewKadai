@@ -85,6 +85,10 @@ $images = $stmt->fetchAll();
                 <input type="text" name="search" placeholder="🔎洋服を検索" id="search-input" value="<?php echo htmlspecialchars($search_keyword); ?>">
             </div>
                 <button class="search-button" type="submit">検索</button>
+            <div class="search-bar">
+                <input type="text" name="search" placeholder="🔎洋服を検索" id="search-input" value="<?php echo htmlspecialchars($search_keyword); ?>">
+            </div>
+                <button class="search-button" type="submit">検索</button>
         </div>
         </form>
  
@@ -143,6 +147,7 @@ $images = $stmt->fetchAll();
                 <p><?=$search_keyword?></p>
                
     <b><p style="text-decoration:underline; text-align: center;" >商品</p></b>
+    <p style="text-align: right; margin-top: 30px;"><a href="./home_product.php">もっと見る</a></p>
     <p style="text-align: right; margin-top: 30px;"><a href="./home_product.php">もっと見る</a></p>
         <section id="product-list">
             <div class="product-list" id="product-list-container">

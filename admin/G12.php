@@ -35,17 +35,24 @@ if (isset($_POST['U']) && !empty($_POST['U'])) {
         $_POST['body'],
         $_POST['price'],
     ];
-    if(isset($_POST['imag']) && !empty($_POST['imag'])){
-        $jsonImag = $_POST['imag'];
-    
-        // json_decode()でJSONをPHPの連想配列に変換
-        $imag = json_decode($jsonImag, true); // trueを指定して連想配列にする
-    
-        // デコードしたデータを表示
-        echo "ファイル名: " . htmlspecialchars($imag['name']) . "<br>";
-        echo "ファイルタイプ: " . htmlspecialchars($imag['type']) . "<br>";
-        echo "ファイルサイズ: " . $imag['size'] . " bytes<br>";
-        echo "一時ファイルパス: " . htmlspecialchars($imag['tmp_name']) . "<br>";
+    if(isset($_POST['imag1']) && !empty($_POST['imag1'])){
+        $imag1 = $_POST['imag1'];
+        $imag2 = $_POST['imag2'];
+        $imag3 = $_POST['imag3'];
+        $imag4 = $_POST['imag4'];
+        $sql='UPDATE product SET product_name = ?, product_size = ?, product_color = ?, inventory_stock = ?,
+              product_body = ?, product_price = ?,update_at = ?,image_name = ?,image_type = ?,image_content = ?,
+              image_size = ? WHERE product_id = ?';
+        $stmt = $pdo->prepare($sql);
+        $result=$stmt->execute([$data[0],$data[1],$data[2],$data[3],$data[4],$data[5],now(),$imag1,$imag2,$imag3,$imag4,$id]);
+        $row_count=$stmt->rowCount();
+        if($row_count==1){
+            echo '<h1>更新完了</h1>';
+            echo 'データが正常に更新されました。';
+        }else{
+            echo '<h1>更新失敗</h1>';
+            echo 'データの更新に失敗しました。';
+        }
     
     }elseif(isset($_POST['image_type']) && !empty($_POST['image_type']) && isset($_POST['image_content']) && !empty($_POST['image_content'])){
         $image_type= $_POST['image_type'];
