@@ -40,7 +40,6 @@ if (isset($_FILES['file']) && $_FILES['file']['error'] == 0) {
 
     echo '<img src="data:'.htmlspecialchars($imag['type']).';base64,'
     .base64_encode($imag['content']).'"width="200" height="auto""><br>';
-    $jsonImag = json_encode($imag);    // $imagをJSON形式にエンコード
 
 }else{
     $sql='SELECT image_type,image_content FROM product WHERE product_id = ?';
@@ -162,10 +161,10 @@ if(!empty($_POST['price'])){
     <input type="hidden" name="price" value="<?= htmlspecialchars($price) ?>">
     <input type="hidden" name="image_type" value="<?= htmlspecialchars($imag['image_type']) ?? null ?>">
     <input type="hidden" name="image_content" value="<?= htmlspecialchars($imag['image_content']) ?? null ?>">
-    <input type="hidden" name="imag1" value="<?= htmlspecialchars($jsonImag['name']) ?? null ?>">
-    <input type="hidden" name="imag2" value="<?= htmlspecialchars($jsonImag['type']) ?? null ?>">
-    <input type="hidden" name="imag3" value="<?= htmlspecialchars($jsonImag['size']) ?? null ?>">
-    <input type="hidden" name="imag4" value="<?= htmlspecialchars($jsonImag['content']) ?? null ?>">
+    <input type="hidden" name="imag1" value="<?= $imag['name'] ?? null ?>">
+    <input type="hidden" name="imag2" value="<?= $imag['type'] ?? null ?>">
+    <input type="hidden" name="imag3" value="<?= $imag['size'] ?? null ?>">
+    <input type="hidden" name="imag4" value="<?= $imag['content'] ?? null ?>">
     <p><button type="submit" name="U" value="<?= $id ?>">更新</button></p>
 </form>
 <script src="js/script.js"></script> <!-- JavaScriptファイルのリンク -->

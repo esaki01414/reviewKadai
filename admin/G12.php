@@ -41,17 +41,12 @@ if (isset($_POST['U']) && !empty($_POST['U'])) {
         $imag3 = $_POST['imag3'];
         $imag4 = $_POST['imag4'];
 
-        $imag_name = json_decode($imag1, true); 
-        $imag_type = json_decode($imag2, true); 
-        $imag_size = json_decode($imag3, true); 
-        $imag_content = json_decode($imag4, true); 
-
     
         // デコードしたデータを表示
-        echo "ファイル名: " . $imag_name . "<br>";
-        echo "ファイルタイプ: " . $imag_type . "<br>";
-        echo "ファイルサイズ: " . $imag_size . " bytes<br>";
-        echo "一時ファイルパス: " . $imag_content . "<br>";
+        echo "ファイル名: " . $imag1 . "<br>";
+        echo "ファイルタイプ: " . $imag2 . "<br>";
+        echo "ファイルサイズ: " . $imag3 . " bytes<br>";
+        echo "一時ファイルパス: " . $imag4 . "<br>";
     
     }elseif(isset($_POST['image_type']) && !empty($_POST['image_type']) && isset($_POST['image_content']) && !empty($_POST['image_content'])){
         $image_type= $_POST['image_type'];
