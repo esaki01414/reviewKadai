@@ -7,6 +7,7 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>商品更新確認画面</title>
+    <link rel="stylesheet" href="css/styles.css"> <!-- CSSファイルのリンク -->
 </head>
 <body>
 <?php
@@ -29,24 +30,29 @@ if(!($id)){
     exit;
 }  
 
-if (isset($_FILES['file']) && $_FILES['file']['error'] == 0) {    $flg='false';
-    if(is_uploaded_file($_FILES['file']['tmp_name'])){
-        if(!file_exists('upload_img')){
-            mkdir('upload_img');
-        }
-        $newfile ='upload_img/'.basename($_FILES['file']['name']);
-        $imag=$newfile;
-        $flg=move_uploaded_file($_FILES['file']['tmp_name'],$newfile);
-        echo '<img src="' . $imag.'"height="200">','<br>';
-    }  
+if (isset($_FILES['file']) && !empty($_FILES['file']['name']) && $_FILES['file']['error'] == 0) {    
+    $image = [
+        'name' => $_FILES['file']['name'],
+        'type' => $_FILES['file']['type'],
+        'size' => $_FILES['file']['size'],
+        'content' => file_get_contents($_FILES['file']['tmp_name'])
+    ];
+
+    echo '<img src="data:'.htmlspecialchars($image['type']).';base64,'
+    .base64_encode($image['content']).'"width="200" height="auto""><br>';
+
 }else{
     $sql='SELECT image_type,image_content FROM product WHERE product_id = ?';
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$id]);
-    $imag = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    foreach($imag as $row){
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    foreach($result as $row){
         echo '<img src="data:'.htmlspecialchars($row['image_type']).';base64,'
         .base64_encode($row['image_content']).'"width="200" height="auto""><br>';
+        $imag=[
+            'image_type' => $row['image_type'],
+            'image_content' => $row['image_content']
+        ];
         }
     }
 
@@ -60,10 +66,11 @@ if(!empty($_POST['name'])){
     $sql='SELECT product_name FROM product WHERE product_id = ?';
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$id]);
-    $name=$stmt->fetchAll(PDO::FETCH_ASSOC);
-    foreach($name as $row){
+    $result=$stmt->fetchAll(PDO::FETCH_ASSOC);
+    foreach($result as $row){
         echo '<p>商品名：</p>';
         echo $row['product_name'];
+        $name=$row['product_name'];
         }
 }
 
@@ -75,10 +82,11 @@ if(!empty($_POST['size'])){
     $sql='SELECT product_size FROM product WHERE product_id = ?';
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$id]);
-    $size=$stmt->fetchAll(PDO::FETCH_ASSOC);
-    foreach($size as $row){
+    $result=$stmt->fetchAll(PDO::FETCH_ASSOC);
+    foreach($result as $row){
         echo '<p>サイズ：</p>';
         echo $row['product_size'];
+        $size=$row['product_size'];
         }
 }
 
@@ -90,10 +98,11 @@ if(!empty($_POST['stock'])){
     $sql='SELECT inventory_stock FROM product WHERE product_id = ?';
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$id]);
-    $stock=$stmt->fetchAll(PDO::FETCH_ASSOC);
-    foreach($stock as $row){
+    $result=$stmt->fetchAll(PDO::FETCH_ASSOC);
+    foreach($result as $row){
         echo '<p>在庫数：</p>';
         echo $row['inventory_stock'];
+        $stock=$row['inventory_stock'];
         }
 }
 if(!empty($_POST['color'])){
@@ -104,10 +113,11 @@ if(!empty($_POST['color'])){
     $sql='SELECT product_color FROM product WHERE product_id = ?';
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$id]);
-    $color=$stmt->fetchAll(PDO::FETCH_ASSOC);
-    foreach($color as $row){
+    $result=$stmt->fetchAll(PDO::FETCH_ASSOC);
+    foreach($result as $row){
         echo '<p>カラー：</p>';
         echo $row['product_color'];
+        $color=$row['product_color'];
         }
 }
 if(!empty($_POST['body'])){
@@ -118,10 +128,11 @@ if(!empty($_POST['body'])){
     $sql='SELECT product_body FROM product WHERE product_id = ?';
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$id]);
-    $body=$stmt->fetchAll(PDO::FETCH_ASSOC);
-    foreach($body as $row){
+    $result=$stmt->fetchAll(PDO::FETCH_ASSOC);
+    foreach($result as $row){
         echo '<p>商品説明：</p>';
         echo $row['product_body'];
+        $body=$row['product_body'];
         }
 }
 if(!empty($_POST['price'])){
@@ -132,25 +143,30 @@ if(!empty($_POST['price'])){
     $sql='SELECT product_price FROM product WHERE product_id = ?';
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$id]);
-    $price=$stmt->fetchAll(PDO::FETCH_ASSOC);
-    foreach($price as $row){
+    $result=$stmt->fetchAll(PDO::FETCH_ASSOC);
+    foreach($result as $row){
         echo '<p>価格：</p>';
         echo $row['product_price'];
+        $price=$row['product_price'];
         }
 }
-$data=[
-    $id,
-    $name,
-    $size,
-    $stock,
-    $color,
-    $body,
-    $price,
-    $imag
-];
+
     ?>
    <form action="G12.php" method="post" enctype="multipart/form-data">
-    <p><button type="submit" name="U[]" value="<?= htmlspecialchars(json_encode($data)) ?>">更新</button></p>
+    <input type="hidden" name="name" value="<?= htmlspecialchars($name) ?>">
+    <input type="hidden" name="size" value="<?= htmlspecialchars($size) ?>">
+    <input type="hidden" name="stock" value="<?= htmlspecialchars($stock) ?>">
+    <input type="hidden" name="color" value="<?= htmlspecialchars($color) ?>">
+    <input type="hidden" name="body" value="<?= htmlspecialchars($body) ?>">
+    <input type="hidden" name="price" value="<?= htmlspecialchars($price) ?>">
+    <input type="hidden" name="image_type" value="<?= htmlspecialchars($imag['image_type']) ?? null ?>">
+    <input type="hidden" name="image_content" value="<?= htmlspecialchars($imag['image_content']) ?? null ?>">
+    <input type="hidden" name="imag1" value="<?= htmlspecialchars($image['name']) ?? null ?>">
+    <input type="hidden" name="imag2" value="<?= htmlspecialchars($image['type']) ?? null ?>">
+    <input type="hidden" name="imag3" value="<?= htmlspecialchars($image['size']) ?? null ?>">
+    <input type="hidden" name="imag4" value="<?= htmlspecialchars($image['content']) ?? null ?>">
+    <p><button type="submit" name="U" value="<?= $id ?>">更新</button></p>
 </form>
+<script src="js/script.js"></script> <!-- JavaScriptファイルのリンク -->
 </body>
 </html>

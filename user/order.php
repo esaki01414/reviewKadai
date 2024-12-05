@@ -21,6 +21,9 @@ $sql = '
     SELECT 
         product.product_id, 
         product.product_name, 
+        product.product_size,
+        product.product_color,
+        product.product_price,
         product.image_type,
         product.image_content,
         product.product_price, 
@@ -66,13 +69,15 @@ foreach ($carts as $row) {
                 <?php foreach ($carts as $row): ?>
                     <ul>
                     <li class="product">
-                        <p>商品名: <?= htmlspecialchars($row['product_name']) ?></p>
-                        <p>価格: <?= htmlspecialchars(number_format($row['product_price'])) ?>円</p>
-                        <p>在庫: <?= htmlspecialchars($row['inventory_stock']) ?> 個</p>
+                        <p><b>商品名： <?= htmlspecialchars($row['product_name']) ?></b></p>
+                        <p><b>価格： <?= htmlspecialchars(number_format($row['product_price'])) ?>円</b></p>
+                        <p><b>在庫： <?= htmlspecialchars($row['inventory_stock']) ?> 個</b></p>
+                        <p><b>サイズ： <?= htmlspecialchars($row['product_size']) ?></b></p>
+                        <p><b>カラー： <?= htmlspecialchars($row['product_color']) ?></b></p>
                         <p>
                         <img src="data:<?= htmlspecialchars($row['image_type']); ?>;base64,<?= base64_encode($row['image_content']); ?>" width="200" height="auto">
                         </p>
-                        <p>購入数量:</p>
+                        <p><b>購入数量</b></p>
                         <div class="custom-select">
                         <select name="quantity[<?= htmlspecialchars($row['product_id']) ?>]" onchange="updateTotal()">
                             <?php for ($i = 1; $i <= $row['inventory_stock']; $i++): ?>

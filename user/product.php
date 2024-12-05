@@ -3,11 +3,17 @@ session_start();
 
 // セッションが開始されているか確認
 if (!isset($_SESSION['user_id'])) {
-    echo '<a href="./login.php">ログイン画面に遷移</a><br>';
-    echo '<a href="./home.php">ホーム画面に遷移</a><br>';
-    echo 'ログインしてください。';
+    echo '<div style="display: flex; justify-content: center; align-items: center; height: 100vh;">';
+    echo '<div style="text-align: center; margin-top: 50px; padding: 20px;border-radius: 10px; width: 300px; background-color: #f7f7f7;">';
+    echo '<p style="font-size: 18px; font-weight: bold;">商品詳細画面</p>';
+    echo '<p style="font-size: 18px; color: red; font-weight: bold;">ログインができていません。</p>';
+    echo '<a href="./login.php" style="display: inline-block; margin: 10px; padding: 10px 20px; background-color: blue; color: white; text-decoration: none; border-radius: 5px;">ログイン画面に遷移</a><br>';
+    echo '<a href="./home.php" style="display: inline-block; margin: 10px; padding: 10px 20px; background-color: blue; color: white; text-decoration: none; border-radius: 5px;">ホーム画面に遷移</a>';
+    echo '</div>';
+    echo '</div>';
     exit;
 }
+
 
 // セッションにユーザー情報がない場合、ログインページへリダイレクト
 if (!isset($_SESSION['user_id'])) {

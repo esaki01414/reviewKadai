@@ -51,7 +51,7 @@
                         $rows = $stmt->fetchAll();
                         echo '<select id="maneger_id" name="maneger_id" required>';
                         foreach($rows as $row){
-                            echo '<option value="maneger_id">',$row["maneger_id"],'</option>';
+                            echo '<option value=',$row["maneger_id"],'>',$row["maneger_id"],'</option>';
                         }
                         echo '</select>';
                         ?>

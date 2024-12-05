@@ -93,7 +93,7 @@ if ($row) {
 <body>
 
 <div class="container">
-    <div class="back-button"><a href="./home.php">←戻る</a></div>
+    <div class="back-button"><a href="./home.php"><<戻る</a></div>
     <div class="profile-container">
     <div class="profile-icon">
         <img src="./images/ユーザーアイコン.jpg" alt="Profile Icon">
@@ -225,12 +225,11 @@ if ($row) {
         </div> 
 
         <button type="submit" class="login-btn">更新</button>
-        <div id="update-modal" class="modal">
-    <div class="modal-content">
+    <div id="update-modal" class="modal">
+        <div class="modal-content">
         <p>プロフィールが更新されました！</p>
         <b><a href="home.php">ホーム</a></b>
-        
-    </div>
+        </div>
     </div>
 
     <style>
