@@ -45,12 +45,28 @@
        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         foreach($result as $row){     
         echo '<img src="data:'.htmlspecialchars($row['image_type']).';base64,'.base64_encode($row['image_content']).'"width="200" height="auto""><br>';
+        echo '<p>商品作成日:</p>';
+        echo '<p>',htmlspecialchars($row['created_at']),'</p>';
+        echo '<p>商品画像名:</p>';
+        echo '<p>',htmlspecialchars($row['image_name']),'</p>';
+        echo '<p>商品画像サイズ:</p>';
+        echo '<p>',htmlspecialchars($row['image_size']),'</p>';
         echo '<p>商品ID:</p>';
         echo '<p>',htmlspecialchars($row['product_id']),'</p>';
         echo '<p>商品名:</p>';
         echo '<p>',htmlspecialchars($row['product_name']),'</p>';
+        echo '<p>商品価格:</p>';
+        echo '<p>',htmlspecialchars(number_format($row['product_price'])),'</p>';
+        echo '<p>商品サイズ:</p>';
+        echo '<p>',htmlspecialchars($row['product_size']),'</p>';
+        echo '<p>商品カラー:</p>';
+        echo '<p>',htmlspecialchars($row['product_color']),'</p>';
         echo '<p>在庫数</p>';
         echo '<p>',htmlspecialchars($row['inventory_stock']),'</p>';
+        echo '<p>商品説明:</p>';
+        echo '<p>',htmlspecialchars($row['product_body']),'</p>';
+        
+        
        }
        $pdo=null;
     ?>
