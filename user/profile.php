@@ -93,7 +93,7 @@ if ($row) {
 <body>
 
 <div class="container">
-    <div class="back-button"><a href="./home.php">←戻る</a></div>
+    <div class="back-button"><a href="./home.php"><<戻る</a></div>
     <div class="profile-container">
     <div class="profile-icon">
         <img src="./images/ユーザーアイコン.jpg" alt="Profile Icon">
