@@ -39,6 +39,7 @@ if (isset($_FILES['file']) && $_FILES['file']['error'] == 0) {
             $newfile ='upload_img/'.basename($_FILES['file']['name']);
             $imag=$newfile;
             $flg=move_uploaded_file($_FILES['file']['tmp_name'],$newfile);
+            echo '<img src="' .$row['imag'].'"height="200">','<br>','<br>';
         }
 
 }else{
