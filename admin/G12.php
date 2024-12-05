@@ -36,7 +36,7 @@ if (isset($_POST['U']) && !empty($_POST['U'])) {
         $_POST['body'],
         $_POST['price'],
     ];
-    if(isset($_FILES['imag']) && !empty($_FILES['imag'])){
+    if(isset($_POST['imag']) && !empty($_POST['imag'])){
         $image_name = $_FILES['imag']['name']; // アップロードされたファイル名
         $image_type = $_FILES['imag']['type']; // アップロードされたファイルタイプ
         $image_content = file_get_contents($_FILES['imag']['tmp_name']); // ファイルの内容を取得
