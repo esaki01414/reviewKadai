@@ -18,8 +18,10 @@
 <body>
 <a href="G2.php">戻る</a><br><br>
     <h1>商品管理</h1>
+    <header>
     <form action="G13.php" method="get">
-        <button type="submit">商品登録</button>
+        <button class="register-botton" type="submit">商品登録</button>
+    </header>
 </form>
 <?php
          try {
@@ -35,10 +37,10 @@
 $sql='SELECT product_id, product_name FROM product';
    $stmt = $pdo->query($sql);
    ?>
-   <div class="wrapper">
-   <div class="container">
+   <main class="product-guid">
+   <div class="product-card">
    <div class="boxs">
-<span>
+    <span>
 <?php foreach($stmt as $row){
     echo '<a href="G9.php?id=',$row['product_id'],'" class="box">';
     echo '<i class="fa-solid fa-cube icon"></i>';
@@ -49,7 +51,7 @@ $sql='SELECT product_id, product_name FROM product';
     echo '</a>';
      }
      ?>
-</span>
+    </span>
     </div>
     </div>
     </div>
