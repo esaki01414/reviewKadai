@@ -10,7 +10,6 @@ session_start();
     <link rel="stylesheet" href="css/styles.css"> <!-- CSSファイルのリンク -->
 </head>
 <body>
-<h1>更新完了</h1>
 <?php
 $id=$_POST['U'] ?? null;
 if(!($id)){
@@ -37,10 +36,10 @@ if (isset($_POST['U']) && !empty($_POST['U'])) {
         $_POST['price'],
     ];
     if(isset($_POST['imag']) && !empty($_POST['imag'])){
-        $image_name = $_FILES['imag']['name']; // アップロードされたファイル名
-        $image_type = $_FILES['imag']['type']; // アップロードされたファイルタイプ
-        $image_content = file_get_contents($_FILES['imag']['tmp_name']); // ファイルの内容を取得
-        $image_size = $_FILES['imag']['size']; // ファイルサイズ
+        $image_name = $_POST['imag']['name']; // アップロードされたファイル名
+        $image_type = $_POST['imag']['type']; // アップロードされたファイルタイプ
+        $image_content = file_get_contents($_POST['imag']['tmp_name']); // ファイルの内容を取得
+        $image_size = $_POST['imag']['size']; // ファイルサイズ
         echo 'ok';
     }elseif(isset($_POST['image_type']) && !empty($_POST['image_type']) && isset($_POST['image_content']) && !empty($_POST['image_content'])){
         $image_type= $_POST['image_type'];
