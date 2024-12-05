@@ -14,7 +14,7 @@ header {
     width: 100%;
     z-index: 1000;
     background-color: #aeaeae;
-    padding: 5px 0; /* 高さを調整 */
+    padding: 2px 0; /* 高さを調整 */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     text-align: center;
     margin: 0; /* 不要な余白を削除 */
@@ -142,9 +142,30 @@ display: flex;
 .product-list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
     margin-top: 20px; /* 上部の余白 */
+    width: 100%; /* 全幅を使用 */
+    max-width: 100%; /* 最大幅を適切に設定 */
+    margin: 0 auto; /* 中央揃え */
+    gap: 20px; /* 子要素間の隙間 */
 }
+
+.product_all {
+    flex: 1 1 calc(33.333% - 20px); /* 一行に3つ並べるための幅 */
+    box-sizing: border-box; /* パディングやマージンを含めたサイズ管理 */
+    margin: 10px auto; /* 商品間の余白 */
+    text-align: center; /* 内容を中央揃え */
+    justify-content: center; /* 画像を中央に寄せる */
+}
+
+/* 画像のスタイル */
+.product_all img {
+    width: 200px; /* 親要素の幅に合わせる */
+    height: auto; /* アスペクト比を維持 */
+    border-radius: 10px; /* 角を少し丸くする（必要なら） */
+}
+
+
 input[type="search"] {
     font: 400 16px/1 sans-serif;
     padding: .75em 3em .75em 3em; /* 左側にアイコンのスペースを確保 */
@@ -162,12 +183,6 @@ input[type="search"] {
     pointer-events: none; /* アイコンをクリックできないように */
 }
 
-.product-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 20px; /* 上部の余白 */
-}
 
 /* 商品カードのスタイル */
 .product-card {
@@ -246,3 +261,4 @@ button[name="product_id"]:hover {
     color: #007bff; 
     border-bottom: 2px solid #007BFF; /* ホバー時に下線の色も青にする */
 }
+

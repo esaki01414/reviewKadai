@@ -40,18 +40,19 @@ if (isset($_POST['U']) && !empty($_POST['U'])) {
         $imag2 = $_POST['imag2'];
         $imag3 = $_POST['imag3'];
         $imag4 = $_POST['imag4'];
-
-        $imag_name = json_decode($imag1, true); 
-        $imag_type = json_decode($imag2, true); 
-        $imag_size = json_decode($imag3, true); 
-        $imag_content = json_decode($imag4, true); 
-
-    
-        // デコードしたデータを表示
-        echo "ファイル名: " . $imag_name . "<br>";
-        echo "ファイルタイプ: " . $imag_type . "<br>";
-        echo "ファイルサイズ: " . $imag_size . " bytes<br>";
-        echo "一時ファイルパス: " . $imag_content . "<br>";
+        $sql='UPDATE product SET product_name = ?, product_size = ?, product_color = ?, inventory_stock = ?,
+              product_body = ?, product_price = ?,image_name = ?,image_type = ?,image_content = ?,
+              image_size = ? WHERE product_id = ?';
+        $stmt = $pdo->prepare($sql);
+        $result=$stmt->execute([$data[0],$data[1],$data[2],$data[3],$data[4],$data[5],$imag1,$imag2,$imag3,$imag4,$id]);
+        $row_count=$stmt->rowCount();
+        if($row_count==1){
+            echo '<h1>更新完了</h1>';
+            echo 'データが正常に更新されました。';
+        }else{
+            echo '<h1>更新失敗</h1>';
+            echo 'データの更新に失敗しました。';
+        }
     
     }elseif(isset($_POST['image_type']) && !empty($_POST['image_type']) && isset($_POST['image_content']) && !empty($_POST['image_content'])){
         $image_type= $_POST['image_type'];
