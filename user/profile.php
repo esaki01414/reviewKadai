@@ -225,12 +225,11 @@ if ($row) {
         </div> 
 
         <button type="submit" class="login-btn">更新</button>
-        <div id="update-modal" class="modal">
-    <div class="modal-content">
+    <div id="update-modal" class="modal">
+        <div class="modal-content">
         <p>プロフィールが更新されました！</p>
         <b><a href="home.php">ホーム</a></b>
-        
-    </div>
+        </div>
     </div>
 
     <style>
