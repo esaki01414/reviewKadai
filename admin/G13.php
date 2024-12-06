@@ -32,6 +32,7 @@
     <main>
         <div class="wrapper">
             <div class="container">
+            <a href="G8.php">戻る</a><br>
                 <div class="wrapper-title">
                     <h3>新規作成</h3>
                 </div>
