@@ -34,8 +34,8 @@ if (isset($_FILES['file']) && !empty($_FILES['file']['name']) && $_FILES['file']
     $image = [
         'name' => $_FILES['file']['name'],
         'type' => $_FILES['file']['type'],
-        'size' => $_FILES['file']['size'],
-        'content' => file_get_contents($_FILES['file']['tmp_name'])
+        'content' => file_get_contents($_FILES['file']['tmp_name']),
+        'size' => $_FILES['file']['size']
     ];
 
     echo '<img src="data:'.htmlspecialchars($image['type']).';base64,'

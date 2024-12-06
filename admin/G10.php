@@ -8,6 +8,11 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>商品更新画面</title>
     <link rel="stylesheet" href="css/styles.css"> <!-- CSSファイルのリンク -->
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/G13.css">
+
 </head>
 <body>
     <?php
@@ -20,7 +25,11 @@ if(!($id)){
 <i class="fa-solid fa-cube icon"></i>    
 戻る
 </a><br>
+        <div class="wrapper">
+            <div class="container">
+                <div class="wrapper-title">
     <h1>商品更新</h1>
+             </div>
     <?php
     try {
         $pdo = new PDO(
@@ -40,7 +49,7 @@ if(!($id)){
     echo '<img src="data:'.htmlspecialchars($row['image_type']).';base64,'.base64_encode($row['image_content']).'"width="200" height="auto""><br>';
     }
     ?>
-    <form action="G11.php" method="post" enctype="multipart/form-data">
+    <form action="G11.php" class="edit-form" method="post" enctype="multipart/form-data">
         <p>商品名：</p>
         <input type="text" name="name">
         <p>サイズ</p>
@@ -74,10 +83,14 @@ if(!($id)){
         <input type="text" name="body" maxlength="255">
         <p>価格</p>
         <input type="number" name="price">
+        <div class="form-group">
         <p>商品画像</p>
-        <input type="file" name="file"><br><br>
-        <p><button type="submit" name="U" value="<?= $id ?>">確認</button></p>
+        <input type="file" name="file" class="imgform"><br><br>
+        </div>
+        <p><button type="submit" name="U" value="<?= $id ?>" class="btn btn-blue">>確認</button></p>
     </form>
+    </div>
+    </div>
     <script src="js/script.js"></script> <!-- JavaScriptファイルのリンク -->
 </body>
 </html>
