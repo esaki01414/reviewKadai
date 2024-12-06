@@ -32,7 +32,7 @@
     ?>
 </div>
     <div class="back">
-    <p><a href="G9.php">商品詳細へ戻る</a></p>
+    <p><a href="G8.php">商品管理へ戻る</a></p>
     </div>
 <script src="js/script.js"></script>
 </body>

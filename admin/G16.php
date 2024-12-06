@@ -47,6 +47,8 @@ $sql='SELECT * FROM product WHERE product_id = ?';
         echo '<div class="form1">';
         echo '<p>商品ID:</p>';
         echo '<p>',htmlspecialchars($row['product_id']),'</p>';
+        $product_id = htmlspecialchars($row['product_id']);
+        echo '<input type="hidden" name="product_id" value="' . $product_id . '">';
         echo '<p>商品名:</p>';
         echo '<p>',htmlspecialchars($row['product_name']),'</p>';
         echo '<p>サイズ:</p>';
