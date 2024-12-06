@@ -52,7 +52,6 @@
         echo '<p>',htmlspecialchars($row['image_name']),'</p>';
         echo '<p>商品画像サイズ:</p>';
         echo '<p>',htmlspecialchars($row['image_size']),'</p>';
-        echo '<img src="data:'.htmlspecialchars($row['image_type']).';base64,'.base64_encode($row['image_content']).'"width="200" height="auto"><br>';
         echo '<p>商品ID:</p>';
         echo '<p>',htmlspecialchars($row['product_id']),'</p>';
         echo '<p>商品名:</p>';
