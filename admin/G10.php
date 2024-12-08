@@ -1,5 +1,9 @@
 <?php
-session_start();
+       session_start();
+       if($_SESSION['admin_login'] == false){
+           header("Location:./G1.php");
+           exit;
+      }
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -8,28 +12,21 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>商品更新画面</title>
     <link rel="stylesheet" href="css/styles.css"> <!-- CSSファイルのリンク -->
-    <link rel="icon" href="favicon.ico">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/G13.css">
-
 </head>
 <body>
-    <?php
+<?php
 $id=$_POST['U'] ?? null;
 if(!($id)){
     $id = $_SESSION['id'] ?? null;
 }
 ?>
-<a href="G9.php?id=<?= $id ?>">
-<i class="fa-solid fa-cube icon"></i>    
-戻る
-</a><br>
-        <div class="wrapper">
-            <div class="container">
-                <div class="wrapper-title">
+<div class="wrapper">
+    <div class="container">
+        <div class="wrapper-title">
+    <a href="G9.php?id=<?= $id ?>">戻る</a><br>
     <h1>商品更新</h1>
-             </div>
+    </div>
+    <form action="G12.php" method="post" enctype="multipart/form-data">
     <?php
     try {
         $pdo = new PDO(
@@ -40,56 +37,59 @@ if(!($id)){
     } catch (PDOException $e) {
         echo 'データベース接続に失敗しました: ' . htmlspecialchars($e->getMessage());
         exit;
-    }    
-    $sql='SELECT image_type,image_content,product_size FROM product WHERE product_id = ?';
+    }
+    // データベースから編集するデータを取得
+    $sql='SELECT * FROM product WHERE product_id = ?';
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$id]);
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    // フォームを表示
     foreach($result as $row){
-    echo '<img src="data:'.htmlspecialchars($row['image_type']).';base64,'.base64_encode($row['image_content']).'"width="200" height="auto""><br>';
+    if($row){
+        echo '<img src="data:'.htmlspecialchars($row['image_type']).';base64,'.base64_encode($row['image_content']).'"width="200" height="auto""><br>';
+        echo '<input type="hidden" name="product_id" value="'.htmlspecialchars($row['product_id']).'">';  // idを隠しフィールドで送信
+        echo '<p>商品名：</p>';
+        echo '<input type="text" name="product_name">';
+        echo '<p>サイズ:</p>';
+        echo '<select id="product_size" name="product_size">';
+        echo '<optgroup label="メンズ"></optgroup>';
+        echo '<option value="S">S</option>';
+        echo '<option value="M">M</option>';
+        echo '<option value="L">L</option>';
+        echo '<option value="XL">XL</option>';
+        echo '<optgroup label="レディース"></optgroup>';
+        echo '<option value="S(7号)">S(7号)</option>';
+        echo '<option value="M(9号)">M(9号)</option>';
+        echo '<option value="L(11号)">L(11号)</option>';
+        echo '<option value="LL(13号)">LL(13号)</option>';
+        echo '<optgroup label="キッズ"></optgroup>';
+        echo '<option value="100">100</option>';
+        echo '<option value="110">110</option>';
+        echo '<option value="120">120</option>';
+        echo '<option value="130">130</option>';
+        echo '<optgroup label="その他"></optgroup>';
+        echo '<option value="サイズ表記なし">サイズ表記なし</option>';
+        echo '</select>';
+    }else{
+            echo 'データが見つかりませんでした';
+        }
     }
-    ?>
-    <form action="G11.php" class="edit-form" method="post" enctype="multipart/form-data">
-        <p>商品名：</p>
-        <input type="text" name="name">
-        <p>サイズ</p>
-            <select name="size">
-            <?php foreach($result as $row): ?>
-                <option value="" selected disabled><?= htmlspecialchars($row['product_size']) ?></option>
-                <optgroup label="メンズ"></optgroup>
-                    <option value="S">S</option>
-                    <option value="M">M</option>
-                    <option value="L">L</option>
-                    <option value="XL">XL</option>
-                <optgroup label="レディース"></optgroup>
-                    <option value="S(7号)">S(7号)</option>
-                    <option value="M(9号)">M(9号)</option>
-                    <option value="L(11号)">L(11号)</option>
-                    <option value="LL(13号)">LL(13号)</option>
-                <optgroup label="キッズ"></optgroup>
-                    <option value="100">100</option>
-                    <option value="110">110</option>
-                    <option value="110">120</option>
-                    <option value="130">130</option>
-                <optgroup label="その他"></optgroup>
-                    <option value="サイズ表記なし">サイズ表記なし</option>
-            </select>
-            <?php endforeach; ?>
-        <p>在庫数：</p>
-        <input type="text" name="stock">
-        <p>カラー</p>
-        <input type="text" name="color">     
-        <p>商品説明</p>
-        <input type="text" name="body" maxlength="255">
-        <p>価格</p>
-        <input type="number" name="price">
-        <div class="form-group">
-        <p>商品画像</p>
-        <input type="file" name="file" class="imgform"><br><br>
-        </div>
-        <p><button type="submit" name="U" value="<?= $id ?>" class="btn btn-blue">>確認</button></p>
+            ?>
+            <p>カラー:</p>
+                <input type="text" name="product_color">
+            <p>在庫数：</p>
+                <input type="text" name="inventory_stock">
+            <p>商品説明:</p>
+                <textarea name="product_body" maxlength="255"></textarea>
+            <p>価格:</p>
+                <input type="number" name="product_price">
+            <div class="form-group">
+            <p>商品画像:</p>
+                <input type="file" name="image" class="imgform"><br><br>
+            </div>
+        <p><button type="submit" name="product_update" value="<?= $id ?>" class="btn btn-blue">更新</button></p>
     </form>
-    </div>
+        </div>
     </div>
     <script src="js/script.js"></script> <!-- JavaScriptファイルのリンク -->
 </body>
