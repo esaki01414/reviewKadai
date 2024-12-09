@@ -11,18 +11,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>商品管理画面</title>
-    <link rel="stylesheet" href="css/styles.css"> <!-- CSSファイルのリンク -->
-    <link rel="stylesheet" href="css/dashboard.css"> <!-- CSSファイルのリンク -->
     <link rel="stylesheet" href="css/G8.css">
 </head>
 <body>
-<a href="G2.php">戻る</a><br><br>
+<header class="main-header">
+    <a href="G2.php" class="back-link">戻る</a>
     <h1>商品管理</h1>
-    <header>
     <form action="G13.php" method="get">
         <button class="register-botton" type="submit">商品登録</button>
-    </header>
 </form>
+</header>
 <?php
          try {
             $pdo = new PDO(
@@ -40,7 +38,6 @@ $sql='SELECT product_id, product_name FROM product';
    <main class="product-guid">
    <div class="product-card">
    <div class="boxs">
-    <span>
 <?php foreach($stmt as $row){
     echo '<a href="G9.php?id=',$row['product_id'],'" class="box">';
     echo '<i class="fa-solid fa-cube icon"></i>';
@@ -51,10 +48,9 @@ $sql='SELECT product_id, product_name FROM product';
     echo '</a>';
      }
      ?>
-    </span>
     </div>
     </div>
-    </div>
+   </main>
     <?php
    $pdo=null;
     ?>
