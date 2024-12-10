@@ -1,10 +1,68 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    width: 600px;
+    height: 200px;
+    max-width: 80%;
+    padding: 40px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.container h2 {
+    font-size: 18px;
+    color: #4CAF50; /* 成功を示す緑色 */
+    margin-bottom: 30px;
+}
+
 .label{
     margin:0 auto;
     color: #111; 
     font-size: large;
     text-align: center;
 }
-.back{
-    margin:0 auto;
-    text-align: center;
+
+.label h1 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.back a {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #007BFF; /* ボタンの青色 */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+/* ホバー時のリンクボタン */
+.back a:hover {
+    background-color: #0056b3; /* 少し濃い青 */
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    .label h1 {
+        font-size: 24px;
+    }
 }

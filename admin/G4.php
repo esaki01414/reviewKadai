@@ -34,9 +34,12 @@
     );    
     $sql->execute([$maneger_id, $maneger_name, $maneger_mail, $maneger_pass]); 
    ?>
+     <div class="container">
     <div class="label">
     <h1>登録完了</h1>
     </div>
+        <h2>登録が完了しました！</h2>
     <div class="back"><a href="./G2.php">ホームに戻る</a></div>
+    </div>
 </body>
 </html>
