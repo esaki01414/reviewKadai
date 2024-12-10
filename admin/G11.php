@@ -1,5 +1,9 @@
 <?php
-session_start();
+       session_start();
+       if($_SESSION['admin_login'] == false){
+           header("Location:./G1.php");
+           exit;
+      }
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -11,161 +15,55 @@ session_start();
 </head>
 <body>
 <?php
-$id=$_POST['U'] ?? null;
+$id=$_POST['product_update'] ?? null;
 if(!($id)){
     $id = $_SESSION['id'] ?? null;
 }
 ?>
-<a href="G10.php">戻る</a><br><br>
 <h1>商品更新確認</h1>
+<form action="G12.php" method="POST" enctype="multipart/form-data">
 <?php
- try {
-    $pdo = new PDO(
-        'mysql:host=mysql310.phy.lolipop.lan;dbname=LAA1554917-system;charset=utf8',
-        'LAA1554917',
-        'PassSD2D'
-    );
-} catch (PDOException $e) {
-    echo 'データベース接続に失敗しました: ' . htmlspecialchars($e->getMessage());
-    exit;
-}  
 
-if (isset($_FILES['file']) && !empty($_FILES['file']['name']) && $_FILES['file']['error'] == 0) {    
-    $image = [
-        'name' => $_FILES['file']['name'],
-        'type' => $_FILES['file']['type'],
-        'content' => file_get_contents($_FILES['file']['tmp_name']),
-        'size' => $_FILES['file']['size']
-    ];
+if ($_SERVER['REQUEST_METHOD'] === 'post'){
+    $test_product_id=$_POST['product_id'];
+    $test_product_name = $_POST['product_name'];
+    $test_product_size = $_POST['product_size'];
+    $test_product_color = $_POST['product_color'];
+    $test_inventory_stock = $_POST['inventory_stock'];
+    $test_product_price = $_POST['product_price'];
+    $test_product_body = $_POST['product_body'];
 
-    echo '<img src="data:'.htmlspecialchars($image['type']).';base64,'
-    .base64_encode($image['content']).'"width="200" height="auto""><br>';
-
-}else{
-    $sql='SELECT image_type,image_content FROM product WHERE product_id = ?';
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute([$id]);
-    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    foreach($result as $row){
-        echo '<img src="data:'.htmlspecialchars($row['image_type']).';base64,'
-        .base64_encode($row['image_content']).'"width="200" height="auto""><br>';
-        $imag=[
-            'image_type' => $row['image_type'],
-            'image_content' => $row['image_content']
-        ];
+    if (!empty($_FILES['image']['name'])) {
+        $image_name = $_FILES['image']['name']; // アップロードされたファイル名
+        $image_type = $_FILES['image']['type']; // アップロードされたファイルタイプ
+        $image_content = file_get_contents($_FILES['image']['tmp_name']); // ファイルの内容を取得
+        $image_size = $_FILES['image']['size']; // ファイルサイズ
+        if(!file_exists('upload')){
+            mkdir('upload');
         }
+        if(move_uploaded_file($_FILES['image']['tmp_name'], $filePath)){
+            $image_file='upload/'.basename($_FILES['image']['name']);
+        }
+    } else {
+        echo '<div class="message error">';
+        echo '<a href="./G8.php">商品管理に遷移</a><br>';
+        echo 'データが正しく送信されていません。';
+        echo '</div>';
+        exit;
     }
-
-    echo '<p>商品ID：</p>';
-    echo '<p>',$id,'</p>';
-if(!empty($_POST['name'])){
-      $name =$_POST['name'];
-      echo '<p>商品名：</p>';
-      echo $name;
-}else{
-    $sql='SELECT product_name FROM product WHERE product_id = ?';
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute([$id]);
-    $result=$stmt->fetchAll(PDO::FETCH_ASSOC);
-    foreach($result as $row){
-        echo '<p>商品名：</p>';
-        echo $row['product_name'];
-        $name=$row['product_name'];
-        }
+    echo '<img src="',$image_file,'"><br>';
+    echo '商品名:'.$test_product_name;
+    echo 'サイズ:'.$test_product_size;
+    echo 'カラー:'.$test_product_color;
+    echo '在庫数:'.$test_inventory_stock;
+    echo '商品説明:'.$test_product_body;
+    echo '価格:'.$test_product_price;
+    echo '<a href="G10.php?id=' . htmlspecialchars($id) . '">戻る</a>';
 }
-
-if(!empty($_POST['size'])){
-      $size=$_POST['size'];
-      echo '<p>サイズ：</p>';
-      echo $size;
-}else{
-    $sql='SELECT product_size FROM product WHERE product_id = ?';
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute([$id]);
-    $result=$stmt->fetchAll(PDO::FETCH_ASSOC);
-    foreach($result as $row){
-        echo '<p>サイズ：</p>';
-        echo $row['product_size'];
-        $size=$row['product_size'];
-        }
-}
-
-if(!empty($_POST['stock'])){
-      $stock=$_POST['stock'];
-      echo '<p>在庫数：</p>';
-      echo $stock;
-}else{
-    $sql='SELECT inventory_stock FROM product WHERE product_id = ?';
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute([$id]);
-    $result=$stmt->fetchAll(PDO::FETCH_ASSOC);
-    foreach($result as $row){
-        echo '<p>在庫数：</p>';
-        echo $row['inventory_stock'];
-        $stock=$row['inventory_stock'];
-        }
-}
-if(!empty($_POST['color'])){
-      $color=$_POST['color'];
-      echo '<p>カラー：</p>';
-      echo $color;
-}else{
-    $sql='SELECT product_color FROM product WHERE product_id = ?';
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute([$id]);
-    $result=$stmt->fetchAll(PDO::FETCH_ASSOC);
-    foreach($result as $row){
-        echo '<p>カラー：</p>';
-        echo $row['product_color'];
-        $color=$row['product_color'];
-        }
-}
-if(!empty($_POST['body'])){
-      $body=nl2br($_POST['body']);
-      echo '<p>商品説明：</p>';
-      echo $body;
-}else{
-    $sql='SELECT product_body FROM product WHERE product_id = ?';
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute([$id]);
-    $result=$stmt->fetchAll(PDO::FETCH_ASSOC);
-    foreach($result as $row){
-        echo '<p>商品説明：</p>';
-        echo $row['product_body'];
-        $body=$row['product_body'];
-        }
-}
-if(!empty($_POST['price'])){
-      $price=$_POST['price'];
-      echo '<p>価格：</p>';
-      echo $price;
-}else{
-    $sql='SELECT product_price FROM product WHERE product_id = ?';
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute([$id]);
-    $result=$stmt->fetchAll(PDO::FETCH_ASSOC);
-    foreach($result as $row){
-        echo '<p>価格：</p>';
-        echo $row['product_price'];
-        $price=$row['product_price'];
-        }
-}
-
+    
     ?>
-   <form action="G12.php" method="post" enctype="multipart/form-data">
-    <input type="hidden" name="name" value="<?= htmlspecialchars($name) ?>">
-    <input type="hidden" name="size" value="<?= htmlspecialchars($size) ?>">
-    <input type="hidden" name="stock" value="<?= htmlspecialchars($stock) ?>">
-    <input type="hidden" name="color" value="<?= htmlspecialchars($color) ?>">
-    <input type="hidden" name="body" value="<?= htmlspecialchars($body) ?>">
-    <input type="hidden" name="price" value="<?= htmlspecialchars($price) ?>">
-    <input type="hidden" name="image_type" value="<?= htmlspecialchars($imag['image_type']) ?? null ?>">
-    <input type="hidden" name="image_content" value="<?= htmlspecialchars($imag['image_content']) ?? null ?>">
-    <input type="hidden" name="imag1" value="<?= htmlspecialchars($image['name']) ?? null ?>">
-    <input type="hidden" name="imag2" value="<?= htmlspecialchars($image['type']) ?? null ?>">
-    <input type="hidden" name="imag3" value="<?= htmlspecialchars($image['size']) ?? null ?>">
-    <input type="hidden" name="imag4" value="<?= htmlspecialchars($image['content']) ?? null ?>">
-    <p><button type="submit" name="U" value="<?= $id ?>">更新</button></p>
+    
+    <input type="submit" value="更新">
 </form>
 <script src="js/script.js"></script> <!-- JavaScriptファイルのリンク -->
 </body>
