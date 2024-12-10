@@ -1,13 +1,173 @@
-.box{
-    text-align: center;
-    padding: 20px;
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
 }
+
 span{
     display: inline-block;
     margin-bottom: auto;
-    height: 80px;
-    padding: 50px;
-    height: 20px;
+    padding: 20px;
     vertical-align: middle;
     box-sizing: border-box;
+}
+
+/* ヘッダー部分のスタイル */
+.main-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* 要素を左右に配置 */
+    background-color: #e9ecef;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    gap: 10px; /* ヘッダー内の要素間に余白を追加 */
+    flex-wrap: nowrap; /* ボタンが別の行に落ちないようにする */
+}
+
+.main-header a.back-link {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 16px;
+    flex-shrink: 0; /* ヘッダー内での縮小を防ぐ */
+}
+
+.main-header h1 {
+    margin: 0;
+    font-size: 20px;
+    color: #343a40;
+    flex-grow: 1; /* 必要に応じてスペースを占有する */
+    text-align: center; /* 見た目の中央揃え */
+}
+
+.main-header .register-button {
+    padding: 8px 16px;
+    font-size: 14px;
+    color: white;
+    background-color: #28a745;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    flex-shrink: 1; /* ボタンが圧縮されないようにする */
+    margin-left: auto; /* ボタンを右端に配置 */
+}
+
+
+/* 商品登録ボタンのスタイル */
+.register-botton {
+    padding: 10px 20px; /* ボタンの内側の余白 */
+    font-size: 16px; /* 文字サイズ */
+    color: white; /* 文字色 */
+    background-color: #007bff; /* ボタンの背景色 */
+    border: none; /* 枠線を削除 */
+    border-radius: 4px; /* 角を丸くする */
+    cursor: pointer; /* マウスカーソルをポインターに */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* ボックスシャドウ */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* ホバー時のアニメーション */
+    flex-shrink: 0; /* ボタンが縮小しないようにする */
+    margin-left: auto; /* 自動的に右側に配置 */
+    white-space: nowrap; /* テキスト折り返し防止 */
+}
+
+/* ホバー時のスタイル */
+.register-botton:hover {
+    background-color: #0056b3; /* ホバー時の背景色 */
+    transform: translateY(-2px); /* 少し浮かせる効果 */
+}
+
+/* 商品カードのスタイル */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+    align-items: flex-start; /* 高さを揃える */
+}
+
+.product-box {
+    background-color: white;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    text-align: center;
+    padding: 15px;
+    transition: box-shadow 0.3s ease;
+    text-decoration: none;
+    color: #495057;
+    display: flex; /* 内容を縦揃えするためのFlexbox */
+    flex-direction: column;
+    justify-content: center; /* 縦方向で中央揃え */
+    height: 100%; /* 高さを親に合わせる */
+    margin-top: 20px; /* これを追加して、各ボックスを下にずらす */
+}
+
+.product-box:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.product-box p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .main-header {
+        flex-direction: column;
+        align-items: center; /* 横幅いっぱいに配置 */
+        gap: 10px; /* ボタン間の間隔を調整 */
+    }
+
+    .main-header h1 {
+        margin-bottom: 10px;
+    }
+}
+
+ /* boxs */
+ .boxs {
+    display: flex;
+    flex-wrap: wrap; /* 複数行に折り返し可能に */
+    justify-content: space-between; /* 要素を均等に配置 */
+    height: 250px;
+}
+
+.box {
+    display: inline-block;
+    width: calc(20% - 10px);  /* 余白を引いた幅に調整 */
+    height: 250px;
+    border:1px solid #ebeced;
+    margin: 0 5px;
+    text-align: center;
+    color: #3e3e3b;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+    padding: 20px;
+    }
+
+    .boxs .box {
+        display: inline-block; /* ここで意図通りの表示方法に */
+        width: 20%;
+        height: 200px;
+        border: 1px solid #ebeced;
+        margin: 0 5px;
+        text-align: center;
+        color: #3e3e3b;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+    }
+
+.box:hover {
+    color: #4c586f;
+}
+.icon{
+    font-size: 80px;
+    height: 130px;
+    line-height: 130px;
+}
+.box p {
+    font-size: 20px;
+    font-weight: bold;
+    overflow: hidden; /* はみ出した文字を隠す */
+    white-space: nowrap; /* テキストの折り返しを無効にする */
+    text-overflow: ellipsis; /* 文字が溢れた場合、省略記号 (...) を表示 */
 }
