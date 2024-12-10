@@ -15,7 +15,7 @@
 </head>
 <body>
 <?php
-$id=$_POST['D'] ?? null;
+$id=$_POST['product_delete'] ?? null;
 if(!($id)){
     $id = $_SESSION['id'] ?? null;
 }

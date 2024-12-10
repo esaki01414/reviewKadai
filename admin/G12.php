@@ -15,7 +15,7 @@
 </head>
 <body>
 <?php
-$id=$_POST['U'] ?? null;
+$id=$_POST['product_update'] ?? null;
 if(!($id)){
     $id = $_SESSION['id'] ?? null;
 }

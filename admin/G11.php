@@ -15,7 +15,7 @@
 </head>
 <body>
 <?php
-$id=$_POST['U'] ?? null;
+$id=$_POST['product_update'] ?? null;
 if(!($id)){
     $id = $_SESSION['id'] ?? null;
 }
@@ -52,12 +52,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'post'){
         exit;
     }
     echo '<img src="',$image_file,'"><br>';
-    echo '商品名:'.$_POST['product_name'];
-    echo 'サイズ:'.$_POST['product_size'];
-    echo 'カラー:'.$_POST['product_color'];
-    echo '在庫数:'.$_POST['inventory_stock'];
-    echo '商品説明:'.$_POST['product_body'];
-    echo '価格:'.$_POST['product_price'];
+    echo '商品名:'.$test_product_name;
+    echo 'サイズ:'.$test_product_size;
+    echo 'カラー:'.$test_product_color;
+    echo '在庫数:'.$test_inventory_stock;
+    echo '商品説明:'.$test_product_body;
+    echo '価格:'.$test_product_price;
     echo '<a href="G10.php?id=' . htmlspecialchars($id) . '">戻る</a>';
 }
     

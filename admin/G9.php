@@ -57,14 +57,14 @@
         echo '<div class="button-group">';
                 // 商品更新ボタン
                 echo '<form action="G10.php" method="post">';
-                echo '<button type="submit" name="U" value="' . $row['product_id'] . '" class="admin-button update-button">';
+                echo '<button type="submit" name="product_update" value="' . $row['product_id'] . '" class="admin-button update-button">';
                 echo '<i class="fa fa-edit"></i> 商品更新';
                 echo '</button>';
                 echo '</form>';
         
                 // 商品削除ボタン
                 echo '<form action="G16.php" method="post">';
-                echo '<button type="submit" name="D" value="' . $row['product_id'] . '" class="admin-button delete-button">';
+                echo '<button type="submit" name="product_delete" value="' . $row['product_id'] . '" class="admin-button delete-button">';
                 echo '<i class="fa fa-trash"></i> 商品削除';
                 echo '</button>';
                 echo '</form>';

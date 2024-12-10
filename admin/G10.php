@@ -15,7 +15,7 @@
 </head>
 <body>
 <?php
-$id=$_POST['U'] ?? null;
+$id=$_POST['product_update'] ?? null;
 if(!($id)){
     $id = $_SESSION['id'] ?? null;
 }
@@ -49,9 +49,10 @@ if(!($id)){
         echo '<img src="data:'.htmlspecialchars($row['image_type']).';base64,'.base64_encode($row['image_content']).'"width="200" height="auto""><br>';
         echo '<input type="hidden" name="product_id" value="'.htmlspecialchars($row['product_id']).'">';  // idを隠しフィールドで送信
         echo '<p>商品名：</p>';
-        echo '<input type="text" name="product_name" value="<?php echo '.htmlspecialchars($row['product_name']).'; ?>">';
+        echo '<input type="text" name="product_name" value="'.htmlspecialchars($row['product_name']).'">';
         echo '<p>サイズ:</p>';
         echo '<select id="product_size" name="product_size">';
+        echo '<option>'.htmlspecialchars($row['product_size']).'</option>';
         echo '<optgroup label="メンズ"></optgroup>';
         echo '<option value="S">S</option>';
         echo '<option value="M">M</option>';
@@ -70,23 +71,24 @@ if(!($id)){
         echo '<optgroup label="その他"></optgroup>';
         echo '<option value="サイズ表記なし">サイズ表記なし</option>';
         echo '</select>';
+        echo '<p>カラー:</p>';
+        echo         '<input type="text" name="product_color" value="'.htmlspecialchars($row['product_color']).'">';
+        echo     '<p>在庫数：</p>';
+        echo         '<input type="text" name="inventory_stock" value="'.htmlspecialchars($row['inventory_stock']).'">';
+        echo     '<p>商品説明:</p>';
+        echo         '<textarea name="product_body" maxlength="255">'.htmlspecialchars($row['product_body']).'</textarea>';
+        echo     '<p>価格:</p>';
+        echo         '<input type="number" name="product_price" value="'.htmlspecialchars($row['product_price']).'">';
+        echo     '<div class="form-group">';
+        echo     '<p>商品画像:</p>';
+        echo         '<input type="file" name="image" class="imgform"><br><br>';
+        echo     '</div>';
     }else{
             echo 'データが見つかりませんでした';
         }
     }
             ?>
-            <p>カラー:</p>
-                <input type="text" name="product_color">
-            <p>在庫数：</p>
-                <input type="text" name="inventory_stock">
-            <p>商品説明:</p>
-                <textarea name="product_body" maxlength="255"></textarea>
-            <p>価格:</p>
-                <input type="number" name="product_price">
-            <div class="form-group">
-            <p>商品画像:</p>
-                <input type="file" name="image" class="imgform"><br><br>
-            </div>
+            
         <p><button type="submit" name="product_update" value="<?= $id ?>" class="btn btn-blue">更新</button></p>
     </form>
         </div>
