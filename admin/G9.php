@@ -11,7 +11,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>商品詳細画面</title>
-    <link rel="stylesheet" href="css/styles.css"> <!-- CSSファイルのリンク -->
+    <link rel="stylesheet" href="css/G9.css"> <!-- CSSファイルのリンク -->
 </head>
 <body>
     <?php
@@ -45,7 +45,9 @@
        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         foreach($result as $row){     
 
+       
         echo '<img src="data:'.htmlspecialchars($row['image_type']).';base64,'.base64_encode($row['image_content']).'"width="200" height="auto""><br>';
+        echo '<div class="">';
         echo '<p>商品作成日:</p>';
         echo '<p>',htmlspecialchars($row['created_at']),'</p>';
         echo '<p>商品画像名:</p>';
@@ -66,7 +68,7 @@
         echo '<p>',htmlspecialchars($row['inventory_stock']),'</p>';
         echo '<p>商品説明:</p>';
         echo '<p>',htmlspecialchars($row['product_body']),'</p>';
-        
+        echo '</div>';
         
        }
        $pdo=null;
