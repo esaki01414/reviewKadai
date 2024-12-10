@@ -1,0 +1,92 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    position: relative; /* 戻るボタンの固定に必要 */
+}
+a {
+    position: absolute; /* 左上に固定配置 */
+    top: 0px;
+    left: 20px;
+    color: #007BFF; /* 青色 */
+    text-decoration: none; /* 下線を消す */
+    font-size: 16px; /* フォントサイズ */
+    z-index: 10; /* 他要素の前に表示 */
+}
+a:hover {
+    text-decoration: underline; /* ホバー時に下線を表示 */
+}
+h1 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    margin-top: 50px; /* 上部に余白を追加して戻るリンクと分離 */
+    color: #333;
+}
+
+.container {
+    display: flex; /* 横並びに配置 */
+    gap: 30px; /* 画像と詳細の間に余白 */
+    padding: 10px; /* ページ全体に余白を追加 */
+    width: 100%; /* または適切な幅 */
+    max-width: 1200px; /* レスポンシブに対応する場合 */
+    margin: 30px   /* 中央に配置 + 戻るボタン分の余白 */
+}
+img {
+    width: 300px; /* 画像の幅を300pxに統一 */
+    height: auto; /* アスペクト比を維持したまま高さを調整 */
+    border-radius: 5px; /* 角を丸くする */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 画像に影を付ける */
+    margin-left: 30px; /* 画像を左から少し右にずらす */
+}
+.product-details {
+    flex: 1; /* 画像の横で幅を可変に */
+    display: block; /*テキスト部分は縦並び*/
+    background-color: #fff; /* 背景を白にする */
+    padding: 20px; /* 内側に余白 */
+    border-radius: 8px; /* 角を丸くする */
+    font-size: 14px;
+    position: relative; /* 子要素の絶対配置を可能にする */
+    line-height: 1.8; /* 行間の調整 */
+    border: 1px solid #ddd; /* 枠線を薄いグレーで表示 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 全体に影を付ける */
+}
+
+.product-details p {
+    margin: 5px 0; /* 各項目の間隔を調整 */
+}
+
+.product-details h2 {
+    font-size: 18px; /* 見出しのフォントサイズ */
+    color: #333; /* 文字色 */
+    margin: 10px 0; /* 各見出しの余白 */
+    line-height: 1.5; /* 行間を広げる */
+}
+
+.detail-item strong {
+    margin-right: bold; /* ラベルと値の間に少しスペース */
+}
+
+.button-group {
+    display: flex; /* 横並びに配置 */
+    gap: 40px; /* ボタン間の間隔 */
+    margin-top: 30px; /* 上部の余白を追加 */
+}
+.btn.btn-blue {
+    position: absolute; /* 親要素 `.product-details` 内での絶対位置指定 */
+    bottom: 20px;       /* 下から20pxの位置に配置 */
+    right: 40px;        /* 右から20pxの位置に配置 */
+    padding: 10px 20px; /* ボタン内の余白を調整 */
+    background-color: #007BFF; /* ボタンの背景色 */
+    color: #fff;        /* ボタンの文字色 */
+    border: none;       /* ボーダーを消す */
+    border-radius: 5px; /* 角を丸くする */
+    font-size: 16px;    /* フォントサイズを調整 */
+    cursor: pointer;    /* ホバー時のカーソルをポインターに */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 影を追加 */
+}
+
+.btn.btn-blue:hover {
+    background-color: #0056b3; /* ホバー時の色を濃くする */
+}

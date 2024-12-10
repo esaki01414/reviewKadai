@@ -12,7 +12,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>商品詳細画面</title>
     <link rel="stylesheet" href="css/G9.css"> <!-- CSSファイルのリンク -->
-    <link rel="stylesheet" href="./css/G9.css"> <!-- CSSファイルのリンク -->
 </head>
 <body>
     <?php
