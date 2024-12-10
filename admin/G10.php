@@ -26,7 +26,7 @@ if(!($id)){
     <a href="G9.php?id=<?= $id ?>">戻る</a><br>
     <h1>商品更新</h1>
     </div>
-    <form action="G12.php" method="post" enctype="multipart/form-data">
+    <form action="G11.php" method="post" enctype="multipart/form-data">
     <?php
     try {
         $pdo = new PDO(
@@ -49,7 +49,7 @@ if(!($id)){
         echo '<img src="data:'.htmlspecialchars($row['image_type']).';base64,'.base64_encode($row['image_content']).'"width="200" height="auto""><br>';
         echo '<input type="hidden" name="product_id" value="'.htmlspecialchars($row['product_id']).'">';  // idを隠しフィールドで送信
         echo '<p>商品名：</p>';
-        echo '<input type="text" name="product_name">';
+        echo '<input type="text" name="product_name" value="<?php echo '.htmlspecialchars($row['product_name']).'; ?>">';
         echo '<p>サイズ:</p>';
         echo '<select id="product_size" name="product_size">';
         echo '<optgroup label="メンズ"></optgroup>';

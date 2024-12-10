@@ -24,21 +24,34 @@ if(!($id)){
 <form action="G12.php" method="POST" enctype="multipart/form-data">
 <?php
 
-if(is_uploaded_file($_FILES['image']['tmp_name'])){
-    $uploadDir = 'uploads/'.basename($_FILES['image']['name']);
-    if(move_uploaded_file($_FILES['image']['tmp_name'],$uploadDir)){
-        echo $uploadDir;
-    }
-}
-if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])){
-    // 画像ファイルをBase64エンコード
-    $imageData = base64_encode(file_get_contents($_FILES['image']['tmp_name']));
-    // エンコードされたデータを次のページに送信
-    header('Location:G12.php?image_data=' . urlencode($imageData));
-    exit;
-}
 if ($_SERVER['REQUEST_METHOD'] === 'post'){
-    echo '<img src=""><br>';
+    $test_product_id=$_POST['product_id'];
+    $test_product_name = $_POST['product_name'];
+    $test_product_size = $_POST['product_size'];
+    $test_product_color = $_POST['product_color'];
+    $test_inventory_stock = $_POST['inventory_stock'];
+    $test_product_price = $_POST['product_price'];
+    $test_product_body = $_POST['product_body'];
+
+    if (!empty($_FILES['image']['name'])) {
+        $image_name = $_FILES['image']['name']; // アップロードされたファイル名
+        $image_type = $_FILES['image']['type']; // アップロードされたファイルタイプ
+        $image_content = file_get_contents($_FILES['image']['tmp_name']); // ファイルの内容を取得
+        $image_size = $_FILES['image']['size']; // ファイルサイズ
+        if(!file_exists('upload')){
+            mkdir('upload');
+        }
+        if(move_uploaded_file($_FILES['image']['tmp_name'], $filePath)){
+            $image_file='upload/'.basename($_FILES['image']['name']);
+        }
+    } else {
+        echo '<div class="message error">';
+        echo '<a href="./G8.php">商品管理に遷移</a><br>';
+        echo 'データが正しく送信されていません。';
+        echo '</div>';
+        exit;
+    }
+    echo '<img src="',$image_file,'"><br>';
     echo '商品名:'.$_POST['product_name'];
     echo 'サイズ:'.$_POST['product_size'];
     echo 'カラー:'.$_POST['product_color'];
@@ -47,6 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'post'){
     echo '価格:'.$_POST['product_price'];
     echo '<a href="G10.php?id=' . htmlspecialchars($id) . '">戻る</a>';
 }
+    
     ?>
     
     <input type="submit" value="更新">
