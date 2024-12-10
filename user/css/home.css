@@ -118,6 +118,7 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    margin-top: 70px;
   }
 
   .login-btn:hover {
