@@ -5,6 +5,12 @@
            exit;
       }
 ?>
+<?php
+$id=$_POST['product_update'] ?? null;
+if(!($id)){
+    $id = $_SESSION['id'] ?? null;
+}
+?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -14,12 +20,6 @@
     <link rel="stylesheet" href="css/styles.css"> <!-- CSSファイルのリンク -->
 </head>
 <body>
-<?php
-$id=$_POST['product_update'] ?? null;
-if(!($id)){
-    $id = $_SESSION['id'] ?? null;
-}
-?>
 <div class="wrapper">
     <div class="container">
         <div class="wrapper-title">
@@ -89,7 +89,7 @@ if(!($id)){
     }
             ?>
             
-        <p><button type="submit" name="product_update" value="<?= $id ?>" class="btn btn-blue">更新</button></p>
+        <p><button type="submit" name="product_update" value="<?= $id ?>" class="btn btn-blue">確認</button></p>
     </form>
         </div>
     </div>
