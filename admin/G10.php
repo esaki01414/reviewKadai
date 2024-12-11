@@ -23,7 +23,7 @@ if(!($id)){
  
     <a href="G9.php?id=<?= $id ?>">戻る</a>
     <h1>商品更新</h1>
-    <form action="G11.php" method="post" enctype="multipart/form-data">
+    <form action="G12.php" method="post" enctype="multipart/form-data">
     <div class="container">
     <?php
         try {
@@ -94,7 +94,7 @@ if(!($id)){
     }
             ?>
            
-            <button type="submit" name="product_update" value="<?= $id ?>" class="btn btn-blue">更新</button>
+            <button type="submit" name="product_update" value="<?= $id ?>" class="btn btn-blue" onclick="return confirm('この内容で更新しますか？')">更新</button>
     </form>
         </div>
     <script src="js/script.js"></script> <!-- JavaScriptファイルのリンク -->

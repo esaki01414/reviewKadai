@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $product_price = $_POST['product_price'];
     $product_body = $_POST['product_body'];
     
-    if (!empty($_FILES['image'])) {
+    if (!empty($_FILES['image']['name'])) {
         $image_name = $_FILES['image']['name']; // アップロードされたファイル名
         $image_type = $_FILES['image']['type']; // アップロードされたファイルタイプ
         $image_content = file_get_contents($_FILES['image']['tmp_name']); // ファイルの内容を取得
