@@ -150,9 +150,9 @@ $images = $stmt->fetchAll();
                 <form action="./product.php" method="post">
                 <div class="product-list">
     <?php
-    // LIMIT句を使用して、データベースから最大8件の商品を取得
+    // LIMIT句を使用して、データベースからランダムに最大8件の商品を取得
     // すべて表示させる処理の追加
-    $stmt = $pdo->query('SELECT * FROM product LIMIT 8');
+    $stmt = $pdo->query('SELECT * FROM product ORDER BY RAND() LIMIT 8');
     //↑LIMIT＝データベースの最大数を変えられる
     foreach ($stmt as $row) {
         echo '<div class="product_all">';
