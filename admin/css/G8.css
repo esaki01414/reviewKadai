@@ -40,20 +40,6 @@ span{
     text-align: center; /* 見た目の中央揃え */
 }
 
-.main-header .register-button {
-    padding: 8px 16px;
-    font-size: 14px;
-    color: white;
-    background-color: #28a745;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    flex-shrink: 1; /* ボタンが圧縮されないようにする */
-    margin-left: auto; /* ボタンを右端に配置 */
-}
-
-
 /* 商品登録ボタンのスタイル */
 .register-botton {
     padding: 10px 20px; /* ボタンの内側の余白 */

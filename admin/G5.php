@@ -11,17 +11,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ユーザー一覧管理画面</title>
-    <link rel="stylesheet" href="css/styles.css"> <!-- CSSファイルのリンク -->
     <link rel="stylesheet" href="css/G5.css"> <!-- CSSファイルのリンク -->
 
 </head>
 <body>
-<a href="G2.php">戻る</a><br><br>
+<header class="main-header">
+<a href="G2.php" class="back-link">戻る</a>
     <h1>ユーザー管理</h1>
    <form action="G6.php" method="get">   
-    <button type="submit">ユーザー削除</button>
+    <button class="delete-button" type="submit">ユーザー削除</button>
    </form>
-   <br>
+</header>
+
    <?php
        try {
         $pdo = new PDO(

@@ -29,14 +29,7 @@
   
         <label for="password">Password</label>
         <input type="password" id="password" name="user_pass" placeholder="英数字含む8文字以上" required>
-  
-        <div class="checkbox-container">
-          <input type="checkbox" id="remember">
-          <label for="remember">パスワードを自動保存する</label>
-        </div>
-  
-        <a href="#" class="forgot-password">パスワードを忘れた方はこちら（再設定）</a>
-  
+      
         <button type="submit" class="login-btn" value="send">Login</button>
       </form>
     </div>
