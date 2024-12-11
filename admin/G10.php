@@ -11,7 +11,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>商品更新画面</title>
-    <link rel="stylesheet" href="css/styles.css"> <!-- CSSファイルのリンク -->
+    <link rel="stylesheet" href="css/G10.css"> <!-- CSSファイルのリンク -->
 </head>
 <body>
 <?php
@@ -20,20 +20,18 @@ if(!($id)){
     $id = $_SESSION['id'] ?? null;
 }
 ?>
-<div class="wrapper">
-    <div class="container">
-        <div class="wrapper-title">
-    <a href="G9.php?id=<?= $id ?>">戻る</a><br>
+ 
+    <a href="G9.php?id=<?= $id ?>">戻る</a>
     <h1>商品更新</h1>
-    </div>
-    <form action="G11.php" method="post" enctype="multipart/form-data">
+    <form action="G12.php" method="post" enctype="multipart/form-data">
+    <div class="container">
     <?php
-    try {
-        $pdo = new PDO(
-            'mysql:host=mysql310.phy.lolipop.lan;dbname=LAA1554917-system;charset=utf8',
-            'LAA1554917',
-            'PassSD2D'
-        );
+        try {
+            $pdo = new PDO(
+                'mysql:host=mysql310.phy.lolipop.lan;dbname=LAA1554917-system;charset=utf8',
+                'LAA1554917',
+                'PassSD2D'
+         );
     } catch (PDOException $e) {
         echo 'データベース接続に失敗しました: ' . htmlspecialchars($e->getMessage());
         exit;
@@ -46,12 +44,16 @@ if(!($id)){
     // フォームを表示
     foreach($result as $row){
     if($row){
+ 
+        echo '<div class="product-image" style="float:left; margin-right:20px; margin-top:20px;">';
         echo '<img src="data:'.htmlspecialchars($row['image_type']).';base64,'.base64_encode($row['image_content']).'"width="200" height="auto""><br>';
+        echo'</div>';
+ 
+        echo '<div class="product-details">';
         echo '<input type="hidden" name="product_id" value="'.htmlspecialchars($row['product_id']).'">';  // idを隠しフィールドで送信
-        echo '<p>商品名：</p>';
-        echo '<input type="text" name="product_name" value="'.htmlspecialchars($row['product_name']).'">';
-        echo '<p>サイズ:</p>';
-        echo '<select id="product_size" name="product_size">';
+        echo '<p>商品名：<input type="text" name="product_name" value="'.htmlspecialchars($row['product_name']).'"></p>';
+        echo '<br>';
+        echo '<p>サイズ：<select id="product_size" name="product_size"></p>';
         echo '<option>'.htmlspecialchars($row['product_size']).'</option>';
         echo '<optgroup label="メンズ"></optgroup>';
         echo '<option value="S">S</option>';
@@ -71,28 +73,30 @@ if(!($id)){
         echo '<optgroup label="その他"></optgroup>';
         echo '<option value="サイズ表記なし">サイズ表記なし</option>';
         echo '</select>';
-        echo '<p>カラー:</p>';
-        echo         '<input type="text" name="product_color" value="'.htmlspecialchars($row['product_color']).'">';
-        echo     '<p>在庫数：</p>';
-        echo         '<input type="text" name="inventory_stock" value="'.htmlspecialchars($row['inventory_stock']).'">';
-        echo     '<p>商品説明:</p>';
-        echo         '<textarea name="product_body" maxlength="255">'.htmlspecialchars($row['product_body']).'</textarea>';
-        echo     '<p>価格:</p>';
-        echo         '<input type="number" name="product_price" value="'.htmlspecialchars($row['product_price']).'">';
+        echo '<br>';
+        echo '<br>';
+        echo '<p>カラー：<input type="text" name="product_color" value="'.htmlspecialchars($row['product_color']).'"></p>';
+        echo '<br>';
+        echo '<p>在庫数：<input type="text" name="inventory_stock" value="'.htmlspecialchars($row['inventory_stock']).'"></p>';
+        echo '<br>';
+        echo '<p>商品説明：<textarea name="product_body" maxlength="255">'.htmlspecialchars($row['product_body']).'</textarea></p>';
+        echo '<br>';
+        echo '<p>価格：<input type="number" name="product_price" value="'.htmlspecialchars($row['product_price']).'"></p>';
+        echo '<br>';
         echo     '<div class="form-group">';
-        echo     '<p>商品画像:</p>';
-        echo         '<input type="file" name="image" class="imgform"><br><br>';
+        echo     '<p>商品画像：<input type="file" name="image" class="imgform"></p>';
         echo     '</div>';
+        echo '<br>';
+        echo '</div>';
     }else{
             echo 'データが見つかりませんでした';
         }
     }
             ?>
-            
-        <p><button type="submit" name="product_update" value="<?= $id ?>" class="btn btn-blue">更新</button></p>
+           
+            <button type="submit" name="product_update" value="<?= $id ?>" class="btn btn-blue" onclick="return confirm('この内容で更新しますか？')">更新</button>
     </form>
         </div>
-    </div>
     <script src="js/script.js"></script> <!-- JavaScriptファイルのリンク -->
 </body>
 </html>

@@ -1,0 +1,67 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    flex-direction: column;
+    display: flex; /* フレックスボックスを使用 */
+    height: 100vh; /* 画面全体の高さを確保 */
+}
+
+/* ヘッダー部分のスタイル */
+.main-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* 要素を左右に配置 */
+    background-color: #e9ecef;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    gap: 10px; /* ヘッダー内の要素間に余白を追加 */
+    flex-wrap: nowrap; /* ボタンが別の行に落ちないようにする */
+}
+
+.main-header a.back-link {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 16px;
+    flex-shrink: 0; /* ヘッダー内での縮小を防ぐ */
+}
+
+.main-header h1 {
+    margin: 0;
+    font-size: 20px;
+    color: #343a40;
+    flex-grow: 1; /* 必要に応じてスペースを占有する */
+    text-align: center; /* 見た目の中央揃え */
+}
+
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.center-container {
+    text-align: center;
+    background-color: #ffffff; /* 背景を白に設定 */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 300px;
+}
+
+/* ボタンのスタイル */
+button {
+    background-color: #ff0000;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #b30000;
+}

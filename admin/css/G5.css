@@ -1,3 +1,58 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+
+/* ヘッダー部分のスタイル */
+.main-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* 要素を左右に配置 */
+    background-color: #e9ecef;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    gap: 10px; /* ヘッダー内の要素間に余白を追加 */
+    flex-wrap: nowrap; /* ボタンが別の行に落ちないようにする */
+}
+
+.main-header a.back-link {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 16px;
+    flex-shrink: 0; /* ヘッダー内での縮小を防ぐ */
+}
+
+.main-header h1 {
+    margin: 0;
+    font-size: 20px;
+    color: #343a40;
+    flex-grow: 1; /* 必要に応じてスペースを占有する */
+    text-align: center; /* 見た目の中央揃え */
+}
+
+.delete-button {
+    padding: 10px 20px; /* ボタンの内側の余白 */
+    font-size: 16px; /* 文字サイズ */
+    color: white; /* 文字色 */
+    background-color: #ff0000; /* ボタンの背景色 */
+    border: none; /* 枠線を削除 */
+    border-radius: 4px; /* 角を丸くする */
+    cursor: pointer; /* マウスカーソルをポインターに */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* ボックスシャドウ */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* ホバー時のアニメーション */
+    flex-shrink: 0; /* ボタンが縮小しないようにする */
+    margin-left: auto; /* 自動的に右側に配置 */
+    white-space: nowrap; /* テキスト折り返し防止 */
+}
+
+/* ホバー時のスタイル */
+.delete-button:hover {
+    background-color: #b30000; /* ホバー時の背景色 */
+    transform: translateY(-2px); /* 少し浮かせる効果 */
+}
+
 /* Main container for the media items */
 .bl_media_container {
     display: flex;
