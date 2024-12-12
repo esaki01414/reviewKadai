@@ -142,7 +142,7 @@ if ($row) {
             <div class="todohu-ken">
                 <div><label for="todohuken">都道府県</label>
                     <select id="prefecture" name="user_prefecture" required>
-                    <option value="" disabled selected>選択してください</option>
+                    <option><?php echo htmlspecialchars($user_prefecture)?></option>
                         <optgroup label="北海道地方"></optgroup>
                         <option value="北海道">北海道</option>
                         <hr>
