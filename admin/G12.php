@@ -46,11 +46,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $image_content = file_get_contents($_FILES['image']['tmp_name']); // ファイルの内容を取得
         $image_size = $_FILES['image']['size']; // ファイルサイズ
     } else {
-        echo '<div class="message error">';
-        echo '<a href="./G8.php">商品管理に遷移</a><br>';
-        echo 'データが正しく送信されていません。';
-        echo '</div>';
-        exit;
+        $sql='SELECT * FROM product WHERE product_id = ?';
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([$id]);
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        // フォームを表示
+        foreach($result as $row){
+        $image_content = $row['image_content'];
+        $image_type = $row['image_type'];
+        $image_name = $row['image_name'];
+        $image_size = $row['image_size'];
+
+        }
+        
     }
     
     // データベースに登録
