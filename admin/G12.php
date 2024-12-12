@@ -4,6 +4,7 @@
            header("Location:./G1.php");
            exit;
       }
+      $maneger_id=$_SESSION['maneger_id'];
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -63,11 +64,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     // データベースに登録
     try {
-        $sql = "UPDATE product SET product_name = ?, product_size = ?, product_color = ?, inventory_stock = ?,
+        $sql = "UPDATE product SET maneger_id = ?,product_name = ?, product_size = ?, product_color = ?, inventory_stock = ?,
               product_body = ?, product_price = ?,image_name = ?,image_type = ?,image_content = ?,
               image_size = ? WHERE product_id = ?";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([
+            $maneger_id,
             $product_name,
             $product_size,
             $product_color,

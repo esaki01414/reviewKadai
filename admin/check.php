@@ -1,4 +1,5 @@
 <?php
+session_start();
     $pdo = new PDO(
         'mysql:host=mysql310.phy.lolipop.lan;
         dbname=LAA1554917-system;charset=utf8',
