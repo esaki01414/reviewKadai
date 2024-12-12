@@ -15,11 +15,11 @@ session_destroy();
 <body>
     <div class="container">
         <div class="content">
-            <h3>ログアウト完了画面</h3>
+            <h3>ログアウト完了</h3>
             <p>ログアウトしました。</p>
         </div>
         <div class="footer">
-            <a href="./home.php">ホーム画面に遷移</a>
+            <a href="./home.php">ホームへ</a>
         </div>
     </div>
 </body>

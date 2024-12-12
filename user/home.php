@@ -139,7 +139,7 @@ $images = $stmt->fetchAll();
         </section>
         <script src="js/home.js"></script>
                 <br><br>               <br><br>
-                <h2><b><marquee>季節限定商品のキャンペーン開催中</marquee></b></h2>
+                <h2><b><marquee>～～季節限定商品のキャンペーン開催中～～</marquee></b></h2>
                 <p><?=$search_keyword?></p>
                
     <b><h1 style="text-decoration:underline; text-align: center;" >商品</h1></b>
