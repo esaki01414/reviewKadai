@@ -1,29 +1,8 @@
 <?php
 session_start();
 
-// セッションが開始されているか確認
-if (!isset($_SESSION['user_id'])) {
-    echo '<div style="display: flex; justify-content: center; align-items: center; height: 100vh;">';
-    echo '<div style="text-align: center; margin-top: 50px; padding: 20px;border-radius: 10px; width: 300px; background-color: #f7f7f7;">';
-    echo '<p style="font-size: 18px; font-weight: bold;">商品詳細</p>';
-    echo '<p style="font-size: 18px; color: red; font-weight: bold;">ログインしていません</p>';
-    echo '<a href="./login.php" style="display: inline-block; margin: 10px; padding: 10px 20px; background-color: blue; color: white; text-decoration: none; border-radius: 5px;">ログイン画面に遷移</a><br>';
-    echo '<a href="./home.php" style="display: inline-block; margin: 10px; padding: 10px 20px; background-color: blue; color: white; text-decoration: none; border-radius: 5px;">ホーム画面に遷移</a>';
-    echo '</div>';
-    echo '</div>';
-    exit;
-}
-
-
-// セッションにユーザー情報がない場合、ログインページへリダイレクト
-if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
-    exit();
-}
-
-
 // セッションからユーザーIDを取得
-$user_id = $_SESSION['user_id'];
+$user_id = $_SESSION['user_id'] ?? null;
 
 // POSTデータから商品IDを取得
 $product_id = $_POST['product_id'] ?? null;
@@ -84,6 +63,7 @@ if (!$product) {
     <h2>在庫数: <?= htmlspecialchars($product['inventory_stock'], ENT_QUOTES, 'UTF-8') ?></h2>
     <h2>商品詳細:<?= nl2br(htmlspecialchars($product['product_body'], ENT_QUOTES, 'UTF-8')) ?>
     </h2>
+    <?php if(isset($_SESSION['user_id'])){?>
     <form action="./product_finishing.php" method="post">
         <input type="hidden" name="product_id" value="<?= htmlspecialchars($product_id, ENT_QUOTES, 'UTF-8') ?>">
         <button type="submit" name="favorite" id="favorite-button">お気に入りに登録</button>
@@ -91,6 +71,9 @@ if (!$product) {
         </div>
         </div>
     </form>
+    <?php }else{?>
+        <p>※お気に入り・カートへの登録はログイン後使用可能です。</p>
+    <?php }?>
 </body>
 </html>
 
