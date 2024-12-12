@@ -44,7 +44,6 @@
         
         echo '<div class="product-details">';
         echo '<span class="detail-item"><strong>商品作成日:</strong> ' . htmlspecialchars($row['created_at']) . '</span>';
-        echo '<p><strong>商品作成日:</strong> ' . htmlspecialchars($row['created_at']) . '</p>';
         echo '<p><strong>商品画像名:</strong> ' . htmlspecialchars($row['image_name']) . '</p>';
         echo '<p><strong>商品画像サイズ:</strong> ' . htmlspecialchars($row['image_size']) . '</p>';
         echo '<p><strong>商品ID:</strong> ' . htmlspecialchars($row['product_id']) . '</p>';
