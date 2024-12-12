@@ -1,0 +1,129 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    position: relative; /* 戻るボタンの固定に必要 */
+}
+a {
+    position: absolute; /* 左上に固定配置 */
+    top: 0px;
+    left: 20px;
+    color: #007BFF; /* 青色 */
+    text-decoration: none; /* 下線を消す */
+    font-size: 16px; /* フォントサイズ */
+    z-index: 10; /* 他要素の前に表示 */
+}
+a:hover {
+    text-decoration: underline; /* ホバー時に下線を表示 */
+}
+
+h1 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    margin-top: 50px; /* 上部に余白を追加して戻るリンクと分離 */
+    color: #333;
+}
+
+.container {
+    display: flex; /* 横並びに配置 */
+    gap: 30px; /* 画像と詳細の間に余白 */
+    padding: 10px; /* ページ全体に余白を追加 */
+    width: 100%; /* または適切な幅 */
+    max-width: 1200px; /* レスポンシブに対応する場合 */
+    margin: 30px   /* 中央に配置 + 戻るボタン分の余白 */
+}
+
+img {
+    width: 300px; /* 画像の幅を300pxに統一 */
+    height: auto; /* アスペクト比を維持したまま高さを調整 */
+    border-radius: 5px; /* 角を丸くする */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 画像に影を付ける */
+    margin-left: 30px; /* 画像を左から少し右にずらす */
+}
+
+
+/* 商品詳細のスタイル */
+.product-details {
+    position: relative; /* 削除ボタンを相対配置 */
+    background-color: #fff; /* 背景色 */
+    padding: 20px; /* 内側余白 */
+    border-radius: 8px; /* 角を丸くする */
+    border: 1px solid #ddd; /* 枠線 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 影を追加 */
+    font-size: 14px; /* フォントサイズ */
+    line-height: 1.8; /* 行間 */
+    width: 100%; /* または適切な幅 */
+    min-height: 450px; /* 最小高さを400pxに設定（高さは必要に応じて調整） */
+}
+
+.product-details p {
+    margin: 5px 0; /* 各項目の間隔を調整 */
+}
+
+.product-details h2 {
+    font-size: 18px; /* 見出しのフォントサイズ */
+    color: #333; /* 文字色 */
+    margin: 10px 0; /* 各見出しの余白 */
+    line-height: 1.5; /* 行間を広げる */
+}
+
+.detail-item strong {
+    margin-right: bold; /* ラベルと値の間に少しスペース */
+}
+
+.button-group {
+    display: flex; /* 横並びに配置 */
+    gap: 40px; /* ボタン間の間隔 */
+    margin-top: 30px; /* 上部の余白を追加 */
+}
+
+.admin-button {
+    display: inline-flex; /* アイコンとテキストを横並び */
+    align-items: center; /* 縦中央揃え */
+    justify-content: center;
+    width: 180px; /* ボタンの幅 */
+    padding: 10px 15px; /* 内側の余白 */
+    font-size: 16px; /* フォントサイズ */
+    font-weight: bold; /* 太字 */
+    border: none; /* デフォルトの枠線を削除 */
+    border-radius: 5px; /* 角を丸くする */
+    cursor: pointer; /* ホバー時にポインタ表示 */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* アニメーション */
+}
+
+.delete-button-wrapper {
+    position: absolute; /* product-details を基準に配置 */
+    bottom: -3px; /* 下からの距離 */
+    right: 30px; /* 右からの距離 */
+}
+
+/* 削除ボタンのスタイル */
+.delete-button {
+    background-color: #f44336; /* 赤色 */
+    color: white; /* 文字を白に */
+    padding: 10px 15px; /* 内側余白 */
+    border: none; /* 枠線を削除 */
+    border-radius: 5px; /* 角を丸く */
+    cursor: pointer; /* ポインタ表示 */
+    font-size: 14px; /* フォントサイズ */
+    font-weight: bold; /* 太字 */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* ホバーアニメーション */
+}
+
+.delete-button:hover {
+    background-color: #e53935; /* ホバー時に濃い赤色 */
+    transform: scale(1.05); /* 少し拡大 */
+}
+
+/* フォーム全体の配置 */
+.admin-form {
+    margin: 10px 0; /* 上下の余白 */
+    text-align: center; /* ボタンを中央揃え */
+}
+
+/* アイコンのスタイル */
+.admin-button i {
+    margin-right: 8px; /* アイコンと文字の間に余白 */
+}

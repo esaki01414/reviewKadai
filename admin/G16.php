@@ -11,7 +11,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>商品削除画面</title>
-    <link rel="stylesheet" href="css/G3.css">
+    <link rel="stylesheet" href="css/G16.css">
 </head>
 <body>
 <?php
@@ -21,11 +21,9 @@ if(!($id)){
 }
 ?>
 <a href="G9.php?id=<?= $id ?>"><i class="fa-solid fa-cube icon"></i>    
-戻る
-</a><br>
-<div class="label">
+戻る</a>
 <h1>商品削除画面</h1>
-</div>
+<div class="container">
 <?php
 try {
     $pdo = new PDO(
@@ -42,31 +40,31 @@ $sql='SELECT * FROM product WHERE product_id = ?';
     $stmt->execute([$id]);
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
     foreach($result as $row){
+        echo '<div class="product-image" style="float:left; margin-right:20px; margin-top:20px;">';
         echo '<form action="G17.php" method="post">';
         echo '<img src="data:'.htmlspecialchars($row['image_type']).';base64,'.base64_encode($row['image_content']).'"width="400" height="auto"" name="img">';
-        echo '<div class="form1">';
-        echo '<p>商品ID:</p>';
-        echo '<p>',htmlspecialchars($row['product_id']),'</p>';
+        echo '</div>';
+
+        echo '<div class="product-details">';
+        echo '<p>商品ID:',htmlspecialchars($row['product_id']),'</p>';
         $product_id = htmlspecialchars($row['product_id']);
         echo '<input type="hidden" name="product_id" value="' . $product_id . '">';
-        echo '<p>商品名:</p>';
-        echo '<p>',htmlspecialchars($row['product_name']),'</p>';
-        echo '<p>サイズ:</p>';
-        echo '<p>',htmlspecialchars($row['product_size']),'</p>';
-        echo '<p>カラー:</p>';
-        echo '<p>',htmlspecialchars($row['product_color']),'</p>';
-        echo '<p>在庫数:</p>';
-        echo '<p>',htmlspecialchars($row['inventory_stock']),'</p>';
-        echo '<p>価格:</p>';
-        echo '<p>',htmlspecialchars($row['product_price']),'</p>';
-        echo '<p>商品説明:</p>';
-        echo '<p>',htmlspecialchars($row['product_body']),'</p>';
+        echo '<p>商品名:',htmlspecialchars($row['product_name']),'</p>';
+        echo '<p>サイズ:',htmlspecialchars($row['product_size']),'</p>';
+        echo '<p>カラー:',htmlspecialchars($row['product_color']),'</p>';
+        echo '<p>在庫数:',htmlspecialchars($row['inventory_stock']),'</p>';
+        echo '<p>価格:',htmlspecialchars($row['product_price']),'</p>';
+        echo '<p>商品説明:',htmlspecialchars($row['product_body']),'</p>';
         echo '</div>';
-        echo '<p><button type="submit">削除</button></p>';
+        echo '<div class = delete-button-wrapper>';
+        echo '<p><button type="submit" class="delete-button">削除</button></p>';
+        echo '</div>';
         echo '</form>';
+        echo '</div>';
        }
        $pdo=null;
 ?>
+</div>
 <script src="js/script.js"></script>
 </body>
 </html>
