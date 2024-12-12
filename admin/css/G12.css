@@ -1,11 +1,12 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f8f9fa;
+    display: flex;
     flex-direction: column;
-    display: flex; /* フレックスボックスを使用 */
-    height: 100vh; /* 画面全体の高さを確保 */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
 }
 
 /* ヘッダー部分のスタイル */
@@ -49,4 +50,77 @@ main {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     width: 300px;
+}
+
+.message.success {
+    width: 250px;
+    height: 150px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #4CAF50;
+    background-color: #e8f5e9;
+    border-radius: 8px;
+    text-align: center;
+
+    /* 中央揃えのためのフレックスボックス設定 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* 垂直方向の中央揃え */
+    align-items: center;    /* 水平方向の中央揃え */
+}
+
+.message.success h1 {
+    color: #2e7d32;
+    margin: 0 0 10px 0; /* 上下の間隔調整 */
+}
+
+.message.success p {
+    color: #4caf50;
+    font-size: 16px;
+    margin: 0; /* マージンをリセット */
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #4CAF50;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #388e3c;
+}
+
+/* リンクを横並びに配置するコンテナ */
+.link-container {
+    display: flex; /* 横並び */
+    justify-content: center; /* 中央揃え */
+    gap: 60px; /* リンク間のスペース */
+    margin-top: 20px;
+}
+
+/* 個々のリンクのデザイン */
+.link-container a {
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #4CAF50;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    display: inline-flex;
+    align-items: center; /* アイコンとテキストの中央揃え */
+}
+
+.link-container a:hover {
+    background-color: #388e3c;
+}
+
+/* アイコンのスタイル */
+.link-container .icon {
+    margin-right: 5px; /* テキストとの間にスペース */
 }

@@ -11,7 +11,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>商品更新完了画面</title>
-    <link rel="stylesheet" href="css/styles.css"> <!-- CSSファイルのリンク -->
+    <link rel="stylesheet" href="css/G12.css"> <!-- CSSファイルのリンク -->
 </head>
 <body>
 <?php
@@ -83,8 +83,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $pdo=null;
 
         echo '<div class="message success">';
-        echo '<a href="./G8.php">商品詳細に遷移</a><br>';
         echo "<h1>更新完了</h1>";
+        echo "商品の更新が完了しました！";
         echo '</div>';
     } catch (PDOException $e) {
         echo '<div class="message error">';
@@ -96,10 +96,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
-<p><a href="G9.php?id=<?= $id ?>">
-    <i class="fa-solid fa-cube icon"></i>    
-    商品詳細ページへ戻る
-</a></p>
+<div class="link-container">
+    <p><a href="./G8.php">商品管理ページへ</a></p>
+    <p><a href="G9.php?id=<?= $id ?>"> 
+        <i class="fa-solid fa-cube icon"></i>    
+            商品詳細ページへ</a></p>
+        </div>
+
 <script src="js/script.js"></script> <!-- JavaScriptファイルのリンク -->
 
 </body>
