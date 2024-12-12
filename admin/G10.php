@@ -85,6 +85,7 @@ if(!($id)){
         echo '<br>';
         echo     '<div class="form-group">';
         echo     '<p>商品画像：<input type="file" name="image" class="imgform"></p>';
+        echo '※画像変更がない場合ファイルを選択しなくてもよい';
         echo     '</div>';
         echo '<br>';
         echo '</div>';
