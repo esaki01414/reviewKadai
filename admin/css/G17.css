@@ -1,0 +1,126 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* ヘッダー部分のスタイル */
+.main-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* 要素を左右に配置 */
+    background-color: #e9ecef;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    gap: 10px; /* ヘッダー内の要素間に余白を追加 */
+    flex-wrap: nowrap; /* ボタンが別の行に落ちないようにする */
+}
+
+.main-header a.back-link {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 16px;
+    flex-shrink: 0; /* ヘッダー内での縮小を防ぐ */
+}
+
+.main-header h1 {
+    margin: 0;
+    font-size: 20px;
+    color: #343a40;
+    flex-grow: 1; /* 必要に応じてスペースを占有する */
+    text-align: center; /* 見た目の中央揃え */
+}
+
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.center-container {
+    text-align: center;
+    background-color: #ffffff; /* 背景を白に設定 */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 300px;
+}
+
+.message.success {
+    width: 250px;
+    height: 150px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #2e7d32;
+    background-color: #e8f5e9;
+    border-radius: 8px;
+    text-align: center;
+
+    /* 中央揃えのためのフレックスボックス設定 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* 垂直方向の中央揃え */
+    align-items: center;    /* 水平方向の中央揃え */
+}
+
+.message.success h1 {
+    color: #ff0000;
+    margin: 0 0 10px 0; /* 上下の間隔調整 */
+}
+
+.message.success p {
+    color: #4caf50;
+    font-size: 16px;
+    margin: 0; /* マージンをリセット */
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #4CAF50;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #388e3c;
+}
+
+/* リンクを横並びに配置するコンテナ */
+.link-container {
+    display: flex; /* 横並び */
+    justify-content: center; /* 中央揃え */
+    gap: 60px; /* リンク間のスペース */
+    margin-top: 20px;
+}
+
+/* 個々のリンクのデザイン */
+.link-container a {
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #4CAF50;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    display: inline-flex;
+    align-items: center; /* アイコンとテキストの中央揃え */
+}
+
+.link-container a:hover {
+    background-color: #388e3c;
+}
+
+/* アイコンのスタイル */
+.link-container .icon {
+    margin-right: 5px; /* テキストとの間にスペース */
+}

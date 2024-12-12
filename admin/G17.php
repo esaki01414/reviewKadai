@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>商品削除完了画面</title>
-    <link rel="stylesheet" href="css/G4.css">
+    <link rel="stylesheet" href="css/G17.css">
 </head>
 <body>
 <div class="label">
@@ -24,15 +24,21 @@
      $stmt->execute([$id]);
      $count=$stmt->rowCount();
      if(!($count==1)){
-         echo '正常にユーザーが削除されませんでした';
+         echo '<div class="message error">';
+         echo '正常に商品が削除されませんでした';
+         echo '</div>';
      }else{
+         echo '<div class="message success">';
          echo '<h1>削除完了</h1>';
+         echo '商品の削除が完了しました！';
+         echo '</div>';
      }
      $pdo=null;
     ?>
 </div>
-    <div class="back">
-    <p><a href="G8.php">商品管理へ戻る</a></p>
+<div class="link-container">
+    <p><a href="G8.php"><i class="fa-solid fa-cube icon">
+    </i>商品管理へ戻る</a></p>
     </div>
 <script src="js/script.js"></script>
 </body>
