@@ -71,7 +71,7 @@ $images = $stmt->fetchAll();
         <img src="./images/ユーザーアイコン.jpg" alt="ユーザーアイコン" class="user-icon"> <!-- ユーザーアイコン -->
         <?php
         if (isset($_SESSION['user_first_name'], $_SESSION['user_last_name'])) {
-            echo '<div class="guest-status">', htmlspecialchars($_SESSION['user_first_name']), ' ', htmlspecialchars($_SESSION['user_last_name']), 'さんようこそ</div>';
+            echo '<div class="guest-status">ログインアカウント：', htmlspecialchars($_SESSION['user_first_name']), ' ', htmlspecialchars($_SESSION['user_last_name']), 'さん</div>';
         } else {
             echo '<div class="guest-status">ゲストさんようこそ</div>';
         }
@@ -139,10 +139,10 @@ $images = $stmt->fetchAll();
         </section>
         <script src="js/home.js"></script>
                 <br><br>               <br><br>
-                <b><marquee>季節限定商品のキャンペーン開催中</marquee></b>
+                <h2><b><marquee>季節限定商品のキャンペーン開催中</marquee></b></h2>
                 <p><?=$search_keyword?></p>
                
-    <b><p style="text-decoration:underline; text-align: center;" >商品</p></b>
+    <b><h1 style="text-decoration:underline; text-align: center;" >商品</h1></b>
     <p style="text-align: right; margin-right: 20px; margin-top: 30px;"><a href="./home_product.php">もっと見る</a></p>
         <section id="product-list">
             <div class="product-list" id="product-list-container">
