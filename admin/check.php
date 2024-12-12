@@ -22,7 +22,8 @@ session_start();
 
         if ($stmt->rowCount()>0) {
             //ログイン許可
-            session_start();
+            // 管理者IDを取得
+            $_SESSION['maneger_id']=$_POST['sid'];
             $_SESSION['admin_login'] = true;
             header("Location:./G2.php");
         } else {
