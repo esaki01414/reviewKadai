@@ -46,12 +46,15 @@ $sql='SELECT * FROM product WHERE product_id = ?';
         echo '</div>';
 
         echo '<div class="product-details">';
+        echo '<p class="detail-item">商品作成日: ' . htmlspecialchars($row['created_at']) . '</p>';
+        echo '<p>商品画像名: ' . htmlspecialchars($row['image_name']) . '</p>';
+        echo '<p>商品画像サイズ: ' . htmlspecialchars($row['image_size']) . '</p>';
         echo '<p>商品ID:',htmlspecialchars($row['product_id']),'</p>';
         $product_id = htmlspecialchars($row['product_id']);
         echo '<input type="hidden" name="product_id" value="' . $product_id . '">';
         echo '<p>商品名:',htmlspecialchars($row['product_name']),'</p>';
-        echo '<p>サイズ:',htmlspecialchars($row['product_size']),'</p>';
-        echo '<p>カラー:',htmlspecialchars($row['product_color']),'</p>';
+        echo '<p>商品サイズ:',htmlspecialchars($row['product_size']),'</p>';
+        echo '<p>商品カラー:',htmlspecialchars($row['product_color']),'</p>';
         echo '<p>在庫数:',htmlspecialchars($row['inventory_stock']),'</p>';
         echo '<p>価格:',htmlspecialchars($row['product_price']),'</p>';
         echo '<p>商品説明:',htmlspecialchars($row['product_body']),'</p>';
