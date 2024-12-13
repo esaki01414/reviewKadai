@@ -41,26 +41,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $product_price = $_POST['product_price'];
     $product_body = $_POST['product_body'];
     
+    
     if (!empty($_FILES['image']['name'])) {
         $image_name = $_FILES['image']['name']; // アップロードされたファイル名
         $image_type = $_FILES['image']['type']; // アップロードされたファイルタイプ
         $image_content = file_get_contents($_FILES['image']['tmp_name']); // ファイルの内容を取得
         $image_size = $_FILES['image']['size']; // ファイルサイズ
     } else {
-        $sql='SELECT * FROM product WHERE product_id = ?';
+        // データベースから現在の値を取得
+        $sql = 'SELECT image_name, image_type, image_content, image_size FROM product WHERE product_id = ?';
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$id]);
-        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        // フォームを表示
-        foreach($result as $row){
-        $image_content = $row['image_content'];
-        $image_type = $row['image_type'];
-        $image_name = $row['image_name'];
-        $image_size = $row['image_size'];
+        $row = $stmt->fetch(PDO::FETCH_ASSOC); // 単一行を取得
 
+        if ($row) {
+            $image_name = $row['image_name'];
+            $image_type = $row['image_type'];
+            $image_content = $row['image_content'];
+            $image_size = $row['image_size'];
+        } else {
+            // エラーハンドリング（商品が見つからない場合）
+            echo '<div class="message error">商品が見つかりません。</div>';
+            exit;
         }
-        
     }
+
     
     // データベースに登録
     try {
