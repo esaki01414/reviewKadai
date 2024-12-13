@@ -55,12 +55,11 @@ $sql='SELECT * FROM product WHERE product_id = ?';
         echo '<p>在庫数:',htmlspecialchars($row['inventory_stock']),'</p>';
         echo '<p>価格:',htmlspecialchars($row['product_price']),'</p>';
         echo '<p>商品説明:',htmlspecialchars($row['product_body']),'</p>';
-        echo '</div>';
         echo '<div class = delete-button-wrapper>';
         echo '<p><button type="submit" class="delete-button">削除</button></p>';
         echo '</div>';
-        echo '</form>';
         echo '</div>';
+        echo '</form>';
        }
        $pdo=null;
 ?>

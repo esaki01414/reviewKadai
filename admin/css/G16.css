@@ -95,8 +95,8 @@ img {
 
 .delete-button-wrapper {
     position: absolute; /* product-details を基準に配置 */
-    bottom: -3px; /* 下からの距離 */
-    right: 30px; /* 右からの距離 */
+    bottom: 10px; /* 下からの距離 */
+    right: 10px; /* 右からの距離 */
 }
 
 /* 削除ボタンのスタイル */

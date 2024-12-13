@@ -88,6 +88,9 @@ if(!($id)){
         echo '※画像変更がない場合ファイルを選択しなくてもよい';
         echo     '</div>';
         echo '<br>';
+        echo '<div class="button-group">';
+        echo '<button type="submit" name="product_update" value="'.htmlspecialchars($id).'" class="btn btn-blue" onclick="return confirm(\'この内容で更新しますか？\')">更新</button>';
+        echo '</div>';
         echo '</div>';
     }else{
             echo 'データが見つかりませんでした';
@@ -95,7 +98,6 @@ if(!($id)){
     }
             ?>
            
-            <button type="submit" name="product_update" value="<?= $id ?>" class="btn btn-blue" onclick="return confirm('この内容で更新しますか？')">更新</button>
     </form>
         </div>
     <script src="js/script.js"></script> <!-- JavaScriptファイルのリンク -->
